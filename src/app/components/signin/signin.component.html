@@ -1,0 +1,48 @@
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+
+      <div class="card login-card">
+        <div class="card-content">
+
+          <h3 class="title is-2">Logga in</h3>
+
+          <div class="field">
+            <label class="label" for="liuid">Liu-ID</label>
+            <input class="input is-success" type="text" placeholder="Ditt liu-id" formControlName="liuid">
+            <div class="help is-danger" *ngIf="liuid.invalid">
+              Your email doesn't look quite right...
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="password">Lösenord</label>
+            <input class="input is-success" type="password" placeholder="Ditt lösenord" formControlName="password">
+            <div class="help is-danger" *ngIf="password.invalid && password.touched">
+              Password must be between 6 and 24 chars and have at least one number
+            </div>
+          </div>
+
+          <div *ngIf="loginForm.valid">Form looks good! Let's do this.</div>
+          <button type="submit" [disabled]="!loginForm.valid" class="button is-fullwidth">Logga in</button>
+          <div class="login-other-actions">
+            <a [routerLink]="['/signup']">
+              <p>
+                <i class="fas fa-plus-circle"></i> Skapa konto
+              </p>
+            </a>
+            <a [routerLink]="['/forgotpass']">
+              <p>
+                <i class="fas fa-sad-tear"></i> Glömt lösenord
+              </p>
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>

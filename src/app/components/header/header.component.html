@@ -1,0 +1,115 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" [routerLink]="['']">
+      <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/rosa-utan-pussel.png?alt=media&token=1f5b35d2-84bd-48e8-afe9-4ae00c46427f" alt="Teamdagarna" max-height="38">
+    </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/documentation/overview/start/">
+          För studenter
+        </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" [routerLink]="['companies']">
+            Företagen 2018
+          </a>
+            <a class="navbar-item" href="#">
+            Kontakt
+          </a>
+            <a class="navbar-item" href="#">
+            Sammarbetspartners
+          </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/documentation/overview/start/">
+          För företag
+        </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/documentation/overview/start/">
+            Dagarna
+          </a>
+            <a class="navbar-item" href="#">
+            Kontakt
+          </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="#">
+            Login för företag
+          </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/documentation/overview/start/">
+          Om oss
+        </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" [routerLink]="['/dreamteam']">
+            Kontakt
+          </a>
+            <a class="navbar-item" href="#">
+            Om dagarna
+          </a>
+            <a class="navbar-item" href="#">
+            Sammarbetspartners
+          </a>
+          </div>
+        </div>
+        <div *ngIf="!auth.isSignedIn()" class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="bd-tw-button button" [routerLink]="['/signin']">
+              <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>
+                Logga in
+              </span>
+            </a>
+            </p>
+          </div>
+        </div>
+        <a [routerLink]="['/signin']" *ngIf="auth.isSignedIn()" class="navbar-item">
+              <span>
+                Din profil &nbsp;
+              </span>
+              <span class="icon">
+                <i class="fas fa-user-graduate"></i>
+              </span>
+        </a>
+        <a (click)="auth.signOut()" *ngIf="auth.isSignedIn()" class="navbar-item">
+              <span>
+                Logga ut &nbsp;
+              </span>
+              <span class="icon">
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
+        </a>
+        <div *ngIf="auth.canEdit(user)" class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="bd-tw-button button is-dark" [routerLink]="['/dreamteamadmin']">
+              <span>
+                Dreamteam Admin
+              </span>
+              <span class="icon">
+                <i class="fas fa-user-secret"></i>
+              </span>
+            </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

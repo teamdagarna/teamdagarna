@@ -1,0 +1,101 @@
+<h1 class="title is-2">Lägg till Dreamteamer</h1>
+<form [formGroup]="addDreamteamerForm" (ngSubmit)="submit(addDreamteamerForm.value)">
+  <div class="card login-card">
+    <div class="card-content">
+
+      <div class="field">
+        <label class="label" for="companyName">För- och efternamn</label>
+        <input class="input is-success" type="text" placeholder="Tex. 'Linus Gålén'" formControlName="fullname">
+      </div>
+
+      <div class="field">
+        <label class="label">Position</label>
+        <div class="control">
+          <div class="select" required>
+            <select formControlName="position">
+              <option value="1337,Head of IT">Head of IT</option>
+              <option value="1,Projektledare">Projektledare</option>
+              <option value="3,Ekonomiansvarig">Ekonomiansvarig</option>
+              <option value="2,Koordinator">Koordinator</option>
+              <option value="4,Kontaktsamtal">Kontaktsamtal</option>
+              <option value="5,Företagsansvarig">Företagsansvarig</option>
+              <option value="6,Ansvarig Spons och Service">Ansvarig Spons och Service</option>
+              <option value="10,Marknadsföring">Marknadsföring</option>
+              <option value="7,Logistik">Logistik</option>
+              <option value="8,Info & Miljö">Info & Miljö</option>
+              <option value="11,Mässansvarig">Mässansvarig</option>
+              <option value="10,Art Director">Art Director</option>
+              <option value="9,Ansvarig Företagsevent">Ansvarig Företagsevent</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="downloadURL | async as url">
+        <img [src]="url" style="max-height: 100px;"><br>
+      </div>
+
+
+
+
+      <!-- <div class="field">
+        <label class="label">About</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="" formControlName="about"></textarea>
+        </div>
+      </div> -->
+      <div class="field">
+        <label class="label" for="mail">Mail</label>
+        <input class="input is-success" type="text" placeholder="" formControlName="mail">
+      </div>
+      <div class="field">
+        <label class="label" for="phone">Telefon i formatet "072-241 01 65"</label>
+        <input class="input is-success" type="text" placeholder="" formControlName="phone">
+      </div>
+      <div class="field">
+        <label class="label" for="companyName">URL till LinkedIn</label>
+        <input class="input is-success" type="text" placeholder="Tex. 'https://www.linkedin.com/in/linusgalen/'" formControlName="linkedinurl">
+      </div>
+
+
+
+      <div class="columns">
+        <div class="column is-half">
+
+          <div class="file is-info">
+            <label class="file-label">
+                <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp profilbild
+                  </span>
+                </span>
+              </label>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div *ngIf="percentage | async as pct">
+
+            <progress class="progress is-success" [value]="pct" max="100">
+                </progress> {{ pct | number }}%
+
+          </div>
+          <div *ngIf="downloadURL | async as url">
+            <h3>Uploaded!</h3>
+            <!-- <img [src]="url"><br>
+                  <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
+          </div>
+        </div>
+      </div>
+
+
+      <button type="submit" class="button is-fullwidth" [disabled]="!addDreamteamerForm.valid || !logoUploaded">Lägg till</button>
+    </div>
+
+  </div>
+
+</form>

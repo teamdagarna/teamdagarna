@@ -1,0 +1,4 @@
+<input type="checkbox" [(ngModel)]="intern" (change)="filterBoolean('intern', intern)"> Endangered?
+<div *ngFor="let animal of filteredCompanies">
+  <h6>{{animal.name}}</h6>
+</div>

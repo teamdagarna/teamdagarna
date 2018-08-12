@@ -1,0 +1,126 @@
+.has-bg-img {
+  // background: linear-gradient(90deg,#8e54e9,#4776e6);
+  // background: url('/assets/img/ice.png');
+  background-position: center;
+  background-size: cover;
+  // background: url('https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/hero-1.jpg?alt=media&token=0d718bbb-6dd3-4f24-81ea-da196a6fd52e')center center; background-size:cover;
+}
+// #particles-js {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 0;
+// }
+// #particles-js {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1 !important;
+// }
+
+img {
+  height: auto;
+}
+
+.hero .title {
+  font-family: 'Cabin', sans-serif;
+  color: #463853;
+}
+
+.elin-i-hsp {
+  margin-top: 30px;
+}
+
+.hero .subtitle {
+  color: #998DA0;
+}
+
+.section .level-item {
+  max-height: 80px;
+  max-width: 140px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.hsp-section {
+  background-color: #FBFBFD;
+}
+// #particles-js {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 0;
+// }
+
+.article .article-header {
+  padding: 3em 1.25rem 3rem;
+  background-color: #FBFBFD;
+  line-height: 1.675;
+}
+@media screen and (min-width: 769px), print {
+  .article .article-header {
+    padding: 5em 1.25rem 3rem;
+  }
+}
+
+.article .article-cover {
+  padding: 0 1.25rem;
+  background-image: linear-gradient(#FBFBFD 50%, transparent 0);
+}
+
+.article .article-cover .article-image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+@media screen and (min-width: 1216px) {
+  .article .article-cover .article-image {
+    margin: 0 -4rem;
+  }
+}
+
+.article .article-cover .article-image img {
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.article .article-cover .article-image-description {
+  margin-top: 0.5rem;
+}
+
+.article .article-body {
+  margin-top: 3rem;
+  padding: 0 1.25rem;
+}
+
+.article .article-body .content {
+  line-height: 1.66667;
+}
+
+.article .article-body .content img {
+  border-radius: 10px;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+}
+
+.article .article-body+.article-footer {
+  margin-top: 4rem;
+}
+@media screen and (min-width: 769px), print {
+  .article .content.is-blog .title {
+    font-size: 3.75rem;
+  }
+}
+
+.article .content.is-blog a {
+  text-decoration: underline;
+  color: #463853;
+}

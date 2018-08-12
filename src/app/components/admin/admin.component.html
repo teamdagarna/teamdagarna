@@ -1,0 +1,47 @@
+<!-- END NAV -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-3">
+      <aside class="menu">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a class="is-active" [routerLink]="['/dreamteamadmin']">Dashboard</a></li>
+          <li><a>Generella inställningar</a></li>
+        </ul>
+        <p class="menu-label">
+          Admin
+        </p>
+        <ul class="menu-list">
+          <li><a [routerLink]="['users']">Alla användare</a></li>
+          <li><a>Dreamteamers</a>
+            <ul>
+              <li><a [routerLink]="['addstaff']">Lägg till Dreamteamer</a></li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['companies']">Företagen</a>
+            <ul>
+              <li><a [routerLink]="['addcompany']">Lägg till företag</a></li>
+              <li><a>Företagens inlogg </a></li>
+            </ul>
+          </li>
+          <li>
+            <a>Event</a>
+            <ul>
+              <li><a>Lägg till event</a></li>
+            </ul>
+          </li>
+          <li>
+            <a>Kontaktsamtal</a>
+          </li>
+
+        </ul>
+      </aside>
+    </div>
+    <div class="column is-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

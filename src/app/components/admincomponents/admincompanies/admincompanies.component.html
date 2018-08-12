@@ -1,0 +1,33 @@
+<h1 class="title is-2">Användare</h1>
+<div class="field">
+  <div class="control">
+    <input class="input is-primary" type="text" placeholder="Sök..." [(ngModel)]="searchterm" (keydown)="search($event)">
+  </div>
+</div>
+
+<div class="columns is-centered is-multiline">
+
+  <div class="column is-one-third" *ngFor="let number of [0,1,2,3,4,5...,18,19]">
+    <div class="card is-storyworld ">
+      <a class="card-header " href="/library/the-holiday-girls ">
+  <img src="https://mms.businesswire.com/media/20180501005858/en/654766/23/Xylem_tag_rgb.jpg " alt="Placeholder image ">  </a>
+      <div class="card-body ">
+        <a href="/library/the-holiday-girls ">
+          <div class="card-title "> Xylem Inc.</div>
+        </a>
+        <div class="card-meta "><i class="fas fa-leaf "></i> &nbsp;<i class="fas fa-comments " title="I 'm a tooltip."></i></div>
+        <div class="card-description">
+          <div class="tags">
+            <span class="tag">Internship</span>
+            <span class="tag">Heltidsjobb</span>
+            <span class="tag">Deltidsjobb</span>
+            <span class="tag">Sommarjobb</span>
+            <span class="tag">Ex-jobb</span>
+            <span class="tag">Utlandsmöjligheter</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"> <a class="button is-primary is-outlined is-small" (click)="toggleModal()">Redigera</a> </div>
+    </div>
+  </div>
+</div>

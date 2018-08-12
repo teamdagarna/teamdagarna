@@ -1,0 +1,169 @@
+<h1 class="title is-2">Lägg till företag</h1>
+
+
+<form [formGroup]="addCompanyForm" (ngSubmit)="submit(addCompanyForm.value)">
+
+
+
+  <div class="card login-card">
+    <div class="card-content">
+
+
+      <div class="field">
+        <label class="label" for="companyName">Företagsnamn</label>
+        <input class="input is-success" type="text" placeholder="Tex. 'Xylem Inc.'" formControlName="companyName">
+      </div>
+      <div class="columns">
+        <div class="column is-half">
+
+          <div class="file is-info">
+            <label class="file-label">
+          <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Ladda upp företagslogo
+            </span>
+          </span>
+        </label>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div *ngIf="percentage | async as pct">
+
+            <progress class="progress is-success" [value]="pct" max="100">
+          </progress> {{ pct | number }}%
+
+          </div>
+          <div *ngIf="downloadURL | async as url">
+            <h3>Uploaded!</h3>
+            <!-- <img [src]="url"><br>
+            <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="downloadURL | async as url">
+        <img [src]="url" style="max-height: 100px;"><br>
+      </div>
+
+      <div class="field">
+        <label class="label">Bransch</label>
+        <div class="control">
+          <div class="select" required>
+            <select formControlName="industry">
+              <option>Consulting</option>
+              <option>Industri</option>
+              <option>Logistik</option>
+              <option>IT & Teknik</option>
+              <option>Rekrytering</option>
+              <option>Bank & Finans</option>
+              <option>Retail</option>
+              <option>Revision</option>
+              <option>Fastigheter & Infrastruktur</option>
+              <option>Förening eller Förbund</option>
+              <option>Övrigt</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-half">
+          <div class="field">
+            <label class="label">Erbjuder</label>
+            <input type="checkbox" formControlName="masterthesis"> Exjobb
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="internship"> Internship
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="summerjob"> Sommarjobb
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="abroad"> Utlandsmöjligheter
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="otherthesis"> Uppsatshandledning
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="parttime"> Deltidsjobb
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="fulltime"> Heltidsjobb
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="trainee"> Traineeprogram
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="field">
+            <label class="label">Söker</label>
+            <input type="checkbox" formControlName="engineers"> Civilingenjörer
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="filfakare"> Civilekonomer
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="firstyear"> 1:or
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="secondyear"> 2:or
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="thirdyear"> 3:or
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="fourthyear"> 4:or
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="fifthyear"> 5:or
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Ställer ut</label>
+        <input type="checkbox" formControlName="firstdayappearance"> Tisdag
+      </div>
+      <div class="field">
+        <input type="checkbox" formControlName="seconddayappearance"> Onsdag
+      </div>
+
+      <div class="field">
+        <label class="label">Kontaktsamtal Tisdag</label>
+        <input type="checkbox" formControlName="firstdaypackage1"> 10x25min
+        <input type="checkbox" formControlName="firstdaypackage2"> 7x35min
+      </div>
+      <div class="field">
+        <label class="label">Kontaktsamtal Onsdag</label>
+        <input type="checkbox" formControlName="seconddaypackage1"> 10x25min
+        <input type="checkbox" formControlName="seconddaypackage2"> 7x35min
+      </div>
+      <div class="field">
+        <label class="label">Deltagande i mässjakten?</label>
+        <input type="checkbox" formControlName="treasurehunt"> Ja
+      </div>
+
+
+      <div class="field">
+        <label class="label">Om företaget</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Som blir avsnittet 'Om oss' i företagsbeskrivningen." formControlName="about"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Företaget värdesätter</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Som blir avsnittet 'Vi värdesätter' i företagsbeskrivningen." formControlName="values"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="button is-fullwidth" [disabled]="!addCompanyForm.valid || !logoUploaded">Lägg till företaget</button>
+    </div>
+
+  </div>
+
+</form>

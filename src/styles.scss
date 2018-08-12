@@ -1,0 +1,249 @@
+/* You can add global styles to this file, and also import other style files */
+@import './node_modules/bulma/sass/utilities/initial-variables.sass';
+@import './node_modules/bulma/sass/utilities/functions.sass';
+$team-blue: #29235C;
+$team-pink: #E6017E;
+$link: $team-pink;
+$primary: $team-pink;
+$text: #463853;
+$title-color: #463853;
+$subtitle-color: #998DA0;
+$card-footer-border-top: none;
+$card-header-shadow: none;
+$modal-content-width: 70%;
+$modal-card-head-background-color: white;
+$modal-background-background-color: rgba($team-blue, 0.86);
+@import 'bulma/bulma.sass';
+@import 'bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css';
+@import 'bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css';
+@import 'bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css';
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.madewithlove:after {
+  content: 'Dreamteam';
+}
+
+.madewithlove:hover:after {
+  content: 'Linus Gålén';
+}
+//NAVBAR
+
+.navbar {
+  padding: 1rem 2rem;
+}
+//SECTIONS
+
+.has-primary-bg {}
+
+.is-greyed {
+  background-color: #FBFBFD;
+}
+
+.columns.has-equal-heights .column {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.columns.has-equal-heights .column > * {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.card {
+  background-color: transparent;
+  box-shadow: none;
+  color: #998DA0;
+  max-width: 100%;
+  position: relative;
+}
+
+.card-header {
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  box-shadow: none;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card-header-title {
+  -ms-flex-align: center;
+  align-items: center;
+  color: #463853;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  font-weight: 500;
+  padding: 0.75rem;
+}
+
+.card-header-title.is-centered {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.card-header-icon {
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.card-image {
+  display: block;
+  position: relative;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  border-top: none;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card-footer-item {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: none;
+}
+
+.card .media:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.modal-card {
+  border-radius: 6px;
+  // overflow: hidden;
+}
+
+.card.is-storyworld {
+  // display: -ms-flexbox;
+  // display: flex;
+  // -ms-flex-direction: column;
+  // flex-direction: column;
+  // margin: 0 auto;
+  // max-width: 360px;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  border-radius: 10px;
+  // overflow: hidden;
+  transition-duration: 172ms;
+  will-change: transform, box-shadow;
+}
+
+.card.is-storyworld .is-touched,
+.card.is-storyworld.is-active,
+.card.is-storyworld.is-focused,
+.card.is-storyworld.is-hovered,
+.card.is-storyworld:active,
+.card.is-storyworld:focus,
+.card.is-storyworld:hover {
+  box-shadow: 0 10px 20px rgba(220,220,220,0.5);
+  transform: translateY(-4px);
+  color: inherit;
+}
+
+.card.is-storyworld .is-touched .card-image,
+.card.is-storyworld.is-active .card-image,
+.card.is-storyworld.is-focused .card-image,
+.card.is-storyworld.is-hovered .card-image,
+.card.is-storyworld:active .card-image,
+.card.is-storyworld:focus .card-image,
+.card.is-storyworld:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card.is-storyworld .card-header {
+  margin: 0;
+  // overflow: hidden;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 1px 1px 0;
+}
+
+.card.is-storyworld .card-image {
+  border-radius: 10px 10px 0 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition-duration: 172ms;
+  will-change: transform;
+}
+
+.card.is-storyworld .card-image:before {
+  display: block;
+  content: "";
+  padding-bottom: 63.80597%;
+}
+
+.card.is-storyworld .card-body {
+  -ms-flex: 1;
+  flex: 1;
+  padding: 2rem 1.5rem;
+}
+
+.card.is-storyworld .card-title {
+  color: #463853;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.card.is-storyworld .card-meta {
+  margin-top: 0.25rem;
+}
+
+.card.is-storyworld .card-meta i {
+  margin-right: 0.5rem;
+}
+
+.card.is-storyworld .card-description {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.66667;
+}
+
+.card.is-storyworld .card-footer {
+  margin-top: -3rem;
+  padding: 2rem 1.5rem;
+}
+// Create cards with equal sizes inside columns
+
+.bm--card-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bm--card-equal-height .card-footer {
+  margin-top: auto;
+}
