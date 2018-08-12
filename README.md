@@ -1,4 +1,4 @@
-# Teamdagarna
+# Teamdagarna [![Build Status](https://travis-ci.com/linusgalen/teamdagarna.svg?token=CA2LpVgwryzqk124dq2e&branch=master)](https://travis-ci.com/linusgalen/teamdagarna)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
