@@ -41,10 +41,7 @@ export class CompaniesComponent implements OnInit {
   showSpinner: boolean = true;
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder) {
-      this.afs.collection('companies').subscribe((companies) => {
-        this.showSpinner = false
-        this.applyFilters()
-      })
+      this.getCompanies().subscribe(() => this.showSpinner = false)
 
 
 
