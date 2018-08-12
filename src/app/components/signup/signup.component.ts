@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
+  isModalActive: boolean = false;
   // detailForm: FormGroup;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
@@ -50,6 +51,10 @@ export class SignupComponent implements OnInit {
     // this.detailForm = this.fb.group({
     //   'catchPhrase': ['', [ Validators.required ] ]
     // });
+  }
+
+  toggleModal() {
+      this.isModalActive = !this.isModalActive;
   }
 
   // Using getters will make your code look pretty

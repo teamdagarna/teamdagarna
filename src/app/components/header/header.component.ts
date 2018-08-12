@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   user;
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
     this.auth.user$.subscribe(user => this.user = user)
    }
 
