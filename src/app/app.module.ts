@@ -46,6 +46,7 @@ import { AddcompanyComponent } from './components/admincomponents/addcompany/add
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddstaffComponent } from './components/admincomponents/addstaff/addstaff.component';
 import { InterviewapplicationComponent } from './components/interviewapplication/interviewapplication.component';
+import { FilterPipe } from './shared/filter.pipe';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { InterviewapplicationComponent } from './components/interviewapplication
     AddcompanyComponent,
     SpinnerComponent,
     AddstaffComponent,
-    InterviewapplicationComponent
+    InterviewapplicationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

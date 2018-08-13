@@ -1,4 +1,243 @@
-<input type="checkbox" [(ngModel)]="intern" (change)="filterBoolean('intern', intern)"> Endangered?
-<div *ngFor="let animal of filteredCompanies">
-  <h6>{{animal.name}}</h6>
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Företagen 2018 </h1>
+          <h2 class="subtitle">Vi är stolta att presentera alla 2018 års deltagandede företag är. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. </h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<br>
+<div class="container ">
+  <div class="columns is-multiline">
+
+    <div class="column is-6">
+
+      <div class="filter-dropdown dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Erbjuder</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByInternship($event.target.checked)" checked="checked"> Internship
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByMasterthesis($event.target.checked)" checked="checked"> Exjobb
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByParttime($event.target.checked)" checked="checked"> Deltidsjobb
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByFulltime($event.target.checked)" checked="checked"> Heltidsjobb
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByAbroad($event.target.checked)" checked="checked"> Utlandsmöjligheter
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterBySummerjob($event.target.checked)" checked="checked"> Sommarjobb
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByTrainee($event.target.checked)" checked="checked"> Traineeprogram
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByOtherthesis($event.target.checked)" checked="checked"> Uppsatshandledning
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Söker</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByEngineers($event.target.checked)" checked="checked"> Civilinenjörer i Industriell Ekonomi
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByFilfakare($event.target.checked)" checked="checked"> Civilekonomer
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByFirstyear($event.target.checked)" checked="checked"> 1:or
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterBySecondyear($event.target.checked)" checked="checked"> 2:or
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByThirdyear($event.target.checked)" checked="checked"> 3:or
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByFourthyear($event.target.checked)" checked="checked"> 4:or
+            </div>
+            <div class="field dropdown-item">
+              <input type="checkbox" (change)="filterByFifthyear($event.target.checked)" checked="checked"> 5:or
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-6">
+      <div class="buttons has-addons is-pulled-right">
+
+        <span class="button"><i class="fas fa-random"></i></span>
+        <span class="button is-primary is-selected"><i class="fas fa-sort-alpha-down"></i></span>
+        <span class="button"><i class="fas fa-sort-alpha-up"></i></span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <input type="checkbox" (change)="filterByTreasurehunt($event.target.checked)"> Tisdag
+  </div>
+  <div class="field">
+    <input type="checkbox" (change)="filterByTreasurehunt($event.target.checked)"> Onsdag
+  </div>
+  <!-- <div *ngIf="companies$ | async; let companies; else loading">
+  <li *ngFor="let company of companies">
+
+
+
+
+
+
+    <div *ngIf="companies.length === 0">No results, try clearing filters</div>
+</div> -->
+
+
+
+
+  <div *ngIf="companies$ | async; let companies; else loading">
+    <ng-template #loading>
+      <app-spinner></app-spinner>
+    </ng-template>
+    <div class="columns is-centered is-multiline ">
+
+      <div class="column is-one-quarter " *ngFor="let company of companies ">
+        <div class="card is-storyworld bm--card-equal-height ">
+          <a class="card-header " (click)="openModal(company) ">
+            <!-- <div *ngIf="company.logopath | url "> -->
+            <img style="padding: 10px; " src="{{ company.logopath }}">
+            <!-- </div> -->
+          </a>
+          <div class="card-body ">
+            <a href="/library/the-holiday-girls ">
+              <div class="card-title "> {{ company.name }}</div>
+            </a>
+            <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
+          " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="company.offersinterview "></i></span>&nbsp;
+              <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
+            </div>
+            <div class="card-description ">
+              <div class="tags ">
+                <span class="tag is-primary " *ngIf="company.offers.internship ">Internship</span>
+                <span class="tag is-primary " *ngIf="company.offers.fulltime ">Heltidsjobb</span>
+                <span class="tag is-primary " *ngIf="company.offers.parttime ">Deltidsjobb</span>
+                <span class="tag is-primary " *ngIf="company.offers.summerjob ">Sommarjobb</span>
+                <span class="tag is-primary " *ngIf="company.offers.masterthesis ">Ex-jobb</span>
+                <span class="tag is-primary " *ngIf="company.offers.abroad ">Utlandsmöjligheter</span>
+                <span class="tag is-primary " *ngIf="company.offers.trainee ">Trainee</span>
+                <span class="tag is-primary " *ngIf="company.offers.otherthesis ">Uppsatshandledning</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="companies.length === 0">No results, try clearing filters</div>
+  </div>
+
+
+
+
+  <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
+    <div class="modal-background " (click)="closeModal() "></div>
+    <div class="modal-card ">
+      <header class="modal-card-head ">
+        <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
+          <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span>
+          <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
+          <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
+        </p>
+        <button class="delete " aria-label="close " (click)="closeModal() "></button>
+
+      </header>
+
+      <section class="modal-card-body ">
+        <div class="columns is-multiline ">
+
+          <div class="column is-3 ">
+            <img class=" " style="max-height:90px; padding-bottom: 0.4em; " src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/companylogos%2F1534001087482_atlascopcorockdrills.jpg?alt=media&token=8ea25054-e300-4759-a142-e10b190200a0 ">
+
+            <h5 class="title is-5 ">Vi ställer ut</h5>
+            <div class="tags ">
+              <span class="tag is-primary " *ngIf="modalCompany.appearance.firstdayappearance ">Tisdag</span>
+              <span class="tag is-primary " *ngIf="modalCompany.appearance.seconddayappearance ">Onsdag</span>
+            </div>
+            <h5 class="title is-5 ">Vi erbjuder</h5>
+            <div class="tags ">
+              <span class="tag is-primary " *ngIf="modalCompany.offers.internship ">Internship</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.fulltime ">Heltidsjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.parttime ">Deltidsjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.summerjob ">Sommarjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.masterthesis ">Ex-jobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.abroad ">Utlandsmöjligheter</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.trainee ">Trainee</span>
+              <span class="tag is-primary " *ngIf="modalCompany.offers.otherthesis ">Uppsatshandledning</span>
+            </div>
+
+
+            <h5 class="title is-5 ">Vi söker</h5>
+            <div class="tags ">
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.engineers ">Civilingenjörer i Industriell Ekonomi</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.filfakare ">Civilekonomer</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.firstyear ">1:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.secondyear ">2:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.thirdyear ">3:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.fourthyear ">4:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seeking.fifthyear ">5:or</span>
+            </div>
+
+            <a class="button is-primary is-outlined ">Sök kontaktsamtal</a>
+          </div>
+          <div class="is-divider-vertical "></div>
+          <div class="column is-auto ">
+            <div class="about-company ">
+              <h5 class="title is-5 ">Om oss</h5>
+              <p>{{ modalCompany.about }}</p>
+              <br>
+              <h5 class="title is-5 ">Vi värdesätter</h5>
+              <p>{{ modalCompany.values }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 </div>

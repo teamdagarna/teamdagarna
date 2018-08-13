@@ -20,60 +20,182 @@ import * as _ from 'lodash';
 
 
 export class CompaniesComponent implements OnInit {
-    // filterForm: FormGroup;
-    // nonSelected: boolean = true;
-
-
-
-  /// Active filter rules
-  filters = {}
-
-  intern: boolean;
 
   isModalActive: boolean = false;
   showFilters: boolean = false;
   modalCompany: Company;
-  private companyCollection: AngularFirestoreCollection<Company>;
+  // private companyCollection: AngularFirestoreCollection<Company>;
   // companies: Observable<Company[]>;
-  companies: any;
-  filteredCompanies: any;
+
 
   showSpinner: boolean = true;
 
+  companies$: Observable<Company[]>;
+
+  // FILTERS
+
+  masterthesisFilter$: BehaviorSubject<boolean>;
+  otherthesisFilter$: BehaviorSubject<boolean>;
+  internshipFilter$: BehaviorSubject<boolean>;
+  fulltimeFilter$: BehaviorSubject<boolean>;
+  parttimeFilter$: BehaviorSubject<boolean>;
+  summerjobFilter$: BehaviorSubject<boolean>;
+  abroadFilter$: BehaviorSubject<boolean>;
+  traineeFilter$: BehaviorSubject<boolean>;
+  engineersFilter$: BehaviorSubject<boolean>;
+  filfakareFilter$: BehaviorSubject<boolean>;
+  firstyearFilter$: BehaviorSubject<boolean>;
+  secondyearFilter$: BehaviorSubject<boolean>;
+  thirdyearFilter$: BehaviorSubject<boolean>;
+  fourthyearFilter$: BehaviorSubject<boolean>;
+  fifthyearFilter$: BehaviorSubject<boolean>;
+  firstdayappearanceFilter$: BehaviorSubject<boolean>;
+  seconddayappearanceFilter$: BehaviorSubject<boolean>;
+  treasurehuntFilter$: BehaviorSubject<boolean>;
+
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder) {
-      this.getCompanies().subscribe(() => this.showSpinner = false)
+    // this.companyCollection = afs.collection<Company>('companies');
+    // this.getCompanies().subscribe(() => this.showSpinner = false)
+
+        this.masterthesisFilter$ = new BehaviorSubject(true);
+        this.otherthesisFilter$ = new BehaviorSubject(true);
+        this.internshipFilter$ = new BehaviorSubject(true);
+        this.fulltimeFilter$ = new BehaviorSubject(true);
+        this.parttimeFilter$ = new BehaviorSubject(true);
+        this.summerjobFilter$ = new BehaviorSubject(true);
+        this.abroadFilter$ = new BehaviorSubject(true);
+        this.traineeFilter$ = new BehaviorSubject(true);
+        this.engineersFilter$ = new BehaviorSubject(true);
+        this.filfakareFilter$ = new BehaviorSubject(true);
+        this.internshipFilter$ = new BehaviorSubject(true);
+        this.firstyearFilter$ = new BehaviorSubject(true);
+        this.secondyearFilter$ = new BehaviorSubject(true);
+        this.thirdyearFilter$ = new BehaviorSubject(true);
+        this.fourthyearFilter$ = new BehaviorSubject(true);
+        this.fifthyearFilter$ = new BehaviorSubject(true);
+        this.firstdayappearanceFilter$ = new BehaviorSubject(true);
+        this.seconddayappearanceFilter$ = new BehaviorSubject(true);
+        this.treasurehuntFilter$ = new BehaviorSubject(true);
+
+        this.companies$ = combineLatest(
+
+          this.masterthesisFilter$,
+          this.otherthesisFilter$,
+          this.internshipFilter$,
+          this.fulltimeFilter$,
+          this.parttimeFilter$,
+          this.summerjobFilter$,
+          this.abroadFilter$,
+          this.traineeFilter$,
+          this.engineersFilter$,
+          this.filfakareFilter$,
+          this.internshipFilter$,
+          this.firstyearFilter$,
+          this.secondyearFilter$,
+          this.thirdyearFilter$,
+          this.fourthyearFilter$,
+          this.fifthyearFilter$,
+          this.firstdayappearanceFilter$,
+          this.seconddayappearanceFilter$,
+          this.treasurehuntFilter$
+        ).pipe(
+          switchMap(([internship, masterthesis, otherthesis, parttime, fulltime, trainee, summerjob, abroad, engineers, filfakare, firstyear, secondyear, thirdyear, fourthyear, fifthyear, firstdayappearance, seconddayappearance, th]) =>
+            afs.collection<Company>('companies', ref => {
+              let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
+              if (internship == false) { query = query.where('offers.internship', '==', false) };
+              if (masterthesis == false) { query = query.where('offers.masterthesis', '==', false) };
+              if (otherthesis == false) { query = query.where('offers.otherthesis', '==', false) };
+              if (parttime == false) { query = query.where('offers.parttime', '==', false) };
+              if (fulltime == false) { query = query.where('offers.fulltime', '==', false) };
+              if (trainee == false) { query = query.where('offers.trainee', '==', false) };
+              if (abroad == false) { query = query.where('offers.abroad', '==', false) };
+              if (trainee == false) { query = query.where('offers.trainee', '==', false) };
+
+              if (engineers == false) { query = query.where('seeking.engineers', '==', false) };
+              if (filfakare == false) { query = query.where('seeking.filfakare', '==', false) };
+              if (firstyear == false) { query = query.where('seeking.firstyear', '==', false) };
+              if (secondyear == false) { query = query.where('seeking.secondyear', '==', false) };
+              if (thirdyear == false) { query = query.where('seeking.thirdyear', '==', false) };
+              if (fourthyear == false) { query = query.where('seeking.fourthyear', '==', false) };
+              if (fifthyear == false) { query = query.where('seeking.fifthyear', '==', false) };
+
+              if (firstdayappearance == false) { query = query.where('appearance.firstdayappearance', '==', false) };
+              if (seconddayappearance == false) { query = query.where('appearance.seconddayappearance', '==', false) };
 
 
 
+              if (th == false) { query = query.where('treasurehunt', '==', true) };
+              return query;
+            }).valueChanges()
+          )
+        );
 
   }
+
+  // OFFERS
+  filterByInternship(internship: boolean) {
+    this.internshipFilter$.next(internship);
+  }
+  filterByMasterthesis(masterthesis: boolean) {
+    this.masterthesisFilter$.next(masterthesis);
+  }
+  filterByOtherthesis(otherthesis: boolean) {
+    this.otherthesisFilter$.next(otherthesis);
+  }
+  filterByParttime(parttime: boolean) {
+    this.parttimeFilter$.next(parttime);
+  }
+  filterByFulltime(fulltime: boolean) {
+    this.fulltimeFilter$.next(fulltime);
+  }
+  filterBySummerjob(summerjob: boolean) {
+    this.summerjobFilter$.next(summerjob);
+  }
+  filterByAbroad(abroad: boolean) {
+    this.abroadFilter$.next(abroad);
+  }
+  filterByTrainee(trainee: boolean) {
+    this.traineeFilter$.next(trainee);
+  }
+  // SEEKING
+  filterByEngineers(engineers: boolean) {
+    this.engineersFilter$.next(engineers);
+  }
+  filterByFilfakare(filfakare: boolean) {
+    this.filfakareFilter$.next(filfakare);
+  }
+  filterByFirstyear(firstyear: boolean) {
+    this.firstyearFilter$.next(firstyear);
+  }
+  filterBySecondyear(secondyear: boolean) {
+    this.secondyearFilter$.next(secondyear);
+  }
+  filterByThirdyear(thirdyear: boolean) {
+    this.thirdyearFilter$.next(thirdyear);
+  }
+  filterByFourthyear(fourthyear: boolean) {
+    this.fourthyearFilter$.next(fourthyear);
+  }
+  filterByFifthyear(fifthyear: boolean) {
+    this.fifthyearFilter$.next(fifthyear);
+  }
+  // Appearance
+  filterByFirstdayappearance(firstdayappearance: boolean) {
+    this.firstdayappearanceFilter$.next(firstdayappearance);
+  }
+  filterBySeconddayappearance(seconddayappearance: boolean) {
+    this.seconddayappearanceFilter$.next(seconddayappearance);
+  }
+  // Treasurehunt
+  filterByTreasurehunt(th: boolean) {
+    this.treasurehuntFilter$.next(th);
+  }
+
 
   ngOnInit() {
 
   }
 
-  private applyFilters() {
-    this.filteredCompanies = _.filter(this.companies, _.conforms(this.filters) )
-  }
-  /// filter properties that resolve to true
-  filterBoolean(property: string, rule: boolean) {
-    if (!rule) this.removeFilter(property)
-    else {
-      this.filters[property] = val => val
-      this.applyFilters()
-    }
-  }
-  /// removes filter
-  removeFilter(property: string) {
-    delete this.filters[property]
-    this[property] = null
-    this.applyFilters()
-  }
-
-
-  getCompanies() {
-    return this.companies = this.afs.collection<Company>('companies').valueChanges();
-  }
   closeModal() {
     this.isModalActive = !this.isModalActive;
   }
@@ -149,6 +271,13 @@ export class CompaniesComponent implements OnInit {
 //         ]
 //       ],
 //     });
+//
+//   }
+
+
+//       'internship, masterthesis, otherthesis, parttime, fulltime, trainee, summerjob, abroad, engineers, filfakare, firstyear, secondyear, thirdyear, fourthyear, fifthyear, firstdayappearance, seconddayappearance
+//       'offersinterview
+//       'treasurehunt
 //
 //   }
 //
