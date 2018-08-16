@@ -10,10 +10,16 @@
   </div>
 </div>
 
-
-<br>
-<br>
+<!-- <div *ngFor="let company of companies | async">
+  <h6>{{company.name}}</h6>
+</div> -->
 <div class="container ">
+
+
+
+  <br>
+  <br>
+
   <div class="columns is-multiline">
 
     <div class="column is-6">
@@ -29,34 +35,34 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByInternship($event.target.checked)" checked="checked"> Internship
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('internship', $event.target.checked)"> Internship
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByMasterthesis($event.target.checked)" checked="checked"> Exjobb
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('masterthesis', $event.target.checked)"> Exjobb
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByParttime($event.target.checked)" checked="checked"> Deltidsjobb
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('fulltime', $event.target.checked)"> Heltid
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByFulltime($event.target.checked)" checked="checked"> Heltidsjobb
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('parttime', $event.target.checked)"> Deltid
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByAbroad($event.target.checked)" checked="checked"> Utlandsmöjligheter
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('trainee', $event.target.checked)"> Traineeprogram
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterBySummerjob($event.target.checked)" checked="checked"> Sommarjobb
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('summerjob', $event.target.checked)"> Sommarjobb
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByTrainee($event.target.checked)" checked="checked"> Traineeprogram
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('abroad', $event.target.checked)"> Utlandsmöjligheter
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByOtherthesis($event.target.checked)" checked="checked"> Uppsatshandledning
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('otherthesis', $event.target.checked)"> Uppsatshandledning
             </div>
           </div>
         </div>
       </div>
-      <div class="dropdown is-hoverable">
+      <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
       <span>Söker</span>
@@ -67,105 +73,116 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByEngineers($event.target.checked)" checked="checked"> Civilinenjörer i Industriell Ekonomi
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('engineers', $event.target.checked)"> Civilinenjörer i Industriell Ekonomi
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByFilfakare($event.target.checked)" checked="checked"> Civilekonomer
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('filfakare', $event.target.checked)"> Civilekonomer
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByFirstyear($event.target.checked)" checked="checked"> 1:or
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('firstyear', $event.target.checked)"> 1:or
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterBySecondyear($event.target.checked)" checked="checked"> 2:or
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('secondyear', $event.target.checked)"> 2:or
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByThirdyear($event.target.checked)" checked="checked"> 3:or
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('thirdyear', $event.target.checked)"> 3:or
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByFourthyear($event.target.checked)" checked="checked"> 4:or
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('fourthyear', $event.target.checked)"> 4:or
             </div>
-            <div class="field dropdown-item">
-              <input type="checkbox" (change)="filterByFifthyear($event.target.checked)" checked="checked"> 5:or
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('fifthyear', $event.target.checked)"> 5:or
             </div>
           </div>
         </div>
       </div>
+      <div class="filter-dropdown dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Övrigt</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('firstdayappearance', $event.target.checked)"> Ställer ut tisdag
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('seconddayappearance', $event.target.checked)"> Ställer ut onsdag
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('treasurehunt', $event.target.checked)"> Deltar i Mässjakten
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('offersinterview', $event.target.checked)"> Erbjuder kontaktsamtal
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="button is-primary is-outlined" *ngIf="filterIsOn()" (click)=" clearFilter() ">Ta bort filter <i class="fas fa-filter "></i></a>
     </div>
-    <div class="column is-6">
-      <div class="buttons has-addons is-pulled-right">
-
-        <span class="button"><i class="fas fa-random"></i></span>
-        <span class="button is-primary is-selected"><i class="fas fa-sort-alpha-down"></i></span>
-        <span class="button"><i class="fas fa-sort-alpha-up"></i></span>
+    <div class="column is-6 ">
+      <div class="buttons has-addons is-pulled-right ">
+        <span class="button " (click)="applyOrder(1) " [ngClass]="{ 'is-primary': orderBy==1} "><i class="fas fa-random "></i></span>
+        <span class="button " (click)="applyOrder(2) " [ngClass]="{ 'is-primary': orderBy==2} "><i class="fas fa-sort-alpha-down "></i></span>
+        <span class="button " (click)="applyOrder(3) " [ngClass]="{ 'is-primary': orderBy==3} "><i class="fas fa-sort-alpha-up "></i></span>
       </div>
     </div>
+
   </div>
 
 
-  <div class="field">
-    <input type="checkbox" (change)="filterByTreasurehunt($event.target.checked)"> Tisdag
-  </div>
-  <div class="field">
-    <input type="checkbox" (change)="filterByTreasurehunt($event.target.checked)"> Onsdag
-  </div>
-  <!-- <div *ngIf="companies$ | async; let companies; else loading">
-  <li *ngFor="let company of companies">
+
+  <span class="button " (click)="clearFilter() " [ngClass]="{ 'is-primary': orderBy==3} "><i class="fas fa-sort-alpha-up "></i></span>
 
 
 
 
-
-
-    <div *ngIf="companies.length === 0">No results, try clearing filters</div>
+  <!-- <div *ngFor="let filteredCompany of filteredCompanies ">
+  <h6>{{ filteredCompany.name }}</h6>
 </div> -->
 
-
-
-
-  <div *ngIf="companies$ | async; let companies; else loading">
-    <ng-template #loading>
-      <app-spinner></app-spinner>
-    </ng-template>
-    <div class="columns is-centered is-multiline ">
-
-      <div class="column is-one-quarter " *ngFor="let company of companies ">
-        <div class="card is-storyworld bm--card-equal-height ">
-          <a class="card-header " (click)="openModal(company) ">
-            <!-- <div *ngIf="company.logopath | url "> -->
-            <img style="padding: 10px; " src="{{ company.logopath }}">
-            <!-- </div> -->
+  <div class="columns is-centered is-multiline ">
+    <app-spinner *ngIf="showSpinner "></app-spinner>
+    <div class="column is-one-quarter " *ngFor="let company of filteredCompanies ">
+      <div class="card is-storyworld bm--card-equal-height ">
+        <a class="card-header " (click)="openModal(company) ">
+          <!-- <div *ngIf="company.logopath | url "> -->
+          <div class="card-image has-text-centered ">
+            <img style="padding: 10px; " *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl ">
+          </div>
+          <!-- </div> -->
+        </a>
+        <div class="card-body ">
+          <a href="/library/the-holiday-girls ">
+            <div class="card-title "> {{ company.name }}</div>
           </a>
-          <div class="card-body ">
-            <a href="/library/the-holiday-girls ">
-              <div class="card-title "> {{ company.name }}</div>
-            </a>
-            <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
-          " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="company.offersinterview "></i></span>&nbsp;
-              <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
-            </div>
-            <div class="card-description ">
-              <div class="tags ">
-                <span class="tag is-primary " *ngIf="company.offers.internship ">Internship</span>
-                <span class="tag is-primary " *ngIf="company.offers.fulltime ">Heltidsjobb</span>
-                <span class="tag is-primary " *ngIf="company.offers.parttime ">Deltidsjobb</span>
-                <span class="tag is-primary " *ngIf="company.offers.summerjob ">Sommarjobb</span>
-                <span class="tag is-primary " *ngIf="company.offers.masterthesis ">Ex-jobb</span>
-                <span class="tag is-primary " *ngIf="company.offers.abroad ">Utlandsmöjligheter</span>
-                <span class="tag is-primary " *ngIf="company.offers.trainee ">Trainee</span>
-                <span class="tag is-primary " *ngIf="company.offers.otherthesis ">Uppsatshandledning</span>
-              </div>
+          <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
+        " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="company.offersinterview "></i></span>&nbsp;
+            <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
+          </div>
+          <div class="card-description ">
+            <div class="tags ">
+              <span class="tag is-primary " *ngIf="company.offers.internship ">Internship</span>
+              <span class="tag is-primary " *ngIf="company.offers.fulltime ">Heltidsjobb</span>
+              <span class="tag is-primary " *ngIf="company.offers.parttime ">Deltidsjobb</span>
+              <span class="tag is-primary " *ngIf="company.offers.summerjob ">Sommarjobb</span>
+              <span class="tag is-primary " *ngIf="company.offers.masterthesis ">Ex-jobb</span>
+              <span class="tag is-primary " *ngIf="company.offers.abroad ">Utlandsmöjligheter</span>
+              <span class="tag is-primary " *ngIf="company.offers.trainee ">Trainee</span>
+              <span class="tag is-primary " *ngIf="company.offers.otherthesis ">Uppsatshandledning</span>
             </div>
           </div>
-          <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
         </div>
-
+        <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
       </div>
+
     </div>
-    <div *ngIf="companies.length === 0">No results, try clearing filters</div>
   </div>
-
-
 
 
   <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
@@ -185,7 +202,7 @@
         <div class="columns is-multiline ">
 
           <div class="column is-3 ">
-            <img class=" " style="max-height:90px; padding-bottom: 0.4em; " src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/companylogos%2F1534001087482_atlascopcorockdrills.jpg?alt=media&token=8ea25054-e300-4759-a142-e10b190200a0 ">
+            <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
 
             <h5 class="title is-5 ">Vi ställer ut</h5>
             <div class="tags ">
@@ -232,12 +249,4 @@
       </section>
     </div>
   </div>
-
-
-
-
-
-
-
-
 </div>

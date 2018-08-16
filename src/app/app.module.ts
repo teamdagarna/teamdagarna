@@ -47,6 +47,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddstaffComponent } from './components/admincomponents/addstaff/addstaff.component';
 import { InterviewapplicationComponent } from './components/interviewapplication/interviewapplication.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { StoragePipe } from './shared/storage.pipe';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { FilterPipe } from './shared/filter.pipe';
     SpinnerComponent,
     AddstaffComponent,
     InterviewapplicationComponent,
-    FilterPipe
+    FilterPipe,
+    StoragePipe
   ],
   imports: [
     BrowserModule,

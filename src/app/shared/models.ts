@@ -16,29 +16,15 @@ export interface User {
 }
 
 export interface Offers {
-  internship?: boolean;
-  masterthesis?: boolean;
-  otherthesis?: boolean;
-  parttime?: boolean;
-  fulltime?: boolean;
-  trainee?: boolean;
-  summerjob?: boolean;
-  abroad?: boolean;
+
 }
 
 export interface Seeking {
-  engineers?: boolean;
-  filfakare?: boolean;
-  firstyear?: boolean;
-  secondyear?: boolean;
-  thirdyear?: boolean;
-  fourthyear?: boolean;
-  fifthyear?: boolean;
+
 }
 
 export interface Appearance {
-  firstdayappearance?: boolean;
-  seconddayappearance?: boolean;
+
 }
 
 export interface Interviewpackages {
@@ -52,15 +38,32 @@ export interface Company {
   // abbrev: string;
   name: string;
   industry: string;
-  offers: Offers;
-  seeking: Seeking;
-  appearance: Appearance;
   interviewpackages: Interviewpackages;
   treasurehunt?: boolean;
   about: string;
   values: string;
   logopath: string;
   offersinterview: boolean;
+
+  firstdayappearance?: boolean;
+  seconddayappearance?: boolean;
+
+  internship?: boolean;
+  masterthesis?: boolean;
+  otherthesis?: boolean;
+  parttime?: boolean;
+  fulltime?: boolean;
+  trainee?: boolean;
+  summerjob?: boolean;
+  abroad?: boolean;
+
+  engineers?: boolean;
+  filfakare?: boolean;
+  firstyear?: boolean;
+  secondyear?: boolean;
+  thirdyear?: boolean;
+  fourthyear?: boolean;
+  fifthyear?: boolean;
 }
 
 export interface Dreamteamer {

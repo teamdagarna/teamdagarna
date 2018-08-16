@@ -131,34 +131,29 @@ export class AddcompanyComponent implements OnInit {
     if (data.firstdaypackage1 || data.firstdaypackage2 || data.seconddaypackage1 || data.seconddaypackage2) {
       this.offersinterview = true;
     }
+
     const companiesCollection = this.afs.collection<Company>('companies');
 
     const newCompany: Company = {
       name: data.companyName,
       industry: data.industry,
-      offers: {
-        internship: data.internship,
-        masterthesis: data.masterthesis,
-        otherthesis: data.otherthesis,
-        parttime: data.parttime,
-        fulltime: data.fulltime,
-        trainee: data.trainee,
-        summerjob: data.summerjob,
-        abroad: data.abroad
-      },
-      seeking: {
-        engineers: data.engineers,
-        filfakare: data.filfakare,
-        firstyear: data.firstyear,
-        secondyear: data.secondyear,
-        thirdyear: data.thirdyear,
-        fourthyear: data.fourthyear,
-        fifthyear: data.fifthyear
-      },
-      appearance: {
-        firstdayappearance: data.firstdayappearance,
-        seconddayappearance: data.seconddayappearance
-      },
+      internship: data.internship,
+      masterthesis: data.masterthesis,
+      otherthesis: data.otherthesis,
+      parttime: data.parttime,
+      fulltime: data.fulltime,
+      trainee: data.trainee,
+      summerjob: data.summerjob,
+      abroad: data.abroad,
+      engineers: data.engineers,
+      filfakare: data.filfakare,
+      firstyear: data.firstyear,
+      secondyear: data.secondyear,
+      thirdyear: data.thirdyear,
+      fourthyear: data.fourthyear,
+      fifthyear: data.fifthyear,
+      firstdayappearance: data.firstdayappearance,
+      seconddayappearance: data.seconddayappearance,
       interviewpackages: {
         firstdaypackage1: data.firstdaypackage1,
         firstdaypackage2: data.firstdaypackage2,

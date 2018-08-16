@@ -98,11 +98,10 @@ html {
   justify-content: center;
   padding: 0.75rem;
 }
-
-.card-image {
-  display: block;
-  position: relative;
-}
+// .card-image {
+//   display: block;
+//   position: relative;
+// }
 
 .card-content {
   padding: 1.5rem;
@@ -197,12 +196,13 @@ html {
   background-size: cover;
   transition-duration: 172ms;
   will-change: transform;
+  height: 50%;
 }
 
 .card.is-storyworld .card-image:before {
-  display: block;
-  content: "";
-  padding-bottom: 63.80597%;
+  // display: block;
+  // content: "";
+  // padding-bottom: 63.80597%;
 }
 
 .card.is-storyworld .card-body {
@@ -246,4 +246,11 @@ html {
 
 .bm--card-equal-height .card-footer {
   margin-top: auto;
+}
+
+.card-header {
+  img {
+    max-height: 170px;
+    align-items: center;
+  }
 }
