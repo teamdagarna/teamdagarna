@@ -63,7 +63,7 @@ export class CompaniesComponent implements OnInit {
   //   this.filteredCompanies = _.filter(this.companies, _.conforms(this.filters) )
      this.filteredCompanies = _.filter(this.companies, _.conforms(this.filters))
   }
-  private applyOrder(cond) {
+  applyOrder(cond) {
     if (cond == 1) {
       this.orderBy = 1;
       this.filteredCompanies = _.shuffle(this.filteredCompanies);
