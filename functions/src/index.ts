@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions';
-
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
 
 import * as Storage from '@google-cloud/storage';
 const gcs = new Storage();

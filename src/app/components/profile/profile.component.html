@@ -1,3 +1,56 @@
-<p>
-  profile works!
-</p>
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Din profil </h1>
+          <h2 class="subtitle">Här kan du hantera din profil, ha koll på event du är anmäld på samt se dina kontaktsamtalansökningar. </h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+
+      <div class="column is-6">
+        <div class="border-btm">
+          <h1 class="title is-2 is-spaced">Dina uppgifter</h1>
+        </div>
+        <h1 class="title is-4">
+          <span>{{ user.firstname }} {{ user.lastname }}</span>
+        </h1>
+        <h1 class="subtitle is-6">
+          Student
+        </h1>
+        <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
+        <p><strong>Program:</strong> {{ user.program }}</p>
+        <p><strong>År:</strong> {{ user.year }}</p>
+        <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
+        <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
+        <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
+        <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
+        <br>
+
+        <!-- <a class="button is-black is-small">
+             <span class="icon is-small">
+              <i class="fas fa-cog"></i>
+           </span>
+           <span>Ändra</span>
+             </a> -->
+      </div>
+      <div class="column is-6">
+        <div class="border-btm">
+          <h1 class="title is-2">Dina kontaktsamtalsansökningar</h1>
+        </div>
+        <p>Inga ansökningar gjorda.</p>
+        <div class="border-btm">
+          <h1 class="title is-2">Dina eventanmälningar</h1>
+        </div>
+        <p>Inga anmälningar gjorda.</p>
+      </div>
+    </div>
+  </div>
+</section>
