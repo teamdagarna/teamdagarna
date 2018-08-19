@@ -107,6 +107,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
         { path: 'addstaff', component: AddstaffComponent }
       ] },
     { path: 'dreamteam', component: TeamComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },

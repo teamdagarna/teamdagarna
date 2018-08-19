@@ -1,7 +1,9 @@
 <!-- END NAV -->
-<div class="container">
+<div class="admin">
+
+
   <div class="columns">
-    <div class="column is-3">
+    <div class="column is-2 is-offset-1">
       <aside class="menu">
         <p class="menu-label">
           General
@@ -14,7 +16,6 @@
           Admin
         </p>
         <ul class="menu-list">
-          <li><a [routerLink]="['users']">Alla användare</a></li>
           <li><a>Dreamteamers</a>
             <ul>
               <li><a [routerLink]="['addstaff']">Lägg till Dreamteamer</a></li>
@@ -24,24 +25,46 @@
             <a [routerLink]="['companies']">Företagen</a>
             <ul>
               <li><a [routerLink]="['addcompany']">Lägg till företag</a></li>
-              <li><a>Företagens inlogg </a></li>
+
             </ul>
           </li>
           <li>
             <a>Event</a>
             <ul>
               <li><a>Lägg till event</a></li>
+              <li><a>Incheckning</a></li>
             </ul>
           </li>
           <li>
-            <a>Kontaktsamtal</a>
+            <a>Nyheter</a>
+            <ul>
+              <li><a>Lägg till nyhet</a></li>
+            </ul>
           </li>
 
+
+        </ul>
+        <p class="menu-label">
+          <span>Admin Platinum&trade; <i class="fas fa-chess-king"></i></span>
+        </p>
+        <ul class="menu-list">
+          <li><a [routerLink]="['users']">Alla användare</a></li>
+          <li><a>Företagens inlogg </a></li>
+          <li><a>Hantera adminroller</a></li>
+          <li><a>Kontaktsamtal</a>
+            <ul>
+              <li><a>Hantera schema</a></li>
+              <li><a>Alla ansökningar</a></li>
+              <li><a>Företagsvy</a></li>
+            </ul>
+          </li>
         </ul>
       </aside>
     </div>
-    <div class="column is-9">
+    <div class="column is-8">
       <router-outlet></router-outlet>
     </div>
   </div>
+  <br>
+  <br>
 </div>
