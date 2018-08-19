@@ -15,11 +15,9 @@ export class ForgotComponent implements OnInit {
   }
 
   resetPassword(data) {
-    var liumail = data.liuid + '@teststudent.se';
-    console.log(liumail)
+    var liumail = data.liuid + '@student.liu.se';
      this.auth.resetPassword(liumail);
      this.router.navigate(['signin']);
-
    }
 
 }

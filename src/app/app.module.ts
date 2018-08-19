@@ -32,7 +32,7 @@ import { TeamComponent } from './components/team/team.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { RegistratedComponent } from './components/registrated/registrated.component';
+import { RegisteredComponent } from './components/registered/registered.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -64,7 +64,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
     FooterComponent,
     HeaderComponent,
     SignupComponent,
-    RegistratedComponent,
+    RegisteredComponent,
     NotificationComponent,
     ForgotComponent,
     ProfileComponent,
@@ -109,7 +109,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
     { path: 'dreamteam', component: TeamComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'registrated', component: RegistratedComponent },
+    { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
     { path: 'about', component: AboutComponent },
     { path: 'about-english', component: AboutenglishComponent },
