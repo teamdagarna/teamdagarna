@@ -4,46 +4,44 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Dreamteam 2018 </h1>
-          <h2 class="subtitle">Nedan finner du kontaktuppgifter till Dreamteam.</h2> </div>
+          <h2 class="subtitle">Nedan finner du kontaktuppgifter till Dreamteam</h2> </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<section class="section">
+
+  <div class="container">
+
+    <div class="columns is-centered is-multiline">
 
 
+      <div class="column is-4 is-3-fullhd" *ngFor="let dreamteamer of dreamteam | async">
+        <div class="card is-teamview  bm--card-equal-height">
+          <div class="card-header">
+            <!-- <div *ngIf="company.logopath | async as url"> -->
+            <img *ngIf="dreamteamer.primaryimagepath | storage | async as photoUrl " [src]="photoUrl ">
+            <!-- </div> -->
+          </div>
+          <div class="card-body ">
 
-  <br>
-  <br>
+            <div class="card-title">{{ dreamteamer.fullname }} <a *ngIf="dreamteamer.linkedinurl" href="{{ dreamteamer.linkedinurl }}" target="_blank" class="is-pulled-right is-size-6" data-balloon="Besök på LinkedIn" data-balloon-pos="up"><i class="fab fa-linkedin-in"></i></a></div>
 
-  <div class="columns is-centered is-multiline">
-
-    <div class="column is-one-fifth" *ngFor="let number of [0,1,2,3,4]">
-      <div class="card is-storyworld bm--card-equal-height">
-        <div class="card-header">
-          <!-- <div *ngIf="company.logopath | async as url"> -->
-          <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/companylogos%2F1534074867899_IMG_1698-2.jpg?alt=media&token=bb838206-4e8e-45b0-9e61-3e8df77f6991">
-          <!-- </div> -->
-        </div>
-        <div class="card-body ">
-
-          <div class="card-title">Linus Gålén <a href="#" class="is-pulled-right is-size-6" data-balloon="Besök på LinkedIn" data-balloon-pos="up"><i class="fab fa-linkedin-in"></i></a></div>
-
-          <div class="card-meta">Head of IT</div>
-          <div class="card-description is-size-7">
-            <i class="fas fa-phone"></i>&nbsp;<a href="tel:+46722410165">072-241 01 65</a>
-            <br>
-            <i class="far fa-envelope"></i>&nbsp;<a href="mailto:linus.galen@teamdagarna.com?subject=Teamdagarna">linus.galen@teamdagarna.com</a>
+            <div class="card-meta">{{ dreamteamer.position }}</div>
+            <div class="card-description is-size-7">
+              <i class="fas fa-phone"></i>&nbsp;<a href="tel:+46{{ dreamteamer.internationalphone }}">{{ dreamteamer.phone }}</a>
+              <br>
+              <i class="far fa-envelope"></i>&nbsp;<a href="mailto:{{ dreamteamer.mail }}?subject=Teamdagarna">{{ dreamteamer.mail }}</a>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
 
-
+</section>
 
 <!-- <section class="section">
 <div class="container">

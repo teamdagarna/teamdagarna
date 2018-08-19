@@ -11,6 +11,12 @@ export interface User {
   lastname: string;
   liuid: string;
   verified: boolean;
+  program: string;
+  year: string;
+  engineerbachelor?: string;
+  engineermaster?: string;
+  specialfood?: string;
+  filfakspecialization?: string;
   roles: Roles;
   applications?: InterviewApplication;
 }

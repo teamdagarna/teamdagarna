@@ -13,7 +13,7 @@
 
       <div class="columns footer-columns">
         <!-- Column -->
-        <div class="column is-half-mobile">
+        <!-- <div class="column is-half-mobile">
           <div class="footer-column">
             <div class="footer-header title is-5 has-text-weight-semibold">
               För studenter
@@ -25,7 +25,7 @@
               <li><a href="#">Mässjakten</a></li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <!-- Column -->
         <div class="column is-half-mobile">
           <div class="footer-column">
@@ -33,10 +33,10 @@
               För företag
             </div>
             <ul class="link-list">
-              <li><a href="#">Vårt erbjudande</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Hitta hit</a></li>
-              <li><a href="#">Företagslogin</a></li>
+              <li><a [routerLink]="['weoffer']">Vårt erbjudande</a></li>
+              <li><a [routerLink]="['faq']">FAQ</a></li>
+              <!-- <li><a href="#">Företagslogin</a></li> -->
+              <li><a href="https://goo.gl/maps/mdw8wQ3hwvC2" target="_blank">Hitta hit <i class="fas fa-map-marker-alt"></i></a></li>
             </ul>
           </div>
         </div>
@@ -47,25 +47,25 @@
               Om oss
             </div>
             <ul class="link-list">
-              <li><a href="#">Kontakt</a></li>
-              <li><a href="#">Om dagarna</a></li>
-              <li><a href="#">Hållbarhet</a></li>
+              <li><a [routerLink]="['dreamteam']">Kontakt</a></li>
+              <li><a [routerLink]="['about']">Om dagarna</a></li>
+              <!-- <li><a href="#">Hållbarhet</a></li> -->
             </ul>
           </div>
         </div>
         <!-- Column -->
         <div class="column is-half-mobile">
-          <div class="level-left is-size-4">
-            <a href="#" class="level-item has-text-centered">
+          <div class="level-left is-size-4 social-buttons">
+            <a href="https://www.linkedin.com/company/teamdagarna/" target="_blank" class="level-item has-text-centered">
                                 <span class="icon"><i class="fab fa-linkedin-in"></i></span>
                             </a>
-            <a href="#" class="level-item has-text-centered">
+            <a href="https://www.facebook.com/teamdagarna/" target="_blank" class="level-item has-text-centered">
                                 <span class="icon"><i class="fab fa-facebook-f"></i></span>
                             </a>
-            <a href="#" class="level-item has-text-centered">
+            <a href="https://www.instagram.com/teamdagarna/" class="level-item has-text-centered">
                                 <span class="icon"><i class="fab fa-instagram"></i></span>
                             </a>
-            <a href="#" class="level-item has-text-centered">
+            <a href="https://www.snapchat.com/add/teamdagarna" target="_blank" class="level-item has-text-centered">
                                 <span class="icon"><i class="fab fa-snapchat-ghost"></i></span>
                             </a>
           </div>
@@ -83,4 +83,9 @@
   <div class="columns is-centered footer-copyright">
     <div class="column has-text-centered">&copy; Teamdagarna 2018</div>
   </div>
+
+
 </footer>
+
+
+<img *ngIf="auth.canEdit(user)" class="minion" src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/minions.png?alt=media&token=2f8f24fb-35a8-4dd8-84bc-cbdf91448c95" alt="">

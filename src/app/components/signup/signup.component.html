@@ -43,12 +43,15 @@
             <label class="label">Program</label>
             <div class="control">
               <div class="select" required>
-                <select>
+                <select formControlName="program">
                   <option>Industriell Ekonomi</option>
                   <option>Civilekonom</option>
-                  <option>N/A</option>
+                  <option>Annat</option>
                 </select>
               </div>
+            </div>
+            <div class="help is-danger" *ngIf="program.invalid && program.touched">
+              Du måste välja något.
             </div>
           </div>
 
@@ -56,17 +59,74 @@
             <label class="label">År</label>
             <div class="control">
               <div class="select" required>
-                <select>
+                <select formControlName="year">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
-                  <option>N/A</option>
+                  <option>Annat</option>
+                </select>
+              </div>
+            </div>
+            <div class="help is-danger" *ngIf="year.invalid && year.touched">
+              Du måste välja något.
+            </div>
+          </div>
+
+          <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+            <label class="label">Kandidatprofil (teknisk inriktning)</label>
+            <div class="control">
+              <div class="select">
+                <select formControlName="engineerbachelor">
+                  <option>Systemteknik</option>
+                  <option>Maskinteknik</option>
+                  <option>Bioteknik</option>
+                  <option>Datateknik</option>
+                  <option>Energiteknik</option>
+                  <option>Annat/Ej valt</option>
                 </select>
               </div>
             </div>
           </div>
+
+          <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+            <label class="label">Masterprofil</label>
+            <div class="control">
+              <div class="select">
+                <select formControlName="engineermaster">
+                  <option>Ekonomiska informationssystem</option>
+                  <option>Finans</option>
+                  <option>Industriell marknadsföring</option>
+                  <option>Kvalitets- och verksamhetsutveckling</option>
+                  <option>Logistik</option>
+                  <option>Projekt, innovation och entreprenörskap</option>
+                  <option>Produktionsledning</option>
+                  <option>Strategi och styrning</option>
+                  <option>Annat/Ej valt</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+            <label class="label">Inriktning civilekonom</label>
+            <div class="control">
+              <div class="select">
+                <select formControlName="engineermaster">
+                  <option>Nationalekonomi</option>
+                  <option>Företagsekonomi</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field">
+            <label class="label" for="specialfood">Specialkost</label>
+            <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
+          </div>
+
 
           <div class="field">
             <label class="label" for="gdpr">GDPR - Din data</label>

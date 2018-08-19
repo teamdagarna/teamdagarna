@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Dreamteamer } from '../../shared/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-team',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+
+  private dreamteamCollection: AngularFirestoreCollection<Dreamteamer>;
+  dreamteam: Observable<Dreamteamer[]>;
+
+  constructor(private readonly afs: AngularFirestore) {
+    this.dreamteamCollection = afs.collection<Dreamteamer>('dreamteam', ref => ref.orderBy('ordertoshow'));
+    this.dreamteam = this.dreamteamCollection.valueChanges();
+  }
 
   ngOnInit() {
   }

@@ -1,7 +1,32 @@
 .footer {
-padding-bottom: 30px;
-margin-bottom: 0;
+  padding-bottom: 30px;
+  margin-bottom: 0;
 }
+
 .footer-copyright {
   padding-top: 30px;
+}
+
+.social-buttons {
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  .social-buttons {
+    .level-item {
+      margin-bottom: 0.75rem;
+      margin-right: 0.75rem;
+    }
+  }
+}
+
+.minion {
+  position: fixed;
+  bottom: -390px;
+  transition: top ease;
+  -webkit-transition: top ease;
+  transition-duration: 10s;
+}
+
+.minion:hover {
+  bottom: -30px;
 }

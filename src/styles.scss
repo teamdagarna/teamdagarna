@@ -3,6 +3,7 @@
 @import './node_modules/bulma/sass/utilities/functions.sass';
 $team-blue: #29235C;
 $team-pink: #E6017E;
+$team-pink-gradient: linear-gradient(141deg, #b40080 0%, #E6017E 71%, #ff0262 100%);
 $link: $team-pink;
 $primary: $team-pink;
 $text: #463853;
@@ -23,6 +24,33 @@ $modal-background-background-color: rgba($team-blue, 0.86);
 html {
   -webkit-font-smoothing: antialiased;
   font-family: 'Open Sans', sans-serif;
+  background-color: $team-blue;
+}
+
+body {
+  background-color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.error-message {
+  margin: 1em 0;
+  color: $danger;
+}
+
+.border-btm {
+  box-shadow: 0 -1px 0 0 #d9d9ec inset;
+
+  .title {
+    display: inline-block;
+    border-bottom: 2px solid $team-pink;
+    padding-bottom: 2rem;
+  }
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .madewithlove:after {
@@ -30,7 +58,8 @@ html {
 }
 
 .madewithlove:hover:after {
-  content: 'Linus Gålén';
+  // content: 'Linus Gålén';
+  content: 'Dreamteam';
 }
 //NAVBAR
 
@@ -43,6 +72,10 @@ html {
 
 .is-greyed {
   background-color: #FBFBFD;
+}
+
+hr {
+  border: 0;
 }
 
 .columns.has-equal-heights .column {
@@ -154,7 +187,7 @@ html {
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   border-radius: 10px;
-  // overflow: hidden;
+  overflow: hidden;
   transition-duration: 172ms;
   will-change: transform, box-shadow;
 }
@@ -183,10 +216,10 @@ html {
 
 .card.is-storyworld .card-header {
   margin: 0;
-  // overflow: hidden;
+  overflow: hidden;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 1px 1px 0;
+  // padding: 1px 1px 0;
 }
 
 .card.is-storyworld .card-image {
@@ -248,9 +281,10 @@ html {
   margin-top: auto;
 }
 
-.card-header {
-  img {
-    max-height: 170px;
-    align-items: center;
-  }
+.button {
+  border-radius: 10px;
+}
+
+.section {
+  padding: 3rem 1.5rem;
 }

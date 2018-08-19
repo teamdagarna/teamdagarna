@@ -1,9 +1,10 @@
 .has-bg-img {
   // background: linear-gradient(90deg,#8e54e9,#4776e6);
   // background: url('/assets/img/ice.png');
-  background-position: center;
+  background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bg-hero2.jpg?alt=media&token=c8c0846d-69c0-48dd-bc63-8cdaccf55492");
+  background-position: center top;
   background-size: cover;
-  // background: url('https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/hero-1.jpg?alt=media&token=0d718bbb-6dd3-4f24-81ea-da196a6fd52e')center center; background-size:cover;
+  background-repeat: no-repeat;
 }
 // #particles-js {
 //   position: absolute;
@@ -20,17 +21,14 @@
 //   z-index: -1 !important;
 // }
 
-img {
-  height: auto;
+.hsp {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .hero .title {
   font-family: 'Cabin', sans-serif;
   color: #463853;
-}
-
-.elin-i-hsp {
-  margin-top: 30px;
 }
 
 .hero .subtitle {
@@ -123,4 +121,25 @@ img {
 .article .content.is-blog a {
   text-decoration: underline;
   color: #463853;
+}
+
+.level-item {
+  padding-bottom: 2em;
+}
+
+.is-coverage {
+  .level {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 769px) {
+  .is-coverage {
+    .level-item {
+      margin-right: 5em;
+      margin-left: 5em;
+    }
+  }
 }

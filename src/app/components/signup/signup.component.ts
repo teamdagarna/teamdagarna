@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   isModalActive: boolean = false;
+    errorMessage: string;
   // detailForm: FormGroup;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
@@ -45,6 +46,26 @@ export class SignupComponent implements OnInit {
         Validators.required
         ]
       ],
+      'program': ['', [
+        Validators.required
+        ]
+      ],
+      'year': ['', [
+        Validators.required
+        ]
+      ],
+      'engineerbachelor': ['', [
+        ]
+      ],
+      'engineermaster': ['', [
+        ]
+      ],
+      'filfakspecialization': ['', [
+        ]
+      ],
+      'specialfood': ['', [
+        ]
+      ],
     });
 
     // Second Step
@@ -63,6 +84,8 @@ export class SignupComponent implements OnInit {
   get firstname() { return this.signupForm.get('firstname') }
   get lastname() { return this.signupForm.get('lastname') }
   get gdpr() { return this.signupForm.get('lastname') }
+  get program() { return this.signupForm.get('program') }
+  get year() { return this.signupForm.get('year') }
 
   // get catchPhrase() { return this.detailForm.get('catchPhrase') }
 
@@ -71,20 +94,19 @@ export class SignupComponent implements OnInit {
          this.router.navigate(['']);
          // this.auth.createProfile(data);
       }).catch((error) => {
-
-        //   var errorCode = error.code;
-        //   var errorMessage = error.message;
-        //   if (errorCode == 'auth/email-already-in-use') {
-        //   this.error = errorMessage;
-        // } else if (errorCode == 'auth/invalid-email') {
-        //   this.error = 'Not a valid e-mail';
-        // } else if (errorCode == 'auth/operation-not-allowed') {
-        //   this.error = 'Operation not allowed';
-        // } else if (errorCode == 'auth/weak-password') {
-        //   this.error = 'Weak password. Try again.';
-        // } else {
-        //   this.error = error.message;
-        // }
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode == 'auth/email-already-in-use') {
+          this.errorMessage = 'Det finns redan ett konto registrerat på detta LiU-ID. Logga in eller återställ lösenord.';
+        } else if (errorCode == 'auth/invalid-email') {
+          this.errorMessage = 'Inget giltigt LiU-ID';
+        } else if (errorCode == 'auth/operation-not-allowed') {
+          this.errorMessage = 'Operation not allowed';
+        } else if (errorCode == 'auth/weak-password') {
+          this.errorMessage = 'Svagt lösenord. Testa igen.';
+        } else {
+          this.errorMessage = 'Något gick fel. Testa igen.';
+        }
       });
   }
 

@@ -107,8 +107,8 @@ export class AddstaffComponent implements OnInit {
     }
 
     // The storage path
-    this.logopath = `companylogos/${new Date().getTime()}_${file.name}`;
-    const path = `companylogos/${new Date().getTime()}_${file.name}`;
+    this.logopath = `dreamteam/compressed@720_${new Date().getTime()}_${file.name}`;
+    const path = `dreamteam/${new Date().getTime()}_${file.name}`;
 
     // Totally optional metadata
     const customMetadata = { app: 'My AngularFire-powered PWA!' };

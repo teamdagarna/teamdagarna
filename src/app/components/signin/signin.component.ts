@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
 
   loginForm: FormGroup;
+  errorMessage: string;
   // detailForm: FormGroup;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
@@ -21,13 +22,11 @@ export class SigninComponent implements OnInit {
 
     this.loginForm = this.fb.group({
       'liuid': ['', [
+        Validators.pattern('[A-Za-z]{5}[0-9]{3}$'),
         Validators.required
         ]
       ],
       'password': ['', [
-        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(6),
-        Validators.maxLength(25),
         Validators.required
         ]
       ],
@@ -46,26 +45,21 @@ export class SigninComponent implements OnInit {
  // get catchPhrase() { return this.detailForm.get('catchPhrase') }
 
  login(data) {
-   var liumail = data.liuid + '@teststudent.se';
+   var liumail = data.liuid + '@student.liu.se';
    console.log(liumail)
    this.auth.emailLogin(liumail, data.password).then((res) => {
          this.router.navigate(['']);
       }).catch((error) => {
-        console.log(error);
-
-        //   var errorCode = error.code;
-        //   var errorMessage = error.message;
-        //   if (errorCode == 'auth/email-already-in-use') {
-        //   this.error = errorMessage;
-        // } else if (errorCode == 'auth/invalid-email') {
-        //   this.error = 'Not a valid e-mail';
-        // } else if (errorCode == 'auth/operation-not-allowed') {
-        //   this.error = 'Operation not allowed';
-        // } else if (errorCode == 'auth/weak-password') {
-        //   this.error = 'Weak password. Try again.';
-        // } else {
-        //   this.error = error.message;
-        // }
+        var errorCode = error.code;
+        if (errorCode === 'auth/wrong-password') {
+          this.errorMessage = 'Verkar inte som att du matat in rätt LiU-ID eller lösenord. Testa igen.';
+        } else if (errorCode === 'auth/invalid-email') {
+          this.errorMessage = 'Verkar inte som att du matat in rätt LiU-ID eller lösenord. Testa igen.';
+        } else if (errorCode === 'auth/user-not-found') {
+          this.errorMessage = 'Verkar inte som att du matat in rätt LiU-ID eller lösenord. Har du registrerat dig?';
+        } else {
+          this.errorMessage = 'Något gick fel. Testa igen.';
+        }
       });
  }
 

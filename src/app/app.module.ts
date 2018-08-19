@@ -48,6 +48,10 @@ import { AddstaffComponent } from './components/admincomponents/addstaff/addstaf
 import { InterviewapplicationComponent } from './components/interviewapplication/interviewapplication.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { StoragePipe } from './shared/storage.pipe';
+import { AboutComponent } from './components/about/about.component';
+import { AboutenglishComponent } from './components/aboutenglish/aboutenglish.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { WeofferComponent } from './components/weoffer/weoffer.component';
 
 
 @NgModule({
@@ -75,7 +79,11 @@ import { StoragePipe } from './shared/storage.pipe';
     AddstaffComponent,
     InterviewapplicationComponent,
     FilterPipe,
-    StoragePipe
+    StoragePipe,
+    AboutComponent,
+    AboutenglishComponent,
+    FaqComponent,
+    WeofferComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +111,11 @@ import { StoragePipe } from './shared/storage.pipe';
     { path: 'signup', component: SignupComponent },
     { path: 'registrated', component: RegistratedComponent },
     { path: 'forgotpass', component: ForgotComponent },
-    { path: 'companies', component: CompaniesComponent }
+    { path: 'about', component: AboutComponent },
+    { path: 'about-english', component: AboutenglishComponent },
+    { path: 'companies', component: CompaniesComponent },
+    { path: 'faq', component: FaqComponent }
+    { path: 'weoffer', component: WeofferComponent }
     ])
 
   ],

@@ -16,19 +16,13 @@
       </div>
 
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div *ngIf="auth.canEdit(user)" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/documentation/overview/start/">
           För studenter
         </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" [routerLink]="['companies']">
+            <a class="navbar-item is-disabled" [routerLink]="['companies']">
             Företagen 2018
-          </a>
-            <a class="navbar-item" href="#">
-            Kontakt
-          </a>
-            <a class="navbar-item" href="#">
-            Sammarbetspartners
           </a>
           </div>
         </div>
@@ -37,16 +31,22 @@
           För företag
         </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/documentation/overview/start/">
-            Dagarna
+            <a class="navbar-item" [routerLink]="['about']">
+            Om dagarna
           </a>
+            <a class="navbar-item" [routerLink]="['faq']">
+          FAQ
+        </a>
+            <a class="navbar-item" [routerLink]="['weoffer']">
+        Erbjudande
+      </a>
             <a class="navbar-item" href="#">
             Kontakt
           </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" href="#">
+            <!-- <hr class="navbar-divider"> -->
+            <!-- <a class="navbar-item" href="#">
             Login för företag
-          </a>
+          </a> -->
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
@@ -54,17 +54,20 @@
           Om oss
         </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" [routerLink]="['/dreamteam']">
+            <a class="navbar-item" [routerLink]="['dreamteam']">
             Kontakt
           </a>
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" [routerLink]="['about']">
             Om dagarna
           </a>
-            <a class="navbar-item" href="#">
+            <!-- <a class="navbar-item" href="#">
             Sammarbetspartners
-          </a>
+          </a> -->
           </div>
         </div>
+        <a class="navbar-item" [routerLink]="['about-english']">
+        English info
+      </a>
         <div *ngIf="!auth.isSignedIn()" class="navbar-item">
           <div class="field is-grouped">
             <p class="control">

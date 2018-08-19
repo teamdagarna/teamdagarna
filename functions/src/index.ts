@@ -1,40 +1,63 @@
 import * as functions from 'firebase-functions';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
 
-import * as admin from 'firebase-admin';
-admin.initializeApp();
-const env = functions.config();
+import * as Storage from '@google-cloud/storage';
+const gcs = new Storage();
 
-import * as algoliasearch from 'algoliasearch';
+import { tmpdir } from 'os';
+import { join, dirname } from 'path';
 
-// Initialize the Algolia Client
-const client = algoliasearch(env.algolia.appid, env.algolia.apikey);
-const index = client.initIndex('companies_search');
+import * as sharp from 'sharp';
+import * as fs from 'fs-extra';
 
-exports.indexCompanies = functions.firestore
-  .document('companies/{companyId}')
-  .onCreate((snap, context) => {
-    const data = snap.data();
-    const objectID = snap.id;
+export const generateThumbs = functions.storage
+  .object()
+  .onFinalize(async object => {
+    const bucket = gcs.bucket(object.bucket);
+    const filePath = object.name;
+    const fileName = filePath.split('/').pop();
+    const bucketDir = dirname(filePath);
+    const tempfile = `${new Date().getTime()}.png`;
 
-    // Add the data to the algolia index
-    return index.addObject({
-      objectID,
-      ...data
+
+    const workingDir = join(tmpdir(), 'tempcompress');
+    const tmpFilePath = join(workingDir, tempfile);
+
+    if (fileName.includes('compressed@') || !object.contentType.includes('image')) {
+      console.log('exiting function');
+      return false;
+    }
+
+    // 1. Ensure thumbnail dir exists
+    await fs.ensureDir(workingDir);
+
+    // 2. Download Source File
+    await bucket.file(filePath).download({
+      destination: tmpFilePath
     });
-});
 
-exports.unindexCompanies = functions.firestore
-  .document('companies/{companyId}')
-  .onDelete((snap, context) => {
-    const objectId = snap.id;
+    // 3. Resize the images and define an array of upload promises
+    const sizes = [720];
 
-    // Delete an ID from the index
-    return index.deleteObject(objectId);
-});
+    const uploadPromises = sizes.map(async size => {
+      const thumbName = `compressed@${size}_${fileName}`;
+      const thumbPath = join(workingDir, thumbName);
+
+      // Resize source image
+      await sharp(tmpFilePath)
+        .resize(size, size)
+        .max()
+        .toFile(thumbPath);
+
+      // Upload to GCS
+      return bucket.upload(thumbPath, {
+        destination: join(bucketDir, thumbName)
+      });
+    });
+
+    // 4. Run the upload operations
+    await Promise.all(uploadPromises);
+
+    // 5. Cleanup remove the tmp/thumbs from the filesystem
+    return fs.remove(workingDir);
+  });

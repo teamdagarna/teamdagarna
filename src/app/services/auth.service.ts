@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   emailSignUp(data) {
-    const liumail = data.liuid + '@studenttest.liutest.se';
+    const liumail = data.liuid + '@student.liu.se';
     return this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password)
       .then(credentials => {
         var userToVer = firebase.auth().currentUser;
@@ -71,6 +71,12 @@ export class AuthService {
               firstname: data.firstname,
               lastname: data.lastname,
               liuid: data.liuid,
+              program: data.program,
+              year: data.year,
+              engineerbachelor: data.engineerbachelor,
+              engineermaster: data.engineermaster,
+              specialfood: data.specialfood,
+              filfakspecialization: data.filfakspecialization,
               verified: false,
               roles: {
                 student: true
