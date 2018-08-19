@@ -114,7 +114,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
     { path: 'about', component: AboutComponent },
     { path: 'about-english', component: AboutenglishComponent },
     { path: 'companies', component: CompaniesComponent },
-    { path: 'faq', component: FaqComponent }
+    { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent }
     ])
 
