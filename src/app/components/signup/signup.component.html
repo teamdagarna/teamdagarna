@@ -84,7 +84,8 @@
                   <option>Bioteknik</option>
                   <option>Datateknik</option>
                   <option>Energiteknik</option>
-                  <option>Annat/Ej valt</option>
+                  <option>Annat</option>
+                  <option>Ej valt</option>
                 </select>
               </div>
             </div>
@@ -103,7 +104,27 @@
                   <option>Projekt, innovation och entreprenörskap</option>
                   <option>Produktionsledning</option>
                   <option>Strategi och styrning</option>
-                  <option>Annat/Ej valt</option>
+                  <option>Systemteknik</option>
+                  <option>Maskinteknik</option>
+                  <option>Bioteknik</option>
+                  <option>Datateknik</option>
+                  <option>Energiteknik</option>
+                  <option>Annat</option>
+                  <option>Ej valt</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+            <label class="label">Valt nationalekonomi eller företagsekonomi</label>
+            <div class="control">
+              <div class="select">
+                <select formControlName="nekorfek">
+                  <option>Nationalekonomi</option>
+                  <option>Företagsekonomi</option>
+                  <option>Annat</option>
+                  <option>Ej valt</option>
                 </select>
               </div>
             </div>
@@ -113,9 +134,15 @@
             <label class="label">Inriktning civilekonom</label>
             <div class="control">
               <div class="select">
-                <select formControlName="engineermaster">
-                  <option>Nationalekonomi</option>
-                  <option>Företagsekonomi</option>
+                <select formControlName="filfakspecialization">
+                  <option>Redovisning</option>
+                  <option>Ekonomistyrning</option>
+                  <option>Strategi och marknadsföring</option>
+                  <option>Finansiell ekonomi</option>
+                  <option>Ekonomisk analys</option>
+                  <option>Entreprenörskap och Innovation</option>
+                  <option>Annat</option>
+                  <option>Ej valt</option>
                 </select>
               </div>
             </div>

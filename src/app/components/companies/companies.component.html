@@ -137,11 +137,6 @@
 
 
 
-  <span class="button " (click)="clearFilter() " [ngClass]="{ 'is-primary': orderBy==3} "><i class="fas fa-sort-alpha-up "></i></span>
-
-
-
-
   <!-- <div *ngFor="let filteredCompany of filteredCompanies ">
   <h6>{{ filteredCompany.name }}</h6>
 </div> -->
@@ -152,8 +147,8 @@
       <div class="card is-storyworld bm--card-equal-height ">
         <a class="card-header " (click)="openModal(company) ">
           <!-- <div *ngIf="company.logopath | url "> -->
-          <div class="card-image has-text-centered ">
-            <img style="padding: 10px; " *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl ">
+          <div class="card-image has-text-centered is-vcentered">
+            <img *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl ">
           </div>
           <!-- </div> -->
         </a>

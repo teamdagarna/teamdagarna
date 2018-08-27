@@ -16,6 +16,7 @@ export interface User {
   engineerbachelor?: string;
   engineermaster?: string;
   specialfood?: string;
+  nekorfek?: string;
   filfakspecialization?: string;
   roles: Roles;
   applications?: InterviewApplication;

@@ -28,8 +28,16 @@ i.fa {
 }
 
 .card-header {
+  height: 170px;
+
   img {
     max-height: 170px;
-    align-items: center;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }

@@ -76,6 +76,7 @@ export class AuthService {
               engineerbachelor: data.engineerbachelor,
               engineermaster: data.engineermaster,
               specialfood: data.specialfood,
+              nekorfek: data.nekorfek,
               filfakspecialization: data.filfakspecialization,
               verified: false,
               roles: {
