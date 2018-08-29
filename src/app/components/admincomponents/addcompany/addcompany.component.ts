@@ -95,7 +95,6 @@ export class AddcompanyComponent implements OnInit {
         ]
       ],
       'values': ['', [
-        Validators.required
         ]
       ],
       'firstdayappearance': [false, [

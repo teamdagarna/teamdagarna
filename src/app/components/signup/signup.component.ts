@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
       'nekorfek': ['', [
         ]
       ],
-      'filfakspecialization2': ['', [
+      'filfakspecialization': ['', [
         ]
       ],
       'specialfood': ['', [

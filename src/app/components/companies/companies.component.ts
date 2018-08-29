@@ -31,6 +31,7 @@ export class CompaniesComponent implements OnInit {
   private companiesCollection: AngularFirestoreCollection<Company>;
   companies: any;
   filteredCompanies: any;
+  searchValue: string= "";
 
   constructor(private readonly afs: AngularFirestore) {
     this.companiesCollection = afs.collection<Company>('companies');
@@ -39,6 +40,7 @@ export class CompaniesComponent implements OnInit {
         this.companies = companies;
         this.applyOrder(this.orderBy);
         this.applyFilters();
+        this.applySearch();
         this.showSpinner = false;
     });
   }
@@ -49,12 +51,17 @@ export class CompaniesComponent implements OnInit {
   getCompanies() {
     return this.afs.collection<Company>('companies').valueChanges();
   }
+
+  onSearch(event: any) { // without type info
+    this.searchValue = event.target.value;
+    this.applySearch();
+  }
+
   /// filter properties that resolve to true
   filterBoolean(property: string, rule: boolean) {
     if (!rule) this.removeFilter(property)
     else {
       this.filters[property] = val => val
-      console.log(this.filters)
       this.applyFilters()
     }
   }
@@ -62,7 +69,26 @@ export class CompaniesComponent implements OnInit {
   private applyFilters() {
   //   this.filteredCompanies = _.filter(this.companies, _.conforms(this.filters) )
      this.filteredCompanies = _.filter(this.companies, _.conforms(this.filters))
+     // this.filteredCompanies = _.filter(this.filteredCompanies, function(company) {
+	   //     return _.includes(company.name, "Bear");
+     //   });
   }
+
+  private applySearch() {
+      const search = this.searchValue;
+
+      const searchedCompanies = _.filter(this.companies, function(company) {
+          // return _.includes(_.lowerCase(company.name), _.lowerCase(search));
+          if (_.includes(_.lowerCase(company.name), _.lowerCase(search)) || _.includes(_.lowerCase(company.industry), _.lowerCase(search))) {
+            return true;
+          } else {
+            return false;
+          }
+         });
+
+      this.filteredCompanies = _.filter(searchedCompanies, _.conforms(this.filters))
+  }
+
   applyOrder(cond) {
     if (cond == 1) {
       this.orderBy = 1;

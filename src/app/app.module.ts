@@ -52,6 +52,7 @@ import { AboutComponent } from './components/about/about.component';
 import { AboutenglishComponent } from './components/aboutenglish/aboutenglish.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { WeofferComponent } from './components/weoffer/weoffer.component';
+import { VolunteerComponent } from './components/volunteer/volunteer.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
     AboutComponent,
     AboutenglishComponent,
     FaqComponent,
-    WeofferComponent
+    WeofferComponent,
+    VolunteerComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +118,8 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
     { path: 'about-english', component: AboutenglishComponent },
     { path: 'companies', component: CompaniesComponent },
     { path: 'faq', component: FaqComponent },
-    { path: 'weoffer', component: WeofferComponent }
+    { path: 'weoffer', component: WeofferComponent },
+    { path: 'sokvard', component: VolunteerComponent }
     ])
 
   ],
