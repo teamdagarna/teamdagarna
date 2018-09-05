@@ -29,9 +29,9 @@
             </ul>
           </li>
           <li>
-            <a>Event</a>
+            <a [routerLink]="['events']">Event</a>
             <ul>
-              <li><a>Lägg till event</a></li>
+              <li><a [routerLink]="['addevent']">Lägg till event</a></li>
               <li><a>Incheckning</a></li>
             </ul>
           </li>
@@ -51,10 +51,9 @@
           <li><a [routerLink]="['users']">Alla användare</a></li>
           <li><a>Företagens inlogg </a></li>
           <li><a>Hantera adminroller</a></li>
-          <li><a>Kontaktsamtal</a>
+          <li><a [routerLink]="['interviews']">Kontaktsamtal</a>
             <ul>
               <li><a>Hantera schema</a></li>
-              <li><a>Alla ansökningar</a></li>
               <li><a>Företagsvy</a></li>
             </ul>
           </li>

@@ -4,7 +4,7 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Företagen 2018 </h1>
-          <h2 class="subtitle">Vi är stolta att presentera alla 2018 års deltagandede företag är. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. </h2> </div>
+          <h2 class="subtitle">Vi är stolta att presentera 2018 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. </h2> </div>
       </div>
     </div>
   </div>
@@ -16,11 +16,13 @@
 <div class="container ">
 
 
-
   <br>
   <br>
 
   <div class="columns is-multiline">
+    <div class="column is-12">
+      <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Consulting." (keyup)="onSearch($event)">
+    </div>
 
     <div class="column is-6">
 
@@ -97,6 +99,61 @@
           </div>
         </div>
       </div>
+
+      <!--
+
+
+
+      <div class="filter-dropdown dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Bransch</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Consulting', $event.target.checked)"> Consulting
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Industri', $event.target.checked)"> Industri
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Logistik', $event.target.checked)"> Logistik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'IT & Teknik', $event.target.checked)"> IT & Teknik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Rekrytering', $event.target.checked)"> Rekrytering
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Bank & Finans', $event.target.checked)"> Bank & Finans
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Retail', $event.target.checked)"> Retail
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Revision', $event.target.checked)"> Revision
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Fastigheter & Infrastruktur', $event.target.checked)"> Fastigheter & Infrastruktur
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Förening eller Förbund', $event.target.checked)"> Förening eller Förbund
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Övrigt', $event.target.checked)"> Övrigt
+            </div>
+
+
+
+          </div>
+        </div>
+      </div> -->
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -137,51 +194,47 @@
 
 
 
-  <span class="button " (click)="clearFilter() " [ngClass]="{ 'is-primary': orderBy==3} "><i class="fas fa-sort-alpha-up "></i></span>
-
-
-
-
   <!-- <div *ngFor="let filteredCompany of filteredCompanies ">
   <h6>{{ filteredCompany.name }}</h6>
 </div> -->
 
   <div class="columns is-centered is-multiline ">
     <app-spinner *ngIf="showSpinner "></app-spinner>
-    <div class="column is-one-quarter " *ngFor="let company of filteredCompanies ">
-      <div class="card is-storyworld bm--card-equal-height ">
-        <a class="card-header " (click)="openModal(company) ">
-          <!-- <div *ngIf="company.logopath | url "> -->
-          <div class="card-image has-text-centered ">
-            <img style="padding: 10px; " *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl ">
-          </div>
-          <!-- </div> -->
-        </a>
-        <div class="card-body ">
-          <a href="/library/the-holiday-girls ">
-            <div class="card-title "> {{ company.name }}</div>
+    <ng-container *ngFor="let company of filteredCompanies">
+      <div class="column is-one-quarter " *ngIf="company.name != 'Öppen anmälan kontaktsamtal'">
+
+        <div class="card is-storyworld bm--card-equal-height ">
+          <a class="card-header " (click)="openModal(company) ">
+            <!-- <div *ngIf="company.logopath | url "> -->
+            <div class="card-image has-text-centered is-vcentered">
+              <img *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl">
+            </div>
+            <!-- </div> -->
           </a>
-          <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
-        " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="company.offersinterview "></i></span>&nbsp;
-            <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
-          </div>
-          <div class="card-description ">
-            <div class="tags ">
-              <span class="tag is-primary " *ngIf="company.offers.internship ">Internship</span>
-              <span class="tag is-primary " *ngIf="company.offers.fulltime ">Heltidsjobb</span>
-              <span class="tag is-primary " *ngIf="company.offers.parttime ">Deltidsjobb</span>
-              <span class="tag is-primary " *ngIf="company.offers.summerjob ">Sommarjobb</span>
-              <span class="tag is-primary " *ngIf="company.offers.masterthesis ">Ex-jobb</span>
-              <span class="tag is-primary " *ngIf="company.offers.abroad ">Utlandsmöjligheter</span>
-              <span class="tag is-primary " *ngIf="company.offers.trainee ">Trainee</span>
-              <span class="tag is-primary " *ngIf="company.offers.otherthesis ">Uppsatshandledning</span>
+          <div class="card-body ">
+            <div class="card-title "> {{ company.name }}</div>
+            <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
+        " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
+              <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+            </div>
+            <div class="card-description ">
+              <div class="tags ">
+                <span class="tag is-primary " *ngIf="company.internship ">Internship</span>
+                <span class="tag is-primary " *ngIf="company.fulltime ">Heltidsjobb</span>
+                <span class="tag is-primary " *ngIf="company.parttime ">Deltidsjobb</span>
+                <span class="tag is-primary " *ngIf="company.summerjob ">Sommarjobb</span>
+                <span class="tag is-primary " *ngIf="company.masterthesis ">Ex-jobb</span>
+                <span class="tag is-primary " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+                <span class="tag is-primary " *ngIf="company.trainee ">Trainee</span>
+                <span class="tag is-primary " *ngIf="company.otherthesis ">Uppsatshandledning</span>
+              </div>
             </div>
           </div>
+          <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
         </div>
-        <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
-      </div>
 
-    </div>
+      </div>
+    </ng-container>
   </div>
 
 
@@ -190,9 +243,9 @@
     <div class="modal-card ">
       <header class="modal-card-head ">
         <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
-          <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up "><i class="fas fa-leaf "></i></span>
-          <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up "><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
-          <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up "><i class="fas fa-gift "></i></span>
+          <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up"><i class="fas fa-leaf "></i></span>
+          <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
+          <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up"><i class="fas fa-gift "></i></span>
         </p>
         <button class="delete " aria-label="close " (click)="closeModal() "></button>
 
@@ -206,43 +259,43 @@
 
             <h5 class="title is-5 ">Vi ställer ut</h5>
             <div class="tags ">
-              <span class="tag is-primary " *ngIf="modalCompany.appearance.firstdayappearance ">Tisdag</span>
-              <span class="tag is-primary " *ngIf="modalCompany.appearance.seconddayappearance ">Onsdag</span>
+              <span class="tag is-primary " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
+              <span class="tag is-primary " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
             </div>
             <h5 class="title is-5 ">Vi erbjuder</h5>
             <div class="tags ">
-              <span class="tag is-primary " *ngIf="modalCompany.offers.internship ">Internship</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.fulltime ">Heltidsjobb</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.parttime ">Deltidsjobb</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.summerjob ">Sommarjobb</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.masterthesis ">Ex-jobb</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.abroad ">Utlandsmöjligheter</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.trainee ">Trainee</span>
-              <span class="tag is-primary " *ngIf="modalCompany.offers.otherthesis ">Uppsatshandledning</span>
+              <span class="tag is-primary " *ngIf="modalCompany.internship ">Internship</span>
+              <span class="tag is-primary " *ngIf="modalCompany.fulltime ">Heltidsjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.parttime ">Deltidsjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
+              <span class="tag is-primary " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span>
+              <span class="tag is-primary " *ngIf="modalCompany.trainee ">Trainee</span>
+              <span class="tag is-primary " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span>
             </div>
 
 
             <h5 class="title is-5 ">Vi söker</h5>
             <div class="tags ">
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.engineers ">Civilingenjörer i Industriell Ekonomi</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.filfakare ">Civilekonomer</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.firstyear ">1:or</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.secondyear ">2:or</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.thirdyear ">3:or</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.fourthyear ">4:or</span>
-              <span class="tag is-primary " *ngIf="modalCompany.seeking.fifthyear ">5:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.engineers ">Civilingenjörer i Industriell Ekonomi</span>
+              <span class="tag is-primary " *ngIf="modalCompany.filfakare ">Civilekonomer</span>
+              <span class="tag is-primary " *ngIf="modalCompany.firstyear ">1:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.secondyear ">2:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.thirdyear ">3:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
+              <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
             </div>
 
-            <a class="button is-primary is-outlined ">Sök kontaktsamtal</a>
+            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a>
           </div>
           <div class="is-divider-vertical "></div>
           <div class="column is-auto ">
             <div class="about-company ">
               <h5 class="title is-5 ">Om oss</h5>
-              <p>{{ modalCompany.about }}</p>
+              <p style="white-space: pre-wrap;">{{ modalCompany.about }}</p>
               <br>
-              <h5 class="title is-5 ">Vi värdesätter</h5>
-              <p>{{ modalCompany.values }}</p>
+              <h5 *ngIf="modalCompany.values" class="title is-5 ">Vi värdesätter</h5>
+              <p style="white-space: pre-wrap;">{{ modalCompany.values }}</p>
             </div>
           </div>
         </div>

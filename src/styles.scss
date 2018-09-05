@@ -18,8 +18,10 @@ $modal-background-background-color: rgba($team-blue, 0.86);
 @import 'bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css';
 @import 'bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css';
 @import 'bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css';
+@import 'bulma-extensions/bulma-calendar/dist/css/bulma-calendar.min.css';
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -187,7 +189,7 @@ hr {
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   border-radius: 10px;
-  overflow: hidden;
+  // overflow: hidden;
   transition-duration: 172ms;
   will-change: transform, box-shadow;
 }
@@ -229,7 +231,7 @@ hr {
   background-size: cover;
   transition-duration: 172ms;
   will-change: transform;
-  height: 50%;
+  height: 100%;
 }
 
 .card.is-storyworld .card-image:before {
@@ -287,4 +289,121 @@ hr {
 
 .section {
   padding: 3rem 1.5rem;
+}
+
+.event-item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.event-item.is-list {
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.event-item.is-list .event-cover {
+  max-width: 140px;
+}
+
+.event-item.is-list .event-cover+.event-content {
+  margin: 0 0 0 1.5rem;
+}
+
+.event-item.is-large {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.event-item.is-large .event-cover+.event-content {
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+}
+
+.event-item.is-large .event-image {
+  padding-bottom: 50%;
+}
+
+.event-item.is-large .event-title {
+  font-size: 2.175rem;
+}
+
+.event-item.is-large .event-meta {
+  font-size: 1.5rem;
+}
+
+.event-item:hover .event-cover:before {
+  background-color: transparent;
+}
+
+.event-item.is-spaced {
+  margin: 1rem 0;
+}
+
+.event-item+.event-item {
+  margin-top: 2rem;
+}
+
+.event-item .event-cover {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-item .event-cover+.event-content {
+  margin: 1rem 0.5rem 0;
+}
+
+.event-item .event-cover:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(142,81,199,0.25);
+  mix-blend-mode: screen;
+  content: "";
+  transition: background-color 172ms ease;
+}
+
+.event-item .event-image {
+  display: block;
+  padding-bottom: 65%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 86ms ease;
+}
+
+.event-item .event-image.is-fallback {
+  background-image: url("/assets/images/blog/fallback_cover-6545e0b5.jpg?1532484852");
+}
+
+.event-item .event-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.event-item .event-title {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #463853;
+  font-weight: 500;
+}
+
+.-item .event-meta {
+  margin-top: 0.125rem;
+  font-size: 1.125rem;
+}
+
+.event-item .event-meta date {
+  opacity: 0.5;
 }

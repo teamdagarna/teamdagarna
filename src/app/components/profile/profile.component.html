@@ -10,42 +10,201 @@
   </div>
 </div>
 
-
 <section class="section">
   <div class="container">
     <div class="columns">
 
       <div class="column is-6">
-        <div class="border-btm">
-          <h1 class="title is-2 is-spaced">Dina uppgifter</h1>
-        </div>
-        <h1 class="title is-4">
+        <ng-container *ngIf="user && !changeMode">
+          <div class="border-btm">
+            <h1 class="title is-2 is-spaced">Dina uppgifter</h1>
+          </div>
+          <h1 class="title is-4">
           <span>{{ user.firstname }} {{ user.lastname }}</span>
         </h1>
-        <h1 class="subtitle is-6">
+          <h1 class="subtitle is-6">
           Student
         </h1>
-        <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
-        <p><strong>Program:</strong> {{ user.program }}</p>
-        <p><strong>År:</strong> {{ user.year }}</p>
-        <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
-        <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
-        <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
-        <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
-        <br>
+          <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
+          <p><strong>Program:</strong> {{ user.program }}</p>
+          <p><strong>År:</strong> {{ user.year }}</p>
+          <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
+          <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
+          <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
+          <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
+          <br>
+          <a class="button is-black is-small" (click)="toggleChange()">
+               <span class="icon is-small">
+                <i class="fas fa-cog"></i>
+             </span>
+             <span>Ändra</span>
+               </a>
+        </ng-container>
+        <ng-container *ngIf="changeMode">
+          <form [formGroup]="changeForm" (ngSubmit)="submit(changeForm.value)">
 
-        <!-- <a class="button is-black is-small">
-             <span class="icon is-small">
-              <i class="fas fa-cog"></i>
-           </span>
-           <span>Ändra</span>
-             </a> -->
+
+            <div class="border-btm">
+              <h1 class="title is-2 is-spaced">Ändra dina uppgifter</h1>
+            </div>
+
+            <div class="field">
+              <label class="label" for="firstname">Förnamn</label>
+              <input class="input" [ngClass]="{ 'is-success' : !firstname.invalid && firstname.touched,  'is-danger' : firstname.invalid && firstname.touched}" type="text" placeholder="Ditt förnamn" formControlName="firstname">
+              <div class="help is-danger" *ngIf="firstname.invalid && firstname.touched">
+                Du måste skriva in ditt förnamn
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="lastname">Efternamn</label>
+              <input class="input" [ngClass]="{ 'is-success' : !lastname.invalid && lastname.touched,  'is-danger' : lastname.invalid && lastname.touched}" type="text" placeholder="Ditt efternamn" formControlName="lastname">
+              <div class="help is-danger" *ngIf="lastname.invalid && lastname.touched">
+                Du måste skriva in ditt efternamn
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Program</label>
+              <div class="control">
+                <div class="select" required>
+                  <select formControlName="program">
+                            <option>Industriell Ekonomi</option>
+                            <option>Civilekonom</option>
+                            <option>Annat</option>
+                          </select>
+                </div>
+              </div>
+              <div class="help is-danger" *ngIf="program.invalid && program.touched">
+                Du måste välja något.
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">År</label>
+              <div class="control">
+                <div class="select" required>
+                  <select formControlName="year">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>Annat</option>
+                          </select>
+                </div>
+              </div>
+              <div class="help is-danger" *ngIf="year.invalid && year.touched">
+                Du måste välja något.
+              </div>
+            </div>
+
+            <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+              <label class="label">Kandidatprofil (teknisk inriktning)</label>
+              <div class="control">
+                <div class="select">
+                  <select formControlName="engineerbachelor">
+                            <option>Systemteknik</option>
+                            <option>Maskinteknik</option>
+                            <option>Bioteknik</option>
+                            <option>Datateknik</option>
+                            <option>Energiteknik</option>
+                            <option>Annat</option>
+                            <option>Ej valt</option>
+                          </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+              <label class="label">Masterprofil</label>
+              <div class="control">
+                <div class="select">
+                  <select formControlName="engineermaster">
+                            <option>Ekonomiska informationssystem</option>
+                            <option>Finans</option>
+                            <option>Industriell marknadsföring</option>
+                            <option>Kvalitets- och verksamhetsutveckling</option>
+                            <option>Logistik</option>
+                            <option>Projekt, innovation och entreprenörskap</option>
+                            <option>Produktionsledning</option>
+                            <option>Strategi och styrning</option>
+                            <option>Systemteknik</option>
+                            <option>Maskinteknik</option>
+                            <option>Bioteknik</option>
+                            <option>Datateknik</option>
+                            <option>Energiteknik</option>
+                            <option>Annat</option>
+                            <option>Ej valt</option>
+                          </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+              <label class="label">Valt nationalekonomi eller företagsekonomi</label>
+              <div class="control">
+                <div class="select">
+                  <select formControlName="nekorfek">
+                            <option>Nationalekonomi</option>
+                            <option>Företagsekonomi</option>
+                            <option>Annat</option>
+                            <option>Ej valt</option>
+                          </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+              <label class="label">Inriktning civilekonom</label>
+              <div class="control">
+                <div class="select">
+                  <select formControlName="filfakspecialization">
+                            <option>Redovisning</option>
+                            <option>Ekonomistyrning</option>
+                            <option>Strategi och marknadsföring</option>
+                            <option>Finansiell ekonomi</option>
+                            <option>Ekonomisk analys</option>
+                            <option>Entreprenörskap och Innovation</option>
+                            <option>Annat</option>
+                            <option>Ej valt</option>
+                          </select>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label" for="specialfood">Specialkost</label>
+              <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
+            </div>
+
+            <div *ngIf="changeForm.valid">Allt ser bra ut!</div>
+            <button type="submit" [disabled]="!changeForm.valid" class="button is-black is-small"><span class="icon is-small"><i class="fas fa-check"></i></span><span>Uppdatera</span></button>
+
+            <a class="button is-white is-small" (click)="toggleChange()">
+                      <span class="icon is-small">
+                      <i class="fas fa-times"></i>
+                    </span>
+                    <span>Avbryt</span>
+                      </a>
+
+          </form>
+        </ng-container>
+
+
       </div>
       <div class="column is-6">
         <div class="border-btm">
           <h1 class="title is-2">Dina kontaktsamtalsansökningar</h1>
         </div>
-        <p>Inga ansökningar gjorda.</p>
+
+        <ng-container *ngFor="let interview of interviews">
+          <p><strong>{{ interview.companyname }}:</strong> Ansökan skickad.</p>
+        </ng-container>
+
+        <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
+
         <div class="border-btm">
           <h1 class="title is-2">Dina eventanmälningar</h1>
         </div>

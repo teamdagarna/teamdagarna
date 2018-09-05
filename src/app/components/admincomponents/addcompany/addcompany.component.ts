@@ -95,7 +95,6 @@ export class AddcompanyComponent implements OnInit {
         ]
       ],
       'values': ['', [
-        Validators.required
         ]
       ],
       'firstdayappearance': [false, [
@@ -117,6 +116,18 @@ export class AddcompanyComponent implements OnInit {
         ]
       ],
       'treasurehunt': [false, [
+        ]
+      ],
+      'interviewinfo': ['', [
+        ]
+      ],
+      'reqcl': [false, [
+        ]
+      ],
+      'reqgrades': [false, [
+        ]
+      ],
+      'reqresume': [false, [
         ]
       ],
     });
@@ -164,7 +175,12 @@ export class AddcompanyComponent implements OnInit {
       about: data.about,
       values: data.values,
       logopath: this.logopath,
-      offersinterview: this.offersinterview
+      offersinterview: this.offersinterview,
+      reqresume: data.reqresume,
+      reqcl: data.reqcl,
+      reqgrades: data.reqgrades,
+
+      interviewinfo: data.interviewinfo
     }
 
     companiesCollection.add(newCompany).then(() => {

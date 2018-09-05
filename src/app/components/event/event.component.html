@@ -1,0 +1,80 @@
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Event </h1>
+          <h2 class="subtitle">Både innan och under mässan annorndar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" *ngIf="selectedEvent">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-8 is-12-mobile">
+        <nav class="breadcrumb is-medium" aria-label="breadcrumbs">
+          <ul>
+            <li><a [routerLink]="['../../events']"><span><i class="far fa-calendar-alt"></i></span> &nbsp;Evenemang</a></li>
+            <li class="is-active"><a href="#" aria-current="page">{{ selectedEvent.title }}</a></li>
+          </ul>
+        </nav>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <p><i class="far fa-calendar-alt"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'dd MMM' }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="far fa-clock"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'HH:mm' }} - {{ selectedEvent.eventends.toDate() | date:'HH:mm' }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} (4 platser kvar)</p>
+            </div>
+          </div>
+        </nav>
+
+
+        <h1 class="title is-2 is-spaced">{{ selectedEvent.title}}</h1>
+        <h2 class="subtitle is-4" *ngIf="selectedEvent.ingress">{{ selectedEvent.ingress }}</h2>
+        <div class="columns">
+          <div class="column is-4 is-12-mobile">
+            <div class="event-item is-spaced">
+              <div class="event-cover">
+                <div class="event-image" *ngIf="selectedEvent.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content is-medium">
+          <p>{{ selectedEvent.about }}</p>
+
+        </div>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <p><i class="far fa-calendar-alt"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'dd MMM' }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="far fa-clock"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'HH:mm' }} - {{ selectedEvent.eventends.toDate() | date:'HH:mm' }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
+            </div>
+            <div class="level-item">
+              <p><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} (4 platser kvar)</p>
+            </div>
+          </div>
+        </nav>
+        <a class="button is-primary" (click)="attend()">Anmäl dig</a>
+
+
+
+      </div>
+    </div>
+  </div>
+</section>

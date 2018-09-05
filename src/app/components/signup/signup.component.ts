@@ -60,6 +60,9 @@ export class SignupComponent implements OnInit {
       'engineermaster': ['', [
         ]
       ],
+      'nekorfek': ['', [
+        ]
+      ],
       'filfakspecialization': ['', [
         ]
       ],

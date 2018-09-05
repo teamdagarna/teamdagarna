@@ -1,0 +1,52 @@
+<p>
+  interviews works!
+</p>
+<div class="field">
+  <label class="label">Välj företag</label>
+  <div class="control has-icons-left">
+    <div class="select is-primary is-large is-fullwidth">
+      <select (ngModelChange)="getCompany($event)">
+        <option value="-1">Välj företag</option>
+        <option *ngFor="let company of companies" value="{{company.id}}">{{ company.name }}</option>
+    </select>
+    </div>
+    <div class="icon is-small is-left">
+      <i class="far fa-building"></i>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+
+    <tr>
+      <th>LiU-ID</th>
+      <th>Förnamn</th>
+      <th>Efternamn</th>
+      <th>Program</th>
+      <th>Rättigheter</th>
+      <th>Spara</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interview of interviews | async">
+      <th>linga300</th>
+      <th>Linus</th>
+      <td>Gålén</td>
+      <td>Industriell Ekonomi</td>
+      <td>
+        <div class="select is-small">
+          <select>
+            <option>Student</option>
+            <option>Dreateam Member</option>
+            <option>Dreateam Member Platinum</option>
+          </select>
+        </div>
+      </td>
+
+    </tr>
+  </tbody>
+  <div *ngIf="interviews?.length < 1">
+    <p>Inga användare hittade</p>
+  </div>
+</table>

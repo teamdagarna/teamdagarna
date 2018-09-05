@@ -1,0 +1,128 @@
+<form [formGroup]="changeEventForm" (ngSubmit)="submit(changeEventForm.value)">
+
+
+
+  <div class="card login-card">
+    <div class="card-content">
+      <h1 class="title is-2">Ändra event</h1>
+      <div class="columns">
+        <div class="column is-half">
+
+          <div class="file is-info">
+            <label class="file-label">
+          <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Ladda upp bild (Bäst med ratio runt 5:3)
+            </span>
+          </span>
+        </label>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div *ngIf="percentage | async as pct">
+
+            <progress class="progress is-success" [value]="pct" max="100">
+          </progress> {{ pct | number }}%
+
+          </div>
+          <div *ngIf="downloadURL | async as url">
+            <h3>Uploaded!</h3>
+            <!-- <img [src]="url"><br>
+            <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Titel</label>
+        <input class="input is-success" type="text" formControlName="title">
+      </div>
+
+      <div class="field">
+        <label class="label">Ingress/inledning (Optional)</label>
+        <input class="input is-success" type="text" formControlName="ingress">
+      </div>
+
+      <div class="field">
+        <label class="label">Beskrivande text</label>
+        <textarea class="textarea is-success" type="text" formControlName="about"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="label">Infördagarna eller mässdagarna?</label>
+        <div class="control">
+          <div class="select" required>
+            <select formControlName="preorunder">
+              <option>Infördagarna</option>
+              <option>Mässdagarna</option>
+              <option>Övrigt</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Plats/sal</label>
+        <input class="input is-success" type="text" formControlName="location">
+      </div>
+
+      <div class="field">
+        <label class="label">När börjar eventet?</label>
+        <input class="input" [owlDateTime]="eventstarts" [owlDateTimeTrigger]="eventstarts" formControlName="eventstarts">
+        <owl-date-time #eventstarts></owl-date-time>
+      </div>
+      <div class="field">
+        <label class="label">När slutar eventet?</label>
+        <input class="input" [owlDateTime]="eventends" [owlDateTimeTrigger]="eventends" formControlName="eventends">
+        <owl-date-time #eventends></owl-date-time>
+      </div>
+      <div class="field">
+        <label class="label">Anmälan öppnar:</label>
+        <input class="input" [owlDateTime]="signonstarts" [owlDateTimeTrigger]="signonstarts" formControlName="signonstarts">
+        <owl-date-time #signonstarts></owl-date-time>
+      </div>
+
+      <div class="field">
+        <label class="label">Anmälan stänger:</label>
+        <input class="input" [owlDateTime]="signonends" [owlDateTimeTrigger]="signonends" formControlName="signonends">
+        <owl-date-time #signonends></owl-date-time>
+      </div>
+
+      <div class="field">
+        <label class="label">Avanmälan stänger:</label>
+        <input class="input" [owlDateTime]="signoffends" [owlDateTimeTrigger]="signoffends" formControlName="signoffends">
+        <owl-date-time #signoffends></owl-date-time>
+      </div>
+
+      <div class="field">
+        <label class="label">Hur många platser?</label>
+        <input class="input is-success" type="number" formControlName="maxattendance">
+      </div>
+
+      <div class="field">
+        <label class="label">Hur många får mat?</label>
+        <input class="input is-success" type="number" formControlName="foodportions">
+      </div>
+
+      <div class="field">
+        <label class="label">Publicera? (Ska eventet synas?)</label>
+        <input type="checkbox" formControlName="published"> JA
+      </div>
+
+      <div class="field">
+        <label class="label">Hur coolt är eventet på en skala mellan 0-100? Där 0 är möte med företagsgruppen och 100 är Blondinbella. (Högre ger mer publicitet)</label>
+        <input class="input is-success" type="number" formControlName="coolness">
+      </div>
+
+
+
+      <button type="submit" class="button is-fullwidth" [disabled]="!changeEventForm.valid">Ändra</button>
+    </div>
+
+  </div>
+
+</form>

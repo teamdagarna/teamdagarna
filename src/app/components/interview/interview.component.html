@@ -1,0 +1,215 @@
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Sök kontaktsamtal </h1>
+          <h2 class="subtitle"> </h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="section" *ngIf="user && !success">
+  <div class="columns is-centered">
+    <div class="column is-8 is-12-mobile">
+
+      <h1 class="subtitle is-4">
+        Ansökan för kontaktsamtal stänger 9 september och därefter får företagen tillgång till alla ansökningar. Du som sökt kontaktsamtal kommer från och med början av vecka 38 att få reda på vilka företag som valt dig som kandidat. Sista svarsdag för kontaktsamtalen är onsdagen 19 september.
+      </h1>
+      <h1 class="subtitle is-4">
+        Öppen ansökan är en ytterligare en chans för dig som söker att få gå kontaktsamtal. Företag som har angett att de vill kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag.      </h1>
+
+      <h1 class="subtitle is-4">
+        <em>OBS! Du kan endast söka 6 stycken kontaktsamtal (plus öppen anmälan) och tacka ja till maximalt 6 stycken samtal.</em>
+      </h1>
+      <h5 *ngIf="applicationsMade > 5 && appliedOpen" class="subtitle is-4 "><strong class="has-text-danger">Du har sökt 6st plus öppen och kan därmed inte söka fler.</strong></h5>
+      <h5 *ngIf="applicationsMade > 5 && !appliedOpen" class="subtitle is-4">Du har sökt 6st och kan nu därmed endast söka till den öppna.</h5>
+      <h5 *ngIf="applicationsMade < 6 && !appliedOpen" class="subtitle is-4">Du har <strong>{{ 6 - applicationsMade }} stycken plus öppen ansökan kvar</strong>.</h5>
+      <h5 *ngIf="applicationsMade < 6 && appliedOpen" class="subtitle is-4">Du har <strong>{{ 6 - applicationsMade }} stycken ansökningar kvar</strong>.</h5>
+
+      <form [formGroup]="interviewForm" (ngSubmit)="submit()">
+
+        <div class="field">
+          <label class="label">Välj företag</label>
+          <div class="control has-icons-left">
+            <div class="select is-primary is-large is-fullwidth">
+              <select formControlName="selectedCompany" (ngModelChange)="getCompany($event)">
+                <option value="-1">Välj företag</option>
+                <option *ngFor="let company of companies" value="{{company.id}}" [selected]="company.id==preselected" [disabled]="hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5)">{{ company.name }}</option>
+            </select>
+            </div>
+            <div class="icon is-small is-left">
+              <i class="far fa-building"></i>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="company">
+          <div class="is-divider" data-content="FÖRETAGSINFO"></div>
+          <h5 class="title is-5 ">Vi erbjuder</h5>
+          <div class="tags ">
+            <span class="tag is-primary " *ngIf="company.internship ">Internship</span>
+            <span class="tag is-primary " *ngIf="company.fulltime ">Heltidsjobb</span>
+            <span class="tag is-primary " *ngIf="company.parttime ">Deltidsjobb</span>
+            <span class="tag is-primary " *ngIf="company.summerjob ">Sommarjobb</span>
+            <span class="tag is-primary " *ngIf="company.masterthesis ">Ex-jobb</span>
+            <span class="tag is-primary " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+            <span class="tag is-primary " *ngIf="company.trainee ">Trainee</span>
+            <span class="tag is-primary " *ngIf="company.otherthesis ">Uppsatshandledning</span>
+          </div>
+
+          <h5 class="title is-5 ">Vi söker</h5>
+          <div class="tags ">
+            <span class="tag is-primary " *ngIf="company.engineers ">Civilingenjörer i Industriell Ekonomi</span>
+            <span class="tag is-primary " *ngIf="company.filfakare ">Civilekonomer</span>
+            <span class="tag is-primary " *ngIf="company.firstyear ">1:or</span>
+            <span class="tag is-primary " *ngIf="company.secondyear ">2:or</span>
+            <span class="tag is-primary " *ngIf="company.thirdyear ">3:or</span>
+            <span class="tag is-primary " *ngIf="company.fourthyear ">4:or</span>
+            <span class="tag is-primary " *ngIf="company.fifthyear ">5:or</span>
+          </div>
+          <h5 class="title is-5 ">Om oss</h5>
+          <p style="white-space: pre-wrap;">{{ company.about }}</p>
+          <br>
+          <h5 *ngIf="company.values" class="title is-5 ">Vi värdesätter</h5>
+          <p style="white-space: pre-wrap;">{{ company.values }}</p>
+          <br>
+          <h5 *ngIf="company.interviewinfo" class="title is-5 ">Kontaktsamtalsinfo</h5>
+          <p style="white-space: pre-wrap;">{{ company.interviewinfo }}</p>
+
+
+
+          <div class="is-divider" data-content="DIN PROFIL"></div>
+          <p><strong>Namn:</strong> {{ user.firstname }} {{ user.lastname }}</p>
+          <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
+          <p><strong>Program:</strong> {{ user.program }}</p>
+          <p><strong>År:</strong> {{ user.year }}</p>
+          <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
+          <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
+          <p *ngIf="user.nekorfek"><strong>Nationalekonomi/Företagsekonomi:</strong> {{ user.nekorfek }}</p>
+          <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
+          <br>
+          <p><em>Du kan redigera dina uppgifter under "Min profil".</em></p>
+
+
+          <div class="is-divider" data-content="ANSÖKAN"></div>
+
+          <h5 *ngIf="applicationsMade > 5" class="is-title is-2">Du har sökt fler än 6st och kan därmed inte söka fler.</h5>
+
+          <ng-container *ngIf="!(applicationsMade > 5 && appliedOpen)">
+
+
+
+
+            <p><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong><strong *ngIf="company.reqgrades">Betyg.</strong></p>
+            <br>
+            <div class="columns is-centered">
+
+              <ng-container *ngIf="company.reqresume">
+                <div class="column is-3">
+                  <div class="file has-name is-boxed">
+                    <label class="file-label">
+                <input class="file-input" type="file" (change)="startUploadResume($event.target.files)" accept="application/pdf">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp CV
+                  </span>
+                </span>
+                <span class="file-name has-text-centered">
+                <ng-container *ngIf="cvuploaded">Filen är ok!</ng-container>
+                </span>
+              </label>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="company.reqcl">
+                <div class="column is-3">
+                  <div class="file has-name is-boxed">
+                    <label class="file-label">
+                <input class="file-input" type="file" (change)="startUploadCoverLetter($event.target.files)" accept="application/pdf">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp personligt brev
+                  </span>
+                </span>
+                <span class="file-name has-text-centered">
+                  <ng-container *ngIf="cluploaded">Filen är uppladdad!</ng-container>
+                </span>
+              </label>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="company.reqgrades">
+                <div class="column is-3">
+                  <div class="file has-name is-boxed">
+                    <label class="file-label">
+                <input class="file-input" type="file" (change)="startUploadGrades($event.target.files)" accept="application/pdf">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp betyg
+                  </span>
+                </span>
+                <span class="file-name has-text-centered">
+                  <ng-container *ngIf="gradesuploaded">Filen är ok!</ng-container>
+                </span>
+              </label>
+                  </div>
+                </div>
+              </ng-container>
+
+
+
+            </div>
+
+
+            <button type="submit" class="button is-fullwidth is-primary" [disabled]="okToSubmit()">Skicka ansökan</button>
+          </ng-container>
+        </ng-container>
+      </form>
+
+    </div>
+  </div>
+</section>
+<section *ngIf="success" class="section">
+  <div class="container">
+    <div class="notification is-success">
+      <h1 class="title is-5">Ansökan inskickad!</h1>
+      <p>Du kan se dina gjorda ansökningar under "Min profil". Framöver kommer du även kunna se status för varje anmälan, Dreamteam återkommer med detta.</p>
+      <br>
+      <p>Du har nu sökt {{ applicationsMade }} stycken samtal (excl. öppen anmälan). Du kan max söka till 6 stycken företag plus skicka in till den öppna ansökan.</p>
+      <br>
+      <a class="button is-white" (click)="refresh()">Tillbaka till att söka fler</a>
+      <!-- [routerLink]="['interview']" -->
+    </div>
+  </div>
+</section>
+
+<section *ngIf="notsuccess" class="section">
+  <div class="container">
+    <div class="notification is-warning">
+      <h1 class="title is-5">Något gick fel!</h1>
+      <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
+      <br>
+      <a class="button is-white" (click)="refresh()">Tillbaka</a>
+      <!-- [routerLink]="['interview']" -->
+    </div>
+  </div>
+</section>
+
+
+<section class="section" *ngIf="!user">
+  <h1 class="is-3">Logga in för att kunna söka kontaktsamtal.</h1>
+</section>
