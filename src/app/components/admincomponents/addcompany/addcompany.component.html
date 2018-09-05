@@ -141,6 +141,14 @@
         <input type="checkbox" formControlName="seconddaypackage1"> 10x25min
         <input type="checkbox" formControlName="seconddaypackage2"> 7x35min
       </div>
+
+      <div class="field">
+        <label class="label">Kontaktsamtal: Ansökan ska innehålla</label>
+        <input type="checkbox" formControlName="reqresume"> CV/Resume
+        <input type="checkbox" formControlName="reqcl"> Personligt brev/Cover letter
+        <input type="checkbox" formControlName="reqgrades"> Betyg
+      </div>
+
       <div class="field">
         <label class="label">Deltagande i mässjakten?</label>
         <input type="checkbox" formControlName="treasurehunt"> Ja
@@ -158,6 +166,13 @@
         <label class="label">Företaget värdesätter</label>
         <div class="control">
           <textarea class="textarea" placeholder="Som blir avsnittet 'Vi värdesätter' i företagsbeskrivningen." formControlName="values"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Kontaktsamtalsinfo</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Text som syns när student söker kontaktsamtal" formControlName="interviewinfo"></textarea>
         </div>
       </div>
 

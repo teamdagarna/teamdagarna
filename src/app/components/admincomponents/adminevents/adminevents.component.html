@@ -1,0 +1,18 @@
+<div class="columns is-multiline is-variable is-5">
+  <div class="column is-12">
+  </div>
+  <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of events">
+    <div class="event-item is-spaced">
+      <a class="event-cover" href="/blog/turning-classic-fairytales-upside-down/">
+        <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+      </a>
+      <div class="event-content">
+        <h3> <a class="event-title" href="/blog/turning-classic-fairytales-upside-down/">{{ event.title }}</a></h3>
+        <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'MMM d'}}, {{ event.location }}</span> </p>
+        <a class="" [routerLink]="[event.id]">Redigera</a>
+      </div>
+
+
+    </div>
+  </div>
+</div>

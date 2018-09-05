@@ -48,9 +48,14 @@ export interface Company {
   interviewpackages: Interviewpackages;
   treasurehunt?: boolean;
   about: string;
-  values: string;
+  values?: string;
   logopath: string;
   offersinterview: boolean;
+  reqresume?: boolean;
+  reqcl?: boolean;
+  reqgrades?:boolean;
+
+  interviewinfo?: string;
 
   firstdayappearance?: boolean;
   seconddayappearance?: boolean;
@@ -87,8 +92,19 @@ export interface Dreamteamer {
 }
 
 export interface InterviewApplication {
-  applicant: User;
-  companyabbrev: string;
+  applicant: string;
+  company: string;
+  companyname: string;
+  firstname: string;
+  lastname: string;
+  liuid: string;
+  program: string;
+  year: string;
+  engineerbachelor?: string;
+  engineermaster?: string;
+  specialfood?: string;
+  nekorfek?: string;
+  filfakspecialization?: string;
   backup: boolean;
   backupnumber?: number;
   notselected: boolean;
@@ -99,7 +115,35 @@ export interface InterviewApplication {
   studentdeclined: boolean;
   resumepath?: string;
   coverletterpath?: string;
-  gradepath?: string;
+  gradespath?: string;
   day?: string;
   time?: string;
+}
+
+export interface Event {
+  title: string;
+  ingress?: string;
+  about: string;
+  preorunder: string;
+  location: string;
+  eventstarts: Date;
+  eventends: Date;
+  signonstarts: Date;
+  signonends: Date;
+  signoffends: Date;
+  maxattendance: number;
+  foodportions: number;
+  published: boolean;
+  coolness: number;
+  imagepath: string;
+}
+
+export interface AttendEvent {
+  event: string;
+  eventtitle: string;
+  attendant: string;
+  firstname: string;
+  lastname: string;
+  liuid: string;
+  specialfood?: string;
 }

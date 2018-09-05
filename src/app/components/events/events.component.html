@@ -1,0 +1,69 @@
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Event </h1>
+          <h2 class="subtitle">Både innan och under mässan annorndar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" *ngIf="!toggleEvent">
+  <div class="container">
+
+
+    <div class="columns is-multiline is-variable is-5">
+      <div class="column is-12">
+        <div class="border-btm">
+          <h1 class="title is-3">Under mässdagarna</h1>
+        </div>
+      </div>
+      <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of fairevents">
+        <div class="event-item is-spaced">
+          <a class="event-cover" href="/blog/turning-classic-fairytales-upside-down/">
+            <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+          </a>
+          <div class="event-content">
+            <h3> <a class="event-title">{{ event.title}}</a></h3>
+            <p class="event-meta"> <span>{{ event.eventstarts | date:'MMM d'}}, {{ event.location }}</span> </p>
+            <a class="button is-small">Läs mer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-multiline is-variable is-5">
+      <div class="column is-12">
+        <div class="border-btm">
+          <h1 class="title is-3">Infördagarna</h1>
+        </div>
+      </div>
+      <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of preevents">
+        <div class="event-item is-spaced">
+          <a class="event-cover" href="/blog/turning-classic-fairytales-upside-down/">
+            <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+          </a>
+          <div class="event-content">
+            <h3> <a class="event-title" href="/blog/turning-classic-fairytales-upside-down/">{{ event.title }}</a></h3>
+            <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'MMM d'}}, {{ event.location }}</span> </p>
+            <a class="" [routerLink]="[event.id]">Läs mer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam asperiores, quasi ea quia et expedita. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum reprehenderit amet aliquam eos inventore officia hic atque, ipsum
+deleniti nobis accusamus voluptas voluptatum illum, nesciunt. Modi quisquam quia libero, dolore dolor dignissimos error et qui ut non ratione minus itaque vitae, cumque, temporibus facere a! Reiciendis tempore facilis libero, ea incidunt quisquam repellendus,
+aspernatur doloremque consequuntur nostrum enim ducimus excepturi nihil rem odio velit eius nam praesentium corporis non commodi accusamus dolorum. Quos molestias officiis a dolore expedita. Amet magnam aperiam quibusdam, reprehenderit! Sapiente natus
+pariatur, ipsam iste ipsa ab officiis tenetur provident quibusdam aspernatur, saepe voluptatem! Labore reprehenderit provident, aspernatur sed sunt dignissimos earum esse fuga neque illo voluptatum ex in distinctio dolorum nam. Totam fugiat provident
+quibusdam vitae.

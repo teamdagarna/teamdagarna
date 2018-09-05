@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -53,7 +53,24 @@ import { AboutenglishComponent } from './components/aboutenglish/aboutenglish.co
 import { FaqComponent } from './components/faq/faq.component';
 import { WeofferComponent } from './components/weoffer/weoffer.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
+import { InterviewComponent } from './components/interview/interview.component';
+import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
+import { InterviewsComponent } from './components/admincomponents/interviews/interviews.component';
 
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { EventsComponent } from './components/events/events.component';
+
+import { registerLocaleData } from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
+import { EventComponent } from './components/event/event.component';
+import { AdmineventsComponent } from './components/admincomponents/adminevents/adminevents.component';
+import { AdmineventComponent } from './components/admincomponents/adminevent/adminevent.component';
+
+import { DatePipe } from '@angular/common';
+
+
+registerLocaleData(localeSv, 'sv');
 
 @NgModule({
   declarations: [
@@ -85,7 +102,14 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
     AboutenglishComponent,
     FaqComponent,
     WeofferComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    InterviewComponent,
+    AddeventComponent,
+    InterviewsComponent,
+    EventsComponent,
+    EventComponent,
+    AdmineventsComponent,
+    AdmineventComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +120,9 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
     AngularFireStorageModule,
     HttpClientModule,
     NgAisModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
     { path: '', component: HomeComponent },
     { path: 'dreamteamadmin', component: AdminComponent, canActivate: [AdminGuard],
@@ -106,7 +133,11 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
         { path: 'companies', component: AdmincompaniesComponent },
         { path: 'modifycompany/:id', component: CompanyComponent },
         { path: 'addcompany', component: AddcompanyComponent },
-        { path: 'addstaff', component: AddstaffComponent }
+        { path: 'addstaff', component: AddstaffComponent },
+        { path: 'addevent', component: AddeventComponent },
+        { path: 'interviews', component: InterviewsComponent },
+        { path: 'events/:id', component: AdmineventComponent },
+        { path: 'events', component: AdmineventsComponent },
       ] },
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
@@ -119,11 +150,14 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
     { path: 'companies', component: CompaniesComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
-    { path: 'sokvard', component: VolunteerComponent }
+    { path: 'sokvard', component: VolunteerComponent },
+    { path: 'interview', component: InterviewComponent },
+    { path: 'events/:id', component: EventComponent },
+    { path: 'events', component: EventsComponent }
     ])
-
   ],
-  providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, FirestoreService],
+  providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

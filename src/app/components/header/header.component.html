@@ -17,20 +17,26 @@
 
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/documentation/overview/start/">
+          <a class="navbar-link">
           För studenter
         </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item is-disabled" [routerLink]="['companies']">
             Företagen 2018
           </a>
+            <a class="navbar-item is-disabled" [routerLink]="['interview']">
+          Sök kontaktsamtal
+        </a>
+            <a class="navbar-item is-disabled" *ngIf="auth.canEdit(user)" [routerLink]="['events']">
+        Evenenang
+      </a>
             <a class="navbar-item is-disabled" [routerLink]="['sokvard']">
           Sök värd
         </a>
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/documentation/overview/start/">
+          <a class="navbar-link">
           För företag
         </a>
           <div class="navbar-dropdown is-boxed">
@@ -50,7 +56,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/documentation/overview/start/">
+          <a class="navbar-link">
           Om oss
         </a>
           <div class="navbar-dropdown is-boxed">

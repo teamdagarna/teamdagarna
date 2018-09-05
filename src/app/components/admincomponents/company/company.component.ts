@@ -31,7 +31,7 @@ export class CompanyComponent implements OnInit {
 
   offersinterview: boolean = false;
 
-  constructor(private findRoute: ActivatedRoute, private afs: AngularFirestore, private storage: AngularFireStorage, public fb: FormBuilder) {
+  constructor(private findRoute: ActivatedRoute, private afs: AngularFirestore, private storage: AngularFireStorage, public fb: FormBuilder, private router: Router) {
     const companyID = this.findRoute.snapshot.params.id;
     this.companyDoc = afs.collection('companies').doc<Company>(companyID);
     console.log('companies/${companyID}')
@@ -41,7 +41,23 @@ export class CompanyComponent implements OnInit {
         this.company = company;
         this.setValues()
             this.logopath = this.company.logopath;
+
+
+            if (this.company.reqresume === undefined) {
+              this.companyDoc.update({reqresume: false})
+            }
+            if (this.company.reqcl  === undefined) {
+              this.companyDoc.update({reqcl: false})
+            }
+            if (this.company.reqgrades  === undefined) {
+              this.companyDoc.update({reqgrades: false})
+            }
+            if (this.company.interviewinfo  === undefined) {
+              this.companyDoc.update({interviewinfo: ''})
+            }
     });
+
+
 
 
   }
@@ -110,6 +126,18 @@ export class CompanyComponent implements OnInit {
       'treasurehunt': [false, [
         ]
       ],
+      'interviewinfo': ['', [
+        ]
+      ],
+      'reqcl': [false, [
+        ]
+      ],
+      'reqgrades': [false, [
+        ]
+      ],
+      'reqresume': [false, [
+        ]
+      ],
     });
 
   }
@@ -144,15 +172,24 @@ export class CompanyComponent implements OnInit {
     this.addCompanyForm.controls['values'].patchValue(this.company.values);
     this.addCompanyForm.controls['firstdayappearance'].patchValue(this.company.firstdayappearance);
     this.addCompanyForm.controls['seconddayappearance'].patchValue(this.company.seconddayappearance);
-    this.addCompanyForm.controls['firstdaypackage1'].patchValue(this.company.firstdaypackage1);
-    this.addCompanyForm.controls['firstdaypackage2'].patchValue(this.company.firstdaypackage2);
-    this.addCompanyForm.controls['seconddaypackage1'].patchValue(this.company.seconddaypackage1);
-    this.addCompanyForm.controls['seconddaypackage2'].patchValue(this.company.seconddaypackage2);
+    this.addCompanyForm.controls['firstdaypackage1'].patchValue(this.company.interviewpackages.firstdaypackage1);
+    this.addCompanyForm.controls['firstdaypackage2'].patchValue(this.company.interviewpackages.firstdaypackage2);
+    this.addCompanyForm.controls['seconddaypackage1'].patchValue(this.company.interviewpackages.seconddaypackage1);
+    this.addCompanyForm.controls['seconddaypackage2'].patchValue(this.company.interviewpackages.seconddaypackage2);
     this.addCompanyForm.controls['treasurehunt'].patchValue(this.company.treasurehunt);
+
+    this.addCompanyForm.controls['interviewinfo'].patchValue(this.company.interviewinfo);
+
+    this.addCompanyForm.controls['reqcl'].patchValue(this.company.reqcl);
+
+    this.addCompanyForm.controls['reqresume'].patchValue(this.company.reqresume);
+
+    this.addCompanyForm.controls['reqgrades'].patchValue(this.company.reqgrades);
   }
 
   update(company: Company) {
     this.companyDoc.update(company);
+    this.router.navigate(['dreamteamadmin/companies']);
   }
 
 
@@ -191,7 +228,11 @@ export class CompanyComponent implements OnInit {
         about: data.about,
         values: data.values,
         logopath: this.logopath,
-        offersinterview: this.offersinterview
+        offersinterview: this.offersinterview,
+        reqresume: data.reqresume,
+        reqcl: data.reqcl,
+        reqgrades: data.reqgrades,
+        interviewinfo: data.interviewinfo
       }
 
       this.update(changedCompany)
