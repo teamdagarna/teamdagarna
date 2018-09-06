@@ -69,6 +69,8 @@ import { AdmineventComponent } from './components/admincomponents/adminevent/adm
 
 import { DatePipe } from '@angular/common';
 
+import { QuillModule } from 'ngx-quill'
+
 
 registerLocaleData(localeSv, 'sv');
 
@@ -123,6 +125,7 @@ registerLocaleData(localeSv, 'sv');
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     BrowserAnimationsModule,
+    QuillModule,
     RouterModule.forRoot([
     { path: '', component: HomeComponent },
     { path: 'dreamteamadmin', component: AdminComponent, canActivate: [AdminGuard],

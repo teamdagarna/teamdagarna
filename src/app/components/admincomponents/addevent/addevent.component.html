@@ -42,7 +42,11 @@
       <div class="field">
         <label class="label">Titel</label>
         <input class="input is-success" type="text" formControlName="title">
+
       </div>
+
+
+
 
       <div class="field">
         <label class="label">Ingress/inledning (Optional)</label>
@@ -51,6 +55,7 @@
 
       <div class="field">
         <label class="label">Beskrivande text</label>
+        <!-- <quill-editor formControlName="about"></quill-editor> -->
         <textarea class="textarea is-success" type="text" formControlName="about"></textarea>
       </div>
 
@@ -82,31 +87,39 @@
         <input class="input" [owlDateTime]="eventends" [owlDateTimeTrigger]="eventends" formControlName="eventends">
         <owl-date-time #eventends></owl-date-time>
       </div>
-      <div class="field">
-        <label class="label">Anmälan öppnar:</label>
-        <input class="input" [owlDateTime]="signonstarts" [owlDateTimeTrigger]="signonstarts" formControlName="signonstarts">
-        <owl-date-time #signonstarts></owl-date-time>
-      </div>
 
       <div class="field">
-        <label class="label">Anmälan stänger:</label>
-        <input class="input" [owlDateTime]="signonends" [owlDateTimeTrigger]="signonends" formControlName="signonends">
-        <owl-date-time #signonends></owl-date-time>
+        <label class="label">Ska anmälan finnas? (Nej om det t.ex. sköts externt)</label>
+        <input type="checkbox" formControlName="signon"> Ja
       </div>
 
-      <div class="field">
-        <label class="label">Avanmälan stänger:</label>
-        <input class="input" [owlDateTime]="signoffends" [owlDateTimeTrigger]="signoffends" formControlName="signoffends">
-        <owl-date-time #signoffends></owl-date-time>
-      </div>
+      <ng-container *ngIf="signon.value">
+        <div class="field">
+          <label class="label">Anmälan öppnar:</label>
+          <input class="input" [owlDateTime]="signonstarts" [owlDateTimeTrigger]="signonstarts" formControlName="signonstarts">
+          <owl-date-time #signonstarts></owl-date-time>
+        </div>
+
+        <div class="field">
+          <label class="label">Anmälan stänger:</label>
+          <input class="input" [owlDateTime]="signonends" [owlDateTimeTrigger]="signonends" formControlName="signonends">
+          <owl-date-time #signonends [stepMinute]="15"></owl-date-time>
+        </div>
+
+        <div class="field">
+          <label class="label">Avanmälan stänger:</label>
+          <input class="input" [owlDateTime]="signoffends" [owlDateTimeTrigger]="signoffends" formControlName="signoffends">
+          <owl-date-time #signoffends></owl-date-time>
+        </div>
+      </ng-container>
 
       <div class="field">
-        <label class="label">Hur många platser?</label>
+        <label class="label">Hur många platser? (0 = odefinerat/oändligt)</label>
         <input class="input is-success" type="number" formControlName="maxattendance">
       </div>
 
       <div class="field">
-        <label class="label">Hur många får mat?</label>
+        <label class="label">Hur många får mat? (0 = ingen)</label>
         <input class="input is-success" type="number" formControlName="foodportions">
       </div>
 
@@ -119,8 +132,6 @@
         <label class="label">Hur coolt är eventet på en skala mellan 0-100? Där 0 är möte med företagsgruppen och 100 är Blondinbella. (Högre ger mer publicitet)</label>
         <input class="input is-success" type="number" formControlName="coolness">
       </div>
-
-
 
       <button type="submit" class="button is-fullwidth" [disabled]="!addEventForm.valid">Lägg till eventet</button>
     </div>

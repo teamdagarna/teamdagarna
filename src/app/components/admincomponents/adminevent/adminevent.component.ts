@@ -62,7 +62,8 @@ export class AdmineventComponent implements OnInit {
         'maxattendance': ['', [Validators.required]],
         'foodportions': ['0', []],
         'published': [false, []],
-        'coolness': ['0', [Validators.required]]
+        'coolness': ['0', [Validators.required]],
+        'signon': [true, [Validators.required]]
       });
 
       this.preloadData();
@@ -82,6 +83,8 @@ export class AdmineventComponent implements OnInit {
       this.router.navigate(['dreamteamadmin/events']);
 
     }
+
+    get signon() { return this.changeEventForm.get('signon') }
 
     preloadData() {
 
