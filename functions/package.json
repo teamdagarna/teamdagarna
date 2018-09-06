@@ -20,7 +20,7 @@
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
     "@types/sharp": "^0.17.9",
-    "tslint": "~5.8.0",
+    "tslint": "^5.8.0",
     "typescript": "~2.8.3"
   },
   "private": true
