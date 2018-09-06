@@ -10,8 +10,6 @@ import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'
 
 import { Event } from '../../../shared/models';
 
-import Quill from 'quill';
-
 @Component({
   selector: 'app-addevent',
   templateUrl: './addevent.component.html',
@@ -36,8 +34,7 @@ logoUploaded: boolean = false;
   constructor(public fb: FormBuilder, private router: Router, private afs: AngularFirestore, private storage: AngularFireStorage) { }
 
   ngOnInit() {
-
-    this.today = this.roundMinutes(new Date());
+    this.today = Date();
 
     this.addEventForm = this.fb.group({
       'title': ['', [Validators.required]],
@@ -45,16 +42,15 @@ logoUploaded: boolean = false;
       'about': ['', [Validators.required]],
       'preorunder': ['', [Validators.required]],
       'location': ['', [Validators.required]],
-      'eventstarts': [this.today, [Validators.required]],
-      'eventends': [this.today, [Validators.required]],
-      'signonstarts': [this.today, [Validators.required]],
-      'signonends': [this.today, [Validators.required]],
-      'signoffends': [this.today, [Validators.required]],
-      'maxattendance': ['0', [Validators.required]],
+      'eventstarts': ['', [Validators.required]],
+      'eventends': ['', [Validators.required]],
+      'signonstarts': ['', [Validators.required]],
+      'signonends': ['', [Validators.required]],
+      'signoffends': ['', [Validators.required]],
+      'maxattendance': ['', [Validators.required]],
       'foodportions': ['0', []],
       'published': [false, []],
-      'coolness': ['0', [Validators.required]],
-      'signon': [true, [Validators.required]]
+      'coolness': ['0', [Validators.required]]
     });
 
   }
@@ -80,24 +76,15 @@ logoUploaded: boolean = false;
       foodportions: data.foodportions,
       published: data.published,
       coolness: data.coolness,
-      imagepath: this.imagepath,
-      signon: data.signon
+      imagepath: this.imagepath
     }
 
     companiesCollection.add(newEvent).then(() => {
-        this.router.navigate(['dreamteamadmin/events'])
+        this.router.navigate(['dreamteamadmin'])
     });
 
 
   }
-
-  roundMinutes(date) {
-    date.setHours(date.getHours() + Math.round(date.getMinutes()/60));
-    date.setMinutes(0);
-    return date;
-  }
-
-  get signon() { return this.addEventForm.get('signon') }
 
   // file
   startUpload(event: FileList) {

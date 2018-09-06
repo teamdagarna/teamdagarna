@@ -81,36 +81,30 @@
         <owl-date-time #eventends></owl-date-time>
       </div>
       <div class="field">
-        <label class="label">Ska anmälan finnas? (Nej om det t.ex. sköts externt)</label>
-        <input type="checkbox" formControlName="signon"> Ja
+        <label class="label">Anmälan öppnar:</label>
+        <input class="input" [owlDateTime]="signonstarts" [owlDateTimeTrigger]="signonstarts" formControlName="signonstarts">
+        <owl-date-time #signonstarts></owl-date-time>
       </div>
-      <ng-container *ngIf="signon.value">
-        <div class="field">
-          <label class="label">Anmälan öppnar:</label>
-          <input class="input" [owlDateTime]="signonstarts" [owlDateTimeTrigger]="signonstarts" formControlName="signonstarts">
-          <owl-date-time #signonstarts></owl-date-time>
-        </div>
-
-        <div class="field">
-          <label class="label">Anmälan stänger:</label>
-          <input class="input" [owlDateTime]="signonends" [owlDateTimeTrigger]="signonends" formControlName="signonends">
-          <owl-date-time #signonends></owl-date-time>
-        </div>
-
-        <div class="field">
-          <label class="label">Avanmälan stänger:</label>
-          <input class="input" [owlDateTime]="signoffends" [owlDateTimeTrigger]="signoffends" formControlName="signoffends">
-          <owl-date-time #signoffends></owl-date-time>
-        </div>
-      </ng-container>
 
       <div class="field">
-        <label class="label">Hur många platser? (0 = odefinerat/oändligt)</label>
+        <label class="label">Anmälan stänger:</label>
+        <input class="input" [owlDateTime]="signonends" [owlDateTimeTrigger]="signonends" formControlName="signonends">
+        <owl-date-time #signonends></owl-date-time>
+      </div>
+
+      <div class="field">
+        <label class="label">Avanmälan stänger:</label>
+        <input class="input" [owlDateTime]="signoffends" [owlDateTimeTrigger]="signoffends" formControlName="signoffends">
+        <owl-date-time #signoffends></owl-date-time>
+      </div>
+
+      <div class="field">
+        <label class="label">Hur många platser?</label>
         <input class="input is-success" type="number" formControlName="maxattendance">
       </div>
 
       <div class="field">
-        <label class="label">Hur många får mat? (0 = ingen)</label>
+        <label class="label">Hur många får mat?</label>
         <input class="input is-success" type="number" formControlName="foodportions">
       </div>
 
