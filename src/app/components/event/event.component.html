@@ -33,16 +33,10 @@
               <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
             </div>
             <div class="level-item">
-              <p><i class="fas fa-users" *ngIf="selectedEvent.maxattendance > 0"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="signon">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
-            </div>
-            <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="signon">första anmälda får mat</span></p>
+              <p><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} (4 platser kvar)</p>
             </div>
           </div>
         </nav>
-        <p *ngIf="selectedEvent.signonends.toDate() < today && signon"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
-        <p *ngIf="selectedEvent.signonstarts.toDate() > today && signon"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
-        <br>
 
 
         <h1 class="title is-2 is-spaced">{{ selectedEvent.title}}</h1>
@@ -72,46 +66,14 @@
               <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
             </div>
             <div class="level-item">
-              <p><i class="fas fa-users" *ngIf="selectedEvent.maxattendance > 0"></i>&nbsp;{{ selectedEvent.maxattendance }} ({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</p>
-            </div>
-            <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} första anmälda får mat</p>
+              <p><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} (4 platser kvar)</p>
             </div>
           </div>
         </nav>
-        <ng-container *ngIf="signon">
+        <a class="button is-primary" (click)="attend()">Anmäl dig</a>
 
 
-          <p *ngIf="selectedEvent.signonends.toDate() < today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
-          <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
-          <br>
-          <ng-container *ngIf="user">
-            <ng-container *ngIf="attended && !confirmDelete && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today">
-              <p class="has-text-primary" *ngIf="attendedDoc.waitinglist && !confirmDelete">Du står som reserv.</p>
-              <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist && !confirmDelete">Du är anmäld.</p>
-              <br>
-              <a class="button is-primary is-outlined" (click)="delete()">
-            <span>Avanmäl dig</span>
-            <span class="icon is-small">
-              <i class="fas fa-times"></i>
-            </span>
-          </a>
-            </ng-container>
-            <ng-container *ngIf="!attended && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today">
 
-              <a class="button is-primary" (click)="attend()" *ngIf="(selectedEvent.maxattendance - numberofsignups) > 0">Anmäl dig</a>
-
-              <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Eventet är för tillfället fullt, men du kan sätta upp dig på reservlistan. Kom ihåg att om du sätter upp dig på reservlistan så är det du själv som måste hålla koll på om du fått en plats eller inte. Detta ser du lätt under din profil.</p>
-              <br>
-              <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Just nu är det {{numberofreserves}} stycken reserver på listan.</p>
-              <br>
-              <a class="button is-primary" (click)="reserv()" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Sätt upp dig som reserv</a>
-            </ng-container>
-          </ng-container>
-          <br>
-          <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
-          <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Följ om du fått en plats under din profil.</p>
-        </ng-container>
       </div>
     </div>
   </div>

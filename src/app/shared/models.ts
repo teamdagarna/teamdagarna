@@ -128,15 +128,14 @@ export interface Event {
   location: string;
   eventstarts: Date;
   eventends: Date;
-  signonstarts?: Date;
-  signonends?: Date;
-  signoffends?: Date;
+  signonstarts: Date;
+  signonends: Date;
+  signoffends: Date;
   maxattendance: number;
   foodportions: number;
   published: boolean;
   coolness: number;
   imagepath: string;
-  signon: boolean;
 }
 
 export interface AttendEvent {
@@ -147,8 +146,4 @@ export interface AttendEvent {
   lastname: string;
   liuid: string;
   specialfood?: string;
-  getsfood: boolean;
-  waitinglist: boolean;
-  timestamp: Date;
-  checkedin: boolean;
 }
