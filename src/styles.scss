@@ -22,6 +22,9 @@ $modal-background-background-color: rgba($team-blue, 0.86);
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import "~ng-pick-datetime/assets/style/picker.min.css";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+@import '~quill/dist/quill.bubble.css';
 
 html {
   -webkit-font-smoothing: antialiased;
