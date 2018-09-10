@@ -10,8 +10,14 @@
   </div>
 </div>
 
+<br>
+<section class="section">
+  <div class="container">
+    <h1 class="title is-3">Ansökan till kontaktsamtal har för i år stängt. Välkommen att söka igen nästa år.</h1>
+  </div>
+</section>
 
-<section class="section" *ngIf="user && !success">
+<!-- <section class="section" *ngIf="user && !success && !notsuccess">
   <div class="columns is-centered">
     <div class="column is-8 is-12-mobile">
 
@@ -175,7 +181,7 @@
             </div>
 
 
-            <button type="submit" class="button is-fullwidth is-primary" [disabled]="okToSubmit()">Skicka ansökan</button>
+            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="okToSubmit()">Skicka ansökan</button>
           </ng-container>
         </ng-container>
       </form>
@@ -192,7 +198,6 @@
       <p>Du har nu sökt {{ applicationsMade }} stycken samtal (excl. öppen anmälan). Du kan max söka till 6 stycken företag plus skicka in till den öppna ansökan.</p>
       <br>
       <a class="button is-white" (click)="refresh()">Tillbaka till att söka fler</a>
-      <!-- [routerLink]="['interview']" -->
     </div>
   </div>
 </section>
@@ -204,7 +209,6 @@
       <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
       <br>
       <a class="button is-white" (click)="refresh()">Tillbaka</a>
-      <!-- [routerLink]="['interview']" -->
     </div>
   </div>
 </section>
@@ -212,4 +216,4 @@
 
 <section class="section" *ngIf="!user">
   <h1 class="is-3">Logga in för att kunna söka kontaktsamtal.</h1>
-</section>
+</section> -->

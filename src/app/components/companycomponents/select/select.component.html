@@ -1,0 +1,246 @@
+<div class="hero is-black is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Välj ut studenter </h1>
+          <h2 class="subtitle">Här kan ni se alla studenter som sökt kontaktsamtal och välja ut de ni vill prata med.</h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<ng-container>
+  <section class="section" *ngIf="!selectView">
+    <div class="continer">
+
+      <div class="columns is-centered">
+        <div class="column is-4 is-12-mobile">
+          <form [formGroup]="submitCodeForm" (ngSubmit)="submit(submitCodeForm.value)">
+
+            <div class="field">
+              <label class="label" for="code">Företagskod</label>
+              <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code" value="1BH6033">
+            </div>
+            <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen.</p>
+
+            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta kontaktsamtal</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" *ngIf="selectView && interviews && company">
+    <section class="section">
+      <div class="contianer">
+        <h2 class="subtitle is-5"><em>Ni väljer de ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver välja de ut kandidater som blir antagna kan ni ta ut upp till fem reserver som rangorndas mellan 1-5 där nummer 1 kommer få en plats först. Skulle ni ha några frågor eller har prolbem kan ni kontakta kontaktsamtalsansvarig på <a href="julia.karlsson@teamdagarna.com ">julia.karlsson@teamdagarna.com</a> eller IT-asnvarig på <a href="itwebb@teamdagarna.com ">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan de bero på att internetkoppling inte finns.</em></h2>
+      </div>
+    </section>
+    <div class="columns is-centered">
+      <div class="column is-12">
+
+
+        <h1 class="title is-3">{{ company.name }}</h1>
+
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+
+              <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
+              <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
+              <th>År <a (click)="applyOrder('year')"><i class="fas fa-sort"></i></a></th>
+              <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrder('firstchoice')"><i class="fas fa-sort"></i></a></th>
+              <th>Civ.Ek inrikt. 2 / Civ.Ing Master <a (click)="applyOrder('secondchoice')"><i class="fas fa-sort"></i></a></th>
+              <th *ngIf="company.reqresume">CV</th>
+              <th *ngIf="company.reqcl">PB</th>
+              <th *ngIf="company.reqgrades">Betyg</th>
+              <th>Status <a (click)="applyOrder('status')"><i class="fas fa-sort"></i></a></th>
+              <th>Ändra/Uppdatera </th>
+
+
+
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Namn</th>
+              <th>Program</th>
+              <th>År</th>
+              <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
+              <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
+              <th>CV</th>
+              <th>PB</th>
+              <th>Betyg</th>
+              <th>Status</th>
+              <th>Ändra/Uppdatera </th>
+            </tr>
+          </tfoot>
+
+
+          <tbody>
+            <tr *ngFor="let interview of interviews; trackBy: trackByStatus" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
+              <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+              <td>{{ interview.program }}</td>
+              <td>{{ interview.year }}</td>
+              <ng-container *ngIf="interview.program == 'Civilekonom'">
+                <td>{{ interview.nekorfek }}</td>
+                <td>{{ interview.filfakspecialization }}</td>
+              </ng-container>
+              <ng-container *ngIf="interview.program == 'Industriell Ekonomi'">
+                <td>{{ interview.engineerbachelor }}</td>
+                <td>{{ interview.engineermaster }}</td>
+              </ng-container>
+              <ng-container *ngIf="interview.program == 'Annat'">
+                <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
+                <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
+                <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
+                <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
+                <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
+                <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+              </ng-container>
+
+
+              <td *ngIf="company.reqresume">
+                <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }}" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
+              <td *ngIf="company.reqcl">
+                <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }}" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
+              <td *ngIf="company.reqgrades">
+                <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }}" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
+              <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
+              <td>
+                <form [formGroup]="changeStatus" (ngSubmit)="submit()">
+                  <div class="select is-small">
+                    <select formControlName="change" (ngModelChange)="updateApplicant($event, interview.id)">
+                    <option value="choose" [selected]="true">Välj åtgärd</option>
+              <option value="pending">Avvakta</option>
+              <option value="notselected">Nekad</option>
+              <option value="selected" [disabled]="!selectedavailable">Antagen</option>
+              <option value="backup1" [disabled]="!backup1available">Reserv 1</option>
+              <option value="backup2" [disabled]="!backup2available">Reserv 2</option>
+              <option value="backup3" [disabled]="!backup3available">Reserv 3</option>
+              <option value="backup4" [disabled]="!backup4available">Reserv 4</option>
+              <option value="backup5" [disabled]="!backup5available">Reserv 5</option>
+
+            </select>
+                  </div>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+        <ng-container *ngIf="company.seeopenapplicants">
+
+
+
+          <h1 class="title is-3">Ansökningar från öppna ansökan:</h1>
+          <table class="table">
+            <thead>
+              <tr>
+
+                <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
+                <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
+                <th>År <a (click)="applyOrder('year')"><i class="fas fa-sort"></i></a></th>
+                <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrder('firstchoice')"><i class="fas fa-sort"></i></a></th>
+                <th>Civ.Ek inrikt. 2 / Civ.Ing Master <a (click)="applyOrder('secondchoice')"><i class="fas fa-sort"></i></a></th>
+                <th *ngIf="company.reqresume">CV</th>
+                <th *ngIf="company.reqcl">PB</th>
+                <th *ngIf="company.reqgrades">Betyg</th>
+                <th>Status <a (click)="applyOrder('status')"><i class="fas fa-sort"></i></a></th>
+                <th>Ändra/Uppdatera </th>
+
+
+
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Namn</th>
+                <th>Program</th>
+                <th>År</th>
+                <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
+                <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
+                <th>CV</th>
+                <th>PB</th>
+                <th>Betyg</th>
+                <th>Status</th>
+                <th>Ändra/Uppdatera </th>
+              </tr>
+            </tfoot>
+
+
+            <tbody>
+              <tr *ngFor="let interview of openInterviews; trackBy: trackByStatus" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
+                <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+                <td>{{ interview.program }}</td>
+                <td>{{ interview.year }}</td>
+                <ng-container *ngIf="interview.program == 'Civilekonom'">
+                  <td>{{ interview.nekorfek }}</td>
+                  <td>{{ interview.filfakspecialization }}</td>
+                </ng-container>
+                <ng-container *ngIf="interview.program == 'Industriell Ekonomi'">
+                  <td>{{ interview.engineerbachelor }}</td>
+                  <td>{{ interview.engineermaster }}</td>
+                </ng-container>
+                <ng-container *ngIf="interview.program == 'Annat'">
+                  <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
+                  <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
+                  <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
+                  <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
+                  <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
+                  <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+                </ng-container>
+
+
+                <td *ngIf="company.reqresume">
+                  <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }}" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+                <td *ngIf="company.reqcl">
+                  <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }}" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+                <td *ngIf="company.reqgrades">
+                  <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }}" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+                <th>{{ interview.status }}</th>
+                <td>
+                  <form [formGroup]="changeStatus" (ngSubmit)="submit()">
+                    <div class="select is-small">
+                      <select formControlName="change" (ngModelChange)="updateApplicantOpen($event, interview.id)">
+                        <option value="choose" [selected]="true">Välj åtgärd</option>
+                  <option value="pending">Avvakta</option>
+                  <option value="notselected">Nekad</option>
+                  <option value="selected" [disabled]="!selectedavailable">Antagen</option>
+                  <option value="backup1" [disabled]="!backup1available">Reserv 1</option>
+                  <option value="backup2" [disabled]="!backup2available">Reserv 2</option>
+                  <option value="backup3" [disabled]="!backup3available">Reserv 3</option>
+                  <option value="backup4" [disabled]="!backup4available">Reserv 4</option>
+                  <option value="backup5" [disabled]="!backup5available">Reserv 5</option>
+
+            </select>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+      </div>
+    </div>
+
+  </section>
+
+</ng-container>

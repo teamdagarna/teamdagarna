@@ -76,6 +76,9 @@ export interface Company {
   thirdyear?: boolean;
   fourthyear?: boolean;
   fifthyear?: boolean;
+
+  totalapplicants?: number;
+  seeopenapplicants?: boolean;
 }
 
 export interface Dreamteamer {
@@ -151,4 +154,10 @@ export interface AttendEvent {
   waitinglist: boolean;
   timestamp: Date;
   checkedin: boolean;
+}
+
+export interface Code {
+  code: string;
+  company: string;
+  companyname: string;
 }

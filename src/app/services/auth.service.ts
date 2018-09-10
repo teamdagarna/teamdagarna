@@ -95,6 +95,11 @@ export class AuthService {
       .catch(error => this.handleError(error) );
   }
 
+  newVerify() {
+    var userToVer = firebase.auth().currentUser;
+    userToVer.sendEmailVerification();
+  }
+
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
@@ -176,6 +181,11 @@ export class AuthService {
 
   canDelete(user: User): boolean {
     const allowed = ['dreamteamPlatinumMember']
+    return this.checkAuthorization(user, allowed)
+  }
+
+  isCompany(user: User): boolean {
+    const allowed = ['dreamteamPlatinumMember', 'company']
     return this.checkAuthorization(user, allowed)
   }
 

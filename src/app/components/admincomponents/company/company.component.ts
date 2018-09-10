@@ -138,6 +138,12 @@ export class CompanyComponent implements OnInit {
       'reqresume': [false, [
         ]
       ],
+      'totalapplicants': [0, [
+        ]
+      ],
+      'seeopenapplicants': [false, [
+        ]
+      ],
     });
 
   }
@@ -151,40 +157,43 @@ export class CompanyComponent implements OnInit {
     //   companyName: 'Todd Motto'
     // });
 
+    this.addCompanyForm.patchValue(this.company)
+
+
     this.addCompanyForm.controls['companyName'].patchValue(this.company.name);
-    this.addCompanyForm.controls['industry'].patchValue(this.company.industry);
-    this.addCompanyForm.controls['internship'].patchValue(this.company.internship);
-    this.addCompanyForm.controls['masterthesis'].patchValue(this.company.masterthesis);
-    this.addCompanyForm.controls['otherthesis'].patchValue(this.company.otherthesis);
-    this.addCompanyForm.controls['parttime'].patchValue(this.company.parttime);
-    this.addCompanyForm.controls['fulltime'].patchValue(this.company.fulltime);
-    this.addCompanyForm.controls['trainee'].patchValue(this.company.trainee);
-    this.addCompanyForm.controls['summerjob'].patchValue(this.company.summerjob);
-    this.addCompanyForm.controls['abroad'].patchValue(this.company.abroad);
-    this.addCompanyForm.controls['engineers'].patchValue(this.company.engineers);
-    this.addCompanyForm.controls['filfakare'].patchValue(this.company.filfakare);
-    this.addCompanyForm.controls['firstyear'].patchValue(this.company.firstyear);
-    this.addCompanyForm.controls['secondyear'].patchValue(this.company.secondyear);
-    this.addCompanyForm.controls['thirdyear'].patchValue(this.company.thirdyear);
-    this.addCompanyForm.controls['fourthyear'].patchValue(this.company.fourthyear);
-    this.addCompanyForm.controls['fifthyear'].patchValue(this.company.fifthyear);
-    this.addCompanyForm.controls['about'].patchValue(this.company.about);
-    this.addCompanyForm.controls['values'].patchValue(this.company.values);
-    this.addCompanyForm.controls['firstdayappearance'].patchValue(this.company.firstdayappearance);
-    this.addCompanyForm.controls['seconddayappearance'].patchValue(this.company.seconddayappearance);
+    // this.addCompanyForm.controls['industry'].patchValue(this.company.industry);
+    // this.addCompanyForm.controls['internship'].patchValue(this.company.internship);
+    // this.addCompanyForm.controls['masterthesis'].patchValue(this.company.masterthesis);
+    // this.addCompanyForm.controls['otherthesis'].patchValue(this.company.otherthesis);
+    // this.addCompanyForm.controls['parttime'].patchValue(this.company.parttime);
+    // this.addCompanyForm.controls['fulltime'].patchValue(this.company.fulltime);
+    // this.addCompanyForm.controls['trainee'].patchValue(this.company.trainee);
+    // this.addCompanyForm.controls['summerjob'].patchValue(this.company.summerjob);
+    // this.addCompanyForm.controls['abroad'].patchValue(this.company.abroad);
+    // this.addCompanyForm.controls['engineers'].patchValue(this.company.engineers);
+    // this.addCompanyForm.controls['filfakare'].patchValue(this.company.filfakare);
+    // this.addCompanyForm.controls['firstyear'].patchValue(this.company.firstyear);
+    // this.addCompanyForm.controls['secondyear'].patchValue(this.company.secondyear);
+    // this.addCompanyForm.controls['thirdyear'].patchValue(this.company.thirdyear);
+    // this.addCompanyForm.controls['fourthyear'].patchValue(this.company.fourthyear);
+    // this.addCompanyForm.controls['fifthyear'].patchValue(this.company.fifthyear);
+    // this.addCompanyForm.controls['about'].patchValue(this.company.about);
+    // this.addCompanyForm.controls['values'].patchValue(this.company.values);
+    // this.addCompanyForm.controls['firstdayappearance'].patchValue(this.company.firstdayappearance);
+    // this.addCompanyForm.controls['seconddayappearance'].patchValue(this.company.seconddayappearance);
     this.addCompanyForm.controls['firstdaypackage1'].patchValue(this.company.interviewpackages.firstdaypackage1);
     this.addCompanyForm.controls['firstdaypackage2'].patchValue(this.company.interviewpackages.firstdaypackage2);
     this.addCompanyForm.controls['seconddaypackage1'].patchValue(this.company.interviewpackages.seconddaypackage1);
     this.addCompanyForm.controls['seconddaypackage2'].patchValue(this.company.interviewpackages.seconddaypackage2);
-    this.addCompanyForm.controls['treasurehunt'].patchValue(this.company.treasurehunt);
-
-    this.addCompanyForm.controls['interviewinfo'].patchValue(this.company.interviewinfo);
-
-    this.addCompanyForm.controls['reqcl'].patchValue(this.company.reqcl);
-
-    this.addCompanyForm.controls['reqresume'].patchValue(this.company.reqresume);
-
-    this.addCompanyForm.controls['reqgrades'].patchValue(this.company.reqgrades);
+    // this.addCompanyForm.controls['treasurehunt'].patchValue(this.company.treasurehunt);
+    //
+    // this.addCompanyForm.controls['interviewinfo'].patchValue(this.company.interviewinfo);
+    //
+    // this.addCompanyForm.controls['reqcl'].patchValue(this.company.reqcl);
+    //
+    // this.addCompanyForm.controls['reqresume'].patchValue(this.company.reqresume);
+    //
+    // this.addCompanyForm.controls['reqgrades'].patchValue(this.company.reqgrades);
   }
 
   update(company: Company) {
@@ -232,7 +241,9 @@ export class CompanyComponent implements OnInit {
         reqresume: data.reqresume,
         reqcl: data.reqcl,
         reqgrades: data.reqgrades,
-        interviewinfo: data.interviewinfo
+        interviewinfo: data.interviewinfo,
+        totalapplicants: data.totalapplicants,
+        seeopenapplicants: data.seeopenapplicants
       }
 
       this.update(changedCompany)

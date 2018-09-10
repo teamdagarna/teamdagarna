@@ -27,8 +27,8 @@
             <a class="navbar-item is-disabled" [routerLink]="['interview']">
           Sök kontaktsamtal
         </a>
-            <a class="navbar-item is-disabled" *ngIf="auth.canEdit(user)" [routerLink]="['events']">
-        Evenenang
+            <a class="navbar-item is-disabled" [routerLink]="['events']">
+        Event
       </a>
             <a class="navbar-item is-disabled" [routerLink]="['sokvard']">
           Sök värd
@@ -49,10 +49,10 @@
             <a class="navbar-item" [routerLink]="['weoffer']">
         Erbjudande
       </a>
-            <!-- <hr class="navbar-divider"> -->
-            <!-- <a class="navbar-item" href="#">
-            Login för företag
-          </a> -->
+            <hr class="navbar-divider">
+            <a class="navbar-item" [routerLink]="['companysignin']">
+            Inloggning gästföretag
+          </a>
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">

@@ -208,7 +208,12 @@
         <div class="border-btm">
           <h1 class="title is-2">Dina eventanmälningar</h1>
         </div>
-        <p>Inga anmälningar gjorda.</p>
+        <ng-container *ngFor="let event of events">
+          <a [routerLink]="['../events', event.event]"><i class="fas fa-angle-right"></i><strong>&nbsp;{{ event.eventtitle }} (Garanterad mat: <span *ngIf="event.getsfood">Ja</span><span *ngIf="!event.getsfood">Nej</span>)</strong></a>
+        </ng-container>
+
+        <p *ngIf="events == undefined || events.length == 0">Inga anmälningar gjorda.</p>
+
       </div>
     </div>
   </div>

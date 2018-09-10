@@ -1,0 +1,21 @@
+<div class="hero is-black is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Välj ut studenter </h1>
+          <h2 class="subtitle">Här kan ni se alla studenter som sökt kontaktsamtal och välja ut de ni vill prata med.</h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="submitCodeForm" (ngSubmit)="submit(submitCodeForm.value)">
+
+  <div class="field">
+    <label class="label" for="code">Kod</label>
+    <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code">
+  </div>
+
+  <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Generera</button>
+</form>

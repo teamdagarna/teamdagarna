@@ -76,9 +76,9 @@ export class InterviewComponent implements OnInit {
           this.applied = interviews;
           this.applicationsMade = _.size(interviews);
           this.appliedOpen = _.find(interviews, function(o) { return o.companyname == 'Öppen anmälan kontaktsamtal'; });
-          // if (this.appliedOpen) {
-          //   this.applicationsMade = this.applicationsMade-1;
-          // }
+          if (this.appliedOpen) {
+            this.applicationsMade = this.applicationsMade-1;
+          }
           // console.log(this.applicationsMade);
         });
       });
@@ -95,8 +95,9 @@ export class InterviewComponent implements OnInit {
          }
          });
          this.companies = _.orderBy(this.companies, ['name'])
-        this.getCompany(this.preselected);
+        this.getCompany(this.companies[0]);
     });
+
   }
 
   ngOnInit() {

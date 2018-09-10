@@ -22,12 +22,13 @@ export class EventsComponent implements OnInit {
   constructor(private afs: AngularFirestore) {
     this.getEvents().subscribe(events => {
       this.events = events;
-      this.fairevents = _.filter(events, function(event) {
+      this.fairevents = _.orderBy(_.filter(events, function(event) {
        return (event.preorunder == 'Mässdagarna')
-       });
-       this.preevents = _.filter(events, function(event) {
+     }), ['eventstarts'], ['asc']);
+       this.preevents = _.orderBy(_.filter(events, function(event) {
         return (event.preorunder == 'Infördagarna')
-      });
+      }), ['eventstarts'], ['asc']);
+
     });
   }
 

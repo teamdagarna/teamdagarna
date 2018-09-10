@@ -8,9 +8,19 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NotificationComponent implements OnInit {
 
+  sent: boolean = false;
+
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
 
+  verify() {
+    try {
+      this.auth.newVerify()
+    } catch(err) {
+      console.log(err);
+    }
+    this.sent = true;
+  }
 }

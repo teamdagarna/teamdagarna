@@ -1,0 +1,45 @@
+<div class="hero is-black is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Företagsinlogg </h1>
+          <h2 class="subtitle">Denna inloggningsida är för företag som erbjuder kontaktsamtal på mässan.</h2> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <form [formGroup]="companyLoginForm" (ngSubmit)="login(companyLoginForm.value)">
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+
+          <div class="card login-card">
+            <div class="card-content">
+
+              <h3 class="title is-2">Logga in</h3>
+              <h3 class="subtitle is-4">Du ska ha fått dina inloggningsuppgifter från kontaktsamtalsansvarig. Om du eller någon av dina kollegor inte fått, var vänlig kontakta Julia på <a href="julia.karlsson@teamdagarna.com ">julia.karlsson@teamdagarna.com</a>.</h3>
+
+              <div class="field">
+                <label class="label" for="mail">Liu-ID</label>
+                <input class="input" type="text" placeholder="Användarnamn" formControlName="mail">
+              </div>
+
+              <div class="field">
+                <label class="label" for="password">Lösenord</label>
+                <input class="input" type="password" placeholder="Ditt lösenord" formControlName="password">
+              </div>
+              <p class="error-message">{{ errorMessage }}</p>
+
+              <button type="submit" [disabled]="!companyLoginForm.valid" class="button is-fullwidth">Logga in</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

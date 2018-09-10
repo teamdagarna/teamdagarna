@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
 
     this.signupForm = this.fb.group({
       'liuid': ['', [
-        Validators.pattern('[A-Za-z]{5}[0-9]{3}$'),
+        Validators.pattern('[A-Za-z]{4,5}[0-9]{3}$'),
         Validators.required
         ]
       ],

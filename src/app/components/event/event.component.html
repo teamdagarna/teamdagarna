@@ -4,7 +4,7 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Event </h1>
-          <h2 class="subtitle">Både innan och under mässan annorndar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div>
+          <h2 class="subtitle">Både innan och under mässan anordnar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div>
       </div>
     </div>
   </div>
@@ -33,10 +33,10 @@
               <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
             </div>
             <div class="level-item">
-              <p><i class="fas fa-users" *ngIf="selectedEvent.maxattendance > 0"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="signon">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
+              <p *ngIf="selectedEvent.maxattendance > 0"><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="selectedEvent.signon && auth.canEdit(user)">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
             </div>
             <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="signon">första anmälda får mat</span></p>
+              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p>
             </div>
           </div>
         </nav>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="content is-medium">
-          <p>{{ selectedEvent.about }}</p>
+          <p style="white-space: pre-wrap;">{{ selectedEvent.about }}</p>
 
         </div>
         <nav class="level">
@@ -72,23 +72,22 @@
               <p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p>
             </div>
             <div class="level-item">
-              <p><i class="fas fa-users" *ngIf="selectedEvent.maxattendance > 0"></i>&nbsp;{{ selectedEvent.maxattendance }} ({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</p>
+              <p *ngIf="selectedEvent.maxattendance > 0"><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="selectedEvent.signon && auth.canEdit(user)">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
             </div>
             <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} första anmälda får mat</p>
+              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p>
             </div>
           </div>
         </nav>
-        <ng-container *ngIf="signon">
-
-
-          <p *ngIf="selectedEvent.signonends.toDate() < today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
+        <ng-container *ngIf="selectedEvent.signon">
+          <p *ngIf="selectedEvent.signonends.toDate() > today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
+          <p *ngIf="selectedEvent.signoffends.toDate() && selectedEvent.signoffends.toDate() > today"><em>Avmälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}</em></p>
           <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
           <br>
           <ng-container *ngIf="user">
             <ng-container *ngIf="attended && !confirmDelete && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today">
               <p class="has-text-primary" *ngIf="attendedDoc.waitinglist && !confirmDelete">Du står som reserv.</p>
-              <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist && !confirmDelete">Du är anmäld.</p>
+              <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist && !confirmDelete">Du är anmäld (Garanterad mat: <span *ngIf="attendedDoc.getsfood">Ja</span><span *ngIf="!attendedDoc.getsfood">Nej</span>).</p>
               <br>
               <a class="button is-primary is-outlined" (click)="delete()">
             <span>Avanmäl dig</span>
@@ -97,22 +96,31 @@
             </span>
           </a>
             </ng-container>
-            <ng-container *ngIf="!attended && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today">
+            <ng-container *ngIf="!attended && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today && loaded">
 
-              <a class="button is-primary" (click)="attend()" *ngIf="(selectedEvent.maxattendance - numberofsignups) > 0">Anmäl dig</a>
+              <a class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="attend() " *ngIf="(selectedEvent.maxattendance - numberofsignups)> 0 && loaded">Anmäl dig*</a>
 
               <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Eventet är för tillfället fullt, men du kan sätta upp dig på reservlistan. Kom ihåg att om du sätter upp dig på reservlistan så är det du själv som måste hålla koll på om du fått en plats eller inte. Detta ser du lätt under din profil.</p>
               <br>
               <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Just nu är det {{numberofreserves}} stycken reserver på listan.</p>
               <br>
-              <a class="button is-primary" (click)="reserv()" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Sätt upp dig som reserv</a>
+              <a class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1">Sätt upp dig som reserv</a>
             </ng-container>
           </ng-container>
           <br>
+          <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du Kunde inte anmäla dig. Är du redan anmäld?</p>
           <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
           <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Följ om du fått en plats under din profil.</p>
         </ng-container>
+        <p *ngIf="!user && selectedEvent.signon"><em>Du måste vara inloggad för att kunna anmäla dig.</em></p>
+        <br>
+        <br>
+        <p class="subtitle is-6">*Om du anmält dig på ett event och inte dycker upp gäller samma policy som I-Sektionen och ELIN tillämpar. Läs mer på din respektive sektions hemsida.</p>
       </div>
     </div>
   </div>
 </section>
+
+<ng-container *ngFor="let test of signups">
+  <p> {{ test.specialfood }} </p>
+</ng-container>

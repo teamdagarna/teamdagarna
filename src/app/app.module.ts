@@ -15,6 +15,7 @@ import { FirestoreService } from './services/firestore.service';
 import { ThirdapiService } from './services/thirdapi.service';
 import { AdminGuard } from './services/admin.guard';
 import { PlatinumadminGuard } from './services/platinumadmin.guard';
+import { CompanyGuard } from './services/company.guard';
 
 import { environment } from '../environments/environment';
 
@@ -69,7 +70,11 @@ import { AdmineventComponent } from './components/admincomponents/adminevent/adm
 
 import { DatePipe } from '@angular/common';
 
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { CompanysigninComponent } from './components/companycomponents/companysignin/companysignin.component';
+import { CompanycodesComponent } from './components/admincomponents/companycodes/companycodes.component';
+import { SelectComponent } from './components/companycomponents/select/select.component';
+import { CodeComponent } from './components/companycomponents/code/code.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -111,7 +116,11 @@ registerLocaleData(localeSv, 'sv');
     EventsComponent,
     EventComponent,
     AdmineventsComponent,
-    AdmineventComponent
+    AdmineventComponent,
+    CompanysigninComponent,
+    CompanycodesComponent,
+    SelectComponent,
+    CodeComponent
   ],
   imports: [
     BrowserModule,
@@ -131,16 +140,17 @@ registerLocaleData(localeSv, 'sv');
     { path: 'dreamteamadmin', component: AdminComponent, canActivate: [AdminGuard],
     children: [
         { path: '', component: DashboardComponent },
-        { path: 'users', component: UsersComponent },
-        { path: 'modifyuser/:id', component: UserComponent },
+        { path: 'users', component: UsersComponent, canActivate: [PlatinumadminGuard]},
+        { path: 'modifyuser/:id', component: UserComponent, canActivate: [PlatinumadminGuard] },
         { path: 'companies', component: AdmincompaniesComponent },
         { path: 'modifycompany/:id', component: CompanyComponent },
         { path: 'addcompany', component: AddcompanyComponent },
         { path: 'addstaff', component: AddstaffComponent },
         { path: 'addevent', component: AddeventComponent },
-        { path: 'interviews', component: InterviewsComponent },
+        { path: 'interviews', component: InterviewsComponent, canActivate: [PlatinumadminGuard] },
         { path: 'events/:id', component: AdmineventComponent },
         { path: 'events', component: AdmineventsComponent },
+        { path: 'companycodes', component: CompanycodesComponent, canActivate: [PlatinumadminGuard] },
       ] },
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
@@ -156,10 +166,12 @@ registerLocaleData(localeSv, 'sv');
     { path: 'sokvard', component: VolunteerComponent },
     { path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
-    { path: 'events', component: EventsComponent }
+    { path: 'events', component: EventsComponent },
+    { path: 'companysignin', component: CompanysigninComponent },
+    { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],
-  providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
+  providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
   bootstrap: [AppComponent]
 })
 

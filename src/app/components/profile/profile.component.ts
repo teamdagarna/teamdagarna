@@ -3,8 +3,9 @@ import { AuthService } from '../../services/auth.service';
 import { InterviewApplication } from '../../shared/models';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../../shared/models';
+import { User, AttendEvent, Event } from '../../shared/models';
 import { tap, first } from 'rxjs/operators';
+import { switchMap, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -22,13 +23,19 @@ export class ProfileComponent implements OnInit {
   changeMode = false;
   updated = false;
 
+  events;
+
   constructor(public auth: AuthService, private readonly afs: AngularFirestore, public fb: FormBuilder) {
     this.auth.user$.subscribe(user => {
       this.user = user;
       this.getInterviews().subscribe(interviews => {
           this.interviews = interviews;
       });
-          this.preloadData();
+      this.preloadData();
+      this.getAttendance().subscribe(att => {
+
+            this.events = att;
+        });
     });
 
    }
@@ -84,6 +91,29 @@ export class ProfileComponent implements OnInit {
       return ref
         .where('applicant', '==', this.user.uid);
     }).valueChanges();
+  }
+
+  getAttendance() {
+    return this.afs.collection<AttendEvent>('attendevent', ref => {
+      return ref
+        .where('attendant', '==', this.user.uid)
+        .where('checkedin', '==', false);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as AttendEvent;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
+  }
+
+  getEventDate(event: any) {
+    var datevalue;
+    console.log(event)
+    datevalue = this.afs.doc<Event>(`events/${event}`);
+    console.log(datevalue.title)
+    return datevalue.title;
+
   }
 
   submit(data) {
