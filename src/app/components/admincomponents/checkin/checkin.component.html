@@ -1,0 +1,66 @@
+<form [formGroup]="selectForm" (ngSubmit)="submit(selectForm.value)">
+  <div class="field">
+    <label class="label">Välj event</label>
+    <div class="control has-icons-left">
+      <div class="select is-primary is-large is-fullwidth">
+        <select formControlName="event" (ngModelChange)="getEvent($event)">
+          <option value="-1">Välj event</option>
+          <option *ngFor="let event of events" value="{{event.id}}">{{ event.title }}</option>
+      </select>
+      </div>
+      <div class="icon is-small is-left">
+        <i class="far fa-building"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta</button> -->
+</form>
+<br>
+<input class="input is-large" type="text" placeholder="Sök på förnamn, efternamn eller liu-id" (keyup)="onSearch($event)">
+<br>
+
+
+
+
+
+
+
+
+<ng-container *ngIf="attendants">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Namn</th>
+        <th>Liu-ID</th>
+        <th>Garanterad mat</th>
+        <th>Specialkost</th>
+        <th>Anmäld</th>
+        <th>Reserv?</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Namn</th>
+        <th>Liu-ID</th>
+        <th>Garanterad mat</th>
+        <th>Specialkost</th>
+        <th>Anmäld</th>
+        <th>Reserv?</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <ng-container *ngFor="let attendant of filteredAttendants">
+        <tr>
+          <td>{{attendant.firstname}} {{attendant.lastname}}</td>
+          <td>{{attendant.liuid}}</td>
+          <td><span *ngIf="attendant.getsfood">Ja</span><span *ngIf="!attendant.getsfood">Nej</span></td>
+          <td>{{attendant.specialfood}}</td>
+          <td>{{attendant.timestamp.toDate() | date:'dd MMM HH:mm'}}</td>
+          <td><span class="has-text-danger" *ngIf="attendant.waitinglist">Ja</span><span class="has-text-success" *ngIf="!attendant.waitinglist">Nej</span></td>
+
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>
