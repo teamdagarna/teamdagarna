@@ -25,9 +25,9 @@
 
             <div class="field">
               <label class="label" for="code">Företagskod</label>
-              <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code" value="1BH6033">
+              <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code">
             </div>
-            <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen.</p>
+            <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Se till att mata in den företagskod du fått och inte lösenorder för att logga in.</p>
 
             <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta kontaktsamtal</button>
           </form>
