@@ -159,7 +159,7 @@ export class EventComponent implements OnInit {
       const docid = this.signups[index].id;
       this.afs.doc(`attendevent/${docid}`).update({ getsfood: true })
     }
-    if (this.numberofreserves > 0) {
+    if (this.numberofreserves > 0 && this.numberofsignups <= this.selectedEvent.maxattendance) {
       const reservid = this.reserves[0].id;
       if (this.attendedDoc.getsfood && this.selectedEvent.maxattendance == this.selectedEvent.foodportions) {
         this.afs.doc(`attendevent/${reservid}`).update({
