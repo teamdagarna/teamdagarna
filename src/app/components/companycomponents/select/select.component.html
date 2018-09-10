@@ -76,9 +76,9 @@
               <th>År</th>
               <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
               <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
-              <th>CV</th>
-              <th>PB</th>
-              <th>Betyg</th>
+              <th *ngIf="company.reqresume">CV</th>
+              <th *ngIf="company.reqcl">PB</th>
+              <th *ngIf="company.reqgrades">Betyg</th>
               <th>Status</th>
               <th>Ändra/Uppdatera </th>
             </tr>
@@ -148,19 +148,19 @@
 
 
           <h1 class="title is-3">Ansökningar från öppna ansökan:</h1>
-          <table class="table">
+          <table class="table is-fullwidth">
             <thead>
               <tr>
 
-                <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
-                <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
-                <th>År <a (click)="applyOrder('year')"><i class="fas fa-sort"></i></a></th>
-                <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrder('firstchoice')"><i class="fas fa-sort"></i></a></th>
-                <th>Civ.Ek inrikt. 2 / Civ.Ing Master <a (click)="applyOrder('secondchoice')"><i class="fas fa-sort"></i></a></th>
+                <th>Namn <a (click)="applyOrderOpen('firstname')"><i class="fas fa-sort"></i></a></th>
+                <th>Program <a (click)="applyOrderOpen('program')"><i class="fas fa-sort"></i></a></th>
+                <th>År <a (click)="applyOrderOpen('year')"><i class="fas fa-sort"></i></a></th>
+                <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrderOpen('firstchoice')"><i class="fas fa-sort"></i></a></th>
+                <th>Civ.Ek inrikt. 2 / Civ.Ing Master <a (click)="applyOrderOpen('secondchoice')"><i class="fas fa-sort"></i></a></th>
                 <th *ngIf="company.reqresume">CV</th>
                 <th *ngIf="company.reqcl">PB</th>
                 <th *ngIf="company.reqgrades">Betyg</th>
-                <th>Status <a (click)="applyOrder('status')"><i class="fas fa-sort"></i></a></th>
+                <th>Status <a (click)="applyOrderOpen('status')"><i class="fas fa-sort"></i></a></th>
                 <th>Ändra/Uppdatera </th>
 
 
@@ -174,9 +174,9 @@
                 <th>År</th>
                 <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
                 <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
-                <th>CV</th>
-                <th>PB</th>
-                <th>Betyg</th>
+                <th *ngIf="company.reqresume">CV</th>
+                <th *ngIf="company.reqcl">PB</th>
+                <th *ngIf="company.reqgrades">Betyg</th>
                 <th>Status</th>
                 <th>Ändra/Uppdatera </th>
               </tr>
@@ -184,53 +184,53 @@
 
 
             <tbody>
-              <tr *ngFor="let interview of openInterviews; trackBy: trackByStatus" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
-                <td>{{ interview.firstname }} {{ interview.lastname }}</td>
-                <td>{{ interview.program }}</td>
-                <td>{{ interview.year }}</td>
-                <ng-container *ngIf="interview.program == 'Civilekonom'">
-                  <td>{{ interview.nekorfek }}</td>
-                  <td>{{ interview.filfakspecialization }}</td>
+              <tr *ngFor="let openinterview of openInterviews; trackBy: trackByStatus" (click)="selectedRow(openinterview.id)" [ngClass]="{ 'is-selected': openinterview.id == selected} ">
+                <td>{{ openinterview.firstname }} {{ openinterview.lastname }}</td>
+                <td>{{ openinterview.program }}</td>
+                <td>{{ openinterview.year }}</td>
+                <ng-container *ngIf="openinterview.program == 'Civilekonom'">
+                  <td>{{ openinterview.nekorfek }}</td>
+                  <td>{{ openinterview.filfakspecialization }}</td>
                 </ng-container>
-                <ng-container *ngIf="interview.program == 'Industriell Ekonomi'">
-                  <td>{{ interview.engineerbachelor }}</td>
-                  <td>{{ interview.engineermaster }}</td>
+                <ng-container *ngIf="openinterview.program == 'Industriell Ekonomi'">
+                  <td>{{ openinterview.engineerbachelor }}</td>
+                  <td>{{ openinterview.engineermaster }}</td>
                 </ng-container>
-                <ng-container *ngIf="interview.program == 'Annat'">
-                  <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
-                  <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
-                  <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
-                  <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
-                  <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
-                  <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+                <ng-container *ngIf="openinterview.program == 'Annat'">
+                  <td *ngIf="openinterview.nekorfek !== ''">{{ openinterview.nekorfek }}</td>
+                  <td *ngIf="openinterview.filfakspecialization !== ''">{{ openinterview.filfakspecialization }}</td>
+                  <td *ngIf="openinterview.engineerbachelor !== '' && openinterview.nekorfek == ''">{{ openinterview.nekorfek }}</td>
+                  <td *ngIf="openinterview.engineermaster !== '' && openinterview.filfakspecialization == ''">{{ openinterview.filfakspecialization }}</td>
+                  <td *ngIf="openinterview.engineerbachelor == '' && openinterview.nekorfek == ''">-</td>
+                  <td *ngIf="openinterview.engineermaster == '' && openinterview.filfakspecialization == ''">-</td>
                 </ng-container>
 
 
                 <td *ngIf="company.reqresume">
-                  <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }}" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <ng-container *ngIf="openinterview.resumepath"><a *ngIf="openinterview.resumepath | storage | async as resumepath" href="{{ resumepath }}" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <td *ngIf="company.reqcl">
-                  <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }}" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <ng-container *ngIf="openinterview.coverletterpath"><a *ngIf="openinterview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }}" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <td *ngIf="company.reqgrades">
-                  <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }}" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <ng-container *ngIf="openinterview.gradespath"><a *ngIf="openinterview.gradespath | storage | async as gradespath" href="{{ gradespath }}" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
-                <th>{{ interview.status }}</th>
+                <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
                 <td>
                   <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                     <div class="select is-small">
-                      <select formControlName="change" (ngModelChange)="updateApplicantOpen($event, interview.id)">
-                        <option value="choose" [selected]="true">Välj åtgärd</option>
-                  <option value="pending">Avvakta</option>
-                  <option value="notselected">Nekad</option>
-                  <option value="selected" [disabled]="!selectedavailable">Antagen</option>
-                  <option value="backup1" [disabled]="!backup1available">Reserv 1</option>
-                  <option value="backup2" [disabled]="!backup2available">Reserv 2</option>
-                  <option value="backup3" [disabled]="!backup3available">Reserv 3</option>
-                  <option value="backup4" [disabled]="!backup4available">Reserv 4</option>
-                  <option value="backup5" [disabled]="!backup5available">Reserv 5</option>
+                      <select formControlName="change" (ngModelChange)="updateApplicantOpen($event, openinterview.id)">
+                      <option value="choose" [selected]="true">Välj åtgärd</option>
+                <option value="pending">Avvakta</option>
+                <option value="notselected">Nekad</option>
+                <option value="selected" [disabled]="!selectedavailable">Antagen</option>
+                <option value="backup1" [disabled]="!backup1available">Reserv 1</option>
+                <option value="backup2" [disabled]="!backup2available">Reserv 2</option>
+                <option value="backup3" [disabled]="!backup3available">Reserv 3</option>
+                <option value="backup4" [disabled]="!backup4available">Reserv 4</option>
+                <option value="backup5" [disabled]="!backup5available">Reserv 5</option>
 
-            </select>
+              </select>
                     </div>
                   </form>
                 </td>

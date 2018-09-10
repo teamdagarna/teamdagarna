@@ -174,31 +174,26 @@ export class SelectComponent implements OnInit {
   checkRestrictions() {
     if (_.find(this.interviews, ['backupnumber', 1]) || _.find(this.openInterviews, ['backupnumber', 1])) {
       this.backup1available = false;
-      console.log('hej')
     } else {
       this.backup1available = true;
     }
     if (_.find(this.interviews, ['backupnumber', 2]) || _.find(this.openInterviews, ['backupnumber', 2])) {
       this.backup2available = false;
-      console.log('hej')
     } else {
       this.backup2available = true;
     }
     if (_.find(this.interviews, ['backupnumber', 3]) || _.find(this.openInterviews, ['backupnumber', 3])) {
       this.backup3available = false;
-      console.log('hej')
     } else {
       this.backup3available = true;
     }
     if (_.find(this.interviews, ['backupnumber', 4]) || _.find(this.openInterviews, ['backupnumber', 4])) {
       this.backup4available = false;
-      console.log('hej')
     } else {
       this.backup3available = true;
     }
     if (_.find(this.interviews, ['backupnumber', 5]) || _.find(this.openInterviews, ['backupnumber', 5])) {
       this.backup5available = false;
-      console.log('hej')
     } else {
       this.backup5available = true;
     }
@@ -250,7 +245,7 @@ export class SelectComponent implements OnInit {
           });
           this.company = company;
           if (company.seeopenapplicants) {
-            this.getOpenInterviews('2AyD1dEZ2ARERmjMr78X').subscribe(openinterviews => {
+            this.getOpenInterviews(this.code.company).subscribe(openinterviews => {
                 this.openInterviews = openinterviews;
                 this.orderTimeOpen = !this.orderTimeOpen;
                 this.applyOrderOpen(this.orderByOpen);
