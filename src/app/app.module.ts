@@ -76,6 +76,7 @@ import { CompanycodesComponent } from './components/admincomponents/companycodes
 import { SelectComponent } from './components/companycomponents/select/select.component';
 import { CodeComponent } from './components/companycomponents/code/code.component';
 import { CheckinComponent } from './components/admincomponents/checkin/checkin.component';
+import { CompanymapComponent } from './components/companymap/companymap.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -122,7 +123,8 @@ registerLocaleData(localeSv, 'sv');
     CompanycodesComponent,
     SelectComponent,
     CodeComponent,
-    CheckinComponent
+    CheckinComponent,
+    CompanymapComponent
   ],
   imports: [
     BrowserModule,
@@ -170,6 +172,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
+    { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
