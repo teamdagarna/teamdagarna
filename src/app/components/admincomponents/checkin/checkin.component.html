@@ -31,34 +31,50 @@
   <table class="table is-fullwidth">
     <thead>
       <tr>
-        <th>Namn</th>
-        <th>Liu-ID</th>
-        <th>Garanterad mat</th>
-        <th>Specialkost</th>
-        <th>Anmäld</th>
-        <th>Reserv?</th>
+        <th>Index</th>
+        <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
+        <th>Liu-ID <a (click)="applyOrder('liuid')"><i class="fas fa-sort"></i></a></th>
+        <th>Garanterad mat <a (click)="applyOrder('getsfood')"><i class="fas fa-sort"></i></a></th>
+        <th>Specialkost <a (click)="applyOrder('specialfood')"><i class="fas fa-sort"></i></a></th>
+        <th>Anmäld <a (click)="applyOrder('timestamp')"><i class="fas fa-sort"></i></a></th>
+        <th>Reserv? <a (click)="applyOrder('waitinglist')"><i class="fas fa-sort"></i></a></th>
+        <th>Checka in</th>
       </tr>
     </thead>
     <tfoot>
       <tr>
+        <th>Index</th>
         <th>Namn</th>
         <th>Liu-ID</th>
         <th>Garanterad mat</th>
         <th>Specialkost</th>
         <th>Anmäld</th>
         <th>Reserv?</th>
+        <th>Checka in</th>
       </tr>
     </tfoot>
     <tbody>
-      <ng-container *ngFor="let attendant of filteredAttendants">
+      <ng-container *ngFor="let attendant of filteredAttendants; trackBy: trackByStatus; let i = index;">
         <tr>
+          <td>{{i + 1}}</td>
           <td>{{attendant.firstname}} {{attendant.lastname}}</td>
           <td>{{attendant.liuid}}</td>
           <td><span *ngIf="attendant.getsfood">Ja</span><span *ngIf="!attendant.getsfood">Nej</span></td>
           <td>{{attendant.specialfood}}</td>
           <td>{{attendant.timestamp.toDate() | date:'dd MMM HH:mm'}}</td>
           <td><span class="has-text-danger" *ngIf="attendant.waitinglist">Ja</span><span class="has-text-success" *ngIf="!attendant.waitinglist">Nej</span></td>
-
+          <td *ngIf="!attendant.checkedin"><a (click)="checkin(attendant.id)" class="button is-success is-small">
+            <span class="icon is-small">
+             <i class="fas fa-check"></i>
+             </span>
+            <span>Checka in</span>
+          </a></td>
+          <td *ngIf="attendant.checkedin"><a (click)="checkout(attendant.id)" class="button is-danger is-outlined is-small">
+           <span>Checka ut</span>
+           <span class="icon is-small">
+             <i class="fas fa-times"></i>
+           </span>
+         </a></td>
         </tr>
       </ng-container>
     </tbody>

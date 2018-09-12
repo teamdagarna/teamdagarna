@@ -20,10 +20,13 @@ export class CheckinComponent implements OnInit {
   events: any;
   searchValue: string= "";
   selectForm: FormGroup;
+  orderBy: string = "firstname";
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder) {
     this.getEvents().subscribe(events => {
         this.events = events;
+        this.applySearch();
+        this.applyOrder(this.orderBy);
     });
 
   }
@@ -83,6 +86,29 @@ export class CheckinComponent implements OnInit {
         return false;
        }
        });
+       this.applyOrder(this.orderBy);
+  }
+
+  async applyOrder(cond) {
+        this.filteredAttendants = _.orderBy(this.filteredAttendants, [cond], ['asc']);
+        this.applySearch;
+        this.orderBy = cond;
+  }
+
+  checkin(id) {
+    return this.afs.doc(`attendevent/${id}`).update({
+      checkedin: true
+    })
+  }
+
+  checkout(id) {
+    return this.afs.doc(`attendevent/${id}`).update({
+      checkedin: false
+    })
+  }
+
+  trackByStatus(index, obj): number {
+    return obj.checkedin;
   }
 
 }

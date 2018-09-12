@@ -43,6 +43,8 @@ export class EventComponent implements OnInit {
         this.getAttendance().subscribe(att => {
             this.numberofsignups = _.size(_.filter(att, ['waitinglist', false]));
             this.signups = _.orderBy(_.filter(att, ['waitinglist', false]), ['timestamp'], ['asc']);
+            this.numberofreserves = _.size(_.filter(att, ['waitinglist', true]));
+            this.reserves = _.orderBy(_.filter(att, ['waitinglist', true]), ['timestamp'], ['asc']);
             if (_.find(att, function(o) { return o.attendant == user.uid; })) {
               this.attended = true;
               this.attendedDoc = _.find(att, function(o) { return o.attendant == user.uid; });
@@ -50,11 +52,6 @@ export class EventComponent implements OnInit {
             this.loaded = true;
           });
         });
-
-      this.getReserves().subscribe(att => {
-          this.numberofreserves = _.size(att);
-          this.reserves = _.orderBy(att, ['timestamp'], ['asc']);
-      });
 
       this.getEvent(this.eventid).subscribe(event => {
           this.selectedEvent = event;
@@ -83,18 +80,19 @@ export class EventComponent implements OnInit {
    );
   }
 
-  getReserves() {
-    return this.afs.collection<AttendEvent>('attendevent', ref => {
-      return ref
-        .where('waitinglist', '==', true);
-    }).snapshotChanges().pipe(
-     map(actions => actions.map(a => {
-       const data = a.payload.doc.data() as AttendEvent;
-       const id = a.payload.doc.id;
-       return { id, ...data };
-     }))
-   );
-  }
+  // getReserves() {
+  //   return this.afs.collection<AttendEvent>('attendevent', ref => {
+  //     return ref
+  //       .where('waitinglist', '==', true)
+  //       .where('event', '==', this.eventid);
+  //   }).snapshotChanges().pipe(
+  //    map(actions => actions.map(a => {
+  //      const data = a.payload.doc.data() as AttendEvent;
+  //      const id = a.payload.doc.id;
+  //      return { id, ...data };
+  //    }))
+  //  );
+  // }
 
   attend() {
     this.loading = true;
