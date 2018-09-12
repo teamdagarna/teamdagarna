@@ -25,16 +25,19 @@
         "key": "Cache-Control",
         "value": "no-cache"
         }
-      ],
-      "source":
+      ]
+    },
+      { "source":
         "**/*.@(jpg|jpeg|gif|png|svg|js|css|eot|otf|ttf|ttc|woff|font.css)",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "max-age=1200"
           }
-        ],
-        "source":
+        ]
+      },
+
+      { "source":
           "index.html",
           "headers": [
             {
@@ -42,5 +45,6 @@
               "value": "no-cache"
             }
           ]
-      }]
+      }
+    ]
 }
