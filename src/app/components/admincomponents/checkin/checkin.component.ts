@@ -101,6 +101,7 @@ export class CheckinComponent implements OnInit {
     })
   }
 
+
   checkout(id) {
     return this.afs.doc(`attendevent/${id}`).update({
       checkedin: false
