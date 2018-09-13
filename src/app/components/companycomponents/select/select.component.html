@@ -185,7 +185,6 @@
 
             <tbody>
               <tr *ngFor="let openinterview of openInterviews; trackBy: trackByStatus" (click)="selectedRow(openinterview.id)" [ngClass]="{ 'is-selected': openinterview.id == selected} ">
-                <td>{{ openinterview.id }}</td>
                 <td>{{ openinterview.firstname }} {{ openinterview.lastname }}</td>
                 <td>{{ openinterview.program }}</td>
                 <td>{{ openinterview.year }}</td>
