@@ -410,3 +410,96 @@ hr {
 .event-item .event-meta date {
   opacity: 0.5;
 }
+
+.card.is-teamview {
+  // display: -ms-flexbox;
+  // display: flex;
+  // -ms-flex-direction: column;
+  // flex-direction: column;
+  // margin: 0 auto;
+  // max-width: 360px;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition-duration: 172ms;
+  will-change: transform, box-shadow;
+}
+
+.card.is-teamview .is-touched,
+.card.is-teamview.is-active,
+.card.is-teamview.is-focused,
+.card.is-teamview.is-hovered,
+.card.is-teamview:active,
+.card.is-teamview:focus,
+.card.is-teamview:hover {
+  box-shadow: 0 10px 20px rgba(220,220,220,0.5);
+  transform: translateY(-4px);
+  color: inherit;
+}
+
+.card.is-teamview .is-touched .card-image,
+.card.is-teamview.is-active .card-image,
+.card.is-teamview.is-focused .card-image,
+.card.is-teamview.is-hovered .card-image,
+.card.is-teamview:active .card-image,
+.card.is-teamview:focus .card-image,
+.card.is-teamview:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card.is-teamview .card-header {
+  margin: 0;
+  overflow: hidden;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  // padding: 1px 1px 0;
+}
+
+.card.is-teamview .card-image {
+  border-radius: 10px 10px 0 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition-duration: 172ms;
+  will-change: transform;
+  height: 50%;
+}
+
+.card.is-teamview .card-image:before {
+  // display: block;
+  // content: "";
+  // padding-bottom: 63.80597%;
+}
+
+.card.is-teamview .card-body {
+  -ms-flex: 1;
+  flex: 1;
+  padding: 2rem 1.5rem;
+}
+
+.card.is-teamview .card-title {
+  color: #463853;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.card.is-teamview .card-meta {
+  margin-top: 0.25rem;
+}
+
+.card.is-teamview .card-meta i {
+  margin-right: 0.5rem;
+}
+
+.card.is-teamview .card-description {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.66667;
+}
+
+.card.is-teamview .card-footer {
+  margin-top: -3rem;
+  padding: 2rem 1.5rem;
+}

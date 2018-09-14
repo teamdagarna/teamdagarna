@@ -1,0 +1,110 @@
+<ng-container *ngIf="!changemode">
+  <div class="columns is-centered is-multiline">
+
+
+    <div class="column is-4 is-3-fullhd" *ngFor="let dreamteamer of dreamteam">
+      <div class="card is-teamview  bm--card-equal-height">
+        <div class="card-header">
+          <!-- <div *ngIf="company.logopath | async as url"> -->
+          <img *ngIf="dreamteamer.primaryimagepath | storage | async as photoUrl " [src]="photoUrl ">
+          <!-- </div> -->
+        </div>
+        <div class="card-body ">
+
+          <div class="card-title">{{ dreamteamer.fullname }} <a *ngIf="dreamteamer.linkedinurl" href="{{ dreamteamer.linkedinurl }}" target="_blank" class="is-pulled-right is-size-6" data-balloon="Besök på LinkedIn" data-balloon-pos="up"><i class="fab fa-linkedin-in"></i></a></div>
+
+          <div class="card-meta">{{ dreamteamer.position }}</div>
+          <div class="card-description is-size-7">
+            <i class="fas fa-phone"></i>&nbsp;<a href="tel:+46{{ dreamteamer.internationalphone }}">{{ dreamteamer.phone }}</a>
+            <br>
+            <i class="far fa-envelope"></i>&nbsp;<a href="mailto:{{ dreamteamer.mail }}?subject=Teamdagarna">{{ dreamteamer.mail }}</a>
+          </div>
+        </div>
+        <div class="card-footer"> <a class="button is-primary is-outlined is-small " (click)="changeMode(dreamteamer.id)">REDIGERA</a> </div>
+
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="changemode">
+  <form [formGroup]="changeDreamteamerForm" (ngSubmit)="submit(changeDreamteamerForm.value)">
+
+    <div class="card login-card">
+
+      <div class="card-content">
+        <h1 class="title is-2">Lägg till Dreamteamer</h1>
+        <div class="field">
+          <label class="label" for="companyName">För- och efternamn</label>
+          <input class="input is-success" type="text" placeholder="Tex. 'Linus Gålén'" formControlName="fullname">
+        </div>
+
+
+
+        <div *ngIf="downloadURL | async as url">
+          <img [src]="url" style="max-height: 100px;"><br>
+        </div>
+
+
+
+
+        <!-- <div class="field">
+        <label class="label">About</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="" formControlName="about"></textarea>
+        </div>
+      </div> -->
+        <div class="field">
+          <label class="label" for="mail">Mail</label>
+          <input class="input is-success" type="text" placeholder="" formControlName="mail">
+        </div>
+        <div class="field">
+          <label class="label" for="phone">Telefon i formatet "072-241 01 65"</label>
+          <input class="input is-success" type="text" placeholder="" formControlName="phone">
+        </div>
+        <div class="field">
+          <label class="label" for="companyName">URL till LinkedIn</label>
+          <input class="input is-success" type="text" placeholder="Tex. 'https://www.linkedin.com/in/linusgalen/'" formControlName="linkedinurl">
+        </div>
+
+
+
+        <div class="columns">
+          <div class="column is-half">
+
+            <div class="file is-info">
+              <label class="file-label">
+                <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp profilbild
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div *ngIf="percentage | async as pct">
+
+              <progress class="progress is-success" [value]="pct" max="100">
+                </progress> {{ pct | number }}%
+
+            </div>
+            <div *ngIf="downloadURL | async as url">
+              <h3>Uploaded!</h3>
+              <!-- <img [src]="url"><br>
+                  <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="button is-fullwidth" [disabled]="!changeDreamteamerForm.valid">Uppdatera</button>
+      </div>
+
+    </div>
+
+  </form>
+</ng-container>

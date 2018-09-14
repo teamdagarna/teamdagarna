@@ -78,6 +78,7 @@ import { CodeComponent } from './components/companycomponents/code/code.componen
 import { CheckinComponent } from './components/admincomponents/checkin/checkin.component';
 import { CompanymapComponent } from './components/companymap/companymap.component';
 import { AllinterviewsComponent } from './components/admincomponents/allinterviews/allinterviews.component';
+import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -126,7 +127,8 @@ registerLocaleData(localeSv, 'sv');
     CodeComponent,
     CheckinComponent,
     CompanymapComponent,
-    AllinterviewsComponent
+    AllinterviewsComponent,
+    DreamteamsComponent
   ],
   imports: [
     BrowserModule,
@@ -158,7 +160,8 @@ registerLocaleData(localeSv, 'sv');
         { path: 'events', component: AdmineventsComponent },
         { path: 'companycodes', component: CompanycodesComponent, canActivate: [PlatinumadminGuard] },
         { path: 'allinterviews', component: AllinterviewsComponent, canActivate: [PlatinumadminGuard] },
-        { path: 'checkin', component: CheckinComponent }
+        { path: 'checkin', component: CheckinComponent },
+        { path: 'dreamteam', component: DreamteamsComponent }
       ] },
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
