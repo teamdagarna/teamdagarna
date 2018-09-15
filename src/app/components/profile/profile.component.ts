@@ -6,6 +6,8 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angula
 import { User, AttendEvent, Event } from '../../shared/models';
 import { tap, first } from 'rxjs/operators';
 import { switchMap, map} from 'rxjs/operators';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-profile',
@@ -16,12 +18,15 @@ export class ProfileComponent implements OnInit {
 
   user;
   interviews: any;
+  openinterviews: any;
 
   changeForm: FormGroup;
   errorMessage: string;
 
   changeMode = false;
   updated = false;
+
+  acceptavailable: boolean = true;
 
   events;
 
@@ -30,10 +35,14 @@ export class ProfileComponent implements OnInit {
       this.user = user;
       this.getInterviews().subscribe(interviews => {
           this.interviews = interviews;
+          this.checkRestrictions();
+      });
+      this.getOpenInterviews().subscribe(interviews => {
+        this.openinterviews = _.filter(interviews, function(o) { return (o.selected == true || o.backup == true) });
+        this.checkRestrictions();
       });
       this.preloadData();
       this.getAttendance().subscribe(att => {
-
             this.events = att;
         });
     });
@@ -76,8 +85,6 @@ export class ProfileComponent implements OnInit {
       ],
     });
 
-
-
   }
 
 
@@ -90,7 +97,25 @@ export class ProfileComponent implements OnInit {
     return this.afs.collection<InterviewApplication>('interviews', ref => {
       return ref
         .where('applicant', '==', this.user.uid);
-    }).valueChanges();
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
+  }
+  getOpenInterviews() {
+    return this.afs.collection<InterviewApplication>('openinterviews', ref => {
+      return ref
+        .where('applicant', '==', this.user.uid);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
   }
 
   getAttendance() {
@@ -141,6 +166,46 @@ export class ProfileComponent implements OnInit {
         this.preloadData()
     this.changeMode = !this.changeMode;
 
+  }
+
+  changeInterviewAnswer(id, accepted) {
+    if (accepted && this.acceptavailable) {
+      return this.afs.doc(`interviews/${id}`).update({
+        studentnotanswered: false,
+        studentaccepted: true,
+        studentdeclined: false
+      })
+    } else if (!accepted) {
+      return this.afs.doc(`interviews/${id}`).update({
+        studentnotanswered: false,
+        studentaccepted: false,
+        studentdeclined: true
+      })
+    }
+  }
+
+  changeOpenInterviewAnswer(id, accepted) {
+    if (accepted && this.acceptavailable) {
+      return this.afs.doc(`openinterviews/${id}`).update({
+        studentnotanswered: false,
+        studentaccepted: true,
+        studentdeclined: false
+      })
+    } else if (!accepted) {
+      return this.afs.doc(`openinterviews/${id}`).update({
+        studentnotanswered: false,
+        studentaccepted: false,
+        studentdeclined: true
+      })
+    }
+  }
+
+  checkRestrictions() {
+    if ((_.size(_.filter(this.interviews, 'studentaccepted')) + _.size(_.filter(this.openinterviews, 'studentaccepted'))) >= 6) {
+      this.acceptavailable = false;
+    } else {
+      this.acceptavailable = true;
+    }
   }
 
 

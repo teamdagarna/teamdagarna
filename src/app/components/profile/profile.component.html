@@ -4,7 +4,7 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Din profil </h1>
-          <h2 class="subtitle">Här kan du hantera din profil, ha koll på event du är anmäld på samt se dina kontaktsamtalansökningar. </h2> </div>
+          <h2 class="subtitle">Här kan du hantera din profil, ha koll på event du är anmäld på samt se dina kontaktsamtalsansökningar. </h2> </div>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
       <div class="column is-6">
         <ng-container *ngIf="user && !changeMode">
           <div class="border-btm">
-            <h1 class="title is-2 is-spaced">Dina uppgifter</h1>
+            <h1 class="title is-3 is-spaced">Dina uppgifter</h1>
           </div>
           <h1 class="title is-4">
           <span>{{ user.firstname }} {{ user.lastname }}</span>
@@ -45,7 +45,7 @@
 
 
             <div class="border-btm">
-              <h1 class="title is-2 is-spaced">Ändra dina uppgifter</h1>
+              <h1 class="title is-3 is-spaced">Ändra dina uppgifter</h1>
             </div>
 
             <div class="field">
@@ -195,18 +195,9 @@
 
       </div>
       <div class="column is-6">
-        <div class="border-btm">
-          <h1 class="title is-2">Dina kontaktsamtalsansökningar</h1>
-        </div>
-
-        <ng-container *ngFor="let interview of interviews">
-          <p><strong>{{ interview.companyname }}:</strong> Ansökan skickad.</p>
-        </ng-container>
-
-        <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
 
         <div class="border-btm">
-          <h1 class="title is-2">Dina eventanmälningar</h1>
+          <h1 class="title is-3">Dina eventanmälningar</h1>
         </div>
         <ng-container *ngIf="events !== undefined && events.length !== 0">
           <p class="subtitle is-6">Event där du är garanterad plats:</p>
@@ -222,6 +213,96 @@
         </ng-container>
 
         <p *ngIf="events == undefined || events.length == 0">Inga anmälningar gjorda.</p>
+        <div class="border-btm">
+          <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
+        </div>
+
+        <h1 class="subtitle is-5">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>onsdagen den 19:e september kl 17:00</strong>. Om du inte svarat innan dess räknas det som du tackat nej.</h1>
+
+
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Företag:</th>
+              <th>Status:</th>
+              <th>Tid & Plats:</th>
+              <th>Ditt svar:</th>
+              <th>Ändra svar:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let interview of interviews">
+              <td>{{ interview.companyname }}</td>
+              <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
+              <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>
+              <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
+              <td>TBA***</td>
+              <th *ngIf="!interview.selected">-</th>
+              <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
+              <th *ngIf="interview.studentdeclined && interview.selected" class="has-text-danger">Tackat nej</th>
+              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+              <th *ngIf="!interview.selected">-</th>
+              <td *ngIf="interview.selected">
+                <p class="buttons">
+                  <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
+                    <span class="icon is-small">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span>Tacka ja</span>
+                </button>
+                  <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
+                  <span>Tacka nej</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-times"></i>
+                  </span>
+                </button>
+                </p>
+
+              </td>
+            </tr>
+            <tr *ngFor="let interview of openinterviews">
+              <td>{{ interview.companyname }}*</td>
+              <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
+              <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>
+              <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
+              <td>TBA***</td>
+              <th *ngIf="!interview.selected">-</th>
+              <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
+              <th *ngIf="interview.studentdeclined && interview.selected" class="has-text-danger">Tackat nej</th>
+              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+              <th *ngIf="!interview.selected">-</th>
+              <td *ngIf="interview.selected">
+                <p class="buttons">
+                  <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, true)" class="button is-success is-small">
+                    <span class="icon is-small">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span>Tacka ja</span>
+                </button>
+                  <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
+                  <span>Tacka nej</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-times"></i>
+                  </span>
+                </button>
+                </p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
+        <br>
+
+
+        <ng-container *ngIf="openinterviews">
+          <p><em>*Från öppna ansökan.</em></p>
+        </ng-container>
+        <ng-container *ngIf="openinterviews || interviews">
+          <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
+          <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtasansvarig om du har en speciell tid du verkligen inte kan.</em></p>
+        </ng-container>
+
 
       </div>
     </div>
