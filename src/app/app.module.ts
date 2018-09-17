@@ -79,6 +79,7 @@ import { CheckinComponent } from './components/admincomponents/checkin/checkin.c
 import { CompanymapComponent } from './components/companymap/companymap.component';
 import { AllinterviewsComponent } from './components/admincomponents/allinterviews/allinterviews.component';
 import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
+import { MapComponent } from './components/map/map.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -128,7 +129,8 @@ registerLocaleData(localeSv, 'sv');
     CheckinComponent,
     CompanymapComponent,
     AllinterviewsComponent,
-    DreamteamsComponent
+    DreamteamsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -180,6 +182,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events', component: EventsComponent },
     { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
+    { path: 'find', component: MapComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],
