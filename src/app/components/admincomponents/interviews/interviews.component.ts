@@ -78,8 +78,9 @@ backupinterviews: any;
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
-       this.getApplicantsInterviews(id).subscribe(interviews => {
-         const numberofaccepted = _.size(interviews);
+       let numberofaccepted = 2;
+       this.getApplicantsInterviews(data.applicant).subscribe(interviews => {
+          let numberofaccepted = _.size(interviews);
        });
        return { id, numberofaccepted, ...data };
      }))
@@ -94,8 +95,9 @@ backupinterviews: any;
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
-       this.getApplicantsInterviews(id).subscribe(interviews => {
-         const numberofaccepted = _.size(interviews);
+       var numberofaccepted = 0;
+       this.getApplicantsInterviews(data.applicant).subscribe(interviews => {
+          numberofaccepted = _.size(interviews);
        });
        return { id, numberofaccepted, ...data };
      }))
