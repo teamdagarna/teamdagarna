@@ -1,11 +1,8 @@
-<p>
-  interviews works!
-</p>
 <div class="field">
   <label class="label">Välj företag</label>
   <div class="control has-icons-left">
     <div class="select is-primary is-large is-fullwidth">
-      <select (ngModelChange)="getCompany($event)">
+      <select (change)="getCompany($event.target.value)">
         <option value="-1">Välj företag</option>
         <option *ngFor="let company of companies" value="{{company.id}}">{{ company.name }}</option>
     </select>
@@ -16,32 +13,46 @@
   </div>
 </div>
 
+<ng-container *ngIf="company">
+  <p><strong>{{ company.name }} har kontaktsamtal: </strong><span *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2"><br>Tisdag </span><span *ngIf="company.interviewpackages.seconddaypackage1 || company.interviewpackages.seconddaypackage2"><br>Onsdag</span></p>
+  <br>
+  <p>{{ company.name }} har <strong><span>{{ company.totalapplicants }}</span></strong> samtal.</p>
+  <br>
+</ng-container>
+
+<div class="columns">
+  <div class="column is-6">
+    <p>Schema Tisdag:</p>
+  </div>
+  <div class="column is-6">
+    Schema Onsdag:
+  </div>
+</div>
+
 <table class="table">
   <thead>
 
     <tr>
       <th>LiU-ID</th>
-      <th>Förnamn</th>
-      <th>Efternamn</th>
-      <th>Program</th>
-      <th>Rättigheter</th>
-      <th>Spara</th>
+      <th>Namn</th>
+      <th>Studentens svar</th>
+      <th>Dag</th>
+      <th>Tid</th>
+      <th>Plats</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let interview of interviews | async">
-      <th>linga300</th>
-      <th>Linus</th>
-      <td>Gålén</td>
-      <td>Industriell Ekonomi</td>
+    <tr *ngFor="let interview of interviews">
+      <th>{{ interview.liuid }}</th>
+      <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <td *ngIf="interview.studentaccepted">Accepterat</td>
+      <td *ngIf="interview.studentdeclined">Tackat nej</td>
+      <td *ngIf="interview.studentnotanswered">Inte svarat</td>
       <td>
-        <div class="select is-small">
-          <select>
-            <option>Student</option>
-            <option>Dreateam Member</option>
-            <option>Dreateam Member Platinum</option>
-          </select>
-        </div>
+        <select (change)="getCompany($event.target.value)">
+          <option value="tuesday">Tisdag</option>
+          <option value="wednesday">Onsdag</option>
+        </select>
       </td>
 
     </tr>

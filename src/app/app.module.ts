@@ -80,6 +80,7 @@ import { CompanymapComponent } from './components/companymap/companymap.componen
 import { AllinterviewsComponent } from './components/admincomponents/allinterviews/allinterviews.component';
 import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
 import { MapComponent } from './components/map/map.component';
+import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -130,7 +131,8 @@ registerLocaleData(localeSv, 'sv');
     CompanymapComponent,
     AllinterviewsComponent,
     DreamteamsComponent,
-    MapComponent
+    MapComponent,
+    InterviewscheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -162,6 +164,7 @@ registerLocaleData(localeSv, 'sv');
         { path: 'events', component: AdmineventsComponent },
         { path: 'companycodes', component: CompanycodesComponent, canActivate: [PlatinumadminGuard] },
         { path: 'allinterviews', component: AllinterviewsComponent, canActivate: [PlatinumadminGuard] },
+        { path: 'interviewschedule', component: InterviewscheduleComponent, canActivate: [PlatinumadminGuard] },
         { path: 'checkin', component: CheckinComponent },
         { path: 'dreamteam', component: DreamteamsComponent }
       ] },

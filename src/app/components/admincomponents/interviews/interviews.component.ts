@@ -21,6 +21,9 @@ export class InterviewsComponent implements OnInit {
 companies: any;
 company: any;
 interviews: any;
+selectedinterviews: any;
+notselectedinterviews: any;
+backupinterviews: any;
 
 
   constructor(private readonly afs: AngularFirestore) {
@@ -33,11 +36,6 @@ interviews: any;
          }
          });
          this.companies = _.orderBy(this.companies, ['name'])
-         this.company = this.companies[0];
-         console.log(this.company.id)
-         this.getInterviews().subscribe(interviews => {
-             this.interviews = interviews;
-         });
     });
 
   }
@@ -56,16 +54,22 @@ interviews: any;
   }
 
   getCompany(company) {
-
+    console.log(company);
     this.company = _.find(this.companies, ['id', company]);
+    this.getInterviews(company).subscribe(interviews => {
+        this.interviews = interviews;
+        this.selectedinterviews = _.filter(interviews, ['selected', true]);
+        this.notselectedinterviews = _.filter(interviews, [{'selected': false, 'backup': false }]);
+        this.backupinterviews = _.filter(interviews, ['backup', true]);
 
+    });
   }
 
-  getInterviews() {
+  getInterviews(company: any) {
 
     return this.afs.collection<InterviewApplication>('interviews', ref => {
       return ref
-        .where('company', '==', this.company.id);
+        .where('company', '==', company);
     }).valueChanges();
   }
 
