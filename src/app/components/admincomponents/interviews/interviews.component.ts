@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import { AuthService } from '../../../services/auth.service';
 import { switchMap, map} from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-interviews',
@@ -22,11 +23,12 @@ companies: any;
 company: any;
 interviews: any;
 selectedinterviews: any;
+selectedbutdeclinedinterviews: any;
 notselectedinterviews: any;
 backupinterviews: any;
 
 
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, private datePipe: DatePipe) {
     this.getCompanies().subscribe(companies => {
         this.companies = _.filter(companies, function(company) {
          if (company.offersinterview) {
@@ -57,20 +59,155 @@ backupinterviews: any;
     console.log(company);
     this.company = _.find(this.companies, ['id', company]);
     this.getInterviews(company).subscribe(interviews => {
-        this.interviews = interviews;
-        this.selectedinterviews = _.filter(interviews, ['selected', true]);
-        this.notselectedinterviews = _.filter(interviews, [{'selected': false, 'backup': false }]);
-        this.backupinterviews = _.filter(interviews, ['backup', true]);
-
+        this.getOpenInterviews(company).subscribe(openinterviews => {
+          this.interviews = _.union(interviews, openinterviews);
+          this.selectedinterviews = _.union(_.filter(interviews, {'selected': true, 'studentdeclined': false }),_.filter(openinterviews, {'selected': true, 'studentdeclined': false }));
+          this.selectedbutdeclinedinterviews = _.union(_.filter(interviews, {'selected': true, 'studentdeclined': true }),_.filter(openinterviews, {'selected': true, 'studentdeclined': true }));
+          this.notselectedinterviews = _.union(_.filter(interviews, [{'selected': false, 'backup': false }]), _.filter(openinterviews, [{'selected': false, 'backup': false }]));
+          this.backupinterviews = _.union(_.filter(interviews, ['backup', true]),_.filter(openinterviews, ['backup', true]));
+        });
     });
+
   }
 
   getInterviews(company: any) {
-
     return this.afs.collection<InterviewApplication>('interviews', ref => {
       return ref
         .where('company', '==', company);
-    }).valueChanges();
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       this.getApplicantsInterviews(id).subscribe(interviews => {
+         const numberofaccepted = _.size(interviews);
+       });
+       return { id, numberofaccepted, ...data };
+     }))
+   );
+  }
+
+  getOpenInterviews(company: any) {
+    return this.afs.collection<InterviewApplication>('openinterviews', ref => {
+      return ref
+        .where('company', '==', company);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       this.getApplicantsInterviews(id).subscribe(interviews => {
+         const numberofaccepted = _.size(interviews);
+       });
+       return { id, numberofaccepted, ...data };
+     }))
+   );
+  }
+
+  getApplicantsInterviews(applicant: any) {
+    return this.afs.collection<InterviewApplication>('interviews', ref => {
+      return ref
+        .where('applicant', '==', applicant);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
+  }
+
+  setDay(day: any, id: any) {
+    if (day !== '-1') {
+    this.afs.doc(`interviews/${id}`)
+        .update({
+          day: day
+        })
+        .then(() => {
+      }).catch((error) => {
+      this.afs.doc(`openinterviews/${id}`)
+        .update({
+          day: day
+        });
+      });
+    }
+  }
+
+  setTime(time: any, id: any) {
+    const hhmmtime = this.transformDate(time);
+    this.afs.doc(`interviews/${id}`)
+        .update({
+          time: hhmmtime
+        })
+        .then(() => {
+      }).catch((error) => {
+      this.afs.doc(`openinterviews/${id}`)
+        .update({
+          day: hhmmtime
+        });
+      });
+  }
+
+  setStudentResponse(rule: any, id: any) {
+
+    if (rule == 'yes') {
+      this.afs.doc(`interviews/${id}`)
+          .update({
+            studentaccepted: true,
+            studentdeclined: false,
+            studentnotanswered: false
+          })
+          .then(() => {
+        }).catch((error) => {
+        this.afs.doc(`openinterviews/${id}`)
+          .update({
+            studentaccepted: true,
+            studentdeclined: false,
+            studentnotanswered: false
+          });
+        });
+    } else if (rule == 'no') {
+      this.afs.doc(`interviews/${id}`)
+          .update({
+            studentaccepted: false,
+            studentdeclined: true,
+            studentnotanswered: false
+          })
+          .then(() => {
+        }).catch((error) => {
+        this.afs.doc(`openinterviews/${id}`)
+          .update({
+            studentaccepted: false,
+            studentdeclined: true,
+            studentnotanswered: false
+          });
+        });
+    } else if (rule == 'no') {
+      this.afs.doc(`interviews/${id}`)
+          .update({
+            studentaccepted: false,
+            studentdeclined: false,
+            studentnotanswered: true
+          })
+          .then(() => {
+        }).catch((error) => {
+        this.afs.doc(`openinterviews/${id}`)
+          .update({
+            studentaccepted: false,
+            studentdeclined: false,
+            studentnotanswered: true
+          });
+        });
+    }
+  }
+
+  getNumberOfInterviews(id: any) {
+    this.getApplicantsInterviews(id).subscribe(interviews => {
+      return _.size(interviews);
+    });
+  }
+
+
+  transformDate(date) {
+    return this.datePipe.transform(date, 'HH:mm');
   }
 
 }

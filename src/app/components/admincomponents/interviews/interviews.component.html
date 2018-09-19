@@ -14,50 +14,170 @@
 </div>
 
 <ng-container *ngIf="company">
-  <p><strong>{{ company.name }} har kontaktsamtal: </strong><span *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2"><br>Tisdag </span><span *ngIf="company.interviewpackages.seconddaypackage1 || company.interviewpackages.seconddaypackage2"><br>Onsdag</span></p>
-  <br>
-  <p>{{ company.name }} har <strong><span>{{ company.totalapplicants }}</span></strong> samtal.</p>
-  <br>
+
+  <div class="columns">
+    <div class="column is-6">
+      <p><strong>{{ company.name }} har kontaktsamtal: </strong><span *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2"><br>Tisdag </span><span *ngIf="company.interviewpackages.seconddaypackage1 || company.interviewpackages.seconddaypackage2"><br>Onsdag</span></p>
+    </div>
+    <div class="column is-6">
+      <p><strong>Antal kontaktsamtal {{ company.name }} har: <br></strong><span>{{ company.totalapplicants }}</span></p>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2" class="column is-6">
+      <p><strong>Schema Tisdag:</strong></p>
+    </div>
+    <div *ngIf="company.interviewpackages.seconddaypackage1 || company.interviewpackages.seconddaypackage2" class="column is-6">
+      <p><strong>Schema Onsdag:</strong></p>
+    </div>
+  </div>
+
 </ng-container>
 
-<div class="columns">
-  <div class="column is-6">
-    <p>Schema Tisdag:</p>
-  </div>
-  <div class="column is-6">
-    Schema Onsdag:
-  </div>
-</div>
 
-<table class="table">
+<h1 class="title is-3">Antagna som ska schemaläggas:</h1>
+<table class="table is-fullwidth">
   <thead>
 
     <tr>
       <th>LiU-ID</th>
       <th>Namn</th>
       <th>Studentens svar</th>
-      <th>Dag</th>
-      <th>Tid</th>
-      <th>Plats</th>
+      <th>Dag & Tid</th>
+      <th>Ändra Dag</th>
+      <th>Ändra Tid</th>
+      <th>Ändra studentens svar</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let interview of interviews">
+    <tr *ngFor="let interview of selectedinterviews">
       <th>{{ interview.liuid }}</th>
       <th>{{ interview.firstname}} {{interview.lastname}}</th>
-      <td *ngIf="interview.studentaccepted">Accepterat</td>
-      <td *ngIf="interview.studentdeclined">Tackat nej</td>
-      <td *ngIf="interview.studentnotanswered">Inte svarat</td>
-      <td>
-        <select (change)="getCompany($event.target.value)">
-          <option value="tuesday">Tisdag</option>
-          <option value="wednesday">Onsdag</option>
+      <td *ngIf="interview.studentaccepted" class="has-text-success">Accepterat</td>
+      <td *ngIf="interview.studentdeclined" class="has-text-danger">Tackat nej</td>
+      <td *ngIf="interview.studentnotanswered" class="has-text-warning">Inte svarat</td>
+      <td *ngIf="interview.day !== undefined"><span *ngIf="interview.day == 'tuesday'">Tis</span><span *ngIf="interview.day == 'wednesday'">Ons </span> <span *ngIf="interview.time !== undefined">{{interview.time}}</span></td>
+      <td *ngIf="interview.day == undefined">-</td>
+
+      <td *ngIf="interview.day == undefined">
+        <div class="select is-small">
+          <select (change)="setDay($event.target.value, interview.id)">
+            <option value="-1" [selected]="true">Välj dag</option>
+            <option value="tuesday">Tisdag</option>
+            <option value="wednesday">Onsdag</option>
         </select>
+        </div>
+      </td>
+      <td *ngIf="interview.day !== undefined">
+        <div class="select is-small">
+          <select (change)="setDay($event.target.value, interview.id)">
+            <option value="-1">Sätt dag</option>
+            <option value="tuesday" [selected]="interview.day == 'tuesday'">Tisdag</option>
+            <option value="wednesday" [selected]="interview.day == 'wednesday'">Onsdag</option>
+        </select>
+        </div>
+      </td>
+      <td>
+        <input class="input" placeholder="Sätt tid" [(ngModel)]="interview.liuid" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" (ngModelChange)="setTime($event, interview.id)">
+        <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+      </td>
+      <td>
+        <div class="select is-small">
+          <select (change)="setStudentResponse($event.target.value, interview.id)">
+          <option value="-1">Välj svar</option>
+          <option value="noanswer" [selected]="interview.studentnotanswered">Inte svarat</option>
+          <option value="yes" [selected]="interview.studentaccepted">Accepterat</option>
+          <option value="no" [selected]="interview.studentdeclined">Tacka nej</option>
+      </select>
+        </div>
       </td>
 
     </tr>
   </tbody>
-  <div *ngIf="interviews?.length < 1">
+  <div *ngIf="selectedinterviews?.length < 1">
+    <p>Inga användare hittade</p>
+  </div>
+</table>
+
+
+
+
+
+<h1 class="title is-3">Reserver som kan sättas till antagna och sedan schemaläggas i ovan:</h1>
+<h1 class="subtitle is-5">När reserven flyttas upp kommer "studentens svar" att vara "Inte svarat". Den ändrar du sedan när reserven kontaktats och tiden bekräftats. Då kommer reserven att dyka upp i schemat.</h1>
+<table class="table is-fullwidth">
+  <thead>
+
+    <tr>
+      <th>LiU-ID</th>
+      <th>Namn</th>
+      <th>Reservnummer</th>
+      <th>Ändra antagningsstatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interview of backupinterviews">
+      <th>{{ interview.liuid }}</th>
+      <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <td *ngIf="interview.studentaccepted" class="has-text-success">Accepterat</td>
+      <td *ngIf="interview.studentdeclined" class="has-text-danger">Tackat nej</td>
+      <td *ngIf="interview.studentnotanswered" class="has-text-warning">Inte svarat</td>
+
+      <td>{{ interview.numberofaccepted}}</td>
+
+      <td>
+        <button [disabled]="false" (click)="setSelected(true, interview.id)" class="button is-success is-small">
+          <span class="icon is-small">
+            <i class="fas fa-check"></i>
+          </span>
+          <span>Tacka ja</span>
+      </button>
+      </td>
+
+
+    </tr>
+  </tbody>
+  <div *ngIf="backupinterviews?.length < 1">
+    <p>Inga användare hittade</p>
+  </div>
+</table>
+
+
+
+
+<h1 class="title is-3">Antagna som ska tackat nej (ej schemaläggs):</h1>
+<table class="table is-fullwidth">
+  <thead>
+
+    <tr>
+      <th>LiU-ID</th>
+      <th>Namn</th>
+      <th>Studentens svar</th>
+      <th>Ändra studentens svar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interview of selectedbutdeclinedinterviews">
+      <th>{{ interview.liuid }}</th>
+      <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <td *ngIf="interview.studentaccepted" class="has-text-success">Accepterat</td>
+      <td *ngIf="interview.studentdeclined" class="has-text-danger">Tackat nej</td>
+      <td *ngIf="interview.studentnotanswered" class="has-text-warning">Inte svarat</td>
+      <td>
+        <div class="select is-small">
+          <select (change)="setStudentResponse($event.target.value, interview.id)">
+          <option value="-1">Välj svar</option>
+          <option value="noanswer" [selected]="interview.studentnotanswered">Inte svarat</option>
+          <option value="yes" [selected]="interview.studentaccepted">Accepterat</option>
+          <option value="no" [selected]="interview.studentdeclined">Tacka nej</option>
+      </select>
+        </div>
+      </td>
+
+    </tr>
+  </tbody>
+  <div *ngIf="selectedbutdeclinedinterviews?.length < 1">
     <p>Inga användare hittade</p>
   </div>
 </table>
