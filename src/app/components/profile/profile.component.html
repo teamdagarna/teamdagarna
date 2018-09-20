@@ -242,7 +242,10 @@
               <th *ngIf="interview.studentdeclined && interview.selected" class="has-text-danger">Tackat nej</th>
               <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
               <th *ngIf="!interview.selected">-</th>
-              <td *ngIf="interview.selected">
+              <td *ngIf="interview.selected" class="has-text-warning">
+                Stängt
+              </td>
+              <!-- <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
                     <span class="icon is-small">
@@ -258,7 +261,7 @@
                 </button>
                 </p>
 
-              </td>
+              </td> -->
             </tr>
             <tr *ngFor="let interview of openinterviews">
               <td>{{ interview.companyname }}*</td>
