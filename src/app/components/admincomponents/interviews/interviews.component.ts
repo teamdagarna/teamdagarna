@@ -171,7 +171,7 @@ schedule: any;
       }).catch((error) => {
       this.afs.doc(`openinterviews/${id}`)
         .update({
-          day: hhmmtime
+          time: hhmmtime
         });
       });
   }
