@@ -22,9 +22,7 @@
       <div class="columns is-centered">
         <div class="column is-4 is-12-mobile">
 
-          <h1 class="title is-2">Portalen har för iår stängt.</h1>
-
-          <!-- <form [formGroup]="submitCodeForm" (ngSubmit)="submit(submitCodeForm.value)">
+          <form [formGroup]="submitCodeForm" (ngSubmit)="submit(submitCodeForm.value)">
 
             <div class="field">
               <label class="label" for="code">Företagskod</label>
@@ -33,7 +31,7 @@
             <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Se till att mata in den företagskod du fått och inte lösenorder för att logga in.</p>
 
             <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta kontaktsamtal</button>
-          </form> -->
+          </form>
         </div>
       </div>
 
@@ -121,7 +119,7 @@
                 <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
               <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
-              <td>
+              <!-- <td>
                 <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                   <div class="select is-small">
                     <select formControlName="change" (ngModelChange)="updateApplicant($event, interview.id)">
@@ -138,7 +136,8 @@
             </select>
                   </div>
                 </form>
-              </td>
+              </td> -->
+              <td>Stängt.</td>
             </tr>
           </tbody>
         </table>
