@@ -26,6 +26,8 @@ selectedinterviews: any;
 selectedbutdeclinedinterviews: any;
 notselectedinterviews: any;
 backupinterviews: any;
+allaccpetedinterviews: any;
+schedule: any;
 
 
   constructor(private readonly afs: AngularFirestore, private datePipe: DatePipe) {
@@ -38,6 +40,10 @@ backupinterviews: any;
          }
          });
          this.companies = _.orderBy(this.companies, ['name'])
+    });
+
+    this.getAllAcceptedInterviews().subscribe(interviews => {
+        this.allaccpetedinterviews = interviews;
     });
 
   }
@@ -64,7 +70,8 @@ backupinterviews: any;
           this.selectedinterviews = _.union(_.filter(interviews, {'selected': true, 'studentdeclined': false }),_.filter(openinterviews, {'selected': true, 'studentdeclined': false }));
           this.selectedbutdeclinedinterviews = _.union(_.filter(interviews, {'selected': true, 'studentdeclined': true }),_.filter(openinterviews, {'selected': true, 'studentdeclined': true }));
           this.notselectedinterviews = _.union(_.filter(interviews, [{'selected': false, 'backup': false }]), _.filter(openinterviews, [{'selected': false, 'backup': false }]));
-          this.backupinterviews = _.union(_.filter(interviews, ['backup', true]),_.filter(openinterviews, ['backup', true]));
+          this.backupinterviews = _.orderBy(_.union(_.filter(interviews, ['backup', true]),_.filter(openinterviews, ['backup', true])),['backupnumber'], ['asc']);
+          this.schedule = _.orderBy(this.selectedinterviews,['time'], ['asc'])
         });
     });
 
@@ -78,11 +85,15 @@ backupinterviews: any;
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
-       let numberofaccepted = 2;
-       this.getApplicantsInterviews(data.applicant).subscribe(interviews => {
-          let numberofaccepted = _.size(interviews);
-       });
-       return { id, numberofaccepted, ...data };
+       const numberofaccepted = _.size(_.filter(this.allaccpetedinterviews, ['applicant', a.payload.doc.data().applicant]));
+       const applicantsapplications = _.filter(this.allaccpetedinterviews, ['applicant', a.payload.doc.data().applicant]);
+       let alltimes = '';
+       for (let index = 0; index < applicantsapplications.length; ++index) {
+         if (applicantsapplications[index].day !== undefined && applicantsapplications[index].time !== undefined) {
+           alltimes += applicantsapplications[index].day[0] + applicantsapplications[index].time;
+         }
+        }
+       return { id, numberofaccepted, alltimes, ...data };
      }))
    );
   }
@@ -95,11 +106,28 @@ backupinterviews: any;
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
-       var numberofaccepted = 0;
-       this.getApplicantsInterviews(data.applicant).subscribe(interviews => {
-          numberofaccepted = _.size(interviews);
-       });
-       return { id, numberofaccepted, ...data };
+       const numberofaccepted = _.size(_.filter(this.allaccpetedinterviews, ['applicant', a.payload.doc.data().applicant]));
+       const applicantsapplications = _.filter(this.allaccpetedinterviews, ['applicant', a.payload.doc.data().applicant]);
+       let alltimes = '';
+       for (let index = 0; index < applicantsapplications.length; ++index) {
+         if (applicantsapplications[index].day !== undefined && applicantsapplications[index].time !== undefined) {
+           alltimes += applicantsapplications[index].day[0] + applicantsapplications[index].time + ',';
+         }
+        }
+       return { id, numberofaccepted, alltimes, ...data };
+     }))
+   );
+  }
+
+  getAllAcceptedInterviews() {
+    return this.afs.collection<InterviewApplication>('interviews', ref => {
+      return ref
+        .where('studentaccepted', '==', true);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
      }))
    );
   }
@@ -201,12 +229,21 @@ backupinterviews: any;
     }
   }
 
-  getNumberOfInterviews(id: any) {
-    this.getApplicantsInterviews(id).subscribe(interviews => {
-      return _.size(interviews);
-    });
+  setSelected(id: any) {
+    this.afs.doc(`interviews/${id}`)
+        .update({
+          selected: true,
+          backup: false
+        })
+        .then(() => {
+      }).catch((error) => {
+      this.afs.doc(`openinterviews/${id}`)
+        .update({
+          selected: true,
+          backup: false
+        });
+      });
   }
-
 
   transformDate(date) {
     return this.datePipe.transform(date, 'HH:mm');
