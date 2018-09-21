@@ -13,6 +13,7 @@ export class CompanysigninComponent implements OnInit {
 
   companyLoginForm: FormGroup;
   errorMessage: string;
+  loading: boolean = false;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
 
@@ -30,10 +31,13 @@ export class CompanysigninComponent implements OnInit {
   }
 
   login(data) {
+    this.loading = true;
     var mail = data.mail + '@teamdagarna.com'
     this.auth.emailLogin(mail, data.password).then((res) => {
+          this.loading = false;
           this.router.navigate(['companyguest']);
        }).catch((error) => {
+         this.loading = false;
          var errorCode = error.code;
          if (errorCode === 'auth/wrong-password') {
            this.errorMessage = 'Verkar inte som att du matat in rätt användarnamn eller lösenord. Testa igen.';

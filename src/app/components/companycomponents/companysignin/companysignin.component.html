@@ -33,7 +33,7 @@
               </div>
               <p class="error-message">{{ errorMessage }}</p>
 
-              <button type="submit" [disabled]="!companyLoginForm.valid" class="button is-fullwidth">Logga in</button>
+              <button type="submit" [disabled]="!companyLoginForm.valid" class="button is-fullwidth" [ngClass]="{'is-loading':loading}">Logga in</button>
               <br>
               <br>
               <h3 class="subtitle">Om det av någon anledning inte fungerar att logga in eller visa kontaktsamtalen, testa följande:</h3>

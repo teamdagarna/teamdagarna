@@ -232,7 +232,7 @@ export class SelectComponent implements OnInit {
   }
 
   submit(data) {
-
+    this.loading = true;
     return this.getCompanyID(data.code).subscribe(code => {
         if (code[0] == undefined) {
           return this.showerror = true;
@@ -261,6 +261,7 @@ export class SelectComponent implements OnInit {
           }
         });
         this.selectView = true;
+        this.loading = false;
     });
 
 
