@@ -4,7 +4,7 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Välj ut studenter </h1>
-          <h2 class="subtitle">Här kan ni se alla studenter som sökt kontaktsamtal och välja ut de ni vill prata med.</h2> </div>
+          <h2 class="subtitle">Här kan ni se alla studenter som sökt kontaktsamtal, välja ut de ni vill prata med samt se schema.</h2> </div>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
             </div>
             <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Se till att mata in den företagskod du fått och inte lösenorder för att logga in.</p>
 
-            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta kontaktsamtal</button>
+            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Gå in till portalen <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
           </form>
         </div>
       </div>
@@ -40,7 +40,120 @@
 
 
   <section class="section" *ngIf="selectView && interviews && company">
+
+    <div class="columns is-centered is-multiline">
+      <div class="column is-12" *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2">
+        <h1 class="title is-2">Schema tisdag</h1>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Namn</th>
+              <th>Tid</th>
+              <th>Program</th>
+              <th>År</th>
+              <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
+              <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
+              <th *ngIf="company.reqresume">CV</th>
+              <th *ngIf="company.reqcl">PB</th>
+              <th *ngIf="company.reqgrades">Betyg</th>
+            </tr>
+            <tbody>
+              <ng-container *ngFor="let interview of selectedinterviews">
+                <tr *ngIf="interview.day == 'tuesday' && interview.time !== undefined && interview.time !== ''" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
+                  <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+                  <td>{{ interview.time }}</td>
+                  <td>{{ interview.program }}</td>
+                  <td>{{ interview.year }}</td>
+                  <ng-container *ngIf="interview.program == 'Civilekonom'">
+                    <td>{{ interview.nekorfek }}</td>
+                    <td>{{ interview.filfakspecialization }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Industriell Ekonomi'">
+                    <td>{{ interview.engineerbachelor }}</td>
+                    <td>{{ interview.engineermaster }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Annat'">
+                    <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
+                    <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+                  </ng-container>
+
+
+                  <td *ngIf="company.reqresume">
+                    <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqcl">
+                    <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqgrades">
+                    <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+        </table>
+      </div>
+      <div class="column is-12" *ngIf="company.interviewpackages.seconddaypackage1 || company.interviewpackages.seconddaypackage2">
+        <h1 class="title is-2">Schema onsdag:</h1>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Namn</th>
+              <th>Tid</th>
+              <th>Program</th>
+              <th>År</th>
+              <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
+              <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
+              <th *ngIf="company.reqresume">CV</th>
+              <th *ngIf="company.reqcl">PB</th>
+              <th *ngIf="company.reqgrades">Betyg</th>
+            </tr>
+            <tbody>
+              <ng-container *ngFor="let interview of selectedinterviews">
+                <tr *ngIf="interview.day == 'wednesday' && interview.time !== undefined && interview.time !== ''" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
+                  <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+                  <td>{{ interview.time }}</td>
+                  <td>{{ interview.program }}</td>
+                  <td>{{ interview.year }}</td>
+                  <ng-container *ngIf="interview.program == 'Civilekonom'">
+                    <td>{{ interview.nekorfek }}</td>
+                    <td>{{ interview.filfakspecialization }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Industriell Ekonomi'">
+                    <td>{{ interview.engineerbachelor }}</td>
+                    <td>{{ interview.engineermaster }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Annat'">
+                    <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
+                    <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+                  </ng-container>
+
+
+                  <td *ngIf="company.reqresume">
+                    <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqcl">
+                    <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personlig Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqgrades">
+                    <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
     <section class="section">
+      <h1 class="title is-2">Urval:</h1>
       <div class="contianer">
         <h2 class="subtitle is-5"><em>Ni väljer de ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver välja de ut kandidater som blir antagna kan ni ta ut upp till fem reserver som rangorndas mellan 1-5 där nummer 1 kommer få en plats först. Skulle ni ha några frågor eller har prolbem kan ni kontakta kontaktsamtalsansvarig på <a href="julia.karlsson@teamdagarna.com ">julia.karlsson@teamdagarna.com</a> eller IT-asnvarig på <a href="itwebb@teamdagarna.com ">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan de bero på att internetkoppling inte finns.</em></h2>
       </div>
