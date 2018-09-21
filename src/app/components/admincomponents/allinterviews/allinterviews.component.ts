@@ -17,15 +17,33 @@ export class AllinterviewsComponent implements OnInit {
 
   interviews: any;
   filteredInterviews: any = {};
+  selectedfilteredInterviews: any = {};
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder, public auth: AuthService) {
     this.getInterviews().subscribe(interviews => {
         this.interviews = interviews;
         this.filteredInterviews = _.orderBy(_.uniqBy(interviews, 'liuid'), ['liuid'], ['asc']);
     });
+    this.getSelectedInterviews().subscribe(interviews => {
+        this.selectedfilteredInterviews = _.orderBy(_.uniqBy(interviews, 'liuid'), ['liuid'], ['asc']);
+    });
    }
 
   ngOnInit() {
+  }
+
+  getSelectedInterviews() {
+    return this.afs.collection<InterviewApplication>('interviews', ref => {
+      return ref
+        .where('selected', '==', true)
+        .where('studentaccepted', '==', true);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
   }
 
   getInterviews() {
