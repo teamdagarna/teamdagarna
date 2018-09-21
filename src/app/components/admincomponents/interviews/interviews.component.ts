@@ -43,7 +43,9 @@ schedule: any;
     });
 
     this.getAllAcceptedInterviews().subscribe(interviews => {
-        this.allaccpetedinterviews = interviews;
+        this.getAllOpenAcceptedInterviews().subscribe(openinterviews => {
+            this.allaccpetedinterviews = _.union(interviews, openinterviews);;
+        });
     });
 
   }
@@ -90,7 +92,7 @@ schedule: any;
        let alltimes = '';
        for (let index = 0; index < applicantsapplications.length; ++index) {
          if (applicantsapplications[index].day !== undefined && applicantsapplications[index].time !== undefined) {
-           alltimes += applicantsapplications[index].day[0] + applicantsapplications[index].time;
+           alltimes += applicantsapplications[index].day[0] + applicantsapplications[index].time + ',';
          }
         }
        return { id, numberofaccepted, alltimes, ...data };
@@ -121,6 +123,18 @@ schedule: any;
 
   getAllAcceptedInterviews() {
     return this.afs.collection<InterviewApplication>('interviews', ref => {
+      return ref
+        .where('studentaccepted', '==', true);
+    }).snapshotChanges().pipe(
+     map(actions => actions.map(a => {
+       const data = a.payload.doc.data() as InterviewApplication;
+       const id = a.payload.doc.id;
+       return { id, ...data };
+     }))
+   );
+  }
+  getAllOpenAcceptedInterviews() {
+    return this.afs.collection<InterviewApplication>('openinterviews', ref => {
       return ref
         .where('studentaccepted', '==', true);
     }).snapshotChanges().pipe(
