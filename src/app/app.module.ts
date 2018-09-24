@@ -81,6 +81,7 @@ import { AllinterviewsComponent } from './components/admincomponents/allintervie
 import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
 import { MapComponent } from './components/map/map.component';
 import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
+import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -132,7 +133,8 @@ registerLocaleData(localeSv, 'sv');
     AllinterviewsComponent,
     DreamteamsComponent,
     MapComponent,
-    InterviewscheduleComponent
+    InterviewscheduleComponent,
+    TreasurehuntComponent
   ],
   imports: [
     BrowserModule,
@@ -186,6 +188,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'find', component: MapComponent },
+    { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],
