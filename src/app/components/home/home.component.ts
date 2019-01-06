@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
 
   countdown() {
-    var countDownDate = new Date("Sep 25, 2018 09:00:00").getTime();
+    var countDownDate = new Date("Sep 24, 2019 09:00:00").getTime();
 
 
 
