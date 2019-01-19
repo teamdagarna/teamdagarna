@@ -82,6 +82,7 @@ import { DreamteamsComponent } from './components/admincomponents/dreamteams/dre
 import { MapComponent } from './components/map/map.component';
 import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
 import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
+import { ApplyComponent } from './components/apply/apply.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -134,7 +135,8 @@ registerLocaleData(localeSv, 'sv');
     DreamteamsComponent,
     MapComponent,
     InterviewscheduleComponent,
-    TreasurehuntComponent
+    TreasurehuntComponent,
+    ApplyComponent
   ],
   imports: [
     BrowserModule,
@@ -182,6 +184,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
     { path: 'sokvard', component: VolunteerComponent },
+    { path: 'sokdreamteam', component: ApplyComponent },
     { path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
