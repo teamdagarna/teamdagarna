@@ -1,4 +1,4 @@
-# Teamdagarna [![Build Status](https://travis-ci.com/linusgalen/teamdagarna.svg?token=CA2LpVgwryzqk124dq2e&branch=master)](https://travis-ci.com/linusgalen/teamdagarna)
+# Teamdagarna [![Build Status](https://travis-ci.com/teamdagarna/teamdagarna.svg?branch=master)](https://travis-ci.com/teamdagarna/teamdagarna)
 
 <br/>
 <br/>
