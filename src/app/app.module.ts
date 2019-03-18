@@ -192,7 +192,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events', component: EventsComponent },
     { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
-    { path: 'foretagsanmalan', component: CompanyapplicationComponent},
+    { path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
