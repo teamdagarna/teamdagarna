@@ -83,6 +83,7 @@ import { MapComponent } from './components/map/map.component';
 import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
 import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
 import { ApplyComponent } from './components/apply/apply.component';
+import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -136,7 +137,8 @@ registerLocaleData(localeSv, 'sv');
     MapComponent,
     InterviewscheduleComponent,
     TreasurehuntComponent,
-    ApplyComponent
+    ApplyComponent,
+    CompanyapplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -190,6 +192,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events', component: EventsComponent },
     { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
+    { path: 'foretagsanmalan', component: CompanyapplicationComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
