@@ -107,7 +107,7 @@ export class AddstaffComponent implements OnInit {
     }
 
     // The storage path
-    this.logopath = `dreamteam/compressed@720_${new Date().getTime()}_${file.name}`;
+    this.logopath = `dreamteam/${new Date().getTime()}_${file.name}`;
     const path = `dreamteam/${new Date().getTime()}_${file.name}`;
 
     // Totally optional metadata
