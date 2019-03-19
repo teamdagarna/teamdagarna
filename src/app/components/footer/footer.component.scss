@@ -21,12 +21,12 @@
 
 .minion {
   position: fixed;
-  bottom: -390px;
+  bottom: -385px;
   transition: top ease;
   -webkit-transition: top ease;
   transition-duration: 10s;
 }
 
 .minion:hover {
-  bottom: -30px;
+  bottom: -10px;
 }
