@@ -1,16 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { trigger, state, transition, style, animate } from '@angular/animations';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations:[
+    trigger('fade',
+    [
+      state('void', style({ opacity : 0})),
+      transition(':enter',[ animate(300)]),
+      transition(':leave',[ animate(500)]),
+    ]
+)]
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) document) { }
 
   ngOnInit() {
     this.countdown()
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+     if (window.pageYOffset > 0) {
+       let element = document.getElementById('navbar');
+       element.classList.add('sticky');
+       element.classList.remove('fixed');
+     } else {
+      let element = document.getElementById('navbar');
+        element.classList.remove('sticky');
+        element.classList.add('fixed');
+     }
   }
 
 

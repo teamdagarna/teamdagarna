@@ -2,7 +2,7 @@
   // background: linear-gradient(90deg,#8e54e9,#4776e6);
   // background: url('/assets/img/ice.png');
   background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bg-hero2.jpg?alt=media&token=c8c0846d-69c0-48dd-bc63-8cdaccf55492");
-  background-position: center top;
+  background-position: 0px 80px;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -33,6 +33,10 @@
 
 .hero .subtitle {
   color: #998DA0;
+}
+
+.hero {
+  padding-top: 0px;
 }
 
 .section .level-item {
@@ -142,4 +146,8 @@ img {
       margin-left: 5em;
     }
   }
+}
+
+.containerWhite {
+  padding-top: 80px;
 }
