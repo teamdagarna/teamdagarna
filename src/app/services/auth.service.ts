@@ -146,7 +146,6 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-        window.location.reload(true);
         this.router.navigate([''])
         if (navigator.userAgent.indexOf('gonative') > -1) {
           var items = [{

@@ -179,7 +179,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'signin', component: SigninComponent },
-    { path: 'signout', component: SigninComponent },
+    { path: 'signout', component: SignoutComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
