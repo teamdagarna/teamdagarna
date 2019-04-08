@@ -84,6 +84,7 @@ import { InterviewscheduleComponent } from './components/admincomponents/intervi
 import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
 import { ApplyComponent } from './components/apply/apply.component';
 import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
+import { SignoutComponent } from './components/signout/signout.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -138,7 +139,8 @@ registerLocaleData(localeSv, 'sv');
     InterviewscheduleComponent,
     TreasurehuntComponent,
     ApplyComponent,
-    CompanyapplicationComponent
+    CompanyapplicationComponent,
+    SignoutComponent
   ],
   imports: [
     BrowserModule,
@@ -177,6 +179,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'signin', component: SigninComponent },
+    { path: 'signout', component: SigninComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
