@@ -142,7 +142,7 @@ export class SigninComponent implements OnInit {
            {
              "subLinks": [],
              "label": "Logga ut",
-             "url": "https://teamdagarna.com/",
+             "url": "https://teamdagarna.com/signout",
              "icon": "fa-sign-out"
            }
          ];
