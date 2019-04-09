@@ -49,6 +49,7 @@ export class SigninComponent implements OnInit {
    console.log(liumail)
    this.auth.emailLogin(liumail, data.password).then((res) => {
          this.router.navigate(['']);
+         //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var items = [{
              "subLinks": [],

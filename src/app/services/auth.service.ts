@@ -147,6 +147,7 @@ export class AuthService {
   signOut() {
     this.afAuth.auth.signOut().then(() => {
         this.router.navigate([''])
+        //Checks if request comes from the app. If user signs out the info in the navbar will change in the app.
         if (navigator.userAgent.indexOf('gonative') > -1) {
           var items = [{
             "subLinks": [],
