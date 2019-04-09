@@ -201,6 +201,12 @@ export class HomeComponent implements OnInit {
         },
         {
           "subLinks": [],
+          "label": "Din profil",
+          "url": "https://teamdagarna.com/profile",
+          "icon": "fa-user-graduate"
+        },
+        {
+          "subLinks": [],
           "label": "English info",
           "url": "https://teamdagarna.com/about-english",
           "icon": "fa-cog"
