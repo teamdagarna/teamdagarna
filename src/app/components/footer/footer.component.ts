@@ -8,13 +8,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class FooterComponent implements OnInit {
 
-  user
+  user;
 
   constructor(public auth: AuthService) {
     this.auth.user$.subscribe(user => this.user = user)
    }
 
   ngOnInit() {
+    console.log("hej")
     this.auth.isSignedIn()
   }
 

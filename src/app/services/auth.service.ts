@@ -136,9 +136,10 @@ export class AuthService {
   // }
 
   isSignedIn() {
-    if (this.isAuthenticated) {
+    if (navigator.userAgent.indexOf('gonative') > -1) {
+      if (this.isAuthenticated) {
       //Checks if request comes from the app
-      if (navigator.userAgent.indexOf('gonative') > -1) {
+
         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
         var items = [{
           "subLinks": [],
