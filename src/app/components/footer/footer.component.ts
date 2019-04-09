@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   user
 
   constructor(public auth: AuthService) {
-        this.auth.user$.subscribe(user => this.user = user)
+    this.auth.user$.subscribe(user => this.user = user)
    }
 
   ngOnInit() {
