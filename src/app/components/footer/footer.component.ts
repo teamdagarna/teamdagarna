@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.auth.isSignedIn()
   }
 
 }
