@@ -4,7 +4,7 @@
       <a class="navbar-item" [routerLink]="['']">
         <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/rosa-utan-pussel.png?alt=media&token=1f5b35d2-84bd-48e8-afe9-4ae00c46427f" alt="Teamdagarna" max-height="38">
       </a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <div id="navbarBurger" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
         <span></span>
@@ -21,10 +21,10 @@
             För studenter
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item is-disabled" [routerLink]="['sokdreamteam']">
+            <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
               Sök Dreamteam 2019
             </a>
-            <a class="navbar-item is-disabled" [routerLink]="['companies']">
+            <a class="navbar-item mobileLink is-disabled" [routerLink]="['companies']">
               Företagen 2018
             </a>
             <!-- <a class="navbar-item is-disabled" [routerLink]="['companymap']">
@@ -33,10 +33,10 @@
             <a class="navbar-item is-disabled" [routerLink]="['massjakt']">
               Mässjakten
             </a> -->
-            <a class="navbar-item is-disabled" [routerLink]="['interview']">
+            <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']">
               Sök kontaktsamtal
             </a>
-            <a class="navbar-item is-disabled" [routerLink]="['events']">
+            <a class="navbar-item mobileLink is-disabled" [routerLink]="['events']">
               Event
             </a>
             <!-- <a class="navbar-item is-disabled" [routerLink]="['sokvard']">
@@ -49,23 +49,23 @@
           För företag
         </a>
         <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" [routerLink]="['about']">
+          <a class="navbar-item mobileLink" [routerLink]="['about']">
             Om dagarna
           </a>
-          <a class="navbar-item" [routerLink]="['faq']">
+          <a class="navbar-item mobileLink" [routerLink]="['faq']">
             FAQ
           </a>
-          <a class="navbar-item" [routerLink]="['weoffer']">
+          <a class="navbar-item mobileLink" [routerLink]="['weoffer']">
             Erbjudande
           </a>
-          <a class="navbar-item" [routerLink]="['find']">
+          <a class="navbar-item mobileLink" [routerLink]="['find']">
             Hitta hit
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" [routerLink]="['companyapplication']">
+          <a class="navbar-item mobileLink" [routerLink]="['companyapplication']">
             Företagsanmälan
           </a>
-          <a class="navbar-item" [routerLink]="['companysignin']">
+          <a class="navbar-item mobileLink" [routerLink]="['companysignin']">
             Inloggning gästföretag
           </a>
         </div>
@@ -75,10 +75,10 @@
           Om oss
         </a>
         <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" [routerLink]="['dreamteam']">
+          <a class="navbar-item mobileLink" [routerLink]="['dreamteam']">
             Kontakt
           </a>
-          <a class="navbar-item" [routerLink]="['about']">
+          <a class="navbar-item mobileLink" [routerLink]="['about']">
             Om dagarna
           </a>
           <!-- <a class="navbar-item" href="#">
@@ -86,13 +86,13 @@
         </a> -->
       </div>
     </div>
-    <a class="navbar-item" [routerLink]="['about-english']">
+    <a class="navbar-item mobileLink" [routerLink]="['about-english']">
       English info
     </a>
     <div *ngIf="!auth.isSignedIn()" class="navbar-item">
       <div class="field is-grouped">
         <p class="control">
-          <a class="bd-tw-button button" [routerLink]="['/signin']">
+          <a class="bd-tw-button button mobileLink" [routerLink]="['/signin']">
             <span class="icon">
               <i class="fas fa-sign-in-alt"></i>
             </span>
@@ -103,7 +103,7 @@
         </p>
       </div>
     </div>
-    <a [routerLink]="['profile']" *ngIf="auth.isSignedIn()" class="navbar-item">
+    <a [routerLink]="['profile']" *ngIf="auth.isSignedIn()" class="navbar-item mobileLink">
       <span>
         Din profil &nbsp;
       </span>
@@ -111,7 +111,7 @@
         <i class="fas fa-user-graduate"></i>
       </span>
     </a>
-    <a (click)="auth.signOut()" *ngIf="auth.isSignedIn()" class="navbar-item">
+    <a (click)="auth.signOut()" *ngIf="auth.isSignedIn()" class="navbar-item mobileLink">
       <span>
         Logga ut &nbsp;
       </span>
@@ -122,7 +122,7 @@
     <div *ngIf="auth.canEdit(user)" class="navbar-item">
       <div class="field is-grouped">
         <p class="control">
-          <a class="bd-tw-button button is-dark" [routerLink]="['/dreamteamadmin']">
+          <a class="bd-tw-button button is-dark mobileLink" [routerLink]="['/dreamteamadmin']">
             <span>
               Dreamteam Admin
             </span>
