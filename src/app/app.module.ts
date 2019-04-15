@@ -85,6 +85,7 @@ import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.co
 import { ApplyComponent } from './components/apply/apply.component';
 import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 import { SignoutComponent } from './components/signout/signout.component';
+import { SustainabilityComponent } from './components/sustainability/sustainability.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -140,7 +141,8 @@ registerLocaleData(localeSv, 'sv');
     TreasurehuntComponent,
     ApplyComponent,
     CompanyapplicationComponent,
-    SignoutComponent
+    SignoutComponent,
+    SustainabilityComponent
   ],
   imports: [
     BrowserModule,
@@ -196,6 +198,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'companymap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},
+    { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
