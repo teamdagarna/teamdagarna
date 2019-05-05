@@ -136,6 +136,14 @@ export class AuthService {
   // }
 
   isSignedIn() {
+    return this.isAuthenticated;
+  }
+
+  isVerified() {
+    return this.emailIsVerified;
+  }
+
+  checkGoNative() {
     if (navigator.userAgent.indexOf('gonative') > -1) {
       if (this.isAuthenticated) {
         //Checks if request comes from the app
@@ -337,11 +345,6 @@ export class AuthService {
         window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
       }
     }
-    return this.isAuthenticated;
-  }
-
-  isVerified() {
-    return this.emailIsVerified;
   }
 
   signOut() {
