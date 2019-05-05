@@ -11,10 +11,10 @@ export class HomeComponent implements OnInit {
 
   private _trialEndsAt;
   private diff: number;
-  private days: number;
-  private hours: number;
-  private minutes: number;
-  private seconds: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 
   constructor() {}
 
