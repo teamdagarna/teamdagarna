@@ -14,8 +14,6 @@ export class FooterComponent implements OnInit {
     this.auth.user$.subscribe(user => this.user = user)
    }
 
-  ngOnInit() {
-    this.auth.checkGoNative()
-  }
+  ngOnInit() {}
 
 }
