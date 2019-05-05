@@ -12,10 +12,10 @@ export class FooterComponent implements OnInit {
 
   constructor(public auth: AuthService) {
     this.auth.user$.subscribe(user => this.user = user)
+    this.auth.isSignedIn();
    }
 
   ngOnInit() {
-    this.auth.isSignedIn()
   }
 
 }
