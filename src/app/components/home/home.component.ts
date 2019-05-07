@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators'
 })
 export class HomeComponent implements OnInit {
 
-  private _trialEndsAt;
-  private diff: number;
+  _trialEndsAt: string;
+  diff: number;
   days: number;
   hours: number;
   minutes: number;
