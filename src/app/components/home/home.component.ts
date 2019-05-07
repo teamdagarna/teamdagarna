@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators'
 })
 export class HomeComponent implements OnInit {
 
-  _trialEndsAt: string;
-  diff: number;
+  _trialEndsAt;
+  diff;
   days: number;
   hours: number;
   minutes: number;
@@ -36,10 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._trialEndsAt = "2019-09-24 09:00";
+    this._trialEndsAt = new Date("Sep 24, 2019 09:00:00").getTime();
 
     interval(1000).pipe(
-      map((x) => {this.diff = Date.parse(this._trialEndsAt) - Date.parse(new Date().toString());
+      map((x) => {this.diff = this._trialEndsAt - new Date().getTime();
       })).subscribe((x) => {
         this.days = this.getDays(this.diff);
         this.hours = this.getHours(this.diff);
