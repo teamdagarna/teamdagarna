@@ -20,6 +20,12 @@
   }
 }
 
+@media screen and (max-width: 1280px) {
+  #frontContainer {
+    margin: 0px 0px;
+  }
+}
+
 #mobileButton {
   background-color: #FFFFFF;
 }
