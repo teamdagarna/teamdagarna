@@ -86,6 +86,7 @@ import { ApplyComponent } from './components/apply/apply.component';
 import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 import { SignoutComponent } from './components/signout/signout.component';
 import { SustainabilityComponent } from './components/sustainability/sustainability.component';
+import { NewdesignComponent } from './components/newdesign/newdesign.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -142,7 +143,8 @@ registerLocaleData(localeSv, 'sv');
     ApplyComponent,
     CompanyapplicationComponent,
     SignoutComponent,
-    SustainabilityComponent
+    SustainabilityComponent,
+    NewdesignComponent
   ],
   imports: [
     BrowserModule,
@@ -201,6 +203,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
+    { path: 'nydesign', component: NewdesignComponent },
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],

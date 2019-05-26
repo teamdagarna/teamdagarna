@@ -1,11 +1,29 @@
+@media screen and (min-width: 769px) {
 .has-bg-img {
   // background: linear-gradient(90deg,#8e54e9,#4776e6);
   // background: url('/assets/img/ice.png');
-  background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bg-hero2.jpg?alt=media&token=c8c0846d-69c0-48dd-bc63-8cdaccf55492");
+  background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bg-hero4-01.jpg?alt=media&token=5e81bceb-a491-4d2e-be3e-8281c31ad7e6");
   background-position: center 80px;
   background-size: cover;
   background-repeat: no-repeat;
 }
+}
+
+@media screen and (max-width: 768px) {
+  .has-bg-img {
+    // background: linear-gradient(90deg,#8e54e9,#4776e6);
+    // background: url('/assets/img/ice.png');
+    background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bg-hero-mobil2-01.jpg?alt=media&token=4b4828f2-c461-4da2-88e5-77cab0cd1b64");
+    background-position: center 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+#mobileButton {
+  background-color: #FFFFFF;
+}
+
 // #particles-js {
 //   position: absolute;
 //   top: 0;
@@ -149,5 +167,5 @@ img {
 }
 
 .containerWhite {
-  padding-top: 67px;
+  padding-top: 90px;
 }
