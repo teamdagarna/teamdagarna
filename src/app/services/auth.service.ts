@@ -87,7 +87,7 @@ export class AuthService {
                               {
                                 "subLinks": [],
                                 "label": "Hitta hit",
-                                "url": "https://teamdagarna.com/weoffer"
+                                "url": "https://teamdagarna.com/find"
                               }
                             ],
                             "label": "För företag",
@@ -193,7 +193,7 @@ export class AuthService {
                           {
                             "subLinks": [],
                             "label": "Hitta hit",
-                            "url": "https://teamdagarna.com/weoffer"
+                            "url": "https://teamdagarna.com/find"
                           }
                         ],
                         "label": "För företag",
@@ -400,7 +400,7 @@ export class AuthService {
               {
                 "subLinks": [],
                 "label": "Hitta hit",
-                "url": "https://teamdagarna.com/weoffer"
+                "url": "https://teamdagarna.com/find"
               }
             ],
             "label": "För företag",
