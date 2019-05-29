@@ -52,99 +52,99 @@ export class SigninComponent implements OnInit {
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var items = [{
-             "subLinks": [],
-             "label": "Hem",
-             "url": "https://teamdagarna.com",
-             "icon": "fa-home"
+             subLinks: [],
+             label: "Hem",
+             url: "https://teamdagarna.com/",
+             icon: "fa-home"
            },
            {
-             "subLinks": [
+             subLinks: [
                {
-                 "subLinks": [],
-                 "label": "Sök DreamTEAM",
-                 "url": "https://teamdagarna.com/sokdreamteam"
+                 subLinks: [],
+                 label: "Sök DreamTEAM",
+                 url: "https://teamdagarna.com/sokdreamteam"
                },
                {
-                 "subLinks": [],
-                 "label": "Företagen 2018",
-                 "url": "https://teamdagarna.com/companies"
+                 subLinks: [],
+                 label: "Företagen 2018",
+                 url: "https://teamdagarna.com/companies"
                },
                {
-                 "subLinks": [],
-                 "label": "Sök kontaktsamtal",
-                 "url": "https://teamdagarna.com/interview"
+                 subLinks: [],
+                 label: "Sök kontaktsamtal",
+                 url: "https://teamdagarna.com/interview"
                },
                {
-                 "subLinks": [],
-                 "label": "Event",
-                 "url": "https://teamdagarna.com/events"
+                 subLinks: [],
+                 label: "Event",
+                 url: "https://teamdagarna.com/events"
                }
              ],
-             "label": "För Studenter",
-             "isGrouping": true,
-             "icon": "fa-user"
+             label: "För Studenter",
+             isGrouping: true,
+             icon: "fa-user"
            },
            {
-             "subLinks": [
+             subLinks: [
                {
-                 "subLinks": [],
-                 "label": "Om dagarna",
-                 "url": "https://teamdagarna.com/about"
+                 subLinks: [],
+                 label: "Om dagarna",
+                 url: "https://teamdagarna.com/about"
                },
                {
-                 "subLinks": [],
-                 "label": "FAQ",
-                 "url": "https://teamdagarna.com/faq"
+                 subLinks: [],
+                 label: "FAQ",
+                 url: "https://teamdagarna.com/faq"
                },
                {
-                 "subLinks": [],
-                 "label": "Erbjudande",
-                 "url": "https://teamdagarna.com/weoffer"
+                 subLinks: [],
+                 label: "Erbjudande",
+                 url: "https://teamdagarna.com/weoffer"
                },
                {
-                 "subLinks": [],
-                 "label": "Hitta hit",
-                 "url": "https://teamdagarna.com/weoffer"
+                 subLinks: [],
+                 label: "Hitta hit",
+                 url: "https://teamdagarna.com/weoffer"
                }
              ],
-             "label": "För företag",
-             "isGrouping": true,
-             "icon": "fa-briefcase"
+             label: "För företag",
+             isGrouping: true,
+             icon: "fa-briefcase"
            },
            {
-             "subLinks": [
+             subLinks: [
                {
-                 "subLinks": [],
-                 "label": "Kontakt",
-                 "url": "https://teamdagarna.com/dreamteam"
+                 subLinks: [],
+                 label: "Kontakt",
+                 url: "https://teamdagarna.com/dreamteam"
                },
                {
-                 "subLinks": [],
-                 "label": "Om dagarna",
-                 "url": "https://teamdagarna.com/dreamteam"
+                 subLinks: [],
+                 label: "Om dagarna",
+                 url: "https://teamdagarna.com/dreamteam"
                }
              ],
-             "label": "Om oss",
-             "isGrouping": true,
-             "icon": "fa-question"
+             label: "Om oss",
+             isGrouping: true,
+             icon: "fa-question"
            },
            {
-             "subLinks": [],
-             "label": "English info",
-             "url": "https://teamdagarna.com/about-english",
-             "icon": "fa-cog"
+             subLinks: [],
+             label: "English info",
+             url: "https://teamdagarna.com/about-english",
+             icon: "fa-cog"
            },
            {
-             "subLinks": [],
-             "label": "Din profil",
-             "url": "https://teamdagarna.com/profile",
-             "icon": "fa-user-graduate"
+             subLinks: [],
+             label: "Din profil",
+             url: "https://teamdagarna.com/profile",
+             icon: "fa-user-graduate"
            },
            {
-             "subLinks": [],
-             "label": "Logga ut",
-             "url": "https://teamdagarna.com/signout",
-             "icon": "fa-sign-out"
+             subLinks: [],
+             label: "Logga ut",
+             url: "https://teamdagarna.com/signout",
+             icon: "fa-sign-out"
            }
          ];
 
