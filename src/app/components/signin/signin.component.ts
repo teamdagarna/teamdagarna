@@ -105,6 +105,11 @@ export class SigninComponent implements OnInit {
                  subLinks: [],
                  label: "Hitta hit",
                  url: "https://teamdagarna.com/weoffer"
+               },
+               {
+                 subLinks: [],
+                 label: "Inloggning gästföretag",
+                 url: "https://teamdagarna.com/companysignin"
                }
              ],
              label: "För företag",
@@ -122,7 +127,17 @@ export class SigninComponent implements OnInit {
                  subLinks: [],
                  label: "Om dagarna",
                  url: "https://teamdagarna.com/dreamteam"
-               }
+               },
+               {
+                 subLinks: [],
+                 label: "Hållbarhet",
+                 url: "https://teamdagarna.com/hallbarhet"
+               },
+               {
+                 subLinks: [],
+                 label: "Ny grafisk profil",
+                 url: "https://teamdagarna.com/nydesign"
+               }               
              ],
              label: "Om oss",
              isGrouping: true,

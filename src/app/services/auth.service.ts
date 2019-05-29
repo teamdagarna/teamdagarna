@@ -88,6 +88,11 @@ export class AuthService {
                                 subLinks: [],
                                 label: "Hitta hit",
                                 url: "https://teamdagarna.com/find"
+                              },
+                              {
+                                subLinks: [],
+                                label: "Inloggning gästföretag",
+                                url: "https://teamdagarna.com/companysignin"
                               }
                             ],
                             label: "För företag",
@@ -104,7 +109,17 @@ export class AuthService {
                               {
                                 subLinks: [],
                                 label: "Om dagarna",
-                                url: "https://teamdagarna.com/dreamteam"
+                                url: "https://teamdagarna.com/about"
+                              },
+                              {
+                                subLinks: [],
+                                label: "Hållbarhet",
+                                url: "https://teamdagarna.com/hallbarhet"
+                              },
+                              {
+                                subLinks: [],
+                                label: "Ny grafisk profil",
+                                url: "https://teamdagarna.com/nydesign"
                               }
                             ],
                             label: "Om oss",
@@ -194,6 +209,11 @@ export class AuthService {
                             subLinks: [],
                             label: "Hitta hit",
                             url: "https://teamdagarna.com/find"
+                          },
+                          {
+                            subLinks: [],
+                            label: "Inloggning gästföretag",
+                            url: "https://teamdagarna.com/companysignin"
                           }
                         ],
                         label: "För företag",
@@ -211,6 +231,16 @@ export class AuthService {
                             subLinks: [],
                             label: "Om dagarna",
                             url: "https://teamdagarna.com/dreamteam"
+                          },
+                          {
+                            subLinks: [],
+                            label: "Hållbarhet",
+                            url: "https://teamdagarna.com/hallbarhet"
+                          },
+                          {
+                            subLinks: [],
+                            label: "Ny grafisk profil",
+                            url: "https://teamdagarna.com/nydesign"
                           }
                         ],
                         label: "Om oss",
@@ -401,7 +431,12 @@ export class AuthService {
                 subLinks: [],
                 label: "Hitta hit",
                 url: "https://teamdagarna.com/find"
-              }
+              },
+              {
+                subLinks: [],
+                label: "Inloggning gästföretag",
+                url: "https://teamdagarna.com/companysignin"
+              }              
             ],
             label: "För företag",
             isGrouping: true,
@@ -418,6 +453,16 @@ export class AuthService {
                 subLinks: [],
                 label: "Om dagarna",
                 url: "https://teamdagarna.com/dreamteam"
+              },
+              {
+                subLinks: [],
+                label: "Hållbarhet",
+                url: "https://teamdagarna.com/hallbarhet"
+              },
+              {
+                subLinks: [],
+                label: "Ny grafisk profil",
+                url: "https://teamdagarna.com/nydesign"
               }
             ],
             label: "Om oss",

@@ -65,8 +65,11 @@
           <a class="navbar-item mobileLink" [routerLink]="['companyapplication']">
             Företagsanmälan
           </a>
-          <a class="navbar-item mobileLink" [routerLink]="['companysignin']">
+          <a [hidden]="auth.isCompany(user)" class="navbar-item mobileLink" [routerLink]="['companysignin']">
             Inloggning gästföretag
+          </a>
+          <a [hidden]="!auth.isCompany(user)" class="navbar-item mobileLink" [routerLink]="['companyguest']">
+            Företagssida
           </a>
         </div>
       </div>
