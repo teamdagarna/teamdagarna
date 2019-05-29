@@ -37,7 +37,7 @@ export class AuthService {
                           var items = [{
                             "subLinks": [],
                             "label": "Hem",
-                            "url": "http://teamdagarna.com/",
+                            "url": "http://teamdagarna.com",
                             "icon": "fa-home"
                           },
                           {
@@ -143,7 +143,7 @@ export class AuthService {
                       var items = [{
                         "subLinks": [],
                         "label": "Hem",
-                        "url": "http://teamdagarna.com/",
+                        "url": "http://teamdagarna.com",
                         "icon": "fa-home"
                       },
                       {
@@ -350,7 +350,7 @@ export class AuthService {
           var items = [{
             "subLinks": [],
             "label": "Hem",
-            "url": "http://teamdagarna.com/",
+            "url": "http://teamdagarna.com",
             "icon": "fa-home"
           },
           {

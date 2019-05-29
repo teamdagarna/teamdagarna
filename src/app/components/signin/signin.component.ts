@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
            var items = [{
              "subLinks": [],
              "label": "Hem",
-             "url": "http://teamdagarna.com/",
+             "url": "http://teamdagarna.com",
              "icon": "fa-home"
            },
            {
