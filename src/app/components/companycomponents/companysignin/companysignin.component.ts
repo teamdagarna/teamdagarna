@@ -36,6 +36,123 @@ export class CompanysigninComponent implements OnInit {
     this.auth.emailLogin(mail, data.password).then((res) => {
           this.loading = false;
           this.router.navigate(['companyguest']);
+          if (navigator.userAgent.indexOf('gonative') > -1) {
+            var items = [{
+              subLinks: [],
+              label: "Hem",
+              url: "https://teamdagarna.com/",
+              icon: "fa-home"
+            },
+            {
+              subLinks: [
+                {
+                  subLinks: [],
+                  label: "Sök DreamTEAM",
+                  url: "https://teamdagarna.com/sokdreamteam"
+                },
+                {
+                  subLinks: [],
+                  label: "Företagen 2018",
+                  url: "https://teamdagarna.com/companies"
+                },
+                {
+                  subLinks: [],
+                  label: "Sök kontaktsamtal",
+                  url: "https://teamdagarna.com/interview"
+                },
+                {
+                  subLinks: [],
+                  label: "Event",
+                  url: "https://teamdagarna.com/events"
+                }
+              ],
+              label: "För Studenter",
+              isGrouping: true,
+              icon: "fa-user"
+            },
+            {
+              subLinks: [
+                {
+                  subLinks: [],
+                  label: "Om dagarna",
+                  url: "https://teamdagarna.com/about"
+                },
+                {
+                  subLinks: [],
+                  label: "FAQ",
+                  url: "https://teamdagarna.com/faq"
+                },
+                {
+                  subLinks: [],
+                  label: "Erbjudande",
+                  url: "https://teamdagarna.com/weoffer"
+                },
+                {
+                  subLinks: [],
+                  label: "Hitta hit",
+                  url: "https://teamdagarna.com/weoffer"
+                },
+                {
+                  subLinks: [],
+                  label: "Företagssida",
+                  url: "https://teamdagarna.com/companyguest"
+                }
+              ],
+              label: "För företag",
+              isGrouping: true,
+              icon: "fa-briefcase"
+            },
+            {
+              subLinks: [
+                {
+                  subLinks: [],
+                  label: "Kontakt",
+                  url: "https://teamdagarna.com/dreamteam"
+                },
+                {
+                  subLinks: [],
+                  label: "Om dagarna",
+                  url: "https://teamdagarna.com/dreamteam"
+                },
+                {
+                  subLinks: [],
+                  label: "Hållbarhet",
+                  url: "https://teamdagarna.com/hallbarhet"
+                },
+                {
+                  subLinks: [],
+                  label: "Ny grafisk profil",
+                  url: "https://teamdagarna.com/nydesign"
+                }
+              ],
+              label: "Om oss",
+              isGrouping: true,
+              icon: "fa-question"
+            },
+            {
+              subLinks: [],
+              label: "English info",
+              url: "https://teamdagarna.com/about-english",
+              icon: "fa-cog"
+            },
+            {
+              subLinks: [],
+              label: "Din profil",
+              url: "https://teamdagarna.com/profile",
+              icon: "fa-user-graduate"
+            },
+            {
+              subLinks: [],
+              label: "Logga ut",
+              url: "https://teamdagarna.com/signout",
+              icon: "fa-sign-out"
+            }
+          ];
+
+          var json = JSON.stringify(items);
+
+          window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+        }
        }).catch((error) => {
          this.loading = false;
          var errorCode = error.code;
