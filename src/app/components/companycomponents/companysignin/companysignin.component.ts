@@ -112,7 +112,7 @@ export class CompanysigninComponent implements OnInit {
                 {
                   subLinks: [],
                   label: "Om dagarna",
-                  url: "https://teamdagarna.com/dreamteam"
+                  url: "https://teamdagarna.com/about"
                 },
                 {
                   subLinks: [],

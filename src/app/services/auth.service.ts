@@ -230,7 +230,7 @@ export class AuthService {
                           {
                             subLinks: [],
                             label: "Om dagarna",
-                            url: "https://teamdagarna.com/dreamteam"
+                            url: "https://teamdagarna.com/about"
                           },
                           {
                             subLinks: [],
@@ -436,7 +436,7 @@ export class AuthService {
                 subLinks: [],
                 label: "Inloggning gästföretag",
                 url: "https://teamdagarna.com/companysignin"
-              }              
+              }
             ],
             label: "För företag",
             isGrouping: true,
@@ -452,7 +452,7 @@ export class AuthService {
               {
                 subLinks: [],
                 label: "Om dagarna",
-                url: "https://teamdagarna.com/dreamteam"
+                url: "https://teamdagarna.com/about"
               },
               {
                 subLinks: [],

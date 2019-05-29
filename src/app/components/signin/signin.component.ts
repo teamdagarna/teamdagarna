@@ -126,7 +126,7 @@ export class SigninComponent implements OnInit {
                {
                  subLinks: [],
                  label: "Om dagarna",
-                 url: "https://teamdagarna.com/dreamteam"
+                 url: "https://teamdagarna.com/about"
                },
                {
                  subLinks: [],
@@ -137,7 +137,7 @@ export class SigninComponent implements OnInit {
                  subLinks: [],
                  label: "Ny grafisk profil",
                  url: "https://teamdagarna.com/nydesign"
-               }               
+               }
              ],
              label: "Om oss",
              isGrouping: true,
