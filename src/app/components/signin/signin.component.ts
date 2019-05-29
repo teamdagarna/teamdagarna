@@ -82,7 +82,7 @@ export class SigninComponent implements OnInit {
              ],
              label: "För Studenter",
              isGrouping: true,
-             icon: "fa-user"
+             icon: "fa-users"
            },
            {
              subLinks: [
@@ -153,7 +153,7 @@ export class SigninComponent implements OnInit {
              subLinks: [],
              label: "Din profil",
              url: "https://teamdagarna.com/profile",
-             icon: "fa-user-graduate"
+             icon: "fa-user"
            },
            {
              subLinks: [],

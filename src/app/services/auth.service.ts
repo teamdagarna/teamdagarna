@@ -65,7 +65,7 @@ export class AuthService {
                             ],
                             label: "För Studenter",
                             isGrouping: true,
-                            icon: "fa-user"
+                            icon: "fa-users"
                           },
                           {
                             subLinks: [
@@ -136,7 +136,7 @@ export class AuthService {
                             subLinks: [],
                             label: "Din profil",
                             url: "https://teamdagarna.com/profile",
-                            icon: "fa-user-graduate"
+                            icon: "fa-user"
                           },
                           {
                             subLinks: [],
@@ -186,7 +186,7 @@ export class AuthService {
                         ],
                         label: "För Studenter",
                         isGrouping: true,
-                        icon: "fa-user"
+                        icon: "fa-users"
                       },
                       {
                         subLinks: [
@@ -408,7 +408,7 @@ export class AuthService {
             ],
             label: "För Studenter",
             isGrouping: true,
-            icon: "fa-user"
+            icon: "fa-users"
           },
           {
             subLinks: [
