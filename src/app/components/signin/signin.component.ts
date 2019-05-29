@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
            var items = [{
              "subLinks": [],
              "label": "Hem",
-             "url": "http://teamdagarna.com",
+             "url": "https://teamdagarna.com",
              "icon": "fa-home"
            },
            {
@@ -62,12 +62,12 @@ export class SigninComponent implements OnInit {
                {
                  "subLinks": [],
                  "label": "Sök DreamTEAM",
-                 "url": "http://teamdagarna.com/sokdreamteam"
+                 "url": "https://teamdagarna.com/sokdreamteam"
                },
                {
                  "subLinks": [],
                  "label": "Företagen 2018",
-                 "url": "http://teamdagarna.com/companies"
+                 "url": "https://teamdagarna.com/companies"
                },
                {
                  "subLinks": [],
@@ -89,7 +89,7 @@ export class SigninComponent implements OnInit {
                {
                  "subLinks": [],
                  "label": "Om dagarna",
-                 "url": "http://teamdagarna.com/about"
+                 "url": "https://teamdagarna.com/about"
                },
                {
                  "subLinks": [],
