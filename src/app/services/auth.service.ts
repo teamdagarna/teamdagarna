@@ -36,7 +36,7 @@ export class AuthService {
                         //Sends information about the user to OneSignal
                         var info = {user_id: this.afAuth.auth.currentUser.uid}
                         var json = JSON.stringify(info);
-                        window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
+                        window.location.href='http://nevermatch?customData=' + encodeURIComponent(json);
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
