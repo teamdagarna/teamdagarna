@@ -33,10 +33,6 @@ export class AuthService {
                     if (user) {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                        //Sends information about the user to OneSignal
-                        var info = {user_id: this.afAuth.auth.currentUser.uid}
-                        var json = JSON.stringify(info);
-                        window.location.href='http://nevermatch?customData=' + encodeURIComponent(json);
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
