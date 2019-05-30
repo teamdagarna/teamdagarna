@@ -34,7 +34,7 @@ export class AuthService {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
                         //Sends information about the user to OneSignal
-                        var info = {userID: this.afAuth.auth.currentUser.uid, userEmail: this.afAuth.auth.currentUser.email};
+                        var info = {user_id: this.afAuth.auth.currentUser.uid}
                         var json = JSON.stringify(info);
                         window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
