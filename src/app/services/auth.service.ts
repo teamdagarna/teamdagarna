@@ -33,6 +33,13 @@ export class AuthService {
                     if (user) {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
+                        var tags =
+                        {
+                          user_id: this.afAuth.auth.currentUser.uid,
+                          userEmail: this.afAuth.auth.currentUser.email
+                        }
+
+                        window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
