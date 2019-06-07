@@ -22,8 +22,7 @@ exports.pushNotifications = functions.https.onRequest((req, res)  => {
 
   var editPlayer = function(data) {
     var headers = {
-      "Content-Type": "application/json; charset=utf-8",
-      "Authorization": "Basic ODdmZjJmYzQtMjhhNS00YjkwLWI4NDctZDU4ZmYyZThhYmRj"
+      "Content-Type": "application/json"
     };
 
     var options = {
@@ -53,18 +52,13 @@ exports.pushNotifications = functions.https.onRequest((req, res)  => {
 
   var message = {
     app_id: "43e80f6d-7cf6-4c3c-808f-bf832ddb63f7",
+    external_user_id: userId,
     tags: {
-      "userId": userId,
       "userEmail": userEmail
     }
   };
 
   editPlayer(message);
-
-  var newUserRef = admin.database().ref('/users/' + userId).push();
-  newUserRef.set({
-    "oneSignalUserId": oneSignalUserId
-  });
 
 
 });
