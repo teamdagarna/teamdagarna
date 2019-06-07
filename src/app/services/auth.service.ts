@@ -39,7 +39,7 @@ export class AuthService {
                           userEmail: firebase.auth().currentUser.email
                         };
                         var json = JSON.stringify(info);
-                        window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
+                        window.location.href='gonative://registration/send?info=' + encodeURIComponent(json);
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
