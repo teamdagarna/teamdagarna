@@ -52,7 +52,7 @@ exports.pushNotifications = functions.https.onRequest((req, res)  => {
   };
 
   var message = {
-    app_id: "43e80f6d-7cf6-4c3c-808f-bf832ddb63f7 ",
+    app_id: "43e80f6d-7cf6-4c3c-808f-bf832ddb63f7",
     tags: {
       "userId": userId,
       "userEmail": userEmail
