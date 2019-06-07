@@ -17,7 +17,7 @@ exports.helloWorld = functions.https.onRequest((req, res) => {
 
 exports.pushNotifications = functions.https.onRequest((req, res)  => {
   var oneSignalUserId = req.body.oneSignalUserId;
-  var userId = req.body.userID;
+  var userId = req.body.userId;
   var userEmail = req.body.userEmail;
 
   var editPlayer = function(data) {
