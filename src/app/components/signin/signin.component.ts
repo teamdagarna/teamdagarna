@@ -166,14 +166,6 @@ export class SigninComponent implements OnInit {
          var json = JSON.stringify(items);
 
          window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-
-         var info =
-         {
-           userId: this.auth.getUserID(),
-           userEmail: this.auth.getUserEmail()
-         };
-         var json = JSON.stringify(info);
-         window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
        }
       }).catch((error) => {
         var errorCode = error.code;

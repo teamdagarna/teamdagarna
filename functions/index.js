@@ -60,5 +60,6 @@ exports.pushNotifications = functions.https.onRequest((req, res)  => {
 
   editPlayer(message);
 
+  res.status(201).send('Success');
 
 });

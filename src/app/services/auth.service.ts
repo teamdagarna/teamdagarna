@@ -33,13 +33,13 @@ export class AuthService {
                     if (user) {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                        var tags =
+                        var info =
                         {
-                          user_id: this.afAuth.auth.currentUser.uid,
-                          userEmail: this.afAuth.auth.currentUser.email
-                        }
-
-                        window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+                          userId: this.auth.getUserID(),
+                          userEmail: this.auth.getUserEmail()
+                        };
+                        var json = JSON.stringify(info);
+                        window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
@@ -56,7 +56,7 @@ export class AuthService {
                               },
                               {
                                 subLinks: [],
-                                label: "Företagen 2018",
+                                label: "Företagen 2019",
                                 url: "https://teamdagarna.com/companies"
                               },
                               {
@@ -177,7 +177,7 @@ export class AuthService {
                           },
                           {
                             subLinks: [],
-                            label: "Företagen 2018",
+                            label: "Företagen 2019",
                             url: "https://teamdagarna.com/companies"
                           },
                           {
@@ -399,7 +399,7 @@ export class AuthService {
               },
               {
                 subLinks: [],
-                label: "Företagen 2018",
+                label: "Företagen 2019",
                 url: "https://teamdagarna.com/companies"
               },
               {
