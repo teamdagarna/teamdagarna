@@ -66,7 +66,7 @@ export class SigninComponent implements OnInit {
                },
                {
                  subLinks: [],
-                 label: "Företagen 2018",
+                 label: "Företagen 2019",
                  url: "https://teamdagarna.com/companies"
                },
                {
