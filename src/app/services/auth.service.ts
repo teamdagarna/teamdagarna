@@ -35,8 +35,8 @@ export class AuthService {
                       if (navigator.userAgent.indexOf('gonative') > -1) {
                         var info =
                         {
-                          userId: this.auth.getUserID(),
-                          userEmail: this.auth.getUserEmail()
+                          userId: firebase.auth().currentUser.uid,
+                          userEmail: firebase.auth().currentUser.email
                         };
                         var json = JSON.stringify(info);
                         window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
