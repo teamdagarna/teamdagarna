@@ -126,6 +126,9 @@ export class CompanyComponent implements OnInit {
       'treasurehunt': [false, [
         ]
       ],
+      'pitchLecture': [false, [
+        ]
+      ],
       'interviewinfo': ['', [
         ]
       ],
@@ -234,6 +237,7 @@ export class CompanyComponent implements OnInit {
           seconddaypackage2: data.seconddaypackage2
         },
         treasurehunt: data.treasurehunt,
+        pitchLecture: data.pitchLecture,
         about: data.about,
         values: data.values,
         logopath: this.logopath,

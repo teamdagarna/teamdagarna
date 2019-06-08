@@ -79,6 +79,7 @@ export interface Company {
 
   totalapplicants?: number;
   seeopenapplicants?: boolean;
+  pitchLecture?: boolean;
 }
 
 export interface Dreamteamer {

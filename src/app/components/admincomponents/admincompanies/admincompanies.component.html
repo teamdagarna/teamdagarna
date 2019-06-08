@@ -16,7 +16,7 @@
         <div class="card-title "> {{ company.name }}</div>
         <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
       " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
-          <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+          <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
         </div>
         <div class="card-description ">
           <div class="tags ">
@@ -44,7 +44,7 @@
       <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
         <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up"><i class="fas fa-leaf "></i></span>
         <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
-        <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i mässjakten! " data-balloon-pos="up"><i class="fas fa-gift "></i></span>
+        <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="up"><i class="fas fa-gift "></i></span>
       </p>
       <button class="delete " aria-label="close " (click)="closeModal() "></button>
 
