@@ -33,13 +33,6 @@ export class AuthService {
                     if (user) {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                        // var info =
-                        // {
-                        //   userId: firebase.auth().currentUser.uid,
-                        //   userEmail: firebase.auth().currentUser.email
-                        // };
-                        // var json = JSON.stringify(info);
-                        window.location.href='gonative://registration/send';
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
                           var items = [{
                             subLinks: [],
