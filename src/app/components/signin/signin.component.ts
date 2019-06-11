@@ -50,10 +50,12 @@ export class SigninComponent implements OnInit {
    this.auth.emailLogin(liumail, data.password).then((res) => {
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
+           var userIdData: string = this.auth.getUserID();
+           var userIdEmail: string = this.auth.getUserEmail();
            var info =
            {
-             userId: this.auth.getUserID(),
-             userEmail: this.auth.getUserEmail()
+             userId: userIdData,
+             userEmail: userIdEmail
            };
            var json = JSON.stringify(info);
            window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
