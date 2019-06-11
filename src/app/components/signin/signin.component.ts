@@ -52,11 +52,7 @@ export class SigninComponent implements OnInit {
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var userIdData: string = this.auth.getUserID();
            var userIdEmail: string = this.auth.getUserEmail();
-           var info =
-           {
-             userId: userIdData,
-             userEmail: userIdEmail
-           };
+           var info = {userId: 'user_xyz'};
            var json = JSON.stringify(info);
            window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
            var items = [{
