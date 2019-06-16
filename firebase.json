@@ -8,10 +8,6 @@
     ],
     "rewrites": [
       {
-        "source": "/push/newdevice",
-        "function": "pushNotifications"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }
