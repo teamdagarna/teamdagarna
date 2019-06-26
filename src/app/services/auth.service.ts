@@ -34,7 +34,7 @@ export class AuthService {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
-                        var info = {userId: 'user_xyz'};
+                        var info = {userId: 'user_xyz', userEmail: 'chrvo878@student.liu.se'};
                         var json = JSON.stringify(info);
                         window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
 
