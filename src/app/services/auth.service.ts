@@ -37,6 +37,7 @@ export class AuthService {
                         var info = {userId: 'user_xyz'};
                         var json = JSON.stringify(info);
                         window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
+                        window.location.reload(true);
                           var items = [{
                             subLinks: [],
                             label: "Hem",
