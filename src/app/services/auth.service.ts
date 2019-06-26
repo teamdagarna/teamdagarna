@@ -153,7 +153,7 @@ export class AuthService {
                         var json2 = JSON.stringify(items);
 
                         var url2 = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json2);
-                        var urls = [url1, url2];
+                        var urls = [url2, url1];
                         var jsonmulti: any = {urls: urls};
                         window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(jsonmulti);
                       }
