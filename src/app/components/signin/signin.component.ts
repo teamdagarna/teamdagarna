@@ -167,7 +167,6 @@ export class SigninComponent implements OnInit {
          window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
        }
       this.router.navigate(['']);
-      location.reload();
       }).catch((error) => {
         var errorCode = error.code;
         if (errorCode === 'auth/wrong-password') {
