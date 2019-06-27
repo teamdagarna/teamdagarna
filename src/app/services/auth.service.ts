@@ -34,10 +34,6 @@ export class AuthService {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
                         //Checks if user is logged in and presents the content in the navbar differently depending on the answer
-                        var info = {userId: 'user_xyz', userEmail: 'chrvo878@student.liu.se'};
-                        var json = JSON.stringify(info);
-                        window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
-
                           var items = [{
                             subLinks: [],
                             label: "Hem",
@@ -267,7 +263,9 @@ export class AuthService {
                     ];
                         var json = JSON.stringify(items);
 
-                        window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+                        setTimeout(function() {
+                          window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+                        }, 500);
                       }
                       this.isAuthenticated = false;
                       return of(null)

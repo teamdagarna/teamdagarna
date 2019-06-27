@@ -50,6 +50,9 @@ export class SigninComponent implements OnInit {
    this.auth.emailLogin(liumail, data.password).then((res) => {
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
+           var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
+           var json = JSON.stringify(info);
+           window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
            var items = [{
              subLinks: [],
              label: "Hem",
@@ -163,8 +166,9 @@ export class SigninComponent implements OnInit {
          ];
 
          var json = JSON.stringify(items);
-
-         window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+         setTimeout(function() {
+           window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+         }, 500);
        }
       this.router.navigate(['']);
       }).catch((error) => {
