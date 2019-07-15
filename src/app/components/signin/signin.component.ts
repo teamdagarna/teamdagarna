@@ -51,8 +51,8 @@ export class SigninComponent implements OnInit {
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
-           var json = JSON.stringify(info);
-           window.location.href='gonative://registration/send?customData=' + encodeURIComponent(json);
+           var json1 = JSON.stringify(info);
+           var url1 ='gonative://registration/send?customData=' + encodeURIComponent(json1);
            var items = [{
              subLinks: [],
              label: "Hem",
@@ -165,10 +165,11 @@ export class SigninComponent implements OnInit {
            }
          ];
 
-         var json = JSON.stringify(items);
-         setTimeout(function() {
-           window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-         }, 500);
+         var json2 = JSON.stringify(items);
+         var url2 = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json2);
+         var urls = [url2, url1];
+         var json = JSON.stringify({urls: urls});
+         window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(json);
        }
       this.router.navigate(['']);
       }).catch((error) => {
