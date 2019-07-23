@@ -213,7 +213,7 @@
             </div>
             <!-- </div> -->
           </a>
-          <div class="card-body ">
+          <div class="card-body">
             <div class="card-title"> {{ company.name }}</div>
             <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
         " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
@@ -232,7 +232,12 @@
               </div>
             </div>
           </div>
-          <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
+          <div class="card-footer">
+            <div class="container">
+            <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a>
+            <span *ngIf="auth.isSignedIn()" class="icon is-medium is-pulled-right" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+            </div>
+           </div>
         </div>
 
       </div>
@@ -287,8 +292,7 @@
               <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
               <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
             </div>
-
-            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a>
+            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a> &nbsp;
           </div>
           <div class="is-divider-vertical "></div>
           <div class="column is-auto ">
