@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 import { Company } from '../../shared/models';
 import { environment } from '../../../environments/environment';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -21,7 +22,7 @@ import { switchMap, map} from 'rxjs/operators';
 
 export class CompaniesComponent implements OnInit {
 
-
+  user;
   isModalActive: boolean = false;
   showFilters: boolean = false;
   modalCompany: Company;
@@ -34,7 +35,8 @@ export class CompaniesComponent implements OnInit {
   searchValue: string= "";
   searchInput: string="";
 
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, public auth: AuthService) {
+        this.auth.user$.subscribe(user => this.user = user)
     this.companiesCollection = afs.collection<Company>('companies');
     // this.companies = this.companiesCollection.valueChanges();
     this.getCompanies().subscribe(companies => {
