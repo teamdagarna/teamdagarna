@@ -215,9 +215,10 @@
           </a>
           <div class="card-body ">
             <div class="card-title"> {{ company.name }}</div>
-            <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
-        " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
-              <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+            <div class="card-meta ">{{ company.industry }} <br><span class="is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span><span class="is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="right"><i class="fas fa-leaf "></i></span> &nbsp;<span class="is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!
+        " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!
+    " data-balloon-pos="right" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span>&nbsp;
+              <span class="is-hidden-touch" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span><span class="is-hidden-desktop" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="right"><i class="fas fa-gift "></i></span>
             </div>
             <div class="card-description ">
               <div class="tags ">
