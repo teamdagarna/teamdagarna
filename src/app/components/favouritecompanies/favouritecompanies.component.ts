@@ -18,6 +18,7 @@ export class FavouritecompaniesComponent implements OnInit {
   companies: any;
   modalCompany: Company;
   isModalActive: boolean = false;
+  showSpinner: boolean = true;
 
   constructor(private readonly afs: AngularFirestore, public auth: AuthService, private favourite: FavouritecompaniesService) {
     this.auth.user$.subscribe(user => {
@@ -30,6 +31,7 @@ export class FavouritecompaniesComponent implements OnInit {
     });
     this.getCompanies().subscribe(companies => {
       this.companies = companies;
+      this.showSpinner = false;
     });
   }
 
@@ -95,6 +97,8 @@ export class FavouritecompaniesComponent implements OnInit {
         } else {
           this.favourite.favourite(user.uid, companyName)
         }
+      } else {
+        this.favourite.favourite(user.uid, companyName)
       }
     }).catch(function(error) {
       console.log("Error getting document:", error);

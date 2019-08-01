@@ -3,8 +3,12 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
-          <h1 class="title"> Dina favoritföretag </h1>
-          <h2 class="subtitle">Nedan presenteras dina favoritföretag, d.v.s. de företag som du har hjärtmarkerat <i class="far has-text-centered fa-heart"></i>.</h2> </div>
+          <h1 class="title"> Mina favoritföretag </h1>
+          <h2 class="subtitle">Nedan presenteras dina favoritföretag, d.v.s. de företag som du har hjärtmarkerat <i class="fas has-text-centered fa-heart"></i>.</h2>
+        </div>
+        <div class="column">
+          <a class="button is-primary is-inverted is-outlined is-large is-pulled-right" [routerLink]="['../companies']">Företagen 2019</a>
+        </div>
         </div>
       </div>
     </div>
@@ -13,6 +17,7 @@
   <div class="container ">
     <br>
     <br>
+    <app-spinner *ngIf="showSpinner"></app-spinner>
     <div class="columns is-centered is-multiline ">
       <ng-container *ngFor="let company of companies">
         <div class="column is-one-quarter " *ngIf="checkCompany(company.name)">

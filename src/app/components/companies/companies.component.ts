@@ -173,6 +173,8 @@ export class CompaniesComponent implements OnInit {
       } else {
         this.isFavourite = false;
       }
+    } else {
+      this.isFavourite = false;
     }
     return this.isFavourite;
   }
@@ -190,6 +192,8 @@ export class CompaniesComponent implements OnInit {
         } else {
           this.favourite.favourite(user.uid, companyName)
         }
+      } else {
+        this.favourite.favourite(user.uid, companyName)
       }
     }).catch(function(error) {
       console.log("Error getting document:", error);
