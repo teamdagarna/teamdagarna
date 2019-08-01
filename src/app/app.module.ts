@@ -88,6 +88,7 @@ import { SignoutComponent } from './components/signout/signout.component';
 import { SustainabilityComponent } from './components/sustainability/sustainability.component';
 import { NewdesignComponent } from './components/newdesign/newdesign.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
+import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -147,6 +148,7 @@ registerLocaleData(localeSv, 'sv');
     SustainabilityComponent,
     NewdesignComponent,
     FavouritecompaniesComponent
+    PrivacypolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -203,6 +205,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
+    { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'nydesign', component: NewdesignComponent },
