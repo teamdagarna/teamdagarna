@@ -112,14 +112,19 @@
         </p>
       </div>
     </div>
-    <a [routerLink]="['profile']" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
-      <span>
-        Din profil &nbsp;
-      </span>
-      <span class="icon">
-        <i class="fas fa-user-graduate"></i>
-      </span>
-    </a>
+    <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
+      <a class="navbar-link">
+        Mina sidor
+      </a>
+      <div class="navbar-dropdown is-boxed">
+        <a [routerLink]="['profile']" class="navbar-item mobileLink">
+          Din profil
+        </a>
+        <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']">
+          Dina favoritföretag
+        </a>
+      </div>
+    </div>
     <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
       <span>
         Logga ut &nbsp;

@@ -1,0 +1,134 @@
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Dina favoritföretag </h1>
+          <h2 class="subtitle">Nedan presenteras dina favoritföretag, d.v.s. de företag som du har hjärtmarkerat <i class="far has-text-centered fa-heart"></i>.</h2> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container ">
+    <br>
+    <br>
+    <div class="columns is-centered is-multiline ">
+      <ng-container *ngFor="let company of companies">
+        <div class="column is-one-quarter " *ngIf="checkCompany(company.name)">
+
+          <div class="card is-storyworld bm--card-equal-height ">
+            <a class="card-header " (click)="openModal(company) ">
+              <!-- <div *ngIf="company.logopath | url "> -->
+              <div class="card-image has-text-centered is-vcentered">
+                <img *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl">
+              </div>
+              <!-- </div> -->
+            </a>
+            <div class="card-body">
+              <div class="card-title"> {{ company.name }}</div>
+              <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
+                " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
+                <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+              </div>
+              <div class="card-description ">
+                <div class="tags ">
+                  <span class="tag is-primary " *ngIf="company.internship ">Internship</span>
+                  <span class="tag is-primary " *ngIf="company.fulltime ">Heltidsjobb</span>
+                  <span class="tag is-primary " *ngIf="company.parttime ">Deltidsjobb</span>
+                  <span class="tag is-primary " *ngIf="company.summerjob ">Sommarjobb</span>
+                  <span class="tag is-primary " *ngIf="company.masterthesis ">Ex-jobb</span>
+                  <span class="tag is-primary " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+                  <span class="tag is-primary " *ngIf="company.trainee ">Trainee</span>
+                  <span class="tag is-primary " *ngIf="company.otherthesis ">Uppsatshandledning</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="container">
+                <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a>
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+
+      <br>
+      <br>
+
+      <section class="section">
+        <div class="container">
+          <div class="column is-full">
+            <a [routerLink]="['../companies']" class="is-size-3"> Klicka här för att komma till företagskatalogen där du kan lägga till fler favoritföretag! </a>
+          </div>
+        </div>
+      </section>
+
+      <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
+        <div class="modal-background " (click)="closeModal() "></div>
+        <div class="modal-card ">
+          <header class="modal-card-head ">
+            <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
+              <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up"><i class="fas fa-leaf "></i></span>
+              <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
+              <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="up"><i class="fas fa-gift "></i></span>
+            </p>
+            <button class="delete " aria-label="close " (click)="closeModal() "></button>
+
+          </header>
+
+          <section class="modal-card-body ">
+            <div class="columns is-multiline ">
+
+              <div class="column is-3 ">
+                <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+
+                <h5 class="title is-5 ">Vi ställer ut</h5>
+                <div class="tags ">
+                  <span class="tag is-primary " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
+                </div>
+                <h5 class="title is-5 ">Vi erbjuder</h5>
+                <div class="tags ">
+                  <span class="tag is-primary " *ngIf="modalCompany.internship ">Internship</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.fulltime ">Heltidsjobb</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.parttime ">Deltidsjobb</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.trainee ">Trainee</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span>
+                </div>
+
+
+                <h5 class="title is-5 ">Vi söker</h5>
+                <div class="tags ">
+                  <span class="tag is-primary " *ngIf="modalCompany.engineers ">Civilingenjörer i Industriell Ekonomi</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.filfakare ">Civilekonomer</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.firstyear ">1:or</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.secondyear ">2:or</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.thirdyear ">3:or</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
+                  <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
+                </div>
+                <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a> &nbsp;
+              </div>
+              <div class="is-divider-vertical "></div>
+              <div class="column is-auto ">
+                <div class="about-company ">
+                  <h5 class="title is-5 ">Om oss</h5>
+                  <p style="white-space: pre-wrap;">{{ modalCompany.about }}</p>
+                  <br>
+                  <h5 *ngIf="modalCompany.values" class="title is-5 ">Vi värdesätter</h5>
+                  <p style="white-space: pre-wrap;">{{ modalCompany.values }}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import { FavouritecompaniesService } from '../../services/favouritecompanies.service';
 import { Company } from '../../shared/models';
 import { environment } from '../../../environments/environment';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-
+import * as firebase from 'firebase/app';
 import { Subject } from 'rxjs';
 
 import { switchMap, map} from 'rxjs/operators';
@@ -23,6 +24,8 @@ import { switchMap, map} from 'rxjs/operators';
 export class CompaniesComponent implements OnInit {
 
   user;
+  favouritecompanies: any;
+  isFavourite: boolean;
   isModalActive: boolean = false;
   showFilters: boolean = false;
   modalCompany: Company;
@@ -35,8 +38,15 @@ export class CompaniesComponent implements OnInit {
   searchValue: string= "";
   searchInput: string="";
 
-  constructor(private readonly afs: AngularFirestore, public auth: AuthService) {
-        this.auth.user$.subscribe(user => this.user = user)
+  constructor(private readonly afs: AngularFirestore, public auth: AuthService, private favourite: FavouritecompaniesService) {
+    this.auth.user$.subscribe(user => {
+      this.user = user;
+      if (user) {
+        this.favourite.getFavouriteCompanies(this.user).subscribe(favouritecompanies => {
+          this.favouritecompanies = favouritecompanies;
+        });
+      }
+    });
     this.companiesCollection = afs.collection<Company>('companies');
     // this.companies = this.companiesCollection.valueChanges();
     this.getCompanies().subscribe(companies => {
@@ -48,8 +58,7 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getCompanies() {
     return this.afs.collection<Company>('companies').snapshotChanges().pipe(
@@ -151,6 +160,40 @@ export class CompaniesComponent implements OnInit {
   openModal(companyToView) {
     this.isModalActive = !this.isModalActive;
     this.modalCompany = companyToView;
+  }
+
+  checkFavourite(company) {
+    const user = this.user;
+    const companyName = company.name;
+    const favouritecompanies = this.favouritecompanies;
+    var isFavourite: any;
+    if(favouritecompanies) {
+      if(favouritecompanies[companyName] != null) {
+        this.isFavourite = favouritecompanies[companyName]
+      } else {
+        this.isFavourite = false;
+      }
+    }
+    return this.isFavourite;
+  }
+
+  toggleFavouriteCompany(company) {
+    const user = this.user;
+    const companyName = company.name;
+    const userRef = this.afs.doc(`favouritecompanies/${user.uid}`)
+    var isFavourite: any;
+    userRef.ref.get().then(doc => {
+      if (doc.exists) {
+        isFavourite = doc.get(companyName);
+        if (isFavourite) {
+          this.favourite.unfavourite(user.uid, companyName)
+        } else {
+          this.favourite.favourite(user.uid, companyName)
+        }
+      }
+    }).catch(function(error) {
+      console.log("Error getting document:", error);
+    });
   }
 
 }
