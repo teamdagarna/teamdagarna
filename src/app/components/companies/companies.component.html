@@ -5,17 +5,23 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> Företagen 2019 </h1>
-          <h2 class="subtitle">Vi är stolta att presentera 2019 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Företagen fylls nu på löpande... </h2> </div>
+          <h2 class="subtitle">Vi är stolta att presentera 2019 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
+        </div>
+        <div class="column" *ngIf="auth.isSignedIn()">
+          <a class="button is-primary is-inverted is-outlined is-large is-pulled-right" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+
+
 <!-- <div *ngFor="let company of companies | async">
   <h6>{{company.name}}</h6>
 </div> -->
 <section>
-<div class="container ">
+<div class="container">
 
 
   <br>
@@ -213,7 +219,7 @@
             </div>
             <!-- </div> -->
           </a>
-          <div class="card-body ">
+          <div class="card-body">
             <div class="card-title"> {{ company.name }}</div>
             <div class="card-meta ">{{ company.industry }} <br><span class="is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span><span class="is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="right"><i class="fas fa-leaf "></i></span> &nbsp;<span class="is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!
         " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!
@@ -233,7 +239,13 @@
               </div>
             </div>
           </div>
-          <div class="card-footer "> <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a> </div>
+          <div class="card-footer">
+            <div class="container">
+            <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a>
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+            </div>
+           </div>
         </div>
 
       </div>
@@ -288,8 +300,7 @@
               <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
               <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
             </div>
-
-            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a>
+            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a> &nbsp;
           </div>
           <div class="is-divider-vertical "></div>
           <div class="column is-auto ">
