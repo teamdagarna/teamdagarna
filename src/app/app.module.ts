@@ -147,7 +147,7 @@ registerLocaleData(localeSv, 'sv');
     SignoutComponent,
     SustainabilityComponent,
     NewdesignComponent,
-    FavouritecompaniesComponent
+    FavouritecompaniesComponent,
     PrivacypolicyComponent
   ],
   imports: [
