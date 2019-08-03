@@ -33,251 +33,14 @@ export class AuthService {
                     if (user) {
                       //Checks if request comes from the app
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                        //Checks if user is logged in and presents the content in the navbar differently depending on the answer
-                          var items = [{
-                            subLinks: [],
-                            label: "Hem",
-                            url: "https://teamdagarna.com/",
-                            icon: "fa-home"
-                          },
-                          {
-                            subLinks: [
-                              {
-                                subLinks: [],
-                                label: "Sök DreamTEAM",
-                                url: "https://teamdagarna.com/sokdreamteam"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Företagen 2019",
-                                url: "https://teamdagarna.com/companies"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Sök kontaktsamtal",
-                                url: "https://teamdagarna.com/interview"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Event",
-                                url: "https://teamdagarna.com/events"
-                              }
-                            ],
-                            label: "För Studenter",
-                            isGrouping: true,
-                            icon: "fa-users"
-                          },
-                          {
-                            subLinks: [
-                              {
-                                subLinks: [],
-                                label: "Om dagarna",
-                                url: "https://teamdagarna.com/about"
-                              },
-                              {
-                                subLinks: [],
-                                label: "FAQ",
-                                url: "https://teamdagarna.com/faq"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Erbjudande",
-                                url: "https://teamdagarna.com/weoffer"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Hitta hit",
-                                url: "https://teamdagarna.com/find"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Inloggning gästföretag",
-                                url: "https://teamdagarna.com/companysignin"
-                              }
-                            ],
-                            label: "För företag",
-                            isGrouping: true,
-                            icon: "fa-briefcase"
-                          },
-                          {
-                            subLinks: [
-                              {
-                                subLinks: [],
-                                label: "Kontakt",
-                                url: "https://teamdagarna.com/dreamteam"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Om dagarna",
-                                url: "https://teamdagarna.com/about"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Hållbarhet",
-                                url: "https://teamdagarna.com/hallbarhet"
-                              },
-                              {
-                                subLinks: [],
-                                label: "Ny grafisk profil",
-                                url: "https://teamdagarna.com/nydesign"
-                              }
-                            ],
-                            label: "Om oss",
-                            isGrouping: true,
-                            icon: "fa-question"
-                          },
-                          {
-                            subLinks: [],
-                            label: "English info",
-                            url: "https://teamdagarna.com/about-english",
-                            icon: "fa-cog"
-                          },
-
-                          {
-                            sublinks: [
-                              {
-                                subLinks: [],
-                                label: "Min profil",
-                                url: "https://teamdagarna.com/profile",
-                              },
-                              {
-                                sublinks: [],
-                                label: "Mina favoritföretag",
-                                url: "https://teamdagarna.com/favoritforetag",
-                              }
-                            ],
-                            label: "Mina sidor",
-                            isGrouping: true,
-                            icon: "fa-user"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Logga ut",
-                            url: "https://teamdagarna.com/signout",
-                            icon: "fa-sign-out"
-                          }
-                        ];
-
-                      var json = JSON.stringify(items);
-                      setTimeout(function() {
-                        window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-                      }, 500);
+                        this.loggedInMenuApp();
                       }
                       this.isAuthenticated = true;
                       this.emailIsVerified = user.emailVerified;
                       return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
                     } else {
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                      var items2 = [{
-                        subLinks: [],
-                        label: "Hem",
-                        url: "https://teamdagarna.com/",
-                        icon: "fa-home"
-                      },
-                      {
-                        subLinks: [
-                          {
-                            subLinks: [],
-                            label: "Sök DreamTEAM",
-                            url: "https://teamdagarna.com/sokdreamteam"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Företagen 2019",
-                            url: "https://teamdagarna.com/companies"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Sök kontaktsamtal",
-                            url: "https://teamdagarna.com/interview"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Event",
-                            url: "https://teamdagarna.com/events"
-                          }
-                        ],
-                        label: "För Studenter",
-                        isGrouping: true,
-                        icon: "fa-users"
-                      },
-                      {
-                        subLinks: [
-                          {
-                            subLinks: [],
-                            label: "Om dagarna",
-                            url: "https://teamdagarna.com/about"
-                          },
-                          {
-                            subLinks: [],
-                            label: "FAQ",
-                            url: "https://teamdagarna.com/faq"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Erbjudande",
-                            url: "https://teamdagarna.com/weoffer"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Hitta hit",
-                            url: "https://teamdagarna.com/find"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Inloggning gästföretag",
-                            url: "https://teamdagarna.com/companysignin"
-                          }
-                        ],
-                        label: "För företag",
-                        isGrouping: true,
-                        icon: "fa-briefcase"
-                      },
-                      {
-                        subLinks: [
-                          {
-                            subLinks: [],
-                            label: "Kontakt",
-                            url: "https://teamdagarna.com/dreamteam"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Om dagarna",
-                            url: "https://teamdagarna.com/about"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Hållbarhet",
-                            url: "https://teamdagarna.com/hallbarhet"
-                          },
-                          {
-                            subLinks: [],
-                            label: "Ny grafisk profil",
-                            url: "https://teamdagarna.com/nydesign"
-                          }
-                        ],
-                        label: "Om oss",
-                        isGrouping: true,
-                        icon: "fa-question"
-                      },
-                      {
-                        subLinks: [],
-                        label: "English info",
-                        url: "https://teamdagarna.com/about-english",
-                        icon: "fa-cog"
-                      },
-                      {
-                        subLinks: [],
-                        label: "Logga in",
-                        url: "https://teamdagarna.com/signin",
-                        icon: "fa-sign-out"
-                      }
-                    ];
-                        var json = JSON.stringify(items2);
-
-                        setTimeout(function() {
-                          window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-                        }, 500);
+                        this.loggedOutMenuApp();
                       }
                       this.isAuthenticated = false;
                       return of(null)
@@ -383,124 +146,259 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
+  loggedInMenuApp() {
+    var items = [{
+      subLinks: [],
+      label: "Hem",
+      url: "https://teamdagarna.com/",
+      icon: "fa-home"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Sök DreamTEAM",
+          url: "https://teamdagarna.com/sokdreamteam"
+        },
+        {
+          subLinks: [],
+          label: "Företagen 2019",
+          url: "https://teamdagarna.com/companies"
+        },
+        {
+          subLinks: [],
+          label: "Sök kontaktsamtal",
+          url: "https://teamdagarna.com/interview"
+        },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        }
+      ],
+      label: "För Studenter",
+      isGrouping: true,
+      icon: "fa-users"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Om dagarna",
+          url: "https://teamdagarna.com/about"
+        },
+        {
+          subLinks: [],
+          label: "FAQ",
+          url: "https://teamdagarna.com/faq"
+        },
+        {
+          subLinks: [],
+          label: "Erbjudande",
+          url: "https://teamdagarna.com/weoffer"
+        },
+        {
+          subLinks: [],
+          label: "Hitta hit",
+          url: "https://teamdagarna.com/find"
+        },
+        {
+          subLinks: [],
+          label: "Inloggning gästföretag",
+          url: "https://teamdagarna.com/companysignin"
+        }
+      ],
+      label: "För företag",
+      isGrouping: true,
+      icon: "fa-briefcase"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Kontakt",
+          url: "https://teamdagarna.com/dreamteam"
+        },
+        {
+          subLinks: [],
+          label: "Om dagarna",
+          url: "https://teamdagarna.com/about"
+        },
+        {
+          subLinks: [],
+          label: "Hållbarhet",
+          url: "https://teamdagarna.com/hallbarhet"
+        },
+        {
+          subLinks: [],
+          label: "Ny grafisk profil",
+          url: "https://teamdagarna.com/nydesign"
+        }
+      ],
+      label: "Om oss",
+      isGrouping: true,
+      icon: "fa-question"
+    },
+    {
+      subLinks: [],
+      label: "English info",
+      url: "https://teamdagarna.com/about-english",
+      icon: "fa-cog"
+    },
+    {
+      sublinks: [
+        {
+          subLinks: [],
+          label: "Min profil",
+          url: "https://teamdagarna.com/profile",
+        },
+        {
+          sublinks: [],
+          label: "Mina favoritföretag",
+          url: "https://teamdagarna.com/favoritforetag",
+        }
+      ],
+      label: "Mina sidor",
+      isGrouping: true,
+      icon: "fa-user"
+    },
+    {
+      subLinks: [],
+      label: "Logga ut",
+      url: "https://teamdagarna.com/signout",
+      icon: "fa-sign-out"
+    }
+  ];
+    var json = JSON.stringify(items);
+    setTimeout(function() {
+      window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+    }, 500);
+  }
+
+  loggedOutMenuApp() {
+    var items2 = [{
+      subLinks: [],
+      label: "Hem",
+      url: "https://teamdagarna.com/",
+      icon: "fa-home"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Sök DreamTEAM",
+          url: "https://teamdagarna.com/sokdreamteam"
+        },
+        {
+          subLinks: [],
+          label: "Företagen 2019",
+          url: "https://teamdagarna.com/companies"
+        },
+        {
+          subLinks: [],
+          label: "Sök kontaktsamtal",
+          url: "https://teamdagarna.com/interview"
+        },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        }
+      ],
+      label: "För Studenter",
+      isGrouping: true,
+      icon: "fa-users"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Om dagarna",
+          url: "https://teamdagarna.com/about"
+        },
+        {
+          subLinks: [],
+          label: "FAQ",
+          url: "https://teamdagarna.com/faq"
+        },
+        {
+          subLinks: [],
+          label: "Erbjudande",
+          url: "https://teamdagarna.com/weoffer"
+        },
+        {
+          subLinks: [],
+          label: "Hitta hit",
+          url: "https://teamdagarna.com/find"
+        },
+        {
+          subLinks: [],
+          label: "Inloggning gästföretag",
+          url: "https://teamdagarna.com/companysignin"
+        }
+      ],
+      label: "För företag",
+      isGrouping: true,
+      icon: "fa-briefcase"
+    },
+    {
+      subLinks: [
+        {
+          subLinks: [],
+          label: "Kontakt",
+          url: "https://teamdagarna.com/dreamteam"
+        },
+        {
+          subLinks: [],
+          label: "Om dagarna",
+          url: "https://teamdagarna.com/about"
+        },
+        {
+          subLinks: [],
+          label: "Hållbarhet",
+          url: "https://teamdagarna.com/hallbarhet"
+        },
+        {
+          subLinks: [],
+          label: "Ny grafisk profil",
+          url: "https://teamdagarna.com/nydesign"
+        }
+      ],
+      label: "Om oss",
+      isGrouping: true,
+      icon: "fa-question"
+    },
+    {
+      subLinks: [],
+      label: "English info",
+      url: "https://teamdagarna.com/about-english",
+      icon: "fa-cog"
+    },
+    {
+      subLinks: [],
+      label: "Logga in",
+      url: "https://teamdagarna.com/signin",
+      icon: "fa-sign-out"
+    }
+  ];
+      var json = JSON.stringify(items2);
+
+      setTimeout(function() {
+        window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+      }, 500);
+  }
+
   isVerified() {
     return this.emailIsVerified;
   }
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-        this.router.navigate([''])
-        //Checks if request comes from the app. If user signs out the info in the navbar will change in the app.
-        if (navigator.userAgent.indexOf('gonative') > -1) {
-          var items = [{
-            subLinks: [],
-            label: "Hem",
-            url: "https://teamdagarna.com/",
-            icon: "fa-home"
-          },
-          {
-            subLinks: [
-              {
-                subLinks: [],
-                label: "Sök DreamTEAM",
-                url: "https://teamdagarna.com/sokdreamteam"
-              },
-              {
-                subLinks: [],
-                label: "Företagen 2019",
-                url: "https://teamdagarna.com/companies"
-              },
-              {
-                subLinks: [],
-                label: "Sök kontaktsamtal",
-                url: "https://teamdagarna.com/interview"
-              },
-              {
-                subLinks: [],
-                label: "Event",
-                url: "https://teamdagarna.com/events"
-              }
-            ],
-            label: "För Studenter",
-            isGrouping: true,
-            icon: "fa-users"
-          },
-          {
-            subLinks: [
-              {
-                subLinks: [],
-                label: "Om dagarna",
-                url: "https://teamdagarna.com/about"
-              },
-              {
-                subLinks: [],
-                label: "FAQ",
-                url: "https://teamdagarna.com/faq"
-              },
-              {
-                subLinks: [],
-                label: "Erbjudande",
-                url: "https://teamdagarna.com/weoffer"
-              },
-              {
-                subLinks: [],
-                label: "Hitta hit",
-                url: "https://teamdagarna.com/find"
-              },
-              {
-                subLinks: [],
-                label: "Inloggning gästföretag",
-                url: "https://teamdagarna.com/companysignin"
-              }
-            ],
-            label: "För företag",
-            isGrouping: true,
-            icon: "fa-briefcase"
-          },
-          {
-            subLinks: [
-              {
-                subLinks: [],
-                label: "Kontakt",
-                url: "https://teamdagarna.com/dreamteam"
-              },
-              {
-                subLinks: [],
-                label: "Om dagarna",
-                url: "https://teamdagarna.com/about"
-              },
-              {
-                subLinks: [],
-                label: "Hållbarhet",
-                url: "https://teamdagarna.com/hallbarhet"
-              },
-              {
-                subLinks: [],
-                label: "Ny grafisk profil",
-                url: "https://teamdagarna.com/nydesign"
-              }
-            ],
-            label: "Om oss",
-            isGrouping: true,
-            icon: "fa-question"
-          },
-          {
-            subLinks: [],
-            label: "English info",
-            url: "https://teamdagarna.com/about-english",
-            icon: "fa-cog"
-          },
-          {
-            subLinks: [],
-            label: "Logga in",
-            url: "https://teamdagarna.com/signin",
-            icon: "fa-sign-out"
-          }
-        ];
-        var json = JSON.stringify(items);
-
-        window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+      //Checks if request comes from the app. If user signs out the info in the navbar will change in the app.
+      if (navigator.userAgent.indexOf('gonative') > -1) {
+        this.loggedOutMenuApp();
       }
+      this.router.navigate([''])
     });
   }
 
