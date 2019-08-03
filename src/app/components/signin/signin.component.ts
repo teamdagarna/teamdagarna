@@ -162,7 +162,6 @@ export class SigninComponent implements OnInit {
                  sublinks: [],
                  label: "Mina favoritföretag",
                  url: "https://teamdagarna.com/favoritforetag",
-                 icon: "fa-heart"
                }
              ],
              label: "Mina sidor",

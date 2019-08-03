@@ -144,7 +144,6 @@ export class AuthService {
                                 sublinks: [],
                                 label: "Mina favoritföretag",
                                 url: "https://teamdagarna.com/favoritforetag",
-                                icon: "fa-heart"
                               }
                             ],
                             label: "Mina sidor",
