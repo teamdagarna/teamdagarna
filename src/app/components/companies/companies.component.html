@@ -7,8 +7,8 @@
           <h1 class="title"> Företagen 2019 </h1>
           <h2 class="subtitle">Vi är stolta att presentera 2019 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
         </div>
-        <div class="column" *ngIf="auth.isSignedIn()">
-          <a class="button is-primary is-inverted is-outlined is-large is-pulled-right" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
+        <div class="column has-text-centered" *ngIf="auth.isSignedIn()">
+          <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
         </div>
       </div>
     </div>
@@ -22,11 +22,6 @@
 </div> -->
 <section class="section">
 <div class="container">
-
-
-  <br>
-  <br>
-
   <div class="columns is-multiline">
     <div class="column is-12">
       <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Consulting." (keyup)="onSearch($event)">
@@ -205,7 +200,6 @@
   <!-- <div *ngFor="let filteredCompany of filteredCompanies ">
   <h6>{{ filteredCompany.name }}</h6>
 </div> -->
-
   <div class="columns is-centered is-multiline ">
     <app-spinner *ngIf="showSpinner "></app-spinner>
     <ng-container *ngFor="let company of filteredCompanies">
@@ -221,10 +215,10 @@
           </a>
           <div class="card-body">
             <div class="card-title"> {{ company.name }}</div>
-            <div class="card-meta ">{{ company.industry }} <br><span class="is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span><span class="is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="right"><i class="fas fa-leaf "></i></span> &nbsp;<span class="is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!
-        " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!
-    " data-balloon-pos="right" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span>&nbsp;
-              <span class="is-hidden-touch" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span><span class="is-hidden-desktop" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="right"><i class="fas fa-gift "></i></span>
+            <div class="card-meta ">{{ company.industry }} <br>
+              <span class="icon is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i></span><span class="icon is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="right"><i class="fas fa-leaf "></i></span>
+              <span class="icon is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="icon is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="right" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span>
+              <span class="icon is-hidden-touch" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span><span class="icon is-hidden-desktop" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="right"><i class="fas fa-gift "></i></span>
             </div>
             <div class="card-description ">
               <div class="tags ">
@@ -240,12 +234,14 @@
             </div>
           </div>
           <div class="card-footer">
-            <div class="container">
-            <a class="button is-primary is-outlined is-small " (click)="openModal(company) ">Läs mer</a>
-            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
-            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+            <div class="column footer-column">
+            <a class="button is-primary is-outlined is-small" (click)="openModal(company) ">Läs mer</a>
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
+            <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
             </div>
-           </div>
+            </div>
         </div>
 
       </div>
@@ -256,13 +252,15 @@
   <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
     <div class="modal-background " (click)="closeModal() "></div>
     <div class="modal-card ">
-      <header class="modal-card-head ">
-        <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
+      <header class="modal-card-head">
+        <p class="modal-card-title"><strong>{{ modalCompany.name }}</strong>
           <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up"><i class="fas fa-leaf "></i></span>
           <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
           <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="up"><i class="fas fa-gift "></i></span>
+          <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far has-text-primary fa-heart"></i></span>
+          <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas has-text-primary fa-heart"></i></span>
         </p>
-        <button class="delete " aria-label="close " (click)="closeModal() "></button>
+        <button class="delete" aria-label="close" (click)="closeModal() "></button>
 
       </header>
 
@@ -300,7 +298,9 @@
               <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
               <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
             </div>
-            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a> &nbsp;
+            <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a>
+            <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
+            <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
           </div>
           <div class="is-divider-vertical "></div>
           <div class="column is-auto ">

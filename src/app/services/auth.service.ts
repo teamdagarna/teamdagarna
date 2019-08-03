@@ -132,10 +132,23 @@ export class AuthService {
                             url: "https://teamdagarna.com/about-english",
                             icon: "fa-cog"
                           },
+
                           {
-                            subLinks: [],
-                            label: "Din profil",
-                            url: "https://teamdagarna.com/profile",
+                            sublinks: [
+                              {
+                                subLinks: [],
+                                label: "Min profil",
+                                url: "https://teamdagarna.com/profile",
+                              },
+                              {
+                                sublinks: [],
+                                label: "Mina favoritföretag",
+                                url: "https://teamdagarna.com/favoritforetag",
+                                icon: "fa-heart"
+                              }
+                            ],
+                            label: "Mina sidor",
+                            isGrouping: true,
                             icon: "fa-user"
                           },
                           {
@@ -156,7 +169,7 @@ export class AuthService {
                       return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
                     } else {
                       if (navigator.userAgent.indexOf('gonative') > -1) {
-                      var items = [{
+                      var items2 = [{
                         subLinks: [],
                         label: "Hem",
                         url: "https://teamdagarna.com/",
@@ -261,7 +274,7 @@ export class AuthService {
                         icon: "fa-sign-out"
                       }
                     ];
-                        var json = JSON.stringify(items);
+                        var json = JSON.stringify(items2);
 
                         setTimeout(function() {
                           window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);

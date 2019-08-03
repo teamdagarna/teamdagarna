@@ -152,9 +152,21 @@ export class SigninComponent implements OnInit {
              icon: "fa-cog"
            },
            {
-             subLinks: [],
-             label: "Din profil",
-             url: "https://teamdagarna.com/profile",
+             sublinks: [
+               {
+                 subLinks: [],
+                 label: "Min profil",
+                 url: "https://teamdagarna.com/profile",
+               },
+               {
+                 sublinks: [],
+                 label: "Mina favoritföretag",
+                 url: "https://teamdagarna.com/favoritforetag",
+                 icon: "fa-heart"
+               }
+             ],
+             label: "Mina sidor",
+             isGrouping: true,
              icon: "fa-user"
            },
            {
