@@ -246,7 +246,7 @@ export class AuthService {
       icon: "fa-cog"
     },
     {
-      sublinks: [
+      subLinks: [
         {
           subLinks: [],
           label: "Min profil",
@@ -256,6 +256,7 @@ export class AuthService {
           sublinks: [],
           label: "Mina favoritföretag",
           url: "https://teamdagarna.com/favoritforetag",
+          icon: "fa-heart"
         }
       ],
       label: "Mina sidor",
