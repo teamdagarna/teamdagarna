@@ -166,7 +166,6 @@ export class CompaniesComponent implements OnInit {
     const user = this.user;
     const companyName = company.name;
     const favouritecompanies = this.favouritecompanies;
-    var isFavourite: any;
     if(favouritecompanies) {
       if(favouritecompanies[companyName] != null) {
         this.isFavourite = favouritecompanies[companyName]
@@ -182,22 +181,11 @@ export class CompaniesComponent implements OnInit {
   toggleFavouriteCompany(company) {
     const user = this.user;
     const companyName = company.name;
-    const userRef = this.afs.doc(`favouritecompanies/${user.uid}`)
-    var isFavourite: any;
-    userRef.ref.get().then(doc => {
-      if (doc.exists) {
-        isFavourite = doc.get(companyName);
-        if (isFavourite) {
-          this.favourite.unfavourite(user.uid, companyName)
-        } else {
-          this.favourite.favourite(user.uid, companyName)
-        }
+      if (this.checkFavourite(company)) {
+        this.favourite.unfavourite(user.uid, companyName)
       } else {
         this.favourite.favourite(user.uid, companyName)
       }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
-    });
   }
 
 }
