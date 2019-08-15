@@ -32,7 +32,6 @@ export class CompaniesComponent implements OnInit {
   showSpinner: boolean = true;
   orderBy: number = 1;
   filters = {}
-  private companiesCollection: AngularFirestoreCollection<Company>;
   companies: any;
   filteredCompanies: any;
   searchValue: string= "";
@@ -47,7 +46,6 @@ export class CompaniesComponent implements OnInit {
         });
       }
     });
-    this.companiesCollection = afs.collection<Company>('companies');
     // this.companies = this.companiesCollection.valueChanges();
     this.getCompanies().subscribe(companies => {
         this.companies = companies;
