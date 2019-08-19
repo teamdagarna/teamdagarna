@@ -28,7 +28,7 @@
               <label class="label" for="code">Företagskod</label>
               <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code">
             </div>
-            <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Se till att mata in den företagskod du fått och inte lösenorder för att logga in.</p>
+            <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Se till att mata in den företagskod ni fått och inte lösenordet för att logga in. Företagskoden har 7 tecken och skulle kunna se ut såhär: "0fb3HJ4"</p>
 
             <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Gå in till portalen <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
           </form>
@@ -155,7 +155,7 @@
     <section class="section">
       <h1 class="title is-2">Urval:</h1>
       <div class="contianer">
-        <h2 class="subtitle is-5"><em>Ni väljer de ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver välja de ut kandidater som blir antagna kan ni ta ut upp till fem reserver som rangorndas mellan 1-5 där nummer 1 kommer få en plats först. Skulle ni ha några frågor eller har prolbem kan ni kontakta kontaktsamtalsansvarig på <a href="mailto:julia.karlsson@teamdagarna.com ">julia.karlsson@teamdagarna.com</a> eller IT-asnvarig på <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan de bero på att internetkoppling inte finns.</em></h2>
+        <h2 class="subtitle is-5"><em>Ni väljer de ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver att välja ut de kandidater som blir antagna kan ni ta ut upp till fem reserver som rangorndas mellan 1-5 där nummer 1 kommer att få en plats först. Skulle ni ha några frågor eller har problem kan ni kontakta kontaktsamtalsansvarig på <a href="mailto:julia.swahn@teamdagarna.com ">julia.swahn@teamdagarna.com</a> eller IT-asnvarig på <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan det bero på att internetkoppling inte finns.</em></h2>
       </div>
     </section>
     <div class="columns is-centered">
@@ -232,7 +232,7 @@
                 <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
               <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
-              <!-- <td>
+              <td>
                 <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                   <div class="select is-small">
                     <select formControlName="change" (ngModelChange)="updateApplicant($event, interview.id)">
@@ -249,8 +249,8 @@
             </select>
                   </div>
                 </form>
-              </td> -->
-              <td>Stängt.</td>
+              </td>
+              <!-- <td>Stängt.</td> -->
             </tr>
           </tbody>
         </table>
@@ -331,7 +331,7 @@
                   <ng-container *ngIf="openinterview.gradespath"><a *ngIf="openinterview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
-                <!-- <td>
+                <td>
                   <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                     <div class="select is-small">
                       <select formControlName="change" (ngModelChange)="updateApplicantOpen($event, openinterview.id)">
@@ -348,8 +348,8 @@
               </select>
                     </div>
                   </form>
-                </td> -->
-                <td>Stängt.</td>
+                </td>
+                <!-- <td>Stängt.</td> -->
               </tr>
             </tbody>
           </table>

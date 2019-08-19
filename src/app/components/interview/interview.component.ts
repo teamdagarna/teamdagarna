@@ -72,6 +72,7 @@ export class InterviewComponent implements OnInit {
     private router: Router) {
     this.auth.user$.subscribe(user => {
       this.user = user
+      this.setValues();
       this.getInterviews().subscribe(interviews => {
           this.applied = interviews;
           this.applicationsMade = _.size(interviews);
@@ -95,7 +96,7 @@ export class InterviewComponent implements OnInit {
          }
          });
          this.companies = _.orderBy(this.companies, ['name'])
-        this.getCompany(this.companies[0]);
+        this.getCompany(this.preselected);
     });
 
   }
@@ -106,13 +107,27 @@ export class InterviewComponent implements OnInit {
       .subscribe(params => {
         this.preselected = params['preselected'];
       });
-      console.log(this.preselected);
+      if(!this.preselected) {
+        this.preselected = -1;
+      }
     this.interviewForm = this.fb.group({
       'selectedCompany': [this.preselected, [
         Validators.required
         ]
+      ],
+      'phoneNumber': ['', [
+        Validators.pattern('[0-9]{9}$'),
+        Validators.required
+        ]
       ]
     });
+  }
+
+  get selectedCompany() { return this.interviewForm.get('selectedCompany') }
+  get phoneNumber() { return this.interviewForm.get('phoneNumber') }
+
+  setValues() {
+    this.interviewForm.patchValue(this.user);
   }
 
   getCompanies() {
@@ -145,6 +160,9 @@ export class InterviewComponent implements OnInit {
   }
 
   async submit() {
+    const formValue = this.interviewForm.value;
+    const phone = {phoneNumber: formValue.phoneNumber}
+    this.auth.updateUser(this.user, phone);
     this.loading = true;
     const newInterview: InterviewApplication = {
       applicant: this.user.uid,
@@ -153,6 +171,7 @@ export class InterviewComponent implements OnInit {
       firstname: this.user.firstname,
       lastname: this.user.lastname,
       liuid: this.user.liuid,
+      phoneNumber: formValue.phoneNumber,
       program: this.user.program,
       year: this.user.year,
       engineerbachelor: this.user.engineerbachelor,
@@ -177,11 +196,50 @@ export class InterviewComponent implements OnInit {
     } catch(err) {
       this.notsuccess = true;
     }
+
+    if(this.company.name == 'Öppen anmälan kontaktsamtal') {
+      for (let index = 0; index < this.companies.length; ++index) {
+        if(this.companies[index].seeopenapplicants) {
+          const newInterview: InterviewApplication = {
+            applicant: this.user.uid,
+            company: this.companies[index].id,
+            companyname: this.companies[index].name,
+            firstname: this.user.firstname,
+            lastname: this.user.lastname,
+            liuid: this.user.liuid,
+            phoneNumber: formValue.phoneNumber,
+            program: this.user.program,
+            year: this.user.year,
+            engineerbachelor: this.user.engineerbachelor,
+            engineermaster: this.user.engineermaster,
+            nekorfek: this.user.nekorfek,
+            filfakspecialization: this.user.filfakspecialization,
+            backup: false,
+            notselected: false,
+            selected: false,
+            pending: true,
+            studentaccepted: false,
+            studentnotanswered: true,
+            studentdeclined: false,
+            resumepath: this.cvpath,
+            coverletterpath: this.clpath,
+            gradespath: this.gradespath
+          }
+
+          try {
+            await this.afs.collection<InterviewApplication>('openinterviews').add(newInterview);
+            this.success = true;
+          } catch(err) {
+            this.notsuccess = true;
+          }
+        }
+      }
+    }
     this.loading = false;
   }
 
   okToSubmit() {
-    if ((this.cluploaded && !this.cverror) || (this.cvuploaded && !this.cverror) || (this.gradesuploaded || !this.gradeserror)) {
+    if ((this.company.reqcl && (!this.cluploaded || this.clerror)) || (this.company.reqresume && (!this.cvuploaded || this.cverror)) || (this.company.reqgrades && (!this.gradesuploaded || this.gradeserror)) || !this.interviewForm.valid) {
       return false;
     } else {
       return true;

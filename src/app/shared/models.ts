@@ -7,6 +7,7 @@ export interface Roles {
 export interface User {
   uid: string;
   email: string;
+  phoneNumber?: string;
   firstname: string;
   lastname: string;
   liuid: string;
@@ -102,6 +103,7 @@ export interface InterviewApplication {
   firstname: string;
   lastname: string;
   liuid: string;
+  phoneNumber: string;
   program: string;
   year: string;
   engineerbachelor?: string;
