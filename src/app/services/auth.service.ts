@@ -157,13 +157,18 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Sök DreamTEAM",
-          url: "https://teamdagarna.com/sokdreamteam"
+          label: "Företagen 2019",
+          url: "https://teamdagarna.com/companies"
         },
         {
           subLinks: [],
-          label: "Företagen 2019",
-          url: "https://teamdagarna.com/companies"
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
+        {
+          subLinks: [],
+          label: "Sök värd",
+          url: "https://teamdagarna.com/sokvard"
         },
         {
           subLinks: [],
@@ -172,8 +177,8 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Event",
-          url: "https://teamdagarna.com/events"
+          label: "Sök DreamTEAM",
+          url: "https://teamdagarna.com/sokdreamteam"
         }
       ],
       label: "För Studenter",
@@ -287,13 +292,18 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Sök DreamTEAM",
-          url: "https://teamdagarna.com/sokdreamteam"
+          label: "Företagen 2019",
+          url: "https://teamdagarna.com/companies"
         },
         {
           subLinks: [],
-          label: "Företagen 2019",
-          url: "https://teamdagarna.com/companies"
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
+        {
+          subLinks: [],
+          label: "Sök värd",
+          url: "https://teamdagarna.com/sokvard"
         },
         {
           subLinks: [],
@@ -302,8 +312,8 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Event",
-          url: "https://teamdagarna.com/events"
+          label: "Sök DreamTEAM",
+          url: "https://teamdagarna.com/sokdreamteam"
         }
       ],
       label: "För Studenter",
