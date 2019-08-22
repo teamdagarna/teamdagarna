@@ -48,6 +48,7 @@ export class SigninComponent implements OnInit {
    var liumail = data.liuid + '@student.liu.se';
    console.log(liumail)
    this.auth.emailLogin(liumail, data.password).then((res) => {
+         this.router.navigate(['']);
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
@@ -187,7 +188,6 @@ export class SigninComponent implements OnInit {
          var json = JSON.stringify({urls: urls});
          window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(json);
        }
-      this.router.navigate(['']);
       }).catch((error) => {
         var errorCode = error.code;
         if (errorCode === 'auth/wrong-password') {
