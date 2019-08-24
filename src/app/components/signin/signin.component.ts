@@ -13,6 +13,7 @@ export class SigninComponent implements OnInit {
 
   loginForm: FormGroup;
   errorMessage: string;
+  loading: Boolean = false;
   // detailForm: FormGroup;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
@@ -45,9 +46,11 @@ export class SigninComponent implements OnInit {
  // get catchPhrase() { return this.detailForm.get('catchPhrase') }
 
  login(data) {
+   this.loading = true;
    var liumail = data.liuid + '@student.liu.se';
    console.log(liumail)
    this.auth.emailLogin(liumail, data.password).then((res) => {
+         this.loading = false;
          this.router.navigate(['']);
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
@@ -189,6 +192,7 @@ export class SigninComponent implements OnInit {
          window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(json);
        }
       }).catch((error) => {
+        this.loading = false;
         var errorCode = error.code;
         if (errorCode === 'auth/wrong-password') {
           this.errorMessage = 'Verkar inte som att du matat in rätt LiU-ID eller lösenord. Testa igen.';

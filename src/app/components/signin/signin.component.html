@@ -24,7 +24,7 @@
               </div>
               <p class="error-message">{{ errorMessage }}</p>
 
-              <button type="submit" [disabled]="!loginForm.valid" class="button is-fullwidth">Logga in</button>
+              <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!loginForm.valid" class="button is-fullwidth">Logga in</button>
               <div class="login-other-actions">
                 <a [routerLink]="['/signup']">
                   <p>

@@ -235,6 +235,7 @@ export class SelectComponent implements OnInit {
     this.loading = true;
     return this.getCompanyID(data.code).subscribe(code => {
         if (code[0] == undefined) {
+          this.loading = false;
           return this.showerror = true;
         }
         this.code = code[0];
