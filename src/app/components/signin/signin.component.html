@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="container">
+  <div class="container" *ngIf="!auth.isSignedIn()">
     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
       <div class="columns is-centered">
         <div class="column is-one-third">
@@ -46,5 +46,18 @@
         </div>
       </div>
     </form>
+  </div>
+  <div class="hero container" *ngIf="auth.isSignedIn()">
+    <div class="columns is-centered">
+          <h1 class="title is-3 has-text-primary has-text-centered">Snyggt, du är redan inloggad! Klicka på pusselbiten för att ta dit till startsidan :)</h1>
+    </div>
+    <br>
+    <div class="columns is-centered">
+    <figure class="image is-64x64">
+      <a [routerLink]="['']">
+        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/ikon.png?alt=media&token=33401086-b60c-4e73-9dbd-66af65d9ea26">
+      </a>
+    </figure>
+    </div>
   </div>
 </section>
