@@ -41,6 +41,8 @@
 
   <section class="section" *ngIf="selectView && interviews && company">
 
+    <h1 class="title is-3">{{ company.name }}</h1>
+
     <!-- <div class="columns is-centered is-multiline">
       <div class="column is-12" *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2">
         <h1 class="title is-2">Schema tisdag</h1>
@@ -172,6 +174,7 @@
             <tr>
 
               <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
+              <th>Mobilnummer <a (click)="applyOrder('phoneNumber')"><i class="fas fa-sort"></i></a></th>
               <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
               <th>År <a (click)="applyOrder('year')"><i class="fas fa-sort"></i></a></th>
               <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrder('firstchoice')"><i class="fas fa-sort"></i></a></th>
@@ -189,6 +192,7 @@
           <tfoot>
             <tr>
               <th>Namn</th>
+              <th>Mobilnummer</th>
               <th>Program</th>
               <th>År</th>
               <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
@@ -205,6 +209,7 @@
           <tbody>
             <tr *ngFor="let interview of interviews; trackBy: trackByStatus" (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
               <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+              <td>+46{{ interview.phoneNumber }}</td>
               <td>{{ interview.program }}</td>
               <td>{{ interview.year }}</td>
               <ng-container *ngIf="interview.program == 'Civilekonom'">
@@ -271,6 +276,7 @@
               <tr>
 
                 <th>Namn <a (click)="applyOrderOpen('firstname')"><i class="fas fa-sort"></i></a></th>
+                <th>Mobilnummer <a (click)="applyOrderOpen('phoneNumber')"><i class="fas fa-sort"></i></a></th>
                 <th>Program <a (click)="applyOrderOpen('program')"><i class="fas fa-sort"></i></a></th>
                 <th>År <a (click)="applyOrderOpen('year')"><i class="fas fa-sort"></i></a></th>
                 <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat <a (click)="applyOrderOpen('firstchoice')"><i class="fas fa-sort"></i></a></th>
@@ -288,6 +294,7 @@
             <tfoot>
               <tr>
                 <th>Namn</th>
+                <th>Mobilnummer</th>
                 <th>Program</th>
                 <th>År</th>
                 <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
@@ -304,6 +311,7 @@
             <tbody>
               <tr *ngFor="let openinterview of openInterviews; trackBy: trackByStatus" (click)="selectedRow(openinterview.id)" [ngClass]="{ 'is-selected': openinterview.id == selected} ">
                 <td>{{ openinterview.firstname }} {{ openinterview.lastname }}</td>
+                <td>+46{{ openinterview.phoneNumber }}</td>
                 <td>{{ openinterview.program }}</td>
                 <td>{{ openinterview.year }}</td>
                 <ng-container *ngIf="openinterview.program == 'Civilekonom'">

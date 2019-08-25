@@ -56,6 +56,7 @@
     <tr>
       <th>LiU-ID</th>
       <th>Namn</th>
+      <th>Mobilnummer</th>
       <th>Studentens svar</th>
       <th>Dag & Tid</th>
       <th>Ändra Dag</th>
@@ -68,6 +69,7 @@
     <tr *ngFor="let interview of selectedinterviews">
       <th>{{ interview.liuid }}</th>
       <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <th>+46{{ interview.phoneNumber}}</th>
       <td *ngIf="interview.studentaccepted" class="has-text-success">Accepterat</td>
       <td *ngIf="interview.studentdeclined" class="has-text-danger">Tackat nej</td>
       <td *ngIf="interview.studentnotanswered" class="has-text-warning">Inte svarat</td>
@@ -127,6 +129,7 @@
     <tr>
       <th>LiU-ID</th>
       <th>Namn</th>
+      <th>Mobilnummer</th>
       <th>Reservnummer</th>
       <th>Antal accepterade samtal</th>
       <th>Ändra antagningsstatus</th>
@@ -136,6 +139,7 @@
     <tr *ngFor="let interview of backupinterviews">
       <th>{{ interview.liuid }}</th>
       <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <th>+46{{ interview.phoneNumber }}</th>
       <td>{{ interview.backupnumber }}</td>
       <td>{{ interview.numberofaccepted }}</td>
 
@@ -166,6 +170,7 @@
     <tr>
       <th>LiU-ID</th>
       <th>Namn</th>
+      <th>Mobilnummer</th>
       <th>Studentens svar</th>
       <th>Ändra studentens svar</th>
     </tr>
@@ -174,6 +179,7 @@
     <tr *ngFor="let interview of selectedbutdeclinedinterviews">
       <th>{{ interview.liuid }}</th>
       <th>{{ interview.firstname}} {{interview.lastname}}</th>
+      <th>+46{{ interview.phoneNumber }}</th>
       <td *ngIf="interview.studentaccepted" class="has-text-success">Accepterat</td>
       <td *ngIf="interview.studentdeclined" class="has-text-danger">Tackat nej</td>
       <td *ngIf="interview.studentnotanswered" class="has-text-warning">Inte svarat</td>
