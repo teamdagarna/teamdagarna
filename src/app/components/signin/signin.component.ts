@@ -56,7 +56,7 @@ export class SigninComponent implements OnInit {
          if (navigator.userAgent.indexOf('gonative') > -1) {
            if (this.auth.getUserEmail() == 'chrvo878@student.liu.se') {
              var tags = {
-               test: 'test',
+               test: 'test'
              };
 
              window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
