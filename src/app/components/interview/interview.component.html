@@ -10,22 +10,15 @@
   </div>
 </div>
 
-<br>
-<section class="section">
-  <div class="container">
-    <h1 class="title is-3">Ansökan till kontaktsamtal öppnar den 26e augusti. Vänligen gå in på denna sida efter detta datum för att söka kontaktsamtal.</h1>
-  </div>
-</section>
-
-<!-- <section class="section" *ngIf="user && !success && !notsuccess">
+<section class="section" *ngIf="user && !success && !notsuccess">
   <div class="columns is-centered">
     <div class="column is-8 is-12-mobile">
 
       <h1 class="subtitle is-4">
-        Ansökan för kontaktsamtal stänger 9 september och därefter får företagen tillgång till alla ansökningar. Du som sökt kontaktsamtal kommer från och med början av vecka 38 att få reda på vilka företag som valt dig som kandidat. Sista svarsdag för kontaktsamtalen är onsdagen 19 september.
+        Ansökan för kontaktsamtal stänger den 4e september och därefter får företagen tillgång till alla ansökningar. Du som sökt kontaktsamtal kommer från och med den 12e september få reda på vilka företag som valt dig som kandidat. Sista svarsdag för kontaktsamtalen är måndagen den 16e september.
       </h1>
       <h1 class="subtitle is-4">
-        Öppen ansökan är ytterligare en chans för dig som söker att få gå kontaktsamtal. Företag som har angett att de vill kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag. Du söker öppen ansökan genom att välja <strong> Öppen anmälan kontaktsamtal </strong> längst ned i listan nedan.</h1>
+        Öppen ansökan är ytterligare en chans för dig som söker att få gå på kontaktsamtal. Företag som har angett att de vill kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag. Du söker öppen ansökan genom att välja <strong> Öppen anmälan kontaktsamtal </strong> längst ned i listan nedan.</h1>
 
       <h1 class="subtitle is-4">
         <em>OBS! Du kan endast söka 6 stycken kontaktsamtal (plus öppen anmälan) och tacka ja till maximalt 6 stycken samtal.</em>
@@ -109,7 +102,7 @@
 
 
 
-            <p><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> <strong> och mobilnummer.</strong></p>
+            <p><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
             <br>
             <div class="field">
               <label class="label" for="phoneNumber">Mobilnummer</label>
@@ -200,8 +193,8 @@
               </ng-container>
             </div>
 
-
-            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="!okToSubmit()">Skicka ansökan</button>
+            <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
+            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="!okToSubmit() && !applyOpenOkToSubmit()">Skicka ansökan</button>
           </ng-container>
         </ng-container>
       </form>
@@ -213,7 +206,7 @@
   <div class="container">
     <div class="notification is-success">
       <h1 class="title is-5">Ansökan inskickad!</h1>
-      <p>Du kan se dina gjorda ansökningar under "Min profil". Framöver kommer du även kunna se status för varje anmälan, Dreamteam återkommer med detta.</p>
+      <p>Du kan se dina gjorda ansökningar under "Min profil". Där kan du även se status för din ansökan.</p>
       <br>
       <p>Du har nu sökt {{ applicationsMade }} stycken samtal (excl. öppen anmälan). Du kan max söka till 6 stycken företag plus skicka in till den öppna ansökan.</p>
       <br>
@@ -231,9 +224,9 @@
       <a class="button is-white" (click)="refresh()">Tillbaka</a>
     </div>
   </div>
-</section> -->
+</section>
 
 
-<!-- <section class="section" *ngIf="!user">
+<section class="section" *ngIf="!user">
   <h1 class="is-3">Logga in för att kunna söka kontaktsamtal.</h1>
-</section> -->
+</section>

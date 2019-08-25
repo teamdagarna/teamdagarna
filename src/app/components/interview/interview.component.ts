@@ -201,6 +201,7 @@ export class InterviewComponent implements OnInit {
       await this.afs.collection<InterviewApplication>('interviews').add(newInterview);
       this.success = true;
     } catch(err) {
+      console.log(err)
       this.notsuccess = true;
     }
 
@@ -260,11 +261,19 @@ export class InterviewComponent implements OnInit {
     }
   }
 
+  applyOpenOkToSubmit() {
+    if(this.company.name == 'Öppen anmälan kontaktsamtal' && this.interviewForm.valid) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   async startUploadCoverLetter(event: FileList) {
     this.clpath = `coverletters/${this.user.liuid}_${new Date().getTime()}`;
     this.clfile = event.item(0)
     if (this.clfile.type !== 'application/pdf') {
-      this.clerror = false;
+      this.clerror = true;
       return;
     }
     try {
