@@ -12,4 +12,14 @@ export class VolunteerComponent implements OnInit {
   ngOnInit() {
   }
 
+  setTag() {
+    if (navigator.userAgent.indexOf('gonative') > -1) {
+      var tags = {
+        appliedVolunteer: 'yes'
+      };
+
+      window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+    }
+  }
+
 }

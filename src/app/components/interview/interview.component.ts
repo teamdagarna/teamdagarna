@@ -160,6 +160,13 @@ export class InterviewComponent implements OnInit {
   }
 
   async submit() {
+    if (navigator.userAgent.indexOf('gonative') > -1) {
+      var tags = {
+        appliedInterview: 'yes'
+      };
+
+      window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+    }
     const formValue = this.interviewForm.value;
     const phone = {phoneNumber: formValue.phoneNumber}
     this.auth.updateUser(this.user, phone);
@@ -198,6 +205,13 @@ export class InterviewComponent implements OnInit {
     }
 
     if(this.company.name == 'Öppen anmälan kontaktsamtal') {
+      if (navigator.userAgent.indexOf('gonative') > -1) {
+        var tags2 = {
+          appliedOpenInterview: 'yes'
+        };
+
+        window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags2));
+      }
       for (let index = 0; index < this.companies.length; ++index) {
         if(this.companies[index].seeopenapplicants) {
           const newInterview: InterviewApplication = {
