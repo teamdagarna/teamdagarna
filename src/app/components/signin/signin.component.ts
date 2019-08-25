@@ -54,13 +54,6 @@ export class SigninComponent implements OnInit {
          this.router.navigate(['']);
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
-           if (this.auth.getUserEmail() == 'chrvo878@student.liu.se') {
-             var tags = {
-               test: 'test'
-             };
-
-             window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
-           }
            var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
            var json1 = JSON.stringify(info);
            var url1 ='gonative://registration/send?customData=' + encodeURIComponent(json1);
