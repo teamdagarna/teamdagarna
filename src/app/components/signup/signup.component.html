@@ -45,7 +45,9 @@
               <div class="select" required>
                 <select formControlName="program">
                   <option>Industriell Ekonomi</option>
+                  <option>Industriell Ekonomi Internationell</option>
                   <option>Civilekonom</option>
+                  <option>Civilekonom Internationell</option>
                   <option>Annat</option>
                 </select>
               </div>
@@ -74,7 +76,7 @@
             </div>
           </div>
 
-          <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+          <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
             <label class="label">Kandidatprofil (teknisk inriktning)</label>
             <div class="control">
               <div class="select">
@@ -91,7 +93,7 @@
             </div>
           </div>
 
-          <div class="field" *ngIf="program.value !== 'Civilekonom' && program.value !== 'Annat'">
+          <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
             <label class="label">Masterprofil</label>
             <div class="control">
               <div class="select">
@@ -116,7 +118,7 @@
             </div>
           </div>
 
-          <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+          <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
             <label class="label">Valt nationalekonomi eller företagsekonomi</label>
             <div class="control">
               <div class="select">
@@ -130,7 +132,7 @@
             </div>
           </div>
 
-          <div class="field" *ngIf="program.value !== 'Industriell Ekonomi' && program.value !== 'Annat'">
+          <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
             <label class="label">Inriktning civilekonom</label>
             <div class="control">
               <div class="select">
