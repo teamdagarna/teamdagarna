@@ -276,9 +276,7 @@ export class AuthService {
     }
   ];
     var json = JSON.stringify(items);
-    setTimeout(function() {
-      window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-    }, 500);
+    window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
   }
 
   loggedOutMenuApp() {
@@ -393,10 +391,7 @@ export class AuthService {
     }
   ];
       var json = JSON.stringify(items2);
-
-      setTimeout(function() {
-        window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-      }, 500);
+      window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
   }
 
   isVerified() {
