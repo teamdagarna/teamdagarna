@@ -71,7 +71,7 @@ export class AuthService {
       .then(credentials => {
         //Adds userID to OneSignal portal and adds email as tag.
         if (navigator.userAgent.indexOf('gonative') > -1) {
-          var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
+          var info = {userId: this.getUserID(), userEmail: this.getUserEmail()};
           var json = JSON.stringify(info);
           setTimeout(function() {
             window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
