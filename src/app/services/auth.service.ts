@@ -276,7 +276,14 @@ export class AuthService {
     }
   ];
     var json = JSON.stringify(items);
-    window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+    var url1 = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+    var tags = {
+      loggedIn: true
+    };
+    var url2 = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+    var urls = [url1, url2];
+    var jsonfinal = JSON.stringify({urls: urls});
+    window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(jsonfinal);
   }
 
   loggedOutMenuApp() {

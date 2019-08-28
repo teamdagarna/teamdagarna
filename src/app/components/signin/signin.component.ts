@@ -58,7 +58,7 @@ export class SigninComponent implements OnInit {
            var json = JSON.stringify(info);
            setTimeout(function() {
              window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
-           }, 1000);
+           }, 1200);
          }
       }).catch((error) => {
         this.loading = false;
