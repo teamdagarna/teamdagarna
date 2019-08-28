@@ -69,6 +69,14 @@ export class AuthService {
     const liumail = data.liuid + '@student.liu.se';
     return this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password)
       .then(credentials => {
+        //Adds userID to OneSignal portal and adds email as tag.
+        if (navigator.userAgent.indexOf('gonative') > -1) {
+          var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
+          var json = JSON.stringify(info);
+          setTimeout(function() {
+            window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
+          }, 1200);
+        }
         var userToVer = firebase.auth().currentUser;
         userToVer.sendEmailVerification().then(() => {
 
@@ -276,14 +284,7 @@ export class AuthService {
     }
   ];
     var json = JSON.stringify(items);
-    var url1 = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
-    var tags = {
-      loggedIn: true
-    };
-    var url2 = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
-    var urls = [url1, url2];
-    var jsonfinal = JSON.stringify({urls: urls});
-    window.location.href = 'gonative://nativebridge/multi?data=' + encodeURIComponent(jsonfinal);
+    window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
   }
 
   loggedOutMenuApp() {
