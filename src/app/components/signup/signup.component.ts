@@ -94,6 +94,7 @@ export class SignupComponent implements OnInit {
 
   signup(data) {
    this.auth.emailSignUp(data).then((res) => {
+      this.router.navigate(['registered']);
          // this.auth.createProfile(data);
       }).catch((error) => {
           var errorCode = error.code;
