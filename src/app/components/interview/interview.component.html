@@ -195,8 +195,8 @@
 
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
             <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || (!okToSubmit() && !applyOpenOkToSubmit())">Skicka ansökan</button><br>
-            <span *ngIf="hasApplied(company.id)"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
-            <span *ngIf="(company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5)"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt 6 kontaktsamtal och kan därmed inte söka fler! </p><br></span>
+            <span *ngIf="hasApplied(company.id) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
+            <span *ngIf="(company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt 6 kontaktsamtal och kan därmed inte söka fler! </p><br></span>
 
           </ng-container>
         </ng-container>
