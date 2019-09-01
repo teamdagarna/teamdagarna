@@ -273,6 +273,7 @@ export class InterviewComponent implements OnInit {
     this.clpath = `coverletters/${this.user.liuid}_${new Date().getTime()}`;
     this.clfile = event.item(0)
     if (this.clfile.type !== 'application/pdf') {
+      this.cluploaded = false;
       this.clerror = true;
       return;
     }
@@ -289,6 +290,7 @@ export class InterviewComponent implements OnInit {
     this.cvpath = `resumes/${this.user.liuid}_${new Date().getTime()}`;
     this.cvfile = event.item(0)
     if (this.cvfile.type !== 'application/pdf') {
+      this.cvuploaded = false;
       this.cverror = true;
       return;
     }
@@ -301,6 +303,7 @@ export class InterviewComponent implements OnInit {
     this.gradespath = `grades/${this.user.liuid}_${new Date().getTime()}`;
     this.gradesfile = event.item(0)
     if (this.gradesfile.type !== 'application/pdf') {
+      this.gradesuploaded = false;
       this.gradeserror = true;
       return;
     }
