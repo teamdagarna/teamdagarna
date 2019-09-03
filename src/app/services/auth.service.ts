@@ -70,12 +70,6 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password)
       .then(credentials => {
         //Adds userID to OneSignal portal and adds email as tag.
-        if (navigator.userAgent.indexOf('gonative') > -1) {
-          var info = {userId: this.getUserID(), userEmail: this.getUserEmail()};
-          var json = JSON.stringify(info);
-          setTimeout(function() {
-            window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
-          }, 1200);
         }
         var userToVer = firebase.auth().currentUser;
         userToVer.sendEmailVerification().then(() => {
@@ -100,6 +94,12 @@ export class AuthService {
           }
 
           return this.updateUserData(newUser)
+          if (navigator.userAgent.indexOf('gonative') > -1) {
+            var info = {userId: this.getUserID(), userEmail: this.getUserEmail()};
+            var json = JSON.stringify(info);
+            setTimeout(function() {
+              window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
+            }, 500);
           // return this.createProfile(email)
           // return this.setUserDoc(user); // create initial user document
         }).catch(function(error) {
