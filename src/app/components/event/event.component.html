@@ -36,7 +36,8 @@
               <p *ngIf="selectedEvent.maxattendance > 0"><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="selectedEvent.signon && auth.canEdit(user)">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
             </div>
             <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p>
+              <span *ngIf="eventid != 'yFsyUZi4bNFsOjQMIFJo'"><p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p></span>
+              <span *ngIf="eventid == 'yFsyUZi4bNFsOjQMIFJo'"><p><i class="fas fa-utensils"></i>&nbsp; Studenter som anmäler sig innan den 12/9 och får plats på eventet får mat.</p></span>
             </div>
           </div>
         </nav>
@@ -75,7 +76,8 @@
               <p *ngIf="selectedEvent.maxattendance > 0"><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }} <span *ngIf="selectedEvent.signon && auth.canEdit(user)">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span></p>
             </div>
             <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
-              <p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p>
+              <span *ngIf="eventid != 'yFsyUZi4bNFsOjQMIFJo'"><p><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }} <span *ngIf="selectedEvent.signon">första anmälda får mat</span></p></span>
+              <span *ngIf="eventid == 'yFsyUZi4bNFsOjQMIFJo'"><p><i class="fas fa-utensils"></i>&nbsp; Studenter som anmäler sig innan den 12/9 och får plats på eventet får mat.</p></span>
             </div>
           </div>
         </nav>

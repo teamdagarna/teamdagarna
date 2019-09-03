@@ -68,38 +68,30 @@ export class AuthService {
   emailSignUp(data) {
     const liumail = data.liuid + '@student.liu.se';
     return this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password)
-      .then(credentials => {
-        //Adds userID to OneSignal portal and adds email as tag.
-        }
-        var userToVer = firebase.auth().currentUser;
-        userToVer.sendEmailVerification().then(() => {
+    .then(credentials => {
+      var userToVer = firebase.auth().currentUser;
+      userToVer.sendEmailVerification().then(() => {
 
-          const newUser: User = {
-              uid: firebase.auth().currentUser.uid,
-              email: liumail,
-              firstname: data.firstname,
-              lastname: data.lastname,
-              liuid: data.liuid,
-              program: data.program,
-              year: data.year,
-              engineerbachelor: data.engineerbachelor,
-              engineermaster: data.engineermaster,
-              specialfood: data.specialfood,
-              nekorfek: data.nekorfek,
-              filfakspecialization: data.filfakspecialization,
-              verified: false,
-              roles: {
-                student: true
-              }
+        const newUser: User = {
+          uid: firebase.auth().currentUser.uid,
+          email: liumail,
+          firstname: data.firstname,
+          lastname: data.lastname,
+          liuid: data.liuid,
+          program: data.program,
+          year: data.year,
+          engineerbachelor: data.engineerbachelor,
+          engineermaster: data.engineermaster,
+          specialfood: data.specialfood,
+          nekorfek: data.nekorfek,
+          filfakspecialization: data.filfakspecialization,
+          verified: false,
+          roles: {
+            student: true
           }
+        }
 
-          return this.updateUserData(newUser)
-          if (navigator.userAgent.indexOf('gonative') > -1) {
-            var info = {userId: this.getUserID(), userEmail: this.getUserEmail()};
-            var json = JSON.stringify(info);
-            setTimeout(function() {
-              window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
-            }, 500);
+        this.updateUserData(newUser);
           // return this.createProfile(email)
           // return this.setUserDoc(user); // create initial user document
         }).catch(function(error) {

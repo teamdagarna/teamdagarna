@@ -94,6 +94,13 @@ export class SignupComponent implements OnInit {
 
   signup(data) {
    this.auth.emailSignUp(data).then((res) => {
+     if (navigator.userAgent.indexOf('gonative') > -1) {
+       var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
+       var json = JSON.stringify(info);
+       setTimeout(function() {
+         window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
+       }, 500);
+     }
       this.router.navigate(['registered']);
          // this.auth.createProfile(data);
       }).catch((error) => {
