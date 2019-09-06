@@ -192,7 +192,7 @@ export class SelectComponent implements OnInit {
     if (_.find(this.interviews, ['backupnumber', 4]) || _.find(this.openInterviews, ['backupnumber', 4])) {
       this.backup4available = false;
     } else {
-      this.backup3available = true;
+      this.backup4available = true;
     }
     if (_.find(this.interviews, ['backupnumber', 5]) || _.find(this.openInterviews, ['backupnumber', 5])) {
       this.backup5available = false;
