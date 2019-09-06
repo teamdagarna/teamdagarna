@@ -244,7 +244,10 @@
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th> -->
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td>
-              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
+              <td> - </td>
+              <td> - </td>
+              <td> - </td>
+              <!-- <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
               <th *ngIf="interview.studentdeclined && interview.selected" class="has-text-danger">Tackat nej</th>
@@ -252,7 +255,7 @@
               <th *ngIf="!interview.selected">-</th>
               <td *ngIf="interview.selected" class="has-text-warning">
                 Stängt
-              </td>
+              </td> -->
               <!-- <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
@@ -279,7 +282,10 @@
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th> -->
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td>
-              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
+              <td> - </td>
+              <td> - </td>
+              <td> - </td>
+              <!-- <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
 
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
@@ -287,7 +293,7 @@
               <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
 
 
-              <th *ngIf="!interview.selected">-</th>
+              <th *ngIf="!interview.selected">-</th> -->
               <!-- <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, true)" class="button is-success is-small">
@@ -306,9 +312,9 @@
 
               </td> -->
 
-              <td *ngIf="interview.selected" class="has-text-warning">
+              <!-- <td *ngIf="interview.selected" class="has-text-warning">
                 Stängt
-              </td>
+              </td> -->
 
             </tr>
           </tbody>
