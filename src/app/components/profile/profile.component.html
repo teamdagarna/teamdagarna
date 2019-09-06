@@ -274,17 +274,17 @@
 
               </td> -->
             </tr>
-            <tr *ngFor="let interview of openinterviews">
+            <!-- <tr *ngFor="let interview of openinterviews">
               <td>{{ interview.companyname }}*</td>
-              <th class="has-text-warning">Inväntar svar</th>
+              <th class="has-text-warning">Inväntar svar</th> -->
               <!-- <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th> -->
-              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td>
+              <!-- <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td>
               <td> - </td>
               <td> - </td>
-              <td> - </td>
+              <td> - </td> -->
               <!-- <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
 
@@ -316,7 +316,7 @@
                 Stängt
               </td> -->
 
-            </tr>
+            <!-- </tr> -->
           </tbody>
         </table>
         <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
