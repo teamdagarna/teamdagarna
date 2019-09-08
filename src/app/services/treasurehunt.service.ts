@@ -30,7 +30,7 @@ export class TreasurehuntService {
       await this.afs.doc(`treasurehuntpoints/${user.uid}`).set({firstname: user.firstname, lastname: user.lastname, [companyName]: true }, {merge: true} );
     } catch(err) {
       console.log(err)
-      throw new Error(err);
+      throw new Error(err.message);
     }
   }
 }
