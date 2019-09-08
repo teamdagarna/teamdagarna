@@ -147,6 +147,9 @@ export class CompanyComponent implements OnInit {
       'seeopenapplicants': [false, [
         ]
       ],
+      'placeID': ['', [
+        ]
+      ],
     });
 
   }
@@ -247,7 +250,8 @@ export class CompanyComponent implements OnInit {
         reqgrades: data.reqgrades,
         interviewinfo: data.interviewinfo,
         totalapplicants: data.totalapplicants,
-        seeopenapplicants: data.seeopenapplicants
+        seeopenapplicants: data.seeopenapplicants,
+        placeID: data.placeID
       }
 
       this.update(changedCompany)
