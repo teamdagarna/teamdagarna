@@ -186,6 +186,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Pusseljakten",
+          url: "https://teamdagarna.com/pusseljakten"
+        },
+        {
+          subLinks: [],
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         },
@@ -321,6 +326,11 @@ export class AuthService {
           subLinks: [],
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
+        },
+        {
+          subLinks: [],
+          label: "Pusseljakten",
+          url: "https://teamdagarna.com/pusseljakten"
         },
         {
           subLinks: [],
