@@ -89,6 +89,8 @@ import { SustainabilityComponent } from './components/sustainability/sustainabil
 import { NewdesignComponent } from './components/newdesign/newdesign.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
+import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
+import { TreasurecodesComponent } from './components/admincomponents/treasurecodes/treasurecodes.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -148,7 +150,9 @@ registerLocaleData(localeSv, 'sv');
     SustainabilityComponent,
     NewdesignComponent,
     FavouritecompaniesComponent,
-    PrivacypolicyComponent
+    PrivacypolicyComponent,
+    RegistertreasurehuntComponent,
+    TreasurecodesComponent
   ],
   imports: [
     BrowserModule,
@@ -179,6 +183,7 @@ registerLocaleData(localeSv, 'sv');
         { path: 'events/:id', component: AdmineventComponent },
         { path: 'events', component: AdmineventsComponent },
         { path: 'companycodes', component: CompanycodesComponent, canActivate: [PlatinumadminGuard] },
+        { path: 'treasurecodes', component: TreasurecodesComponent, canActivate: [PlatinumadminGuard] },
         { path: 'allinterviews', component: AllinterviewsComponent, canActivate: [PlatinumadminGuard] },
         { path: 'interviewschedule', component: InterviewscheduleComponent, canActivate: [PlatinumadminGuard] },
         { path: 'checkin', component: CheckinComponent },
@@ -210,6 +215,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'massjakt', component: TreasurehuntComponent },
     { path: 'nydesign', component: NewdesignComponent },
     { path: 'favoritforetag', component: FavouritecompaniesComponent},
+    { path: 'pusseljakten', component: RegistertreasurehuntComponent},
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],

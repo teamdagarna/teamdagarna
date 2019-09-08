@@ -4,6 +4,11 @@ export interface Roles {
     dreamteamPlatinumMember?: boolean;
  }
 
+export interface LeaderBoardUser {
+  firstname: string;
+  lastname: string;
+  noOfPoints: number;
+}
 export interface User {
   uid: string;
   email: string;
