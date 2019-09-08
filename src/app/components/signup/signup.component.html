@@ -165,7 +165,7 @@
           </label> Jag tillåter att Teamdagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
           </div>
           <div *ngIf="signupForm.valid">Allt ser bra ut!</div>
-          <button type="submit" [disabled]="!signupForm.valid" class="button is-fullwidth">Registrera och logga in</button><br>
+          <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" class="button is-fullwidth">Registrera och logga in</button><br>
           <p class="is-italic"> Glöm inte att verifiera ditt konto genom att klicka på den länk som kommer att skickas till din "@student.liu.se"-adress. Vissa funktioner på hemsidan kan du inte ta del av förrän du verifierar ditt konto! </p>
         </div>
 

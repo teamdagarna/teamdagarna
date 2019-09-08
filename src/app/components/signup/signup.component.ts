@@ -13,7 +13,8 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   isModalActive: boolean = false;
-    errorMessage: string;
+  errorMessage: string;
+  loading: boolean = false;
   // detailForm: FormGroup;
 
   constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
@@ -93,7 +94,9 @@ export class SignupComponent implements OnInit {
   // get catchPhrase() { return this.detailForm.get('catchPhrase') }
 
   signup(data) {
+   this.loading = true;
    this.auth.emailSignUp(data).then((res) => {
+     this.router.navigate(['registered']);
      if (navigator.userAgent.indexOf('gonative') > -1) {
        var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
        var json = JSON.stringify(info);
@@ -101,7 +104,7 @@ export class SignupComponent implements OnInit {
          window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
        }, 500);
      }
-      this.router.navigate(['registered']);
+     this.loading = false;
          // this.auth.createProfile(data);
       }).catch((error) => {
           var errorCode = error.code;

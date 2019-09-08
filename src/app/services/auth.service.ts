@@ -167,6 +167,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/masskarta"
+        },
+        {
+          subLinks: [],
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         },
@@ -297,6 +302,11 @@ export class AuthService {
           subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
+        },
+        {
+          subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/masskarta"
         },
         {
           subLinks: [],

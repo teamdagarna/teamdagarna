@@ -239,7 +239,8 @@
           </div>
           <div class="card-footer">
             <div class="column footer-column">
-            <a class="button is-primary is-outlined is-small" (click)="openModal(company) ">Läs mer</a>
+            <a class="button is-primary is-outlined is-small" (click)="openModal(company) ">Läs mer</a>&nbsp;
+            <a class="button is-primary is-outlined is-small" [routerLink]="['/masskarta']" [queryParams]="{ preselected: company.placeID }">Hitta plats på mässan!&nbsp;<span class="icon"><i class="fas fa-map-marker-alt"></i></span></a>
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
