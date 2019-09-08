@@ -201,7 +201,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'companymap', component: CompanymapComponent },
+    { path: 'masskarta', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},

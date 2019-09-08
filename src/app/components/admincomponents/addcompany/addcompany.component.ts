@@ -133,6 +133,9 @@ export class AddcompanyComponent implements OnInit {
       'reqresume': [false, [
         ]
       ],
+      'placeID': ['', [
+        ]
+      ],
     });
 
   }
@@ -183,8 +186,8 @@ export class AddcompanyComponent implements OnInit {
       reqresume: data.reqresume,
       reqcl: data.reqcl,
       reqgrades: data.reqgrades,
-
-      interviewinfo: data.interviewinfo
+      interviewinfo: data.interviewinfo,
+      placeID: data.placeID
     }
 
     companiesCollection.add(newCompany).then(() => {
