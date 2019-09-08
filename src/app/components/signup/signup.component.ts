@@ -93,34 +93,24 @@ export class SignupComponent implements OnInit {
 
   // get catchPhrase() { return this.detailForm.get('catchPhrase') }
 
-  signup(data) {
-   this.loading = true;
-   this.auth.emailSignUp(data).then((res) => {
-     this.router.navigate(['registered']);
-     if (navigator.userAgent.indexOf('gonative') > -1) {
-       var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
-       var json = JSON.stringify(info);
-       setTimeout(function() {
-         window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
-       }, 500);
-     }
-     this.loading = false;
-         // this.auth.createProfile(data);
-      }).catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          if (errorCode == 'auth/email-already-in-use') {
-          this.errorMessage = 'Det finns redan ett konto registrerat på detta LiU-ID. Logga in eller återställ lösenord.';
-        } else if (errorCode == 'auth/invalid-email') {
-          this.errorMessage = 'Inget giltigt LiU-ID';
-        } else if (errorCode == 'auth/operation-not-allowed') {
-          this.errorMessage = 'Operation not allowed';
-        } else if (errorCode == 'auth/weak-password') {
-          this.errorMessage = 'Svagt lösenord. Testa igen.';
-        } else {
-          this.errorMessage = 'Något gick fel. Testa igen.';
-        }
-      });
+  async signup(data) {
+    this.loading = true;
+    try {
+      await this.auth.emailSignUp(data);
+      this.router.navigate(['registered']);
+      if (navigator.userAgent.indexOf('gonative') > -1) {
+        var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};
+        var json = JSON.stringify(info);
+        setTimeout(function() {
+          window.location.href ='gonative://registration/send?customData=' + encodeURIComponent(json);
+        }, 500);
+      }
+      this.loading = false;
+      // this.auth.createProfile(data);
+    } catch(error) {
+      this.loading = false;
+      this.errorMessage = error;
+    }
   }
 
   // Step 2

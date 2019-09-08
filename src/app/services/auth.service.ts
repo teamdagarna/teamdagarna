@@ -65,10 +65,10 @@ export class AuthService {
     return userRef.set(user, { merge: true })
   }
 
-  emailSignUp(data) {
+  async emailSignUp(data) {
     const liumail = data.liuid + '@student.liu.se';
-    return this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password)
-    .then(credentials => {
+    try {
+      await this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password);
       var userToVer = firebase.auth().currentUser;
       userToVer.sendEmailVerification().then(() => {
 
@@ -92,14 +92,28 @@ export class AuthService {
         }
 
         this.updateUserData(newUser);
-          // return this.createProfile(email)
-          // return this.setUserDoc(user); // create initial user document
-        }).catch(function(error) {
-          console.log(error);
-        });
-        // return this.setUserDoc(user) // create initial user document
-      })
-      .catch(error => this.handleError(error) );
+        // return this.createProfile(email)
+        // return this.setUserDoc(user); // create initial user document
+      }).catch(function(error) {
+        console.log(error);
+      });
+      // return this.setUserDoc(user) // create initial user document
+    } catch(error) {
+      var errorCode = error.code;
+      var errorMessage: string;
+      if (errorCode == "auth/email-already-in-use") {
+        errorMessage = "Det finns redan ett konto registrerat på detta LiU-ID. Logga in eller återställ lösenord.";
+      } else if (errorCode == "auth/invalid-email") {
+        errorMessage = "Inget giltigt LiU-ID";
+      } else if (errorCode == "auth/operation-not-allowed") {
+        errorMessage = "Operation not allowed";
+      } else if (errorCode == "auth/weak-password") {
+        errorMessage = "Svagt lösenord. Testa igen.";
+      } else {
+        errorMessage = "Något gick fel. Testa igen.";
+      }
+      throw new Error(errorMessage);
+    }
   }
 
   newVerify() {
