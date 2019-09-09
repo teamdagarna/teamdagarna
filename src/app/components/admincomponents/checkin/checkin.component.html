@@ -17,10 +17,16 @@
   <!-- <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Hämta</button> -->
 </form>
 <br>
+<ng-container *ngIf="attendants">
+<h1 class="title is-2">Lista mailutskick (Alla som fått plats!)</h1>
+<ng-container *ngFor="let attendant of attendants">
+  <span *ngIf="!attendant.waitinglist">{{ attendant.liuid }}@student.liu.se, </span>
+</ng-container>
+</ng-container>
+<br>
+<br>
 <input class="input is-large" type="text" placeholder="Sök på förnamn, efternamn eller liu-id" (keyup)="onSearch($event)">
 <br>
-
-
 
 
 
