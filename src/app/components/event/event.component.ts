@@ -181,7 +181,7 @@ export class EventComponent implements OnInit {
     });
     if (navigator.userAgent.indexOf('gonative') > -1) {
       var tags = {};
-      tags[this.eventid] = false;
+      tags[this.eventid] = '';
 
       window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
     }
