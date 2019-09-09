@@ -124,6 +124,12 @@ export class EventComponent implements OnInit {
           this.loading = false;
       });
     }
+    if (navigator.userAgent.indexOf('gonative') > -1) {
+      var tags = {};
+      tags[this.eventid] = true;
+
+      window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+    }
   }
 
   reserv() {
@@ -151,28 +157,34 @@ export class EventComponent implements OnInit {
 
   delete() {
     if (!this.attendedDoc.waitinglist) {
-    if (this.attendedDoc.getsfood && this.numberofsignups > this.selectedEvent.foodportions && this.selectedEvent.maxattendance > this.selectedEvent.foodportions) {
-      const index = this.selectedEvent.foodportions;
-      console.log(this.signups[index].id)
-      const docid = this.signups[index].id;
-      this.afs.doc(`attendevent/${docid}`).update({ getsfood: true })
-    }
-    if (this.numberofreserves > 0 && this.numberofsignups <= this.selectedEvent.maxattendance) {
-      const reservid = this.reserves[0].id;
-      if (this.attendedDoc.getsfood && this.selectedEvent.maxattendance == this.selectedEvent.foodportions) {
-        this.afs.doc(`attendevent/${reservid}`).update({
-          getsfood: true,
-          waitinglist: false
-        })
-      } else {
-        this.afs.doc(`attendevent/${reservid}`).update({ waitinglist: false })
+      if (this.attendedDoc.getsfood && this.numberofsignups > this.selectedEvent.foodportions && this.selectedEvent.maxattendance > this.selectedEvent.foodportions) {
+        const index = this.selectedEvent.foodportions;
+        console.log(this.signups[index].id)
+        const docid = this.signups[index].id;
+        this.afs.doc(`attendevent/${docid}`).update({ getsfood: true })
+      }
+      if (this.numberofreserves > 0 && this.numberofsignups <= this.selectedEvent.maxattendance) {
+        const reservid = this.reserves[0].id;
+        if (this.attendedDoc.getsfood && this.selectedEvent.maxattendance == this.selectedEvent.foodportions) {
+          this.afs.doc(`attendevent/${reservid}`).update({
+            getsfood: true,
+            waitinglist: false
+          })
+        } else {
+          this.afs.doc(`attendevent/${reservid}`).update({ waitinglist: false })
+        }
       }
     }
-  }
 
     this.afs.doc(`attendevent/${this.attendedDoc.id}`).delete().then(() => {
       this.confirmDelete = true;
     });
+    if (navigator.userAgent.indexOf('gonative') > -1) {
+      var tags = {};
+      tags[this.eventid] = false;
+
+      window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
+    }
   }
 
 }
