@@ -87,7 +87,7 @@
           <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
           <br>
           <ng-container *ngIf="user">
-            <ng-container *ngIf="attended && !confirmDelete && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today">
+            <ng-container *ngIf="attended && !confirmDelete && selectedEvent.signonstarts.toDate() < today && selectedEvent.signoffends.toDate() > today">
               <p class="has-text-primary" *ngIf="attendedDoc.waitinglist && !confirmDelete">Du står som reserv.</p>
               <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist && !confirmDelete">Du är anmäld (Garanterad mat: <span *ngIf="attendedDoc.getsfood">Ja</span><span *ngIf="!attendedDoc.getsfood">Nej</span>).</p>
               <br>
