@@ -5,8 +5,7 @@ export interface Roles {
  }
 
 export interface LeaderBoardUser {
-  firstname: string;
-  lastname: string;
+  liuid: string;
   noOfPoints: number;
 }
 export interface User {
@@ -53,6 +52,8 @@ export interface Company {
   industry: string;
   interviewpackages: Interviewpackages;
   treasurehunt?: boolean;
+  treasurehuntTuesday?: boolean;
+  treasurehuntWednesday?: boolean;
   about: string;
   values?: string;
   logopath: string;

@@ -14,33 +14,50 @@ import * as _ from 'lodash';
 })
 export class TreasurecodesComponent implements OnInit {
 
-  treasureCompanies: any;
-  treasureCodes: any;
-  treasureCompany: any;
-  loading: boolean = false;
+  treasureCompaniesTuesday: any;
+  treasureCompaniesWednesday: any;
+  treasureCodesTuesday: any;
+  treasureCodesWednesday: any;
+  treasureCompanyTuesday: any;
+  treasureCompanyWednesday: any;
+  loading1: boolean = false;
+  loading2: boolean = false;
 
-  treasureGenerateForm: FormGroup;
+  treasureGenerateFormTuesday: FormGroup;
+  treasureGenerateFormWednesday: FormGroup;
 
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder) {
-    this.getCompanies().subscribe(companies => {
-        this.treasureCompanies = companies;
+    this.getCompaniesTuesday().subscribe(companies => {
+        this.treasureCompaniesTuesday = companies;
     });
-    this.getTreasureCodes().subscribe(codes => {
-        this.treasureCodes = codes;
+
+    this.getCompaniesWednesday().subscribe(companies => {
+        this.treasureCompaniesWednesday = companies;
+    });
+
+    this.getTreasureCodesTuesday().subscribe(codes => {
+        this.treasureCodesTuesday = codes;
+    });
+
+    this.getTreasureCodesWednesday().subscribe(codes => {
+        this.treasureCodesWednesday = codes;
     });
    }
 
   ngOnInit() {
-    this.treasureGenerateForm = this.fb.group({
+    this.treasureGenerateFormTuesday = this.fb.group({
+      'comp': ['', [Validators.required]]
+    });
+    this.treasureGenerateFormWednesday = this.fb.group({
       'comp': ['', [Validators.required]]
     });
   }
 
-  getCompanies() {
+  getCompaniesTuesday() {
     return this.afs.collection<Company>('companies', ref => {
       return ref
-        .where('treasurehunt', '==', true)
+        .where('treasurehuntTuesday', '==', true)
     }).snapshotChanges().pipe(
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as Company;
@@ -50,41 +67,92 @@ export class TreasurecodesComponent implements OnInit {
    );
   }
 
-  getTreasureCodes() {
-    return this.afs.collection('treasurecodes').valueChanges()
+  getCompaniesWednesday() {
+    return this.afs.collection<Company>('companies', ref => {
+      return ref
+      .where('treasurehuntWednesday', '==', true)
+    }).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Company;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
-  hasCode(company) {
-    if (_.find(this.treasureCodes, function(o) { return o.company == company; }) !== undefined) {
+  getTreasureCodesTuesday() {
+    return this.afs.collection('treasurecodesTuesday').valueChanges()
+  }
+
+  getTreasureCodesWednesday() {
+    return this.afs.collection('treasurecodesWednesday').valueChanges()
+  }
+
+
+  hasCodeTuesday(company) {
+    if (_.find(this.treasureCodesTuesday, function(o) { return o.company == company; }) !== undefined) {
     return true;
     } else {
       return false;
     }
   }
 
-  getTreasureCompany(company) {
-    this.treasureCompany = _.find(this.treasureCompanies, { 'id': company });
+
+  hasCodeWednesday(company) {
+    if (_.find(this.treasureCodesWednesday, function(o) { return o.company == company; }) !== undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getTreasureCompanyTuesday(company) {
+    this.treasureCompanyTuesday = _.find(this.treasureCompaniesTuesday, { 'id': company });
+  }
+
+  getTreasureCompanyWednesday(company) {
+    this.treasureCompanyWednesday = _.find(this.treasureCompaniesWednesday, { 'id': company });
   }
 
 
-  async submit(data) {
+  async submitTuesday(data) {
     // var randomstring = 'test';
 
     var randomstring = data.comp.substring(0,3) + _.random(1000, 9999);
-    this.loading = true;
+    this.loading1 = true;
 
     const newCode = {
       company: data.comp,
-      companyname: this.treasureCompany.name,
+      companyname: this.treasureCompanyTuesday.name,
       treasurecode: randomstring
     }
 
     try {
-      await this.afs.collection('treasurecodes').add(newCode);
+      await this.afs.collection('treasurecodesTuesday').add(newCode);
     } catch(err) {
       console.log(err)
     }
-    this.loading = false;
+    this.loading1 = false;
+  }
+
+  async submitWednesday(data) {
+    // var randomstring = 'test';
+
+    var randomstring = data.comp.substring(0,3) + _.random(1000, 9999);
+    this.loading2 = true;
+
+    const newCode = {
+      company: data.comp,
+      companyname: this.treasureCompanyWednesday.name,
+      treasurecode: randomstring
+    }
+
+    try {
+      await this.afs.collection('treasurecodesWednesday').add(newCode);
+    } catch(err) {
+      console.log(err)
+    }
+    this.loading2 = false;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TreasurehuntService } from '../../services/treasurehunt.service';
 import { InterviewApplication } from '../../shared/models';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -28,9 +29,14 @@ export class ProfileComponent implements OnInit {
 
   acceptavailable: boolean = true;
 
+  treasurehuntPointsTuesday: any;
+  treasurehuntPointsWednesday: any;
+  noOfPointsTuesday: number;
+  noOfPointsWednesday: number;
+
   events;
 
-  constructor(public auth: AuthService, private readonly afs: AngularFirestore, public fb: FormBuilder) {
+  constructor(public auth: AuthService, private readonly afs: AngularFirestore, private treasure: TreasurehuntService, public fb: FormBuilder) {
     this.auth.user$.subscribe(user => {
       this.user = user;
       this.getInterviews().subscribe(interviews => {
@@ -44,7 +50,25 @@ export class ProfileComponent implements OnInit {
       this.preloadData();
       this.getAttendance().subscribe(att => {
             this.events = att;
+      });
+      if (user) {
+        this.treasure.getTreasurePointsTuesday(this.user).subscribe(treasurehuntPoints => {
+          this.treasurehuntPointsTuesday = treasurehuntPoints;
+          if(treasurehuntPoints) {
+            this.noOfPointsTuesday = _.size(treasurehuntPoints)-1;
+          } else {
+            this.noOfPointsTuesday = 0;
+          }
         });
+        this.treasure.getTreasurePointsWednesday(this.user).subscribe(treasurehuntPoints => {
+          this.treasurehuntPointsWednesday = treasurehuntPoints;
+          if(treasurehuntPoints) {
+            this.noOfPointsWednesday = _.size(treasurehuntPoints)-1;
+          } else {
+            this.noOfPointsWednesday = 0;
+          }
+        });
+      }
     });
 
    }

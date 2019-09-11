@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { TreasurehuntService } from '../../services/treasurehunt.service';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Company, Code, LeaderBoardUser } from '../../shared/models';
+import { Company, Code } from '../../shared/models';
 import * as firebase from 'firebase/app';
 import { switchMap, map} from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
@@ -22,34 +22,38 @@ export class RegistertreasurehuntComponent implements OnInit {
   code;
   user;
   treasureCompany: any;
-  treasureBoard: any;
-  leaderBoard: LeaderBoardUser[];
-  treasurehuntPoints: any;
+  treasurehuntPointsTuesday: any;
+  treasurehuntPointsWednesday: any;
   success: boolean = false;
   submitMode: boolean = true;
   notsuccess: boolean = false;
   hasPoint: boolean = false;
   showerror: boolean = false;
   loading: boolean = false;
-  noOfPoints: number;
+  noOfPointsTuesday: number;
+  noOfPointsWednesday: number;
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder, public auth: AuthService, private treasure: TreasurehuntService, private router: Router) {
     this.auth.user$.subscribe(user => {
       this.user = user;
       if (user) {
-        this.treasure.getTreasurePoints(this.user).subscribe(treasurehuntPoints => {
-          this.treasurehuntPoints = treasurehuntPoints;
+        this.treasure.getTreasurePointsTuesday(this.user).subscribe(treasurehuntPoints => {
+          this.treasurehuntPointsTuesday = treasurehuntPoints;
           if(treasurehuntPoints) {
-            this.noOfPoints = _.size(treasurehuntPoints)-2;
+            this.noOfPointsTuesday = _.size(treasurehuntPoints)-1;
           } else {
-            this.noOfPoints = 0;
+            this.noOfPointsTuesday = 0;
+          }
+        });
+        this.treasure.getTreasurePointsWednesday(this.user).subscribe(treasurehuntPoints => {
+          this.treasurehuntPointsWednesday = treasurehuntPoints;
+          if(treasurehuntPoints) {
+            this.noOfPointsWednesday = _.size(treasurehuntPoints)-1;
+          } else {
+            this.noOfPointsWednesday = 0;
           }
         });
       }
-    });
-    this.treasure.getTreasureBoard().subscribe(treasureBoard => {
-      this.treasureBoard = treasureBoard;
-      this.leaderBoard = this.createLeaderBoard();
     });
   }
 
@@ -59,8 +63,9 @@ export class RegistertreasurehuntComponent implements OnInit {
     });
   }
 
+  //Change value of this to approriate afs-collection depending on day for the competition.
   getCompanyID(code) {
-    return this.afs.collection('treasurecodes', ref => {
+    return this.afs.collection('treasurecodesTuesday', ref => {
       return ref
         .where('treasurecode', '==', code)
         .limit(1);
@@ -71,32 +76,10 @@ export class RegistertreasurehuntComponent implements OnInit {
     return this.afs.doc<Company>(`companies/${id}`).valueChanges();
   }
 
-  countPoints(treasurehuntDoc) {
-    if(treasurehuntDoc) {
-      return _.size(treasurehuntDoc)-3;
-    } else {
-      return 0;
-    }
-  }
-
-  createLeaderBoard() {
-    const treasureBoard = this.treasureBoard;
-    var leaderBoard: LeaderBoardUser[] = new Array();
-    for (let index = 0; index < treasureBoard.length; ++index) {
-      const newUser: LeaderBoardUser = {
-        firstname: treasureBoard[index].firstname,
-        lastname: treasureBoard[index].lastname,
-        noOfPoints: this.countPoints(treasureBoard[index])
-      }
-      leaderBoard.push(newUser);
-    }
-    return _.take(_.orderBy(leaderBoard, ['noOfPoints'], ['desc']), 10);
-  }
-
   checkPoint(company) {
     const user = this.user;
     const companyName = company.name;
-    const treasurehuntPoints = this.treasurehuntPoints;
+    const treasurehuntPoints = this.treasurehuntPointsTuesday;
     var hasPoint: any;
     if(treasurehuntPoints) {
       if(treasurehuntPoints[companyName] != null) {
@@ -111,7 +94,6 @@ export class RegistertreasurehuntComponent implements OnInit {
   }
 
   submit(data) {
-    this.submitMode = false;
     this.loading = true;
     return this.getCompanyID(data.code).subscribe(code => {
         if (code[0] == undefined) {
@@ -123,7 +105,7 @@ export class RegistertreasurehuntComponent implements OnInit {
           this.treasureCompany = company;
           if (!this.checkPoint(company)) {
             try {
-              await this.treasure.registerPoints(this.user, company.name);
+              await this.treasure.registerPointsTuesday(this.user, company.name);
               this.success = true;
             } catch(err) {
               console.log(err)
@@ -133,6 +115,7 @@ export class RegistertreasurehuntComponent implements OnInit {
             this.hasPoint = true;
           }
         });
+        this.submitMode = false;
         this.loading = false;
     });
   }

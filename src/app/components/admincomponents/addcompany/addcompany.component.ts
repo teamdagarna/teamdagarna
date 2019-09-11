@@ -118,6 +118,12 @@ export class AddcompanyComponent implements OnInit {
       'treasurehunt': [false, [
         ]
       ],
+      'treasurehuntTuesday': [false, [
+        ]
+      ],
+      'treasurehuntWednesday': [false, [
+        ]
+      ],
       'pitchLecture': [false, [
         ]
       ],
@@ -178,6 +184,8 @@ export class AddcompanyComponent implements OnInit {
         seconddaypackage2: data.seconddaypackage2
       },
       treasurehunt: data.treasurehunt,
+      treasurehuntTuesday: data.treasurehuntTuesday,
+      treasurehuntWednesday: data.treasurehuntWednesday,
       pitchLecture: data.pitchLecture,
       about: data.about,
       values: data.values,

@@ -1,0 +1,48 @@
+<h1 class="title is-2">Topplistor</h1>
+<div class="columns">
+  <div class="column is-half">
+    <p class="has-text-weight-bold has-text-primary"> Tisdag: </p>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Namn:</th>
+          <th>Poäng:</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <th>Namn:</th>
+        <th>Poäng:</th>
+      </tfoot>
+      <tbody>
+        <ng-container *ngFor="let user of leaderBoardTuesday">
+          <tr>
+            <td>{{ user.liuid }}</td>
+            <td>{{ user.noOfPoints }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+
+    <div class="column is-half">
+      <p class="has-text-weight-bold has-text-primary"> Onsdag: </p>
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Namn:</th>
+            <th>Poäng:</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <th>Namn:</th>
+          <th>Poäng:</th>
+        </tfoot>
+        <tbody>
+          <ng-container *ngFor="let user of leaderBoardWednesday">
+            <tr>
+              <td>{{ user.liuid }}</td>
+              <td>{{ user.noOfPoints }}</td>
+            </tr>
+          </ng-container>
+        </table>
+      </div>
+  </div>

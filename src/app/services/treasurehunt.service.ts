@@ -11,8 +11,8 @@ export class TreasurehuntService {
 
   constructor(private afs: AngularFirestore) { }
 
-  getTreasureBoard() {
-    return this.afs.collection('treasurehuntpoints').snapshotChanges().pipe(
+  getTreasureBoardTuesday() {
+    return this.afs.collection('treasurehuntPointsTuesday').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
@@ -20,14 +20,37 @@ export class TreasurehuntService {
       }))
     );
   }
-  getTreasurePoints(user) {
-    // Used to build the follower count
-    return this.afs.doc(`treasurehuntpoints/${user.uid}`).valueChanges();
+
+  getTreasureBoardWednesday() {
+    return this.afs.collection('treasurehuntPointsWednesday').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
-  async registerPoints(user, companyName: string) {
+  getTreasurePointsTuesday(user) {
+    return this.afs.doc(`treasurehuntPointsTuesday/${user.uid}`).valueChanges();
+  }
+
+  getTreasurePointsWednesday(user) {
+    return this.afs.doc(`treasurehuntPointsWednesday/${user.uid}`).valueChanges();
+  }
+
+  async registerPointsTuesday(user, companyName: string) {
     try {
-      await this.afs.doc(`treasurehuntpoints/${user.uid}`).set({firstname: user.firstname, lastname: user.lastname, [companyName]: true }, {merge: true} );
+      await this.afs.doc(`treasurehuntPointsTuesday/${user.uid}`).set({liuid: user.liuid, [companyName]: true }, {merge: true} );
+    } catch(err) {
+      console.log(err)
+      throw new Error(err.message);
+    }
+  }
+
+  async registerPointsWednesday(user, companyName: string) {
+    try {
+      await this.afs.doc(`treasurehuntPointsWednesday/${user.uid}`).set({liuid: user.liuid, [companyName]: true }, {merge: true} );
     } catch(err) {
       console.log(err)
       throw new Error(err.message);

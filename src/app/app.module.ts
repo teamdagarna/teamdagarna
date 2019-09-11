@@ -91,6 +91,7 @@ import { FavouritecompaniesComponent } from './components/favouritecompanies/fav
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
 import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
 import { TreasurecodesComponent } from './components/admincomponents/treasurecodes/treasurecodes.component';
+import { TreasurescoreComponent } from './components/admincomponents/treasurescore/treasurescore.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -152,7 +153,8 @@ registerLocaleData(localeSv, 'sv');
     FavouritecompaniesComponent,
     PrivacypolicyComponent,
     RegistertreasurehuntComponent,
-    TreasurecodesComponent
+    TreasurecodesComponent,
+    TreasurescoreComponent
   ],
   imports: [
     BrowserModule,
@@ -187,7 +189,8 @@ registerLocaleData(localeSv, 'sv');
         { path: 'allinterviews', component: AllinterviewsComponent, canActivate: [PlatinumadminGuard] },
         { path: 'interviewschedule', component: InterviewscheduleComponent, canActivate: [PlatinumadminGuard] },
         { path: 'checkin', component: CheckinComponent },
-        { path: 'dreamteam', component: DreamteamsComponent }
+        { path: 'dreamteam', component: DreamteamsComponent },
+        { path: 'treasurescore', component: TreasurescoreComponent }
       ] },
     { path: 'dreamteam', component: TeamComponent },
     { path: 'profile', component: ProfileComponent },
