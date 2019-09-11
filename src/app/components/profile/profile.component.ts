@@ -167,14 +167,14 @@ export class ProfileComponent implements OnInit {
 
   submit(data) {
     const formValue = this.changeForm.value;
-   this.auth.updateUser(this.user, formValue).then((res) => {
-        this.changeMode = false;
-        this.updated = true;
-      }).catch((error) => {
+    this.auth.updateUser(this.user, formValue).then((res) => {
+      this.changeMode = false;
+      this.updated = true;
+    }).catch((error) => {
 
-          this.errorMessage = 'Något gick fel.. Testa igen.';
+      this.errorMessage = 'Något gick fel.. Testa igen.';
 
-      });
+    });
   }
 
   preloadData() {
