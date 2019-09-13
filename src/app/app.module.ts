@@ -92,6 +92,7 @@ import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy
 import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
 import { TreasurecodesComponent } from './components/admincomponents/treasurecodes/treasurecodes.component';
 import { TreasurescoreComponent } from './components/admincomponents/treasurescore/treasurescore.component';
+import { AppcompetitionComponent } from './components/appcompetition/appcompetition.component';
 
 
 registerLocaleData(localeSv, 'sv');
@@ -154,7 +155,8 @@ registerLocaleData(localeSv, 'sv');
     PrivacypolicyComponent,
     RegistertreasurehuntComponent,
     TreasurecodesComponent,
-    TreasurescoreComponent
+    TreasurescoreComponent,
+    AppcompetitionComponent
   ],
   imports: [
     BrowserModule,
@@ -219,6 +221,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'nydesign', component: NewdesignComponent },
     { path: 'favoritforetag', component: FavouritecompaniesComponent},
     { path: 'pusseljakten', component: RegistertreasurehuntComponent},
+    { path: 'appcompetition', component: AppcompetitionComponent},
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],

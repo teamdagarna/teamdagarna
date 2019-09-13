@@ -8,6 +8,12 @@ export interface LeaderBoardUser {
   liuid: string;
   noOfPoints: number;
 }
+
+export interface AppCompetition {
+  liuid: string;
+  hasApp: boolean;
+}
+
 export interface User {
   uid: string;
   email: string;
