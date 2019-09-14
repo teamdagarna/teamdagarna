@@ -265,12 +265,6 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Caribbean",
-          url: "https://teamdagarna.com/appcompetition",
-          icon: "fa-pagelines"
-        },
-        {
-          subLinks: [],
           label: "Integritetspolicy",
           url: "https://teamdagarna.com/integritetspolicy"
         }
@@ -416,12 +410,6 @@ export class AuthService {
           subLinks: [],
           label: "Ny grafisk profil",
           url: "https://teamdagarna.com/nydesign"
-        },
-        {
-          subLinks: [],
-          label: "Caribbean",
-          url: "https://teamdagarna.com/appcompetition",
-          icon: "fa-pagelines"
         },
         {
           subLinks: [],

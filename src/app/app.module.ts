@@ -221,7 +221,6 @@ registerLocaleData(localeSv, 'sv');
     { path: 'nydesign', component: NewdesignComponent },
     { path: 'favoritforetag', component: FavouritecompaniesComponent},
     { path: 'pusseljakten', component: RegistertreasurehuntComponent},
-    { path: 'appcompetition', component: AppcompetitionComponent},
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
     ])
   ],
