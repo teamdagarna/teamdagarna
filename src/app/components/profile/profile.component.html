@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<section class="section">
+<section *ngIf="user" class="section">
   <div class="container">
     <div class="columns">
 
@@ -338,5 +338,15 @@
 
       </div>
     </div>
+  </div>
+</section>
+
+
+<section class="section" *ngIf="!user">
+  <div class="container">
+    <h1 class="title is-3">Du måste vara inloggad för att kunna se din profil!</h1>
+    <a [routerLink]="['../signin']" class="subtitle is-3 has-text-primary has-text-weight-semibold">
+      Klicka här för att logga in!
+    </a>
   </div>
 </section>
