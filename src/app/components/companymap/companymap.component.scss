@@ -1,3 +1,11 @@
-#mapwize {
+@media screen and (min-height: 700px) {
+  #mapwize {
     height: 600px;
+  }
+}
+
+@media screen and (max-height: 699px) {
+  #mapwize {
+    height: 400px;
+  }
 }
