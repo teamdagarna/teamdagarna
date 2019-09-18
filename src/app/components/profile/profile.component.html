@@ -250,14 +250,13 @@
           <tbody>
             <tr *ngFor="let interview of interviews">
               <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
-              <td>{{ interview.companyname }}</td>
+              <td>{{ interview.companyname }} <span *ngIf="interview.backupnumber"> (reserv) </span></td>
               <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
               <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> -->
               <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
-              <td>-</td>
-              <!-- <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td> -->
-              <!-- <td *ngIf="!interview.studentaccepted || !interview.selected">-</td> -->
+              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">24e Sep </span><span *ngIf="interview.day == 'wednesday'">25e Sep </span>{{ interview.time }}</td>
+              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
               <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
@@ -291,11 +290,9 @@
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
-              <td>-</td>
-              <!-- <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">25 Sep </span><span *ngIf="interview.day == 'wednesday'">26 Sep </span>{{ interview.time }}</td> -->
-              <!-- <td *ngIf="!interview.studentaccepted || !interview.selected">-</td> -->
+              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">24e Sep </span><span *ngIf="interview.day == 'wednesday'">25e Sep </span>{{ interview.time }}</td>
+              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
-
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
               <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
               <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
