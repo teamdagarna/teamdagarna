@@ -250,8 +250,8 @@
           <tbody>
             <tr *ngFor="let interview of interviews">
               <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
-              <td>{{ interview.companyname }} <span *ngIf="interview.backupnumber"> (reserv) </span></td>
-              <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
+              <td>{{ interview.companyname }} </td>
+              <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
               <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> -->
               <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
@@ -286,7 +286,7 @@
             </tr>
             <tr *ngFor="let interview of openinterviews">
               <td>{{ interview.companyname }}*</td>
-              <th *ngIf="interview.selected" class="has-text-success">Antagen</th>
+              <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
