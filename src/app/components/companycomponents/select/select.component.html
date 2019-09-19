@@ -43,7 +43,7 @@
 
     <h1 class="title is-3">{{ company.name }}</h1>
 
-    <!-- <div class="columns is-centered is-multiline">
+    <div class="columns is-centered is-multiline">
       <div class="column is-12" *ngIf="company.interviewpackages.firstdaypackage1 || company.interviewpackages.firstdaypackage2">
         <h1 class="title is-2">Schema tisdag</h1>
         <table class="table is-fullwidth">
@@ -152,13 +152,13 @@
             </tbody>
         </table>
       </div>
-    </div> -->
+    </div>
 
-    <section class="section">
+    <!-- <section class="section">
       <h1 class="title is-2">Urval:</h1>
       <div class="contianer">
         <h2 class="subtitle is-5"><em>Ni väljer de ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver att välja ut de kandidater som blir antagna kan ni ta ut upp till fem reserver som rangorndas mellan 1-5 där nummer 1 kommer att få en plats först. Skulle ni ha några frågor eller har problem kan ni kontakta kontaktsamtalsansvarig på <a href="mailto:julia.swahn@teamdagarna.com ">julia.swahn@teamdagarna.com</a> eller IT-ansvarig på <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan det bero på att internetkoppling inte finns.</em></h2>
-        <!-- <h2 class="subtitle is-5 has-text-danger"><em>Möjligheten för urval öppnar den <strong class="has-text-danger">5e september</strong>.</em></h2> -->
+        <h2 class="subtitle is-5 has-text-danger"><em>Möjligheten för urval öppnar den <strong class="has-text-danger">5e september</strong>.</em></h2>
         <h2 class="subtitle is-5"><em>Sista dagen för urval är den <strong>12e september kl 18:00.</strong></em></h2>
       </div>
     </section>
@@ -240,7 +240,7 @@
                 <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
               <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
-              <!-- <td>
+              <td>
                 <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                   <div class="select is-small">
                     <select formControlName="change" (ngModelChange)="updateApplicant($event, interview.id)">
@@ -257,7 +257,7 @@
             </select>
                   </div>
                 </form>
-              </td> -->
+              </td>
               <td>Stängt.</td>
             </tr>
           </tbody>
@@ -342,7 +342,7 @@
                   <ng-container *ngIf="openinterview.gradespath"><a *ngIf="openinterview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
-                <!-- <td>
+                <td>
                   <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                     <div class="select is-small">
                       <select formControlName="change" (ngModelChange)="updateApplicantOpen($event, openinterview.id)">
@@ -359,14 +359,14 @@
               </select>
                     </div>
                   </form>
-                </td> -->
+                </td>
                 <td>Stängt.</td>
               </tr>
             </tbody>
           </table>
         </ng-container>
       </div>
-    </div>
+    </div> -->
 
   </section>
 
