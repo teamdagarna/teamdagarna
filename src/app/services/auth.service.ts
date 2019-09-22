@@ -191,6 +191,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Företagsskyltar",
+          url: "https://teamdagarna.com/foretagsskyltar"
+        },
+        {
+          subLinks: [],
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         },
@@ -336,6 +341,11 @@ export class AuthService {
           subLinks: [],
           label: "Pusseljakten",
           url: "https://teamdagarna.com/pusseljakten"
+        },
+        {
+          subLinks: [],
+          label: "Företagsskyltar",
+          url: "https://teamdagarna.com/foretagsskyltar"
         },
         {
           subLinks: [],
