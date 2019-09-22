@@ -19,7 +19,6 @@ import { finalize } from 'rxjs/operators';
 export class RegistertreasurehuntComponent implements OnInit {
 
   submitCodeForm: FormGroup;
-  code;
   user;
   treasureCompany: any;
   treasurehuntPointsTuesday: any;
@@ -72,13 +71,9 @@ export class RegistertreasurehuntComponent implements OnInit {
     }).valueChanges()
   }
 
-  getCompany(id) {
-    return this.afs.doc<Company>(`companies/${id}`).valueChanges();
-  }
-
   checkPoint(company) {
     const user = this.user;
-    const companyName = company.name;
+    const companyName = company.companyname;
     const treasurehuntPoints = this.treasurehuntPointsTuesday;
     var hasPoint: any;
     if(treasurehuntPoints) {
@@ -95,28 +90,25 @@ export class RegistertreasurehuntComponent implements OnInit {
 
   submit(data) {
     this.loading = true;
-    return this.getCompanyID(data.code).subscribe(code => {
-        if (code[0] == undefined) {
-          this.loading = false;
-          return this.showerror = true;
-        }
-        this.code = code[0];
-        this.getCompany(this.code.company).subscribe(async company => {
-          this.treasureCompany = company;
-          if (!this.checkPoint(company)) {
-            try {
-              await this.treasure.registerPointsTuesday(this.user, company.name);
-              this.success = true;
-            } catch(err) {
-              console.log(err)
-              this.notsuccess = true;
-            }
-          } else {
-            this.hasPoint = true;
-          }
-        });
-        this.submitMode = false;
+    return this.getCompanyID(data.code).subscribe(async code => {
+      if (code[0] == undefined) {
         this.loading = false;
+        return this.showerror = true;
+      }
+      this.treasureCompany = code[0];
+      if (!this.checkPoint(this.treasureCompany)) {
+        try {
+          await this.treasure.registerPointsTuesday(this.user, this.treasureCompany.companyname);
+          this.success = true;
+        } catch(err) {
+          console.log(err)
+          this.notsuccess = true;
+        }
+      } else {
+        this.hasPoint = true;
+      }
+      this.submitMode = false;
+      this.loading = false;
     });
   }
 

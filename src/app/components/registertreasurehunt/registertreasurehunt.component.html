@@ -31,7 +31,7 @@
         <div *ngIf="success">
           <div class="notification is-success">
             <h1 class="title is-5">Pusselbiten är registrerad!</h1>
-            <p>Du har registrerat pusselbit från {{ treasureCompany.name }}. Du har nu samlat {{ noOfPointsTuesday }} stycken pusselbitar i pusseljakten för tisdagen.</p>
+            <p>Du har registrerat pusselbit från {{ treasureCompany.companyname }}. Du har nu samlat {{ noOfPointsTuesday }} <span *ngIf="noOfPointsTuesday == 1">pusselbit </span> <span *ngIf="noOfPointsTuesday != 1">stycken pusselbitar </span>i pusseljakten för tisdagen.</p>
             <br>
             <a class="button is-white" (click)="refresh()">Registrera fler pusselbitar!</a>
           </div>
@@ -48,8 +48,8 @@
 
         <div *ngIf="hasPoint">
           <div class="notification is-info">
-            <h1 class="title is-5">pusselbit redan registrerad!</h1>
-            <p>Du har redan registrerat pusselbit från {{ treasureCompany.name }} idag. Försök samla pusselbitar från andra företag!</p>
+            <h1 class="title is-5">Pusselbit redan registrerad!</h1>
+            <p>Du har redan registrerat pusselbit från {{ treasureCompany.companyname }} idag. Försök samla andra pusselbitar!</p>
             <br>
             <a class="button is-white" (click)="refresh()">Ange ny kod!</a>
           </div>
