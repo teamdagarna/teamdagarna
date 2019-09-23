@@ -47,6 +47,7 @@ export class SelectComponent implements OnInit {
   tempComp;
 
   selectedinterviews: any;
+  backupinterviews: any;
 
   constructor(private readonly afs: AngularFirestore, public fb: FormBuilder, public auth: AuthService) {
     this.auth.user$.subscribe(user => this.user = user)
@@ -249,6 +250,7 @@ export class SelectComponent implements OnInit {
           this.getInterviews(this.code.company).subscribe(interviews => {
               this.getOpenInterviews(this.code.company).subscribe(openinterviews => {
                 this.selectedinterviews = _.orderBy(_.union(_.filter(interviews, {'selected': true, 'studentaccepted': true }),_.filter(openinterviews, {'selected': true, 'studentaccepted': true })), ['time'], ['asc']);
+                this.backupinterviews = _.orderBy(_.union(_.filter(interviews, ['backup', true]),_.filter(openinterviews, ['backup', true])),['backupnumber'], ['asc']);
               });
           });
           this.company = company;

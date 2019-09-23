@@ -152,6 +152,63 @@
             </tbody>
         </table>
       </div>
+      <div class="column is-12" *ngIf="backupinterviews.length > 0">
+        <h1 class="title is-2">Reserver:</h1>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Reservnummer</th>
+              <th>Namn</th>
+              <th>Tid</th>
+              <th>Program</th>
+              <th>År</th>
+              <th>Civ.Ek inrikt. 1 / Civ.Ing Kandidat</th>
+              <th>Civ.Ek inrikt. 2 / Civ.Ing Master</th>
+              <th *ngIf="company.reqresume">CV</th>
+              <th *ngIf="company.reqcl">PB</th>
+              <th *ngIf="company.reqgrades">Betyg</th>
+            </tr>
+            <tbody>
+              <ng-container *ngFor="let interview of backupinterviews; let i = index">
+                <tr (click)="selectedRow(interview.id)" [ngClass]="{ 'is-selected': interview.id == selected} ">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ interview.firstname }} {{ interview.lastname }}</td>
+                  <td>{{ interview.time }}</td>
+                  <td>{{ interview.program }}</td>
+                  <td>{{ interview.year }}</td>
+                  <ng-container *ngIf="interview.program == 'Civilekonom' || interview.program == 'Civilekonom Internationell'">
+                    <td>{{ interview.nekorfek }}</td>
+                    <td>{{ interview.filfakspecialization }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Industriell Ekonomi' || interview.program == 'Industriell Ekonomi Internationell'">
+                    <td>{{ interview.engineerbachelor }}</td>
+                    <td>{{ interview.engineermaster }}</td>
+                  </ng-container>
+                  <ng-container *ngIf="interview.program == 'Annat'">
+                    <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
+                    <td *ngIf="interview.engineermaster !== '' && interview.filfakspecialization == ''">{{ interview.filfakspecialization }}</td>
+                    <td *ngIf="interview.engineerbachelor == '' && interview.nekorfek == ''">-</td>
+                    <td *ngIf="interview.engineermaster == '' && interview.filfakspecialization == ''">-</td>
+                  </ng-container>
+
+
+                  <td *ngIf="company.reqresume">
+                    <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqcl">
+                    <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqgrades">
+                    <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+        </table>
+      </div>
+
     </div>
 
     <!-- <section class="section">
