@@ -64,7 +64,7 @@ export class RegistertreasurehuntComponent implements OnInit {
 
   //Change value of this to approriate afs-collection depending on day for the competition.
   getCompanyID(code) {
-    return this.afs.collection('treasurecodesTuesday', ref => {
+    return this.afs.collection('treasurecodesWednesday', ref => {
       return ref
         .where('treasurecode', '==', code)
         .limit(1);
@@ -74,7 +74,7 @@ export class RegistertreasurehuntComponent implements OnInit {
   checkPoint(company) {
     const user = this.user;
     const companyName = company.companyname;
-    const treasurehuntPoints = this.treasurehuntPointsTuesday;
+    const treasurehuntPoints = this.treasurehuntPointsWednesday;
     var hasPoint: any;
     if(treasurehuntPoints) {
       if(treasurehuntPoints[companyName] != null) {
@@ -98,7 +98,7 @@ export class RegistertreasurehuntComponent implements OnInit {
       this.treasureCompany = code[0];
       if (!this.checkPoint(this.treasureCompany)) {
         try {
-          await this.treasure.registerPointsTuesday(this.user, this.treasureCompany.companyname);
+          await this.treasure.registerPointsWednesday(this.user, this.treasureCompany.companyname);
           this.success = true;
         } catch(err) {
           console.log(err)

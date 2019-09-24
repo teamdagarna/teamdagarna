@@ -43,7 +43,7 @@ export class TreasurescoreComponent implements OnInit {
       }
       leaderBoard.push(newUser);
     }
-    return _.take(_.orderBy(leaderBoard, ['noOfPoints'], ['desc']), 10);
+    return _.orderBy(leaderBoard, ['noOfPoints'], ['desc']);
   }
 
   countPoints(treasurehuntDoc) {
