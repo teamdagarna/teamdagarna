@@ -283,10 +283,12 @@ export class InterviewComponent implements OnInit {
     this.cluploaded = true;
     } catch(err) {
       console.error(err)
+      this.cluploaded = false;
+      this.clerror = true;
     }
   }
 
-  startUploadResume(event: FileList) {
+  async startUploadResume(event: FileList) {
     this.cvpath = `resumes/${this.user.liuid}_${new Date().getTime()}`;
     this.cvfile = event.item(0)
     if (this.cvfile.type !== 'application/pdf') {
@@ -294,12 +296,18 @@ export class InterviewComponent implements OnInit {
       this.cverror = true;
       return;
     }
+    try {
     this.cvtask = this.storage.upload(this.cvpath, this.cvfile);
     this.cverror = false;
     this.cvuploaded = true;
+    } catch(err) {
+      console.error(err)
+      this.cvuploaded = false;
+      this.cverror = true;
+    }
   }
 
-  startUploadGrades(event: FileList) {
+  async startUploadGrades(event: FileList) {
     this.gradespath = `grades/${this.user.liuid}_${new Date().getTime()}`;
     this.gradesfile = event.item(0)
     if (this.gradesfile.type !== 'application/pdf') {
@@ -307,9 +315,15 @@ export class InterviewComponent implements OnInit {
       this.gradeserror = true;
       return;
     }
+    try {
     this.gradestask = this.storage.upload(this.gradespath, this.gradesfile);
     this.gradeserror = false;
     this.gradesuploaded = true;
+    } catch(err) {
+      console.error(err)
+      this.gradesuploaded = false;
+      this.gradeserror = true;
+    }
   }
 
   refresh() {
