@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import './node_modules/bulma/sass/utilities/initial-variables.sass';
-@import './node_modules/bulma/sass/utilities/functions.sass';
 $team-blue: #29235C;
 $team-pink: #E64174;
 $team-pink-gradient: linear-gradient(141deg, #E62373 0%, #E94B75 60%, #EC6474 100%);
@@ -14,6 +12,7 @@ $card-header-shadow: none;
 $modal-content-width: 70%;
 $modal-card-head-background-color: white;
 $modal-background-background-color: rgba($team-blue, 0.86);
+@import "../node_modules/bulma/bulma.sass";
 @import 'bulma/bulma.sass';
 @import 'bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css';
 @import 'bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css';
