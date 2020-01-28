@@ -265,11 +265,6 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Ny grafisk profil",
-          url: "https://teamdagarna.com/nydesign"
-        },
-        {
-          subLinks: [],
           label: "Integritetspolicy",
           url: "https://teamdagarna.com/integritetspolicy"
         }
@@ -415,11 +410,6 @@ export class AuthService {
           subLinks: [],
           label: "Hållbarhet",
           url: "https://teamdagarna.com/hallbarhet"
-        },
-        {
-          subLinks: [],
-          label: "Ny grafisk profil",
-          url: "https://teamdagarna.com/nydesign"
         },
         {
           subLinks: [],

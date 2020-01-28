@@ -86,7 +86,6 @@ import { ApplyComponent } from './components/apply/apply.component';
 import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 import { SignoutComponent } from './components/signout/signout.component';
 import { SustainabilityComponent } from './components/sustainability/sustainability.component';
-import { NewdesignComponent } from './components/newdesign/newdesign.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
 import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
@@ -151,7 +150,6 @@ registerLocaleData(localeSv, 'sv');
     CompanyapplicationComponent,
     SignoutComponent,
     SustainabilityComponent,
-    NewdesignComponent,
     FavouritecompaniesComponent,
     PrivacypolicyComponent,
     RegistertreasurehuntComponent,
@@ -220,7 +218,6 @@ registerLocaleData(localeSv, 'sv');
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
-    { path: 'nydesign', component: NewdesignComponent },
     { path: 'favoritforetag', component: FavouritecompaniesComponent},
     { path: 'pusseljakten', component: RegistertreasurehuntComponent},
     { path: 'foretagsskyltar', component: CompanysignsComponent},
