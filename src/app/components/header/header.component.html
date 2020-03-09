@@ -21,9 +21,9 @@
             För studenter
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item mobileLink is-disabled" [routerLink]="['companies']">
+          <!--   <a class="navbar-item mobileLink is-disabled" [routerLink]="['companies']">
               Företagen 2019
-            </a>
+            </a> -->
             <a class="navbar-item mobileLink is-disabled" [routerLink]="['events']">
               Event
             </a>
@@ -43,9 +43,9 @@
             <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']">
               Sök kontaktsamtal
             </a>
-            <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
+            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
               Sök DreamTEAM 2020
-            </a>
+            </a> -->
             <!-- <a class="navbar-item is-disabled" [routerLink]="['sokvard']">
             Sök värd
           </a> -->
@@ -65,13 +65,13 @@
           <a class="navbar-item mobileLink" [routerLink]="['weoffer']">
             Erbjudande
           </a>
-          <a class="navbar-item mobileLink" [routerLink]="['find']">
+          <a class="navbar-item mobileLink" [routerLink]="['find']"> 
             Hitta hit
           </a>
           <hr class="navbar-divider">
-          <!-- <a class="navbar-item mobileLink" [routerLink]="['companyapplication']">
+          <a class="navbar-item mobileLink" [routerLink]="['companyapplication']"> 
             Företagsanmälan
-          </a> -->
+          </a>
           <a [hidden]="auth.isCompany(user)" class="navbar-item mobileLink" [routerLink]="['companysignin']">
             Inloggning gästföretag
           </a>
