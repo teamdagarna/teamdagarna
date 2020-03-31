@@ -19,22 +19,34 @@
           <a class="button is-primary" [routerLink]="['companyapplication']" style="margin: 4px 4px 8px 0;">Företagsanmälan</a>
           <a id="mobileButton" class="button is-primary is-outlined" style="margin: 4px 4px 8px 0;" [routerLink]="['about']">Om mässan</a>
 
-          <!--<a class="button is-primary" [routerLink]="['companyapplication']" style="margin: 4px 4px 8px 0;">Information angående Covid-19</a> -->
+          <a class="button is-link is-primary"  (click)="toggleModal()" style="margin: 4px 4px 8px 0;" >Information angående Covid-19</a>
 
-          <div class="box is-half">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <strong>Information angående Covid-19</strong>
-                  <p>
-                    Vi i TEAM-kommittén tar oron för Covid-19 på stort allvar. Vi följer kontinuerligt händelseförloppet kring spridningen av viruset och rättar oss efter myndigheternas rekommendationer. Trots dessa oroliga tider ser vi ljuset i tunneln och fortsätter vårt arbete som vanligt inför TEAM-dagarna 2020. I avtalet för företagsanmälan, under sektionen “Befrielsegrunder” finns information rörande vad som gäller i händelse av att mässan mot förmodan tvingas ställas in. Om det råder några osäkerheter eller om ni har frågor, tveka inte att höra av er till oss via <a href="mailto:projektledare@teamdagarna.com">projektledare@teamdagarna.com </a>
-                    <br>
-                    Vi ser fram emot att genomföra en fantastisk mässa tillsammans med er!
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div> 
+          
+          <div class="modal"[ngClass]="{ 'is-active' : isModalActive }">
+            <div class="modal-background"(click)="toggleModal()"></div>
+            <div class="modal-card">
+              <section class="modal-card-body">
+                
+                <div class="box is-half"> 
+                  <article class="media">
+                    <div class="media-content">
+                      <button class="delete is is-relative is-pulled-right"  aria-label="close"(click)="toggleModal()"></button>
+                      <div class="content">
+                        <strong>Information angående Covid-19</strong>
+                        <p>
+                          Vi i TEAM-kommittén tar oron för Covid-19 på stort allvar. Vi följer kontinuerligt händelseförloppet kring spridningen av viruset och rättar oss efter myndigheternas rekommendationer. Trots dessa oroliga tider ser vi ljuset i tunneln och fortsätter vårt arbete som vanligt inför TEAM-dagarna 2020. I avtalet för företagsanmälan, under sektionen “Befrielsegrunder” finns information rörande vad som gäller i händelse av att mässan mot förmodan tvingas ställas in. Om det råder några osäkerheter eller om ni har frågor, tveka inte att höra av er till oss via <a href="mailto:projektledare@teamdagarna.com">projektledare@teamdagarna.com </a>
+                          <br>
+                          <br>
+                          Vi ser fram emot att genomföra en fantastisk mässa tillsammans med er!
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div> 
+              </section>
+            </div>
+          </div>
+
           <br>
           <div class="has-tint has-text-weight-semibold has-text-primary"><i class="fas fa-leaf "></i><span> Ett miljömedvetet event</span></div>
           <h2 class="subtitle is-7 is-italic is-clickable" [routerLink]="['hallbarhet']"> Klicka här för att läsa mer om hur vi jobbar för miljön</h2>
@@ -325,3 +337,5 @@
     </div>
   </div>
 </div> -->
+
+

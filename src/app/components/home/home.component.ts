@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   hours: number;
   minutes: number;
   seconds: number;
+  isModalActive: boolean = false;
 
   constructor() {}
 
@@ -47,6 +48,10 @@ export class HomeComponent implements OnInit {
         this.seconds = this.getSeconds(this.diff);
       });
     }
+    
+    toggleModal() {
+      this.isModalActive = !this.isModalActive;
+  }
 
     getDays(t) {
       return Math.floor( t / (1000 * 60 * 60 * 24) );
