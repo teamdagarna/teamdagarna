@@ -184,11 +184,11 @@ export class AuthService {
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
         },
-        {
-          subLinks: [],
-          label: "Pusseljakten",
-          url: "https://teamdagarna.com/pusseljakten"
-        },
+       // {
+       //  subLinks: [],
+       //   label: "Pusseljakten",
+       //   url: "https://teamdagarna.com/pusseljakten" --/>
+       // }, --!>
         {
           subLinks: [],
           label: "Företagsskyltar",
@@ -332,11 +332,11 @@ export class AuthService {
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
         },
-        {
-          subLinks: [],
-          label: "Pusseljakten",
-          url: "https://teamdagarna.com/pusseljakten"
-        },
+       // {
+       //   subLinks: [],
+       //   label: "Pusseljakten",
+       //   url: "https://teamdagarna.com/pusseljakten"
+       // },
         {
           subLinks: [],
           label: "Företagsskyltar",
