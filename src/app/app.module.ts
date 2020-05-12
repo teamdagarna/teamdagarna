@@ -93,6 +93,7 @@ import { TreasurecodesComponent } from './components/admincomponents/treasurecod
 import { TreasurescoreComponent } from './components/admincomponents/treasurescore/treasurescore.component';
 import { AppcompetitionComponent } from './components/appcompetition/appcompetition.component';
 import { CompanysignsComponent } from './components/companysigns/companysigns.component';
+import { LeaderboardComponent} from './components/leaderboard/leaderboard.component'
 
 
 registerLocaleData(localeSv, 'sv');
@@ -156,7 +157,8 @@ registerLocaleData(localeSv, 'sv');
     TreasurecodesComponent,
     TreasurescoreComponent,
     AppcompetitionComponent,
-    CompanysignsComponent
+    CompanysignsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
@@ -221,7 +223,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'favoritforetag', component: FavouritecompaniesComponent},
     { path: 'pusseljakten', component: RegistertreasurehuntComponent},
     { path: 'foretagsskyltar', component: CompanysignsComponent},
-    { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] }
+    { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] },
+    { path: 'leaderboard', component: LeaderboardComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
