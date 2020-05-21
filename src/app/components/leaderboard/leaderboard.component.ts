@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TreasurehuntService} from '../../../app/services/treasurehunt.service'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Company, Code, LeaderBoardUser } from '../../shared/models';
-import * as firebase from 'firebase/app';
-import { switchMap, map} from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
 import * as _ from 'lodash';
-import { Router } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 
 @Component({

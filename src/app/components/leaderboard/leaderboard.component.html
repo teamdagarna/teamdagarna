@@ -5,7 +5,8 @@
         <div class="column is-two-thirds">
           <h1 class="title"> Ledartavla för pusseljakten</h1>
           <h2 class="subtitle">Under mässan anordnas pusseljakten. Här nedan kan ni följa liveresultatet i denna tävling. </h2> 
-          <h3 class="is-7"> <a class="is-italic" [routerLink]="['pusseljakten']">Psst... undrar du vad pusseljakten är och vill delta? Klicka här!</a></h3></div>
+          <h3 class="is-7"> <a class="is-italic is-clickable" [routerLink]="['pusseljakten']">Psst... undrar du vad pusseljakten är och vill delta? Klicka här!</a></h3>
+        </div>
       </div>
     </div>
   </div>
@@ -13,11 +14,10 @@
 
 <section class="section">
   <div class="container">
-    <h3 class="is-7"> <a class="is-italic" [routerLink]="['pusseljakten']">Psst... undrar du vad pusseljakten är och vill delta? Klicka här!</a></h3>
     <div class="columns is-3">
-      <div class="column is-half is-mobile">
+      <div class="column is-full is-mobile">
         <div class="border-btm">
-          <h1 class="title is-3">Tisdagens poängställning</h1>
+          <h1 class="title is-3">Tisdagens poängställning | topp 5</h1>
         </div>
         <table class="table is-fullwidth is-striped">
           <thead>
@@ -29,7 +29,7 @@
           <tfoot>
           </tfoot>
           <tbody>
-            <ng-container *ngFor="let user of leaderBoardTuesday">
+            <ng-container *ngFor="let user of leaderBoardTuesday.slice(0,5)">
               <tr>
                 <td>{{ user.liuid }}</td>
                 <td>{{ user.noOfPoints }}&nbsp;<span class="icon is-small"><img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/ikon.png?alt=media&token=33401086-b60c-4e73-9dbd-66af65d9ea26"></span></td>
@@ -38,9 +38,9 @@
           </table>
         </div>
 
-        <div class="column is-half">
+     <!--   <div class="column is-half">
           <div class="border-btm">
-            <h1 class="title is-3">Onsdagens poängställning</h1>
+            <h1 class="title is-3">Onsdagens poängställning | topp 5</h1>
           </div>
           <table class="table is-fullwidth is-striped">
             <thead>
@@ -53,14 +53,15 @@
 
             </tfoot>
             <tbody>
-              <ng-container *ngFor="let user of leaderBoardWednesday">
+              <ng-container *ngFor="let user of leaderBoardWednesday.slice(0,5)">
                 <tr>
                   <td>{{ user.liuid }}</td>
                   <td>{{ user.noOfPoints }}&nbsp;<span class="icon is-small"><img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/ikon.png?alt=media&token=33401086-b60c-4e73-9dbd-66af65d9ea26"></span></td>
                 </tr>
               </ng-container>
             </table>
-          </div>
+          </div> -->
+
     </div>
   </div>
 </section>
