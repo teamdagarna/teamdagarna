@@ -19,4 +19,4 @@ https://teamdagarna.com/
 
 ![alt text](https://i.imgur.com/8KUtb.jpg)
 
-© Teamdagarna 2019
+© Teamdagarna 2020
