@@ -221,6 +221,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
+    { path: 'kontaktsamtaltest', component: InterviewapplicationComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
     { path: 'massjakt', component: TreasurehuntComponent },
