@@ -169,46 +169,46 @@ export class AuthService {
     },
     {
       subLinks: [
-        {
-          subLinks: [],
-          label: "Företagen 2019",
-          url: "https://teamdagarna.com/companies"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Företagen 2019",
+        //   url: "https://teamdagarna.com/companies"
+        // },
         {
           subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
-        {
-          subLinks: [],
-          label: "Mässkarta",
-          url: "https://teamdagarna.com/masskarta"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Mässkarta",
+        //   url: "https://teamdagarna.com/masskarta"
+        // },
        // {
        //  subLinks: [],
        //   label: "Pusseljakten",
        //   url: "https://teamdagarna.com/pusseljakten" --/>
        // }, --!>
-        {
-          subLinks: [],
-          label: "Företagsskyltar",
-          url: "https://teamdagarna.com/foretagsskyltar"
-        },
-        {
-          subLinks: [],
-          label: "Sök värd",
-          url: "https://teamdagarna.com/sokvard"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Företagsskyltar",
+        //   url: "https://teamdagarna.com/foretagsskyltar"
+        // },
+        // {
+        //   subLinks: [],
+        //   label: "Sök värd",
+        //   url: "https://teamdagarna.com/sokvard"
+        // },
         {
           subLinks: [],
           label: "Sök kontaktsamtal",
           url: "https://teamdagarna.com/interview"
-        },
-        {
-          subLinks: [],
-          label: "Sök DreamTEAM",
-          url: "https://teamdagarna.com/sokdreamteam"
         }
+        // {
+        //   subLinks: [],
+        //   label: "Sök DreamTEAM",
+        //   url: "https://teamdagarna.com/sokdreamteam"
+        // }
       ],
       label: "För Studenter",
       isGrouping: true,
@@ -226,16 +226,16 @@ export class AuthService {
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
-        {
-          subLinks: [],
-          label: "Erbjudande",
-          url: "https://teamdagarna.com/weoffer"
-        },
-        {
-          subLinks: [],
-          label: "Hitta hit",
-          url: "https://teamdagarna.com/find"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Erbjudande",
+        //   url: "https://teamdagarna.com/weoffer"
+        // },
+        // {
+        //   subLinks: [],
+        //   label: "Hitta hit",
+        //   url: "https://teamdagarna.com/find"
+        // },
         {
           subLinks: [],
           label: "Inloggning gästföretag",
@@ -317,46 +317,47 @@ export class AuthService {
     },
     {
       subLinks: [
-        {
-          subLinks: [],
-          label: "Företagen 2019",
-          url: "https://teamdagarna.com/companies"
-        },
+        // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
+        // {
+        //   subLinks: [],
+        //   label: "Företagen 2019",
+        //   url: "https://teamdagarna.com/companies"
+        // },
         {
           subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
-        {
-          subLinks: [],
-          label: "Mässkarta",
-          url: "https://teamdagarna.com/masskarta"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Mässkarta",
+        //   url: "https://teamdagarna.com/masskarta"
+        // },
        // {
        //   subLinks: [],
        //   label: "Pusseljakten",
        //   url: "https://teamdagarna.com/pusseljakten"
        // },
+        // {
+        //   subLinks: [],
+        //   label: "Företagsskyltar",
+        //   url: "https://teamdagarna.com/foretagsskyltar"
+        // },
+        // {
+        //   subLinks: [],
+        //   label: "Sök värd",
+        //   url: "https://teamdagarna.com/sokvard"
+        // },
         {
           subLinks: [],
-          label: "Företagsskyltar",
-          url: "https://teamdagarna.com/foretagsskyltar"
-        },
-        {
-          subLinks: [],
-          label: "Sök värd",
-          url: "https://teamdagarna.com/sokvard"
-        },
-        {
-          subLinks: [],
-          label: "Sök kontaktsamtal",
-          url: "https://teamdagarna.com/interview"
-        },
-        {
-          subLinks: [],
-          label: "Sök DreamTEAM",
-          url: "https://teamdagarna.com/sokdreamteam"
+           label: "Sök kontaktsamtal",
+           url: "https://teamdagarna.com/interview"
         }
+        // {
+        //   subLinks: [],
+        //   label: "Sök DreamTEAM",
+        //   url: "https://teamdagarna.com/sokdreamteam"
+        // }
       ],
       label: "För Studenter",
       isGrouping: true,
@@ -374,16 +375,16 @@ export class AuthService {
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
-        {
-          subLinks: [],
-          label: "Erbjudande",
-          url: "https://teamdagarna.com/weoffer"
-        },
-        {
-          subLinks: [],
-          label: "Hitta hit",
-          url: "https://teamdagarna.com/find"
-        },
+        // {
+        //   subLinks: [],
+        //   label: "Erbjudande",
+        //   url: "https://teamdagarna.com/weoffer"
+        // },
+        // {
+        //   subLinks: [],
+        //   label: "Hitta hit",
+        //   url: "https://teamdagarna.com/find"
+        // },
         {
           subLinks: [],
           label: "Inloggning gästföretag",
