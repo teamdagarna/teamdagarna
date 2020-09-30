@@ -125,7 +125,7 @@
                   <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
                   <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
                 </div>
-                <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Sök kontaktsamtal</a>
+                <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Kontaktsamtal</a>
                 <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
                 <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
               </div>

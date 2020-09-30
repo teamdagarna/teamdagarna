@@ -57,7 +57,7 @@ export class CompanysigninComponent implements OnInit {
                 },
                 {
                   subLinks: [],
-                  label: "Sök kontaktsamtal",
+                  label: "Kontaktsamtal",
                   url: "https://teamdagarna.com/interview"
                 },
                 {
@@ -74,7 +74,7 @@ export class CompanysigninComponent implements OnInit {
               subLinks: [
                 {
                   subLinks: [],
-                  label: "Om dagarna",
+                  label: "Om TEAM-dagarna",
                   url: "https://teamdagarna.com/about"
                 },
                 {
@@ -111,7 +111,7 @@ export class CompanysigninComponent implements OnInit {
                 },
                 {
                   subLinks: [],
-                  label: "Om dagarna",
+                  label: "Om TEAM-dagarna",
                   url: "https://teamdagarna.com/about"
                 },
                 {

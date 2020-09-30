@@ -201,7 +201,7 @@ export class AuthService {
         // },
         {
           subLinks: [],
-          label: "Sök kontaktsamtal",
+          label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
         }
         // {
@@ -218,7 +218,7 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Om dagarna",
+          label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
         {
@@ -255,7 +255,7 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Om dagarna",
+          label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
         {
@@ -350,7 +350,7 @@ export class AuthService {
         // },
         {
           subLinks: [],
-           label: "Sök kontaktsamtal",
+           label: "Kontaktsamtal",
            url: "https://teamdagarna.com/interview"
         }
         // {
@@ -367,7 +367,7 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Om dagarna",
+          label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
         {
@@ -404,7 +404,7 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Om dagarna",
+          label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
         {
