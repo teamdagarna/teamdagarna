@@ -48,8 +48,47 @@
       <div *ngIf="downloadURL | async as url">
         <img [src]="url" style="max-height: 100px;"><br>
       </div>
-
-      <div class="field">
+      <div class="columns">
+        <div class="column is-half">
+          <div class="field">
+            <label class="label">Branch/er</label>
+            <input type="checkbox" formControlName="masterthesis"> Consulting
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="internship"> Industri
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="summerjob"> Logistik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="abroad"> IT & Teknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="otherthesis"> Rekrytering
+          </div>
+        </div>  
+        <div class="column is-half">
+          <div class="field">
+            <input type="checkbox" formControlName="parttime"> Bank & Finans
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="fulltime"> Retail
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="trainee"> Fastigheter & Infrastruktur
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="trainee"> Förening eller Förbund
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="trainee"> Startup
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="trainee"> Övrigt
+          </div>
+        </div>  
+        
+      <!--<div class="field">
         <label class="label">Bransch</label>
         <div class="control">
           <div class="select" required>
@@ -68,7 +107,7 @@
               <option>Övrigt</option>
             </select>
           </div>
-        </div>
+        </div>-->
       </div>
       <div class="columns">
         <div class="column is-half">
