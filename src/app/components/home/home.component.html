@@ -15,11 +15,11 @@
           <h2 class="subtitle is-3 is-size-4-mobile"> Vi välkomnar återigen studenter och företag till en av Sveriges största arbetsmarknadsmässor <br> som i år sker digitalt</h2>
           <h2 class="subtitle is-6"><a href="https://teamdagarna.com/">https://teamdagarna.com</a> den 10 november</h2>
 
-         <!-- <a class="button is-primary" [routerLink]="['companies']" style="margin: 4px 4px 8px 0;">Företagen 2020</a> -->
-          <a class="button is-primary" [routerLink]="['companyapplication']" style="margin: 4px 4px 8px 0;">Företagsanmälan</a>
+          <a class="button is-primary" [routerLink]="['companies']" style="margin: 4px 4px 8px 0;">Företagen 2020</a> 
+          <!-- <a class="button is-primary" [routerLink]="['companyapplication']" style="margin: 4px 4px 8px 0;">Företagsanmälan</a> -->
           <a id="mobileButton" class="button is-primary is-outlined" style="margin: 4px 4px 8px 0;" [routerLink]="['about']">Om mässan</a>
-
-          <a class="button is-link is-primary"  (click)="toggleModal()" style="margin: 4px 4px 8px 0;" >Information angående Covid-19</a>
+          <a class="button is-primary" [routerLink]="['interview']" style="margin: 4px 4px 8px 0;">Kontaktsamtal</a> 
+          <!-- <a class="button is-link is-primary"  (click)="toggleModal()" style="margin: 4px 4px 8px 0;" >Information angående Covid-19</a> -->
 
            <!-- -->
           <div class="modal"[ngClass]="{ 'is-active' : isModalActive }">
@@ -65,12 +65,14 @@
   <div class="hero-body ">
     <div class="container ">
       <div class="container has-text-centered">
-        <h1 class="title is-3 has-text-white">Tagga TEAM!</h1>
+        <h1 class="title is-4 has-text-white">Nu har vi släppt företagen för 2020 och det är nu möjligt att söka kontaktsamtal för årets mässa!</h1>
+        <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['companies']">Företagen 2020!</a>&nbsp;
+        <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['interview']">Sök kontaktsamtal!</a>
+        <br>
+        <h1 class="title is-3 has-text-white"><br>Tagga TEAM!</h1>
         <div id="theEndIsNear" class="subtitle is-1 has-text-white">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div>
         <h1 class="title is-5 has-text-white">Linköpings Universitet den 10 november</h1>
-        <!-- <h1 class="title is-4 has-text-white">Nu har värdansökan och möjlighet att söka kontaktsamtal öppnat för årets mässa!</h1>
-        <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['sokvard']">Sök värd!</a>&nbsp;
-        <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['interview']">Sök kontaktsamtal!</a> -->
+        
 
         <!-- <h1 class="title is-4 has-text-white">Nu har vi släppt företagen för 2020 och möjligheten att söka kontaktsamtal har nu öppnat för årets mässa! </h1>
         <div class="subtitle has-text-white"> Kanske hittar du din framtida arbetsgivare? Kolla in katalogen!</div>
