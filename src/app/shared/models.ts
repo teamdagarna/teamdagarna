@@ -73,6 +73,18 @@ export interface Company {
   firstdayappearance?: boolean;
   seconddayappearance?: boolean;
 
+  consulting?: boolean;
+  industri?: boolean;
+  logistik?: boolean;
+  itteknik?: boolean;
+  rekrytering?: boolean;
+  bank?: boolean;
+  retail?: boolean;
+  fastigheter?: boolean;
+  forening?: boolean;
+  startup?: boolean;
+  other?: boolean;
+  
   internship?: boolean;
   masterthesis?: boolean;
   otherthesis?: boolean;

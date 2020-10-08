@@ -44,52 +44,8 @@
           </div>
         </div>
       </div>
-
-      <div *ngIf="downloadURL | async as url">
-        <img [src]="url" style="max-height: 100px;"><br>
-      </div>
-      <div class="columns">
-        <div class="column is-half">
-          <div class="field">
-            <label class="label">Branch/er</label>
-            <input type="checkbox" formControlName="masterthesis"> Consulting
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="internship"> Industri
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="summerjob"> Logistik
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="abroad"> IT & Teknik
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="otherthesis"> Rekrytering
-          </div>
-        </div>  
-        <div class="column is-half">
-          <div class="field">
-            <input type="checkbox" formControlName="parttime"> Bank & Finans
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="fulltime"> Retail
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="trainee"> Fastigheter & Infrastruktur
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="trainee"> Förening eller Förbund
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="trainee"> Startup
-          </div>
-          <div class="field">
-            <input type="checkbox" formControlName="trainee"> Övrigt
-          </div>
-        </div>  
-        
-      <!--<div class="field">
-        <label class="label">Bransch</label>
+      <div class="field">
+        <label class="label">Huvudbransch</label>
         <div class="control">
           <div class="select" required>
             <select formControlName="industry">
@@ -107,7 +63,52 @@
               <option>Övrigt</option>
             </select>
           </div>
-        </div>-->
+        </div>
+      </div>
+      <div *ngIf="downloadURL | async as url">
+        <img [src]="url" style="max-height: 100px;"><br>
+      </div>
+      <div class="columns">
+        <div class="column is-half">
+          <div class="field">
+            <label class="label">Bransch/er</label>
+            <input type="checkbox" formControlName="consulting"> Consulting
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="industri"> Industri
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="logistik"> Logistik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="itteknik"> IT & Teknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="rekrytering"> Rekrytering
+          </div>
+        </div>  
+        <div class="column is-half">
+          <div class="field">
+            <input type="checkbox" formControlName="bank"> Bank & Finans
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="retail"> Retail
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="fastigheter"> Fastigheter & Infrastruktur
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="forening"> Förening eller Förbund
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="startup"> Startup
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="other"> Övrigt
+          </div>
+        </div>  
+        
+
       </div>
       <div class="columns">
         <div class="column is-half">

@@ -41,9 +41,42 @@ export class AddcompanyComponent implements OnInit {
         Validators.required
         ]
       ],
-      'industry': ['', [
-        Validators.required
+      'industry': [false, [
+        // Validators.required
         ]
+      ],
+      'consulting': [false, [
+      ]
+    ],
+    'industri': [false, [
+       ]
+      ],
+      'logistik': [false, [
+        ]
+      ],
+      'itteknik': [false, [
+        ]
+      ],
+      'rekrytering': [false, [
+       ]
+      ],
+     'bank': [false, [
+      ]
+     ],
+     'retail': [false, [
+       ]
+     ],
+     'fastigheter': [false, [
+       ]
+     ],
+     'forening': [false, [
+      ]
+     ],
+     'startup': [false, [
+      ]
+     ],
+     'other': [false, [
+       ]
       ],
       'internship': [false, [
         ]
@@ -160,6 +193,17 @@ export class AddcompanyComponent implements OnInit {
     const newCompany: Company = {
       name: data.companyName,
       industry: data.industry,
+      consulting: data.consulting,
+      industri: data.industri,
+      logistik: data.logistik,
+      itteknik: data.itteknik,
+      rekrytering: data.rekrytering,
+      bank: data.bank,
+      retail: data.retail,
+      fastigheter: data.fastigheter,
+      forening: data.forening,
+      startup: data.startup,
+      other: data.other,
       internship: data.internship,
       masterthesis: data.masterthesis,
       otherthesis: data.otherthesis,
