@@ -82,6 +82,7 @@ export interface Company {
   retail?: boolean;
   fastigheter?: boolean;
   forening?: boolean;
+  revision?: boolean;
   startup?: boolean;
   other?: boolean;
   

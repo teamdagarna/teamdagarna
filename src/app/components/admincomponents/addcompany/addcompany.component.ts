@@ -72,6 +72,9 @@ export class AddcompanyComponent implements OnInit {
      'forening': [false, [
       ]
      ],
+     'revision': [false, [
+     ]
+     ],
      'startup': [false, [
       ]
      ],
@@ -202,6 +205,7 @@ export class AddcompanyComponent implements OnInit {
       retail: data.retail,
       fastigheter: data.fastigheter,
       forening: data.forening,
+      revision: data.revision,
       startup: data.startup,
       other: data.other,
       internship: data.internship,
