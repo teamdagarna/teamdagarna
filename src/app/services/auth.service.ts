@@ -320,7 +320,7 @@ export class AuthService {
         // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
         {
           subLinks: [],
-          label: "Företagen 2019",
+          label: "Företagen 2020",
           url: "https://teamdagarna.com/companies"
         },
         {
