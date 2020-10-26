@@ -83,7 +83,7 @@
         </nav>
         <ng-container *ngIf="selectedEvent.signon">
           <p *ngIf="selectedEvent.signonends.toDate() > today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
-          <p *ngIf="selectedEvent.signoffends.toDate() && selectedEvent.signoffends.toDate() > today"><em>Avamälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}</em></p>
+          <p *ngIf="selectedEvent.signoffends.toDate() && selectedEvent.signoffends.toDate() > today"><em>Avanmälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}</em></p>
           <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
           <br>
           <ng-container *ngIf="user">
