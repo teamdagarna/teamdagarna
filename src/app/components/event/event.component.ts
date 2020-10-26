@@ -96,7 +96,7 @@ export class EventComponent implements OnInit {
 
   attend() {
     this.loading = true;
-    if (this.numberofsignups >= this.selectedEvent.maxattendance || this.attended) {
+    if (this.numberofsignups >= this.selectedEvent.maxattendance && this.selectedEvent.maxattendance != 0 || this.attended) {
       this.attenderror = true;
       this.loading = false;
     } else {
