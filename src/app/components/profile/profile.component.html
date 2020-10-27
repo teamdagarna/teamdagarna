@@ -301,7 +301,8 @@
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
-              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
+              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
+              <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> ändra till denna när ansökan stängt -->
               <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
 
 
