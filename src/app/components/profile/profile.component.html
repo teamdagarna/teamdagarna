@@ -296,7 +296,7 @@
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
-              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">24e Sep </span><span *ngIf="interview.day == 'wednesday'">25e Sep </span>{{ interview.time }}</td>
+              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">10e Nov </span><span *ngIf="interview.day == 'wednesday'">25e Sep </span>{{ interview.time }}</td>
               <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td> <!-- Ändra inte testat denna fullt ut-->
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
