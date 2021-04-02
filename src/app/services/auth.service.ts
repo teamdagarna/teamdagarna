@@ -204,11 +204,11 @@ export class AuthService {
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
         },
-         {
-           subLinks: [],
-           label: "Sök DreamTEAM",
-           url: "https://teamdagarna.com/sokdreamteam"
-         }
+         //{
+          // subLinks: [],
+          // label: "Sök DreamTEAM",
+          // url: "https://teamdagarna.com/sokdreamteam"
+        // }
       ],
       label: "För Studenter",
       isGrouping: true,
@@ -353,11 +353,11 @@ export class AuthService {
            label: "Kontaktsamtal",
            url: "https://teamdagarna.com/interview"
         },
-         {
-           subLinks: [],
-           label: "Sök DreamTEAM",
-           url: "https://teamdagarna.com/sokdreamteam"
-         }
+        // {
+        //   subLinks: [],
+        //   label: "Sök DreamTEAM",
+        //   url: "https://teamdagarna.com/sokdreamteam"
+        // }
       ],
       label: "För Studenter",
       isGrouping: true,
