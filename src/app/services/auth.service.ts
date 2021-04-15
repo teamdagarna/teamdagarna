@@ -236,11 +236,11 @@ export class AuthService {
         //   label: "Hitta hit",
         //   url: "https://teamdagarna.com/find"
         // },
-        {
-          subLinks: [],
-          label: "Inloggning gästföretag",
-          url: "https://teamdagarna.com/companysignin"
-        }
+        // {
+        //  subLinks: [],
+        //  label: "Inloggning gästföretag",
+        //  url: "https://teamdagarna.com/companysignin"
+        // }
       ],
       label: "För företag",
       isGrouping: true,
@@ -385,11 +385,11 @@ export class AuthService {
         //   label: "Hitta hit",
         //   url: "https://teamdagarna.com/find"
         // },
-        {
-          subLinks: [],
-          label: "Inloggning gästföretag",
-          url: "https://teamdagarna.com/companysignin"
-        }
+        // {
+        //  subLinks: [],
+        //  label: "Inloggning gästföretag",
+        //  url: "https://teamdagarna.com/companysignin"
+        // }
       ],
       label: "För företag",
       isGrouping: true,
