@@ -236,6 +236,11 @@ export class AuthService {
         //   label: "Hitta hit",
         //   url: "https://teamdagarna.com/find"
         // },
+        {
+          subLinks: [],
+          label: "Företagsanmälan",
+          url: "https://teamdagarna.com/companyapplication"
+        },
         // {
         //  subLinks: [],
         //  label: "Inloggning gästföretag",
@@ -385,11 +390,17 @@ export class AuthService {
         //   label: "Hitta hit",
         //   url: "https://teamdagarna.com/find"
         // },
+        {
+          subLinks: [],
+          label: "Företagsanmälan",
+          url: "https://teamdagarna.com/companyapplication"
+        },
         // {
         //  subLinks: [],
         //  label: "Inloggning gästföretag",
         //  url: "https://teamdagarna.com/companysignin"
         // }
+        
       ],
       label: "För företag",
       isGrouping: true,
