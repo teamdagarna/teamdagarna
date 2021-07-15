@@ -56,6 +56,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { InterviewComponent } from './components/interview/interview.component';
 import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
+import { AddblogpostsComponent } from './components/admincomponents/addblogposts/addblogposts.component';
 import { InterviewsComponent } from './components/admincomponents/interviews/interviews.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -133,6 +134,7 @@ registerLocaleData(localeSv, 'sv');
     VolunteerComponent,
     InterviewComponent,
     AddeventComponent,
+    AddblogpostsComponent,
     InterviewsComponent,
     EventsComponent,
     EventComponent,
@@ -189,6 +191,7 @@ registerLocaleData(localeSv, 'sv');
         { path: 'addcompany', component: AddcompanyComponent },
         { path: 'addstaff', component: AddstaffComponent },
         { path: 'addevent', component: AddeventComponent },
+        { path: 'addblogposts', component: AddblogpostsComponent },
         { path: 'interviews', component: InterviewsComponent, canActivate: [PlatinumadminGuard] },
         { path: 'events/:id', component: AdmineventComponent },
         { path: 'events', component: AdmineventsComponent },

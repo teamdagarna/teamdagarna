@@ -172,6 +172,25 @@ export interface Event {
   signon: boolean;
 }
 
+export interface Blogpost {
+  title: string;
+  ingress?: string;
+  about: string;
+  preorunder: string;
+  location: string;
+  eventstarts: Date;
+  eventends: Date;
+  signonstarts?: Date;
+  signonends?: Date;
+  signoffends?: Date;
+  maxattendance: number;
+  foodportions: number;
+  published: boolean;
+  coolness: number;
+  imagepath: string;
+  signon: boolean;
+}
+
 export interface AttendEvent {
   event: string;
   eventtitle: string;
