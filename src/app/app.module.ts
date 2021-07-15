@@ -57,6 +57,7 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { InterviewComponent } from './components/interview/interview.component';
 import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
 import { AddblogpostsComponent } from './components/admincomponents/addblogposts/addblogposts.component';
+import { BlogpostsComponent } from './components/blogposts/blogposts.component';
 import { InterviewsComponent } from './components/admincomponents/interviews/interviews.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -135,6 +136,7 @@ registerLocaleData(localeSv, 'sv');
     InterviewComponent,
     AddeventComponent,
     AddblogpostsComponent,
+    BlogpostsComponent,
     InterviewsComponent,
     EventsComponent,
     EventComponent,
@@ -220,6 +222,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
+    { path: 'blogposts', component: BlogpostsComponent },
     { path: 'masskarta', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},

@@ -1,0 +1,68 @@
+<div class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-two-thirds">
+            <h1 class="title"> Nyheter </h1>
+            <h2 class="subtitle"> 
+              <!-- Under infördagarna 3/11-9/11 och under mässdagen den 10e november kommer TEAM anordna ett antal event tillsammans med utställande företag. Eventen kommer vara av varierande karaktär med allt från badminton till inspirerande föreläsningar samt workshops, och kommer genomföras digitalt eller fysiskt. Vi är övertygade om att du kommer hitta ett event som passar just dig, missa inte detta!
+              Anmälan till eventen kommer att ske via vår hemsida.  -->
+              <!--<br> <br>--> Nyheter.              
+               <br> <br> Kom ihåg att följa TEAM-dagarna på <a href="https://www.facebook.com/teamdagarna/?ref=ts&fref=ts">Facebook</a>, <a href="https://www.instagram.com/teamdagarna/">Instagram</a> och <a href="https://www.linkedin.com/company/teamdagarna/">LinkedIn</a>!
+              </h2> </div>
+            <!-- <h2 class="subtitle">Både innan och under mässan anordnar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="section" *ngIf="!toggleEvent">
+    <div class="container">
+  
+  
+      <!-- <div class="columns is-multiline is-variable is-5">
+        <div class="column is-12">
+          <div class="border-btm">
+            <h1 class="title is-3">Mässdagen</h1>
+          </div>
+        </div>
+        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of fairevents">
+          <div class="event-item is-spaced">
+            <a class="event-cover" [routerLink]="[event.id]">
+              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+            </a>
+            <div class="event-content">
+              <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
+              <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
+              <a class="" [routerLink]="[event.id]">Läs mer</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  
+      <!-- Denna nedan brukar heta infördagarna-->
+      <div class="columns is-multiline is-variable is-5">
+        <div class="column is-12">
+          <div class="border-btm">
+            <h1 class="title is-3">Alla nyheter</h1>
+          </div>
+        </div>
+        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of preevents">
+          <div class="event-item is-spaced">
+            <a class="event-cover" [routerLink]="[event.id]">
+              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+            </a>
+            <div class="event-content">
+              <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
+              <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
+              <a class="" [routerLink]="[event.id]">Läs mer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+  
+    </div>
+  </section>
+  
