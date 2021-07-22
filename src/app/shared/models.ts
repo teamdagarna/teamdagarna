@@ -176,8 +176,7 @@ export interface Blogpost {
   title: string;
   ingress?: string;
   about: string;
-  imagepath: string;
-  signon: boolean;
+  
 
 }
 

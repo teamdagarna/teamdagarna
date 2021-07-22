@@ -1,38 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Blogpost } from '../../shared/models';
-import { switchMap, map} from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AuthService } from '../../services/auth.service';
+import { Blogpost } from '../../shared/models';
+import { environment } from '../../../environments/environment';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
+import * as firebase from 'firebase/app';
+import { Subject } from 'rxjs';
+
+import { switchMap, map} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-blogposts',
   templateUrl: './blogposts.component.html',
   styleUrls: ['./blogposts.component.scss']
 })
+
+
+
 export class BlogpostsComponent implements OnInit {
 
-  events: any;
-  fairevents: any;
-  preevents: any;
-  otherevents: any;
-  toggleEvent: boolean = false;
-  selectedEvent: any = null;
+  user;
+  isModalActive: boolean = false;
+  modalBlogpost: Blogpost;
+  showSpinner: boolean = true;
+  orderBy: number = 1;
+  blogposts: any;
 
-  constructor(private afs: AngularFirestore) {
-    this.getBlogposts().subscribe(events => {
 
+  constructor(private readonly afs: AngularFirestore, public auth: AuthService) {
+    this.auth.user$.subscribe(user => {
+      this.user = user;
+    });
+   
+    this.getBlogposts().subscribe(blogposts => {
+        this.blogposts = blogposts;
+        this.showSpinner = false;
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getBlogposts() {
-    return this.afs.collection<Blogpost>('news', ref => {
-      return ref
-        .where('published', '==', true);
-    }).snapshotChanges().pipe(
+    return this.afs.collection<Blogpost>('news').snapshotChanges().pipe(
      map(actions => actions.map(a => {
        const data = a.payload.doc.data() as Blogpost;
        const id = a.payload.doc.id;
@@ -41,11 +53,13 @@ export class BlogpostsComponent implements OnInit {
    );
   }
 
-  closeBlogposts() {
-    this.toggleEvent = false;
+
+  closeModal() {
+    this.isModalActive = !this.isModalActive;
   }
-  openEvent(selectedEvent: any) {
-    this.selectedEvent = selectedEvent;
-    this.toggleEvent = true;
+  openModal(blogpostToView) {
+    this.isModalActive = !this.isModalActive;
+    this.modalBlogpost = blogpostToView;
   }
+
 }

@@ -1,68 +1,93 @@
+
 <div class="hero is-primary is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-vcentered">
-          <div class="column is-two-thirds">
-            <h1 class="title"> Nyheter </h1>
-            <h2 class="subtitle"> 
-              <!-- Under infördagarna 3/11-9/11 och under mässdagen den 10e november kommer TEAM anordna ett antal event tillsammans med utställande företag. Eventen kommer vara av varierande karaktär med allt från badminton till inspirerande föreläsningar samt workshops, och kommer genomföras digitalt eller fysiskt. Vi är övertygade om att du kommer hitta ett event som passar just dig, missa inte detta!
-              Anmälan till eventen kommer att ske via vår hemsida.  -->
-              <!--<br> <br>--> Nyheter.              
-               <br> <br> Kom ihåg att följa TEAM-dagarna på <a href="https://www.facebook.com/teamdagarna/?ref=ts&fref=ts">Facebook</a>, <a href="https://www.instagram.com/teamdagarna/">Instagram</a> och <a href="https://www.linkedin.com/company/teamdagarna/">LinkedIn</a>!
-              </h2> </div>
-            <!-- <h2 class="subtitle">Både innan och under mässan anordnar vi ett antal event som står öppet för alla studenter. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2> </div> -->
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <h1 class="title"> Nyheter </h1>
+          <h2 class="subtitle">"Kul läsning". </h2>
         </div>
       </div>
     </div>
   </div>
-  
-  <section class="section" *ngIf="!toggleEvent">
-    <div class="container">
-  
-  
-      <!-- <div class="columns is-multiline is-variable is-5">
-        <div class="column is-12">
-          <div class="border-btm">
-            <h1 class="title is-3">Mässdagen</h1>
-          </div>
-        </div>
-        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of fairevents">
-          <div class="event-item is-spaced">
-            <a class="event-cover" [routerLink]="[event.id]">
-              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
-            </a>
-            <div class="event-content">
-              <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
-              <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
-              <a class="" [routerLink]="[event.id]">Läs mer</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-  
-      <!-- Denna nedan brukar heta infördagarna-->
-      <div class="columns is-multiline is-variable is-5">
-        <div class="column is-12">
-          <div class="border-btm">
-            <h1 class="title is-3">Alla nyheter</h1>
-          </div>
-        </div>
-        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of preevents">
-          <div class="event-item is-spaced">
-            <a class="event-cover" [routerLink]="[event.id]">
-              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
-            </a>
-            <div class="event-content">
-              <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
-              <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
-              <a class="" [routerLink]="[event.id]">Läs mer</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-  
+</div>
+
+
+
+
+<section class="section">
+<div class="container">
+  <div class="columns is-multiline">
+
+    <div class="column is-6">
   
     </div>
-  </section>
-  
+    
+
+  </div>
+
+
+
+  <div class="columns is-centered is-multiline ">
+    <app-spinner *ngIf="showSpinner "></app-spinner>
+    <ng-container *ngFor="let blogpost of filteredCompanies">
+      <div class="column is-one-quarter " *ngIf="blogpost.name != 'Öppen anmälan kontaktsamtal'">
+
+        <div class="card is-storyworld bm--card-equal-height ">
+          <a class="card-header " (click)="openModal(blogpost) ">
+           
+            <div class="card-image has-text-centered is-vcentered">
+              <!-- <img *ngIf="blogpost.logopath | storage | async as photoUrl " [src]="photoUrl"> -->
+            </div>
+            <!-- </div> -->
+          </a>
+          <div class="card-body">
+            <div class="card-title"> {{ blogpost.title }}</div>
+            
+          </div>
+
+          <div class="card-footer">
+            <div class="column footer-column">
+            <a class="button is-primary is-outlined is-small" (click)="openModal(blogpost) ">Läs mer</a>&nbsp;
+           
+            </div>
+            </div>
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+
+
+  <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
+    <div class="modal-background " (click)="closeModal() "></div>
+    <div class="modal-card ">
+      <header class="modal-card-head">
+        <p class="modal-card-title"><strong>{{ modalBlogpost.title }}</strong>
+        <button class="delete" aria-label="close" (click)="closeModal() "></button>
+
+      </header>
+
+      <section class="modal-card-body ">
+        <div class="columns is-multiline ">
+
+          <div class="column is-3 ">
+            <!--<img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalBlogpost.logopath | storage | async as photoUrl " [src]="photoUrl "> -->
+           
+          </div>
+          <div class="is-divider-vertical "></div>
+          <div class="column is-auto ">
+            <div class="about-blogpost ">
+              <h5 class="title is-5 ">Om oss</h5>
+              <p style="white-space: pre-wrap;">{{ modalBlogpost.ingress }}</p>
+              <br>
+              <h5 *ngIf="modalblogpost.values" class="title is-5 ">Vi värdesätter</h5>
+              <p style="white-space: pre-wrap;">{{ modalBlogpost.about }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+</section>

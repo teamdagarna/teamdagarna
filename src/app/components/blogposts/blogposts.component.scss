@@ -1,0 +1,57 @@
+.about-blogpost {
+    padding-right: 60px;
+    padding-bottom: 60px;
+  }
+  
+  i.fa {
+    display: inline-block;
+  }
+  
+  .modal-card {
+    overflow: visible;
+  }
+  
+  .modal-fa {
+    margin-left: 0.4em;
+  }
+  
+  .inline-flex {
+    display: inline-flex;
+  }
+  
+  
+  .card-header {
+    height: 170px;
+  
+    img {
+      max-height: 170px;
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  
+  .card-title {
+    overflow: hidden;
+  }
+  
+  .modal-card-title {
+    width: 90%;
+  }
+  
+  .card {
+    width: 100%;
+  }
+  
+  .footer-column {
+    padding: 0px;
+  }
+  
+  .heart {
+    margin-right: 20px;
+  }
+  
