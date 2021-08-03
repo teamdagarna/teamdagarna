@@ -1,0 +1,112 @@
+<ng-container *ngIf="!changemode">
+    <div class="columns is-centered is-multiline">
+  
+  
+      <div class="column is-4 is-3-fullhd" *ngFor="let blogpost of blogposts">
+        <div class="card is-teamview  bm--card-equal-height">
+          <div class="card-header">
+            <!-- <div *ngIf="company.logopath | async as url"> -->
+            <img *ngIf="blogpost.primaryimagepath | storage | async as photoUrl " [src]="photoUrl ">
+            <!-- </div> -->
+          </div>
+          <div class="card-body ">
+  
+            <div class="card-title">{{ blogpost.title }} </div>
+  
+            <div class="card-meta">{{ blogpost.ingress }}</div>
+            <div class="card-description is-size-7">
+              
+              <br>
+              
+            </div>
+          </div>
+          <div class="card-footer"> <a class="button is-primary is-outlined is-small " (click)="changeMode(blogpost.id)">REDIGERA</a> </div>
+  
+        </div>
+  
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="changemode">
+    <form [formGroup]="changeBlogpostsForm" (ngSubmit)="submit(changeBlogpostsForm.value)">
+  
+      <div class="card login-card">
+  
+        <div class="card-content">
+          <h1 class="title is-2">Redigera blogginlägg</h1>
+          <div class="field">
+            <label class="label" for="title">Titel</label>
+            <input class="input is-success" type="text" placeholder="Tex. Nytt för i år!'" formControlName="title">
+          </div>
+  
+  
+  
+          <!-- <div class="field">
+          <label class="label">About</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="" formControlName="about"></textarea>
+          </div>
+        </div> -->
+          <div class="field">
+            <label class="label" for="ingress">Ingress</label>
+            <input class="input is-success" type="text" placeholder="" formControlName="ingress">
+          </div>
+          <div class="field">
+            <label class="label">Brödtext</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="" formControlName="about"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Hur viktigt är inlägget på en skala mellan 0-100? Där 0 är möte med företagsgruppen och 100 är kräftskiva med team. (Högre ger mer publicitet)</label>
+            <input class="input is-success" type="number" placeholder="" formControlName="priority">
+          </div>
+         
+  
+  
+  
+          <div class="columns">
+            <div class="column is-half">
+  
+              <div class="file is-info">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Ladda upp bild till inlägget
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div *ngIf="percentage | async as pct">
+  
+                <progress class="progress is-success" [value]="pct" max="100">
+                  </progress> {{ pct | number }}%
+  
+              </div>
+              <div *ngIf="downloadURL | async as url">
+                <h3>Uploaded!</h3>
+                <!-- <img [src]="url"><br>
+                    <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
+              </div>
+
+              <div *ngIf="downloadURL | async as url">
+                <img [src]="url" style="max-height: 100px;"><br>
+              </div>
+              
+            </div>
+          </div>
+          <button type="submit" class="button is-fullwidth" [disabled]="!changeBlogpostsForm.valid">Uppdatera</button>
+        </div>
+  
+      </div>
+  
+    </form>
+  </ng-container>

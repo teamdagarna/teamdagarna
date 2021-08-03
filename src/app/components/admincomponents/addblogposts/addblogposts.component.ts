@@ -30,8 +30,8 @@ addBlogpostsForm: FormGroup;
   percentage: Observable<number>;
   snapshot: Observable<any>;
   downloadURL: Observable<string>;
-  //imagepath: string;
   logoUploaded: boolean = false;
+  logopath: string;
 
   //remove?
   isHovering: boolean;
@@ -42,6 +42,7 @@ addBlogpostsForm: FormGroup;
       'title': ['', [Validators.required]],
       'ingress': ['', []],
       'about': ['', [Validators.required]],
+      'priority': ['0', [Validators.required]],
     });
 
   }
@@ -55,53 +56,60 @@ addBlogpostsForm: FormGroup;
       title: data.title,
       ingress: data.ingress,
       about: data.about,
+      priority: data.priority,
+      primaryimagepath: this.logopath
+      
+      
+
+      
       
       
     }
 
     blogpostCollection.add(newBlogpost).then(() => {
-        this.router.navigate(['dreamteamadmin/events'])
+        this.router.navigate(['dreamteamadmin/blogpost'])
     });
 
 
   }
 
-  // file
-  //startUpload(event: FileList) {
+  startUpload(event: FileList) {
     // The File object
-   // const file = event.item(0)
+    const file = event.item(0)
 
     // Client-side validation example
-    //if (file.type.split('/')[0] !== 'image') {
-     // console.error('unsupported file type :( ')
-     // return;
-   // }
+    if (file.type.split('/')[0] !== 'image') {
+      console.error('unsupported file type :( ')
+      return;
+    }
 
     // The storage path
-    //this.imagepath = `companylogos/${new Date().getTime()}_${file.name}`;
-    //const path = `companylogos/${new Date().getTime()}_${file.name}`; 
+    this.logopath = `news/${new Date().getTime()}_${file.name}`;
+    const path = `news/${new Date().getTime()}_${file.name}`;
 
     // Totally optional metadata
-   // const customMetadata = { app: 'My AngularFire-powered PWA!' };
+    const customMetadata = { app: 'My AngularFire-powered PWA!' };
 
     // The main task
-    //this.task = this.storage.upload(path, file, { customMetadata })
+    this.task = this.storage.upload(path, file, { customMetadata })
 
     // Progress monitoring
-   // this.percentage = this.task.percentageChanges();
-    //this.snapshot   = this.task.snapshotChanges()
+    this.percentage = this.task.percentageChanges();
+    this.snapshot   = this.task.snapshotChanges()
 
     // The file's download URL
-    //this.task.snapshotChanges().pipe(
-      //  finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL() )
-    //).subscribe()
+    this.task.snapshotChanges().pipe(
+        finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL() )
+    ).subscribe()
 
-    //this.logoUploaded = true;
+    this.logoUploaded = true;
 
-  //}
+  }
 
-  //isActive(snapshot) {
-    //return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
-  //}
+  isActive(snapshot) {
+    return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
+  }
+
 
 }
+

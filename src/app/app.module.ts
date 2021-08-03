@@ -81,6 +81,7 @@ import { CheckinComponent } from './components/admincomponents/checkin/checkin.c
 import { CompanymapComponent } from './components/companymap/companymap.component';
 import { AllinterviewsComponent } from './components/admincomponents/allinterviews/allinterviews.component';
 import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
+import { BlogpostComponent } from './components/admincomponents/blogpost/blogpost.component';
 import { MapComponent } from './components/map/map.component';
 import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
 import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
@@ -150,6 +151,7 @@ registerLocaleData(localeSv, 'sv');
     CompanymapComponent,
     AllinterviewsComponent,
     DreamteamsComponent,
+    BlogpostComponent,
     MapComponent,
     InterviewscheduleComponent,
     TreasurehuntComponent,
@@ -203,6 +205,7 @@ registerLocaleData(localeSv, 'sv');
         { path: 'interviewschedule', component: InterviewscheduleComponent, canActivate: [PlatinumadminGuard] },
         { path: 'checkin', component: CheckinComponent },
         { path: 'dreamteam', component: DreamteamsComponent },
+        { path: 'blogpost', component: BlogpostComponent },
         { path: 'treasurescore', component: TreasurescoreComponent }
       ] },
     { path: 'dreamteam', component: TeamComponent },

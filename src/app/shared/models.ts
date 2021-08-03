@@ -1,3 +1,5 @@
+import { InternalNgModuleRef } from "@angular/core/src/linker/ng_module_factory";
+
 export interface Roles {
     student?: boolean;
     dreamteamMember?: boolean;
@@ -176,8 +178,9 @@ export interface Blogpost {
   title: string;
   ingress?: string;
   about: string;
+  primaryimagepath: string;
+  priority: number;
   
-
 }
 
 export interface AttendEvent {

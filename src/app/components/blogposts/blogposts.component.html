@@ -4,6 +4,89 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
+          <h1 class="title"> TEAM-bloggen </h1>
+          <h2 class="subtitle">Mässan äger rum den 22 september. Här samlar vi information som är tänkt att hjälpa dig som student att få en lyckad mässdag.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="columns is-centered is-multiline">
+      <ng-container *ngFor="let blogpost of blogposts | async">
+
+        <div class="column is-4 is-3-fullhd">
+
+          <div class="card is-storyworld bm--card-equal-height">
+            <a class="card-header " (click)="openModal(blogpost) ">
+              <div class="card-image has-text-centered is-vcentered">
+                <img *ngIf="blogpost.primaryimagepath | storage | async as photoUrl " [src]="photoUrl">
+              </div>
+            </a>  
+            
+            
+            <div class="card-body ">
+
+              <div class="card-title">{{ blogpost.title }}  
+              </div>
+
+              <div class="card-meta">{{ blogpost.ingress }}
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="column footer-column">
+              <a class="button is-primary is-outlined is-small" (click)="openModal(blogpost) ">Läs mer</a>&nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
+    <div class="modal-background " (click)="closeModal() "></div>
+    <div class="modal-card ">
+      <header class="modal-card-head">
+        <p class="modal-card-title"><strong>{{ modalBlogpost.title }}</strong> 
+          <p></p>
+        <button class="delete" aria-label="close" (click)="closeModal() "></button> 
+
+      </header>
+
+      <section class="modal-card-body ">
+        <div class="columns is-multiline ">
+
+          <div class="is-divider-vertical "></div>
+          <div class="column is-auto ">
+            <div class="about-blogpost ">
+              <h5 class="title is-5 "></h5>
+              <div class="ingress">{{ modalBlogpost.ingress }}</div>
+              <br>
+              <p style="white-space: pre-wrap;">{{ modalBlogpost.about }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- 
+<div class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
           <h1 class="title"> Nyheter </h1>
           <h2 class="subtitle">"Kul läsning". </h2>
         </div>
@@ -30,16 +113,16 @@
 
   <div class="columns is-centered is-multiline ">
     <app-spinner *ngIf="showSpinner "></app-spinner>
-    <ng-container *ngFor="let blogpost of filteredCompanies">
-      <div class="column is-one-quarter " *ngIf="blogpost.name != 'Öppen anmälan kontaktsamtal'">
+    <ng-container *ngFor="let blogpost of blogposts | async">
+      <div class="column is-one-quarter " *ngIf="blogpost.title != 'Öppen anmälan kontaktsamtal'">
 
         <div class="card is-storyworld bm--card-equal-height ">
           <a class="card-header " (click)="openModal(blogpost) ">
            
             <div class="card-image has-text-centered is-vcentered">
-              <!-- <img *ngIf="blogpost.logopath | storage | async as photoUrl " [src]="photoUrl"> -->
+               <img *ngIf="blogpost.logopath | storage | async as photoUrl " [src]="photoUrl"> 
             </div>
-            <!-- </div> -->
+             </div> 
           </a>
           <div class="card-body">
             <div class="card-title"> {{ blogpost.title }}</div>
@@ -72,7 +155,7 @@
         <div class="columns is-multiline ">
 
           <div class="column is-3 ">
-            <!--<img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalBlogpost.logopath | storage | async as photoUrl " [src]="photoUrl "> -->
+            <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalBlogpost.logopath | storage | async as photoUrl " [src]="photoUrl "> 
            
           </div>
           <div class="is-divider-vertical "></div>
@@ -91,3 +174,4 @@
   </div>
 </div>
 </section>
+ -->
