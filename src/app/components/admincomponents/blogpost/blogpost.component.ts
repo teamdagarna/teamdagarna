@@ -47,6 +47,7 @@ export class BlogpostComponent implements OnInit {
       'ingress': ['', [Validators.required]],
       'about': ['', [Validators.required]],
       'priority': ['', [Validators.required]],
+      'date': ['', [Validators.required]],
     });
   }
 

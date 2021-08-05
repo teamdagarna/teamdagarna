@@ -43,6 +43,7 @@ addBlogpostsForm: FormGroup;
       'ingress': ['', []],
       'about': ['', [Validators.required]],
       'priority': ['0', [Validators.required]],
+      'date' : ['', [Validators.required]],
     });
 
   }
@@ -57,6 +58,7 @@ addBlogpostsForm: FormGroup;
       ingress: data.ingress,
       about: data.about,
       priority: data.priority,
+      date: data.date,
       primaryimagepath: this.logopath
       
       

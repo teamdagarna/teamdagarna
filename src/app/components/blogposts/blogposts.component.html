@@ -5,7 +5,7 @@
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
           <h1 class="title"> TEAM-bloggen </h1>
-          <h2 class="subtitle">Mässan äger rum den 22 september. Här samlar vi information som är tänkt att hjälpa dig som student att få en lyckad mässdag.</h2>
+          <h2 class="subtitle">Mässan äger rum den 22 september. Här samlar vi information som är till dig som student för att få en lyckad mässdag.</h2>
         </div>
       </div>
     </div>
@@ -39,7 +39,8 @@
             </div>
             <div class="card-footer">
               <div class="column footer-column">
-              <a class="button is-primary is-outlined is-small" (click)="openModal(blogpost) ">Läs mer</a>&nbsp;
+                <a class="button is-primary is-outlined is-small" (click)="openModal(blogpost) ">Läs mer</a>&nbsp;
+                <span class="date-blogpost text is-pulled-right"> {{ blogpost.date }} </span>
               </div>
             </div>
           </div>

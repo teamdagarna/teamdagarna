@@ -180,6 +180,7 @@ export interface Blogpost {
   about: string;
   primaryimagepath: string;
   priority: number;
+  date: string;
   
 }
 
