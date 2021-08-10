@@ -179,6 +179,11 @@ export class AuthService {
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
+        { 
+          subLinks: [],
+          label: "TEAM-bloggen",
+          url: "https://teamdagarna.com/blogposts"  
+        },
         // {
         //   subLinks: [],
         //   label: "Mässkarta",
@@ -332,6 +337,11 @@ export class AuthService {
           subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
+        },
+        { 
+          subLinks: [],
+          label: "TEAM-bloggen",
+          url: "https://teamdagarna.com/blogposts"  
         },
         // {
         //   subLinks: [],
