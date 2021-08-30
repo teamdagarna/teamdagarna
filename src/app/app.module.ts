@@ -98,6 +98,7 @@ import { AppcompetitionComponent } from './components/appcompetition/appcompetit
 import { CompanysignsComponent } from './components/companysigns/companysigns.component';
 import { LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { SpecialEventComponent } from './components/specialevent/specialevent.component';
 import { VRComponent } from './components/vr/vr.component'
 
 
@@ -168,6 +169,7 @@ registerLocaleData(localeSv, 'sv');
     CompanysignsComponent,
     LeaderboardComponent,
     QuizComponent,
+    SpecialEventComponent,
     VRComponent
   ],
   imports: [
@@ -240,6 +242,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] },
     { path: 'leaderboard', component: LeaderboardComponent},
     { path: 'quiz', component: QuizComponent},
+    { path: 'specialevent', component: SpecialEventComponent},
+    
     { path: 'vr', component: VRComponent}
     ])
   ],
