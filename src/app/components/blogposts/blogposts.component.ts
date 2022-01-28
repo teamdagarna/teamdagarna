@@ -4,7 +4,7 @@ import { Blogpost } from '../../shared/models';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-blogpost',
+  selector: 'app-blogposts',
   templateUrl: './blogposts.component.html',
   styleUrls: ['./blogposts.component.scss']
 })
