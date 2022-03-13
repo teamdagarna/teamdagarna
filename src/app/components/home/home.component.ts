@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._trialEndsAt = new Date("Sep 22, 2021 09:00:00").getTime();
+    this._trialEndsAt = new Date("Sep 26, 2022 09:00:00").getTime();
 
     interval(1000).pipe(
       map((x) => {this.diff = this._trialEndsAt - new Date().getTime();

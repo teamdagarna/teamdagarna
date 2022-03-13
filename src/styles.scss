@@ -1,33 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
-$team-blue: #29235C;
-$team-pink: #E64174;
-$team-pink-gradient: linear-gradient(141deg, #E62373 0%, #E94B75 60%, #EC6474 100%);
+$team-blue: #29235c;
+$team-pink: #e64174;
+$team-pink-gradient: linear-gradient(
+  141deg,
+  #e62373 0%,
+  #e94b75 60%,
+  #ec6474 100%
+);
 $link: $team-pink;
 $primary: $team-pink;
 $text: #463853;
 $title-color: #463853;
-$subtitle-color: #998DA0;
+$subtitle-color: #998da0;
 $card-footer-border-top: none;
 $card-header-shadow: none;
 $modal-content-width: 70%;
 $modal-card-head-background-color: white;
 $modal-background-background-color: rgba($team-blue, 0.86);
 @import "../node_modules/bulma/bulma.sass";
-@import 'bulma/bulma.sass';
-@import 'bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css';
-@import 'bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css';
-@import 'bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css';
-@import 'bulma-extensions/bulma-calendar/dist/css/bulma-calendar.min.css';
-@import url('https://fonts.googleapis.com/css?family=Cabin');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import "bulma/bulma.sass";
+@import "bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css";
+@import "bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css";
+@import "bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css";
+@import "bulma-extensions/bulma-calendar/dist/css/bulma-calendar.min.css";
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import "~ng-pick-datetime/assets/style/picker.min.css";
-@import '~quill/dist/quill.core.css';
-@import '~quill/dist/quill.snow.css';
-@import '~quill/dist/quill.bubble.css';
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+@import "~quill/dist/quill.bubble.css";
 
 html {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   // background-color: $team-blue;
 }
 
@@ -58,11 +63,11 @@ img {
 }
 
 .madewithlove:after {
-  content: 'DreamTEAM';
+  content: "DreamTEAM";
 }
 
 .madewithlove:hover:after {
-  content: 'Marcus & Martin';
+  content: "Marcus & Martin";
   // content: 'Dreamteam';
 }
 //NAVBAR
@@ -72,10 +77,11 @@ img {
 }
 //SECTIONS
 
-.has-primary-bg {}
+// .has-primary-bg {
+// }
 
 .is-greyed {
-  background-color: #FBFBFD;
+  background-color: #fbfbfd;
 }
 
 hr {
@@ -95,7 +101,7 @@ hr {
 .card {
   background-color: transparent;
   box-shadow: none;
-  color: #998DA0;
+  color: #998da0;
   max-width: 100%;
   position: relative;
 }
@@ -189,7 +195,7 @@ hr {
   // margin: 0 auto;
   // max-width: 360px;
   background-color: white;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   // overflow: hidden;
   transition-duration: 172ms;
@@ -203,7 +209,7 @@ hr {
 .card.is-storyworld:active,
 .card.is-storyworld:focus,
 .card.is-storyworld:hover {
-  box-shadow: 0 10px 20px rgba(220,220,220,0.5);
+  box-shadow: 0 10px 20px rgba(220, 220, 220, 0.5);
   transform: translateY(-4px);
   color: inherit;
 }
@@ -236,11 +242,11 @@ hr {
   height: 100%;
 }
 
-.card.is-storyworld .card-image:before {
-  // display: block;
-  // content: "";
-  // padding-bottom: 63.80597%;
-}
+// .card.is-storyworld .card-image:before {
+//   // display: block;
+//   // content: "";
+//   // padding-bottom: 63.80597%;
+// }
 
 .card.is-storyworld .card-body {
   -ms-flex: 1;
@@ -309,7 +315,7 @@ hr {
   max-width: 140px;
 }
 
-.event-item.is-list .event-cover+.event-content {
+.event-item.is-list .event-cover + .event-content {
   margin: 0 0 0 1.5rem;
 }
 
@@ -318,7 +324,7 @@ hr {
   flex-direction: column;
 }
 
-.event-item.is-large .event-cover+.event-content {
+.event-item.is-large .event-cover + .event-content {
   margin-left: 0.5rem;
   margin-top: 1rem;
 }
@@ -343,7 +349,7 @@ hr {
   margin: 1rem 0;
 }
 
-.event-item+.event-item {
+.event-item + .event-item {
   margin-top: 2rem;
 }
 
@@ -355,7 +361,7 @@ hr {
   overflow: hidden;
 }
 
-.event-item .event-cover+.event-content {
+.event-item .event-cover + .event-content {
   margin: 1rem 0.5rem 0;
 }
 
@@ -365,7 +371,7 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(142,81,199,0.25);
+  background-color: rgba(142, 81, 199, 0.25);
   mix-blend-mode: screen;
   content: "";
   transition: background-color 172ms ease;
@@ -418,7 +424,7 @@ hr {
   // margin: 0 auto;
   // max-width: 360px;
   background-color: white;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   //overflow: hidden;
   transition-duration: 172ms;
@@ -432,7 +438,7 @@ hr {
 .card.is-teamview:active,
 .card.is-teamview:focus,
 .card.is-teamview:hover {
-  box-shadow: 0 10px 20px rgba(220,220,220,0.5);
+  box-shadow: 0 10px 20px rgba(220, 220, 220, 0.5);
   transform: translateY(-4px);
   color: inherit;
 }
@@ -465,11 +471,11 @@ hr {
   height: 50%;
 }
 
-.card.is-teamview .card-image:before {
-  // display: block;
-  // content: "";
-  // padding-bottom: 63.80597%;
-}
+// .card.is-teamview .card-image:before {
+//   // display: block;
+//   // content: "";
+//   // padding-bottom: 63.80597%;
+// }
 
 .card.is-teamview .card-body {
   -ms-flex: 1;
