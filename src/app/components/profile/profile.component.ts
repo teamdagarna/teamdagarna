@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
             this.events = att;
       });
       if (user) {
-        this.treasure.getTreasurePointsTuesday(this.user).subscribe(treasurehuntPoints => {
+        this.treasure.getTreasurePointsTuesday(this.user).subscribe((treasurehuntPoints: string | object) => {
           this.treasurehuntPointsTuesday = treasurehuntPoints;
           if(treasurehuntPoints) {
             this.noOfPointsTuesday = _.size(treasurehuntPoints)-1;
@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
             this.noOfPointsTuesday = 0;
           }
         });
-        this.treasure.getTreasurePointsWednesday(this.user).subscribe(treasurehuntPoints => {
+        this.treasure.getTreasurePointsWednesday(this.user).subscribe((treasurehuntPoints: string | object) => {
           this.treasurehuntPointsWednesday = treasurehuntPoints;
           if(treasurehuntPoints) {
             this.noOfPointsWednesday = _.size(treasurehuntPoints)-1;
@@ -122,7 +122,7 @@ export class ProfileComponent implements OnInit {
       return ref
         .where('applicant', '==', this.user.uid);
     }).snapshotChanges().pipe(
-     map(actions => actions.map(a => {
+     map((actions : any)=> actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
        return { id, ...data };
@@ -134,7 +134,7 @@ export class ProfileComponent implements OnInit {
       return ref
         .where('applicant', '==', this.user.uid);
     }).snapshotChanges().pipe(
-     map(actions => actions.map(a => {
+     map((actions : any)=> actions.map(a => {
        const data = a.payload.doc.data() as InterviewApplication;
        const id = a.payload.doc.id;
        return { id, ...data };
@@ -148,7 +148,7 @@ export class ProfileComponent implements OnInit {
         .where('attendant', '==', this.user.uid)
         .where('checkedin', '==', false);
     }).snapshotChanges().pipe(
-     map(actions => actions.map(a => {
+     map((actions : any)=> actions.map(a => {
        const data = a.payload.doc.data() as AttendEvent;
        const id = a.payload.doc.id;
        return { id, ...data };

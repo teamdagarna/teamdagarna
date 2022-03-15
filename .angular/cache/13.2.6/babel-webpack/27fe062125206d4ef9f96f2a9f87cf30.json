@@ -1,0 +1,1 @@
+{"ast":null,"code":"function uniq(array) {\n  return array.filter(function (value, index, self) {\n    return self.indexOf(value) === index;\n  });\n}\n\nexport default uniq;","map":null,"metadata":{},"sourceType":"module"}

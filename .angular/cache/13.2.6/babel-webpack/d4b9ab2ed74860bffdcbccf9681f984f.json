@@ -1,0 +1,1 @@
+{"ast":null,"code":"function capitalize(text) {\n  return text.toString().charAt(0).toUpperCase() + text.toString().slice(1);\n}\n\nexport default capitalize;","map":null,"metadata":{},"sourceType":"module"}

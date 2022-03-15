@@ -1,0 +1,1 @@
+{"ast":null,"code":"function isDomElement(object) {\n  return object instanceof HTMLElement || Boolean(object) && object.nodeType > 0;\n}\n\nexport default isDomElement;","map":null,"metadata":{},"sourceType":"module"}

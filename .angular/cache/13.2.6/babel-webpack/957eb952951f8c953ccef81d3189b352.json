@@ -1,0 +1,1 @@
+{"ast":null,"code":"function getPropertyByPath(object, path) {\n  var parts = Array.isArray(path) ? path : path.split('.');\n  return parts.reduce(function (current, key) {\n    return current && current[key];\n  }, object);\n}\n\nexport default getPropertyByPath;","map":null,"metadata":{},"sourceType":"module"}

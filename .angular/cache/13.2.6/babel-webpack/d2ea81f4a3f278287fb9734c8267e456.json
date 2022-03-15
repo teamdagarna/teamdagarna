@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default as withInsights, inferPayload as inferInsightsPayload } from \"./client.js\";\nexport { default as withInsightsListener } from \"./listener.js\";","map":null,"metadata":{},"sourceType":"module"}

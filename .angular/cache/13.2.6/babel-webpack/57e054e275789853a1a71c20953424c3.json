@@ -1,0 +1,1 @@
+{"ast":null,"code":"function escapeRefinement(value) {\n  if (typeof value === 'number' && value < 0) {\n    value = String(value).replace(/^-/, '\\\\-');\n  }\n\n  return value;\n}\n\nexport default escapeRefinement;","map":null,"metadata":{},"sourceType":"module"}

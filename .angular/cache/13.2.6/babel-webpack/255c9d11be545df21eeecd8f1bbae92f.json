@@ -1,0 +1,1 @@
+{"ast":null,"code":"export function serializePayload(payload) {\n  return btoa(encodeURIComponent(JSON.stringify(payload)));\n}\nexport function deserializePayload(serialized) {\n  return JSON.parse(decodeURIComponent(atob(serialized)));\n}","map":null,"metadata":{},"sourceType":"module"}

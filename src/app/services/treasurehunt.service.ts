@@ -13,7 +13,7 @@ export class TreasurehuntService {
 
   getTreasureBoardTuesday() {
     return this.afs.collection('treasurehuntPointsTuesday').snapshotChanges().pipe(
-      map(actions => actions.map(a => {
+      map((actions : any) => actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
         return { id, ...data };
@@ -23,7 +23,7 @@ export class TreasurehuntService {
 
   getTreasureBoardWednesday() {
     return this.afs.collection('treasurehuntPointsWednesday').snapshotChanges().pipe(
-      map(actions => actions.map(a => {
+      map((actions : any)=> actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
         return { id, ...data };

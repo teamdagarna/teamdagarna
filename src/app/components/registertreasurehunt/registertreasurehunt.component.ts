@@ -36,7 +36,7 @@ export class RegistertreasurehuntComponent implements OnInit {
     this.auth.user$.subscribe(user => {
       this.user = user;
       if (user) {
-        this.treasure.getTreasurePointsTuesday(this.user).subscribe(treasurehuntPoints => {
+        this.treasure.getTreasurePointsTuesday(this.user).subscribe((treasurehuntPoints: string | object) => {
           this.treasurehuntPointsTuesday = treasurehuntPoints;
           if(treasurehuntPoints) {
             this.noOfPointsTuesday = _.size(treasurehuntPoints)-1;
@@ -44,7 +44,7 @@ export class RegistertreasurehuntComponent implements OnInit {
             this.noOfPointsTuesday = 0;
           }
         });
-        this.treasure.getTreasurePointsWednesday(this.user).subscribe(treasurehuntPoints => {
+        this.treasure.getTreasurePointsWednesday(this.user).subscribe((treasurehuntPoints: string | object) => {
           this.treasurehuntPointsWednesday = treasurehuntPoints;
           if(treasurehuntPoints) {
             this.noOfPointsWednesday = _.size(treasurehuntPoints)-1;
