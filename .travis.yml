@@ -10,8 +10,7 @@ before_script:
 script:
   - ng build --configuration production
 after_success:
-  - firebase use --teamdagarna-5fb26
-  - firebase deploy --only hosting --token "$FIREBASE_TOKEN1"
+  - firebase deploy --only hosting --token "$FIREBASE_TOKEN1" --project teamdagarna-5fb26
 notifications:
   email:
     on_failure: change
