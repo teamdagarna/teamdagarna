@@ -1,24 +1,20 @@
-#.travis.yml
-
 language: node_js
 node_js:
-  - "12.20.1"
-
+  - 12.20.1
 branches:
   only:
     - master
-
 before_script:
   - npm install -g firebase-tools
   - npm install -g @angular/cli
-
 script:
   - ng build --configuration production
-
 after_success:
   - firebase deploy --only hosting --token $FIREBASE_TOKEN
-
 notifications:
   email:
     on_failure: change
     on_success: change
+env:
+  global:
+    secure: kAA4iNrjHkQ4pfTh1dMFLKNTqE1qd5RDP6qljG6TIdUpm4mCDhZIKi52anXNriUw07gREz+yjiQRMPaRTVgX7GJ+bVRR16J7ekmd97vVvt4jS5nNgkVHzhOD7XO0OBxNe8jAtN0nxvtt0bcdqnh9aGRMFgO3iLWkXTgJ6yVvXr4duEb8+1pkXnESqLDtEf1soc2X1kW++6uQyA0kPE9QUKsHv2L93ph+c/0qSrlO/mCrYFNNXVEtV6qFtfqHcYO+bC1h49lBXtHhmXYn6N6tzFHy/Du6L4L+23JdGKLuM1B7jPcBkMcT/n7L6hib03qt5jMYsABrOLywya1pquy6uFrfY5fcwh7BXk4VLv9nbXLSGZ9dbz9kjHCnyGtqF1va/0op4ZJg02ZiuKuWm+gTte/Nslvtw6EWqYxNTE1Q+ewzNaZhjN+9Um6S9vK6JJosyyzCIXphkFXgXSqBOZRptkjp0pLdxbrECj4zNqYrgyGl/92V18ySs0pFRNrPuQVjm0yxkxnYOFgjzNp4Id+2rwuX7sXn7TqOVO34fYTIwedHmyxfY3XOpRJzZ6Uk4FFFe/CMNoXk/qAiPQXbkSQ2zrFIBtCJNZFlWmAetNjNOXUmxxnc0aCT0J7l75rVheFSoGKXMTpmMq6iJWfa/6BN+0l7M2ViZEcKqRnIlkPLspk=
