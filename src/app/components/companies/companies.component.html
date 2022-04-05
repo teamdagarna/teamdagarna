@@ -4,8 +4,10 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-two-thirds">
-          <h1 class="title"> Företagen 2021 </h1>
-          <h2 class="subtitle">Vi är stolta att presentera 2021 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
+          <h1 class="title"> Företagen 2022 </h1>
+          <h2 class="subtitle">Mer information om 2022 års deltagande företag kommer. </h2>
+
+          <!-- <h2 class="subtitle">Vi är stolta att presentera 2021 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2> -->
         </div>
         <div class="column has-text-centered" *ngIf="auth.isSignedIn()">
           <a class="button is-primary is-inverted is-outlined is-large" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
