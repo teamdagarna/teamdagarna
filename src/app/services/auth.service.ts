@@ -28,7 +28,7 @@ export class AuthService {
               private afs: AngularFirestore,
               private router: Router) {
 
-              afs.firestore.settings({timestampsInSnapshots: true});
+              afs.firestore.settings({});
               this.user$ = this.afAuth.authState.pipe(switchMap(user => {
                     if (user) {
                       //Checks if request comes from the app
