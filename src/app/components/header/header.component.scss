@@ -1,11 +1,20 @@
 nav {
-  background: white;
+  opacity: 0.9;
+  // height: 70px;
+  font-family: "Raleway";
+  width: 100vw;
+  height: 10vh;
+  // margin-top: -0.5%;
+}
+
+.navbar-burger {
+  color: #e77da9;
 }
 
 [hidden] {
-  display: none!important
+  display: none !important;
 }
 
-#space {
-  padding-top: 50px;
-}
+// #space {
+//   padding-top: 30px;
+// }

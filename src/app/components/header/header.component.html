@@ -1,172 +1,208 @@
-<nav id ="navbar" class="navbar is-fixed-top">
-  <div class="container">
+<nav id ="navbar" class="navbar is-fixed-top is-spaced">
+  <!-- <div class="container"> -->
     <div class="navbar-brand">
       <a class="navbar-item" [routerLink]="['']">
-        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Logga%202022-2.png?alt=media&token=f057761b-7430-41a1-8799-8169c927d82b" alt="TEAM-dagarna" max-height="40" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 50px;" >
       </a>
-      <div id="navbarBurger" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
-      <div class="navbar-start">
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            För studenter
-          </a>
-          <div class="navbar-dropdown is-boxed">
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['companies']">
-              Företagen 2022
-            </a> -->
-            <a class="navbar-item mobileLink is-disabled" [routerLink]="['events']">
-              Event
-            </a>
-            <a class="navbar-item mobileLink is-disabled" [routerLink]="['blogposts']">
-              TEAM-bloggen
-            </a>
-            
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['masskarta']">
-              Mässkarta
-            </a> -->
-           <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['pusseljakten']">
-              Pusseljakten
-            </a> -->
-                        <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['leaderboard']">
-              Ledartavla
-            </a> -->
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
-              Quiz
-            </a> -->
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['foretagsskyltar']">
-              Företagsskyltar
-            </a> -->
-            <!-- <hr class="navbar-divider"> -->
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokvard']">
-              Sök värd
-            </a> -->
-            <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']">
-              Kontaktsamtal
-            </a> -->
-             <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
-              Sök DreamTEAM 2021
-            </a> -->
-            <!-- <a class="navbar-item is-disabled" [routerLink]="['sokvard']">
-            Sök värd
-          </a> -->
-        </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          För företag
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item mobileLink" [routerLink]="['about']">
-            Om TEAM-dagarna
-          </a>
-          <a class="navbar-item mobileLink" [routerLink]="['faq']">
-            FAQ
-          </a>
-          <!-- <a class="navbar-item mobileLink" [routerLink]="['weoffer']">
-            Erbjudande
-          </a>
-          <a class="navbar-item mobileLink" [routerLink]="['find']"> 
-            Hitta hit
-          </a> -->
-          <!-- <hr class="navbar-divider">-->
-          <a class="navbar-item mobileLink" [routerLink]="['companyapplication']"> 
-            Intresseanmälan
-          </a>
-          <!-- <a [hidden]="auth.isCompany(user)" class="navbar-item mobileLink" [routerLink]="['companysignin']">
-            Inloggning gästföretag
-          </a>
-          <a [hidden]="!auth.isCompany(user)" class="navbar-item mobileLink" [routerLink]="['companyguest']">
-            Företagssida
-          </a> -->
-        </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Om oss
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item mobileLink" [routerLink]="['dreamteam']">
-            Kontakt
-          </a>
-          <a class="navbar-item mobileLink" [routerLink]="['about']">
-            Om TEAM-dagarna
-          </a>
-          <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']">
-            Hållbarhet
-          </a>
-          <a class="navbar-item mobileLink" [routerLink]="['integritetspolicy']">
-            Integritetspolicy
-          </a>
-          <!-- <a class="navbar-item" href="#">
-          Sammarbetspartners
-        </a> -->
-      </div>
-    </div>
-    <a class="navbar-item mobileLink" [routerLink]="['about-english']">
-      English info
-    </a>
-    <div [hidden]="auth.isSignedIn()" class="navbar-item">
-      <div class="field is-grouped">
-        <p class="control">
-          <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
-            <span class="icon">
-              <i class="fas fa-sign-in-alt"></i>
-            </span>
-            <span>
-              Logga in
-            </span>
-          </a>
-        </p>
-      </div>
-    </div>
-    <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
-      <a class="navbar-link">
-        Mina sidor
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
-      <div class="navbar-dropdown is-boxed">
-        <a [routerLink]="['profile']" class="navbar-item mobileLink">
-          Min profil
-        </a>
-        <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']">
-          Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i>
-        </a>
-      </div>
     </div>
-    <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
-      <span>
-        Logga ut &nbsp;
-      </span>
-      <span class="icon">
-        <i class="fas fa-sign-out-alt"></i>
-      </span>
-    </a>
-    <div [hidden]="!auth.canEdit(user)" class="navbar-item">
-      <div class="field is-grouped">
-        <p class="control">
-          <a class="bd-tw-button button is-dark mobileLink" [routerLink]="['/dreamteamadmin']">
+  
+
+    <!-- <div id="navbarExampleTransparentExample" class="navbar-menu"> -->
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                För studenter
+              </a>
+
+              <div class="navbar-dropdown is-boxed">
+                <!-- <a class="navbar-item" [routerLink]="['companies']">
+                  Företagen 2022
+                </a> -->
+                <!-- <a class="navbar-item" [routerLink]="['masskarta']">
+                  Mässkarta
+                </a> -->
+                <a class="navbar-item" [routerLink]="['events']">
+                  Event
+                </a>
+                <!-- <a class="navbar-item" [routerLink]="['pusseljakten']">
+                  Pusseljakten
+                </a> -->
+                  <!-- <a class="navbar-item" [routerLink]="['leaderboard']">
+                  Ledartavla
+                </a> -->
+                <a class="navbar-item" [routerLink]="['blogposts']">
+                  TEAM-bloggen
+                </a>
+                    <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
+                  Quiz
+                </a> -->
+                <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['foretagsskyltar']">
+                  Företagsskyltar
+                </a> -->
+                <!-- <hr class="navbar-divider"> -->
+                <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokvard']">
+                  Sök värd
+                </a> -->
+                <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']">
+                  Kontaktsamtal
+                </a> -->
+                <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
+                  Sök DreamTEAM 2021
+                </a> -->
+              </div>
+            </div>
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                För företag
+              </a>
+
+              <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" [routerLink]="['about']">
+                    Om TEAM-dagarna
+                  </a>
+                  <a class="navbar-item" [routerLink]="['faq']">
+                    FAQ
+                  </a> 
+                  <!-- <a class="navbar-item" [routerLink]="['weoffer']">
+                    Erbjudande
+                  </a> -->
+                  <!-- <a class="navbar-item" [routerLink]="['find']">
+                    Hitta hit
+                  </a> -->
+                   <hr class="navbar-divider">
+                   <a class="navbar-item" [routerLink]="['companyapplication']">
+                    Intresseanmälan
+                  </a>
+                  <!-- <a class="navbar-item" [routerLink]="['companysignin']">
+                    Inloggning gästföretag
+                  </a> -->
+                  <!-- <a class="navbar-item" [routerLink]="['companyguest']">
+                    Företagssida
+                  </a>
+         -->
+                </div>
+            </div>
+
+            <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']">
+              Hållbarhet
+            </a>
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Om oss
+              </a>
+
+              <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" [routerLink]="['dreamteam']">
+                    Kontakt
+                  </a>
+                  <a class="navbar-item" [routerLink]="['about']">
+                    Om TEAM-dagarna
+                  </a> 
+                  <a class="navbar-item" [routerLink]="['integritetspolicy']">
+                    Integritetspolicy
+                  </a>
+                    <!-- <a class="navbar-item" href="#">
+                    Sammarbetspartners
+                  </a> -->
+                 
+        
+                </div>
+            </div>
+
+             <a class="navbar-item mobileLink" [routerLink]="['about-english']">
+            English info
+            </a>
+
+          </div>
+
+
+
+
+        <div class="navbar-end">
+          <!-- <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div> -->
+
+
+          <div [hidden]="auth.isSignedIn()" class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
+                  <span class="icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                  </span>
+                  <span>
+                    Logga in
+                  </span>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
+            <a class="navbar-link">
+              Mina sidor
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a [routerLink]="['profile']" class="navbar-item mobileLink">
+                Min profil
+              </a>
+              <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']">
+                Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i>
+              </a>
+            </div>
+          </div>
+
+          <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
             <span>
-              DreamTEAM Admin
+              Logga ut &nbsp;
             </span>
             <span class="icon">
-              <i class="fas fa-user-secret"></i>
+              <i class="fas fa-sign-out-alt"></i>
             </span>
           </a>
-        </p>
+
+          <div [hidden]="!auth.canEdit(user)" class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="bd-tw-button button is-dark mobileLink" [routerLink]="['/dreamteamadmin']">
+                  <span>
+                    DreamTEAM Admin
+                  </span>
+                  <span class="icon">
+                    <i class="fas fa-user-secret"></i>
+                  </span>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- <span class="is-hidden-desktop"><div id="space"></div></span> -->
+      
+
+
       </div>
     </div>
-    <span class="is-hidden-desktop"><div id="space"></div></span>
-  </div>
-</div>
 
-</div>
 </nav>
+          
+     
+
