@@ -28,22 +28,31 @@ $team-pink-gradient: linear-gradient(
 );
 $link: $team-pink;
 $primary: $team-pink;
-$text: #000000;
+$dark-blue: #2a235c;
 $title-color: #e75578;
 $subtitle-color: #e77da9;
 $subsubtitle-color: #3766a0;
 $light-pink: #fadfeb;
+
 $title-size: 20px;
 $subtitle-size: 14px;
 $subsubtitle-size: 12px;
 $text-size: 10px;
+
 $title-font: "Raleway";
 $text-font: "PT-Sans";
+
 $card-footer-border-top: none;
 $card-header-shadow: none;
+
 $modal-content-width: 70%;
 $modal-card-head-background-color: white;
 $modal-background-background-color: rgba($team-blue, 0.86);
+
+$navbar-dropdown-arrow: $primary;
+$navbar-item-hover-color: $light-pink;
+$navbar-burger-color: $primary;
+$navbar-dropdown-item-hover-color: $light-pink;
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -86,27 +95,6 @@ img {
 .madewithlove:hover:after {
   content: "DreamTEAM";
 }
-
-.title {
-  color: $title-color;
-  font-size: $title-size;
-  font-family: $title-font;
-}
-
-.subtitle {
-  color: $subtitle-color;
-  font-size: $subtitle-size;
-  font-family: $title-font;
-}
-//NAVBAR
-
-// .navbar {
-//   padding: 1rem 2rem;
-// }
-//SECTIONS
-
-// .has-primary-bg {
-// }
 
 .is-greyed {
   background-color: #fbfbfd;
@@ -323,8 +311,9 @@ hr {
 
 .logo {
   font-family: "Montserrat", sans-serif;
-  font-size: 50px;
-  color: #3766a0;
+  font-size: 65px;
+  color: $title-color;
+  font-weight: bold;
 }
 
 .title {
@@ -356,8 +345,8 @@ hr {
   &:hover {
     // background-color: $subsubtitle-color;
     //color: $subsubtitle-color;
-    background-color: white;
-    color: $title-color;
+    background-color: $team-pink;
+    color: white;
     //opacity: 0.85;
     transition: 0.3s;
   }
@@ -590,6 +579,31 @@ section {
 }
 
 .hero {
-  padding-top: 84px;
+  // padding-top: 7vh;
   background-color: white;
+}
+
+#title-hero {
+  padding-top: 7vh;
+}
+
+.has-text-right {
+  text-align: right;
+}
+
+#white-icon {
+  color: white;
+}
+
+.hero .title {
+  font-family: "PT Sans", sans-serif;
+  color: #463853;
+}
+
+p {
+  color: #463853;
+}
+
+li {
+  color: #463853;
 }

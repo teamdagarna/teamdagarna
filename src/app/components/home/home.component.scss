@@ -28,9 +28,9 @@
 }
 
 @media screen and (max-width: 1280px) {
-  #frontContainer {
-    margin: 0px 0px;
-  }
+  // #frontContainer {
+  //   margin: 0px 0px;
+  // }
 }
 
 .section-header {
@@ -66,10 +66,10 @@
   padding-bottom: 40px;
 }
 
-.hero .title {
-  font-family: "PT Sans", sans-serif;
-  color: #463853;
-}
+// .hero .title {
+//   font-family: "PT Sans", sans-serif;
+//   color: #463853;
+// }
 
 // .hero .subtitle {
 //   color: #998da0;
@@ -98,6 +98,7 @@ img {
 .hsp-section {
   background-color: #fbfbfd;
 }
+
 // #particles-js {
 //   position: absolute;
 //   top: 0;
@@ -194,9 +195,9 @@ img {
   }
 }
 
-.containerWhite {
-  padding-top: 84px;
-}
+// .containerWhite {
+//   padding-top: 84px;
+// }
 .is-clickable {
   cursor: pointer;
 }

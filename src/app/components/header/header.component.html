@@ -1,8 +1,7 @@
 <nav id ="navbar" class="navbar is-fixed-top is-spaced">
-  <!-- <div class="container"> -->
     <div class="navbar-brand">
       <a class="navbar-item" [routerLink]="['']">
-        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 50px;" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 40px;" >
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -12,13 +11,11 @@
       </a>
     </div>
   
-
-    <!-- <div id="navbarExampleTransparentExample" class="navbar-menu"> -->
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                För studenter
+                Student
               </a>
 
               <div class="navbar-dropdown is-boxed">
@@ -62,7 +59,7 @@
 
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                För företag
+                Företag
               </a>
 
               <div class="navbar-dropdown is-boxed">
@@ -130,23 +127,12 @@
 
 
         <div class="navbar-end">
-          <!-- <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div>
-          </div> -->
-
 
           <div [hidden]="auth.isSignedIn()" class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
                 <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
-                  <span class="icon">
+                  <span class="icon" id="white-icon">
                     <i class="fas fa-sign-in-alt"></i>
                   </span>
                   <span>
