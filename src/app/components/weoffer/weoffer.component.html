@@ -1,14 +1,70 @@
-<div class="hero is-primary is-bold">
+<!-- <div class="hero" id="title-hero">
   <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <h1 class="title"> Erbjudande </h1>
-          <h2 class="subtitle">Här beskrivs vad TEAM-dagarna kan erbjuda Er och Ert företag, både under formella och mindre formella tillställningar. Tveka inte att kontakta oss om några frågor uppkommer.</h2> </div>
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
+        <div class="column is-9">
+              <h2 class="title is-3 is-spaced" style="text-transform: uppercase">Vad vi erbjuder företagen</h2>
+              <h2 class="subtitle">Här beskrivs vad TEAM-dagarna kan erbjuda Er och Ert företag, både under formella och mindre formella tillställningar. Tveka inte att kontakta oss om några frågor uppkommer.</h2> 
+            </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<section class="hero is-fullheight has-bg-img">
+  <div class="hero-head">
+
+    </div>
+       
+    <div class="hero-body">
+      <div class="container has-text-centered is-mobile">
+        <div class="columns is-centered ">
+          <div class="column is-9">
+                <h2 class="title is-2 is-spaced" style="text-transform: uppercase; color: white;">Vad vi erbjuder företagen</h2>
+                <h2 class="subtitle is-6" style="color: white;">Här beskrivs vad TEAM-dagarna kan erbjuda Er och Ert företag, både under formella och mindre formella tillställningar. Tveka inte att kontakta oss om några frågor uppkommer.</h2> 
+              </div>
+        </div>
+      </div>
+    </div>
+            <div class="hero-foot">
+                <nav class="tabs is-boxed is-fullwidth is-medium">
+                    <div class="container">
+                    <ul>
+                        <li class="tab is-active" (click)="openTab($event, 'id_tab_1')"><a >TEAM-dagarna</a></li>
+                        <li class="tab" (click)="openTab($event, 'id_tab_2')"><a >tab 2 title</a></li>
+                        <li class="tab" (click)="openTab($event, 'id_tab_3')"><a >tab 3 title</a></li>
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+</section>   
+
+<section class="section">
+
+        <div class="container section">
+            <div id="id_tab_1" class="content-tab">
+                <div>
+                    Om TEAM-dagarna
+                </div>
+            </div>
+            <div id="id_tab_2" class="content-tab" style="display:none">
+                <div>
+                    content here
+                </div>
+            </div>
+            <div id="id_tab_3" class="content-tab" style="display:none">
+                <div>
+                   content here
+                </div>
+            </div>
+        </div>
+
+</section>
+
+
+
+
 
 <section class="section">
   <div class="container">

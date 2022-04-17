@@ -1,0 +1,21 @@
+@media screen and (min-width: 769px) {
+  .has-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/fair_picture.jpg?alt=media&token=af00174f-927d-48d5-b9e2-7a0fe86517c5");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .has-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/fair_picture.jpg?alt=media&token=af00174f-927d-48d5-b9e2-7a0fe86517c5");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}

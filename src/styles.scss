@@ -49,6 +49,7 @@ $modal-content-width: 70%;
 $modal-card-head-background-color: white;
 $modal-background-background-color: rgba($team-blue, 0.86);
 
+// Funkar ej
 $navbar-dropdown-arrow: $primary;
 $navbar-item-hover-color: $light-pink;
 $navbar-burger-color: $primary;
@@ -352,11 +353,11 @@ hr {
   }
 }
 
-section {
-  height: 100vh;
-  width: 100vw;
-  color: white;
-}
+// section {
+//   height: 100vh;
+//   width: 100vw;
+//   color: white;
+// }
 
 #pink-section {
   background-color: $light-pink;
@@ -587,6 +588,11 @@ section {
   padding-top: 7vh;
 }
 
+#pink-title-hero {
+  padding-top: 7vh;
+  background-color: $light-pink;
+}
+
 .has-text-right {
   text-align: right;
 }
@@ -606,4 +612,17 @@ p {
 
 li {
   color: #463853;
+}
+
+a {
+  font-family: "PT Sans", sans-serif;
+  color: #e77da9;
+
+  &:hover {
+    color: #463853;
+  }
+}
+
+#pink-hero {
+  background-color: $light-pink;
 }
