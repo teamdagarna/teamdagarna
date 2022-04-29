@@ -4,7 +4,7 @@
         <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 40px;" >
       </a>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger" id="navburger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -13,12 +13,12 @@
   
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
+          <div class="navbar-item has-dropdown is-hoverable" id="pink-arrow">
+              <a class="navbar-link" id="navbar-pink">
                 Student
               </a>
 
-              <div class="navbar-dropdown is-boxed">
+              <div class="navbar-dropdown is-boxed" id="pink-arrow">
                 <!-- <a class="navbar-item" [routerLink]="['companies']">
                   Företagen 2022
                 </a> -->
@@ -36,7 +36,7 @@
                   <!-- <a class="navbar-item" [routerLink]="['leaderboard']">
                   Ledartavla
                 </a> -->
-                <a class="navbar-item" [routerLink]="['blogposts']">
+                <a class="navbar-item" [routerLink]="['blogposts']"  id="navbar-pink">
                   TEAM-bloggen
                 </a>
                     <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
@@ -60,21 +60,21 @@
 
 
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
+              <a class="navbar-link"  id="navbar-pink">
                 Företag
               </a>
 
-              <div class="navbar-dropdown is-boxed">
+              <div class="navbar-dropdown is-boxed" >
                   <!-- <a class="navbar-item" [routerLink]="['about']">
                     Om TEAM-dagarna
                   </a> -->
-                  <a class="navbar-item" [routerLink]="['weoffer']">
+                  <a class="navbar-item" [routerLink]="['weoffer']"  id="navbar-pink">
                     Erbjudande
                   </a>
-                  <a class="navbar-item" [routerLink]="['faq']">
+                  <a class="navbar-item" [routerLink]="['faq']"  id="navbar-pink">
                     FAQ
                   </a> 
-                  <a class="navbar-item" [routerLink]="['educations']">
+                  <a class="navbar-item" [routerLink]="['educations']"  id="navbar-pink">
                     Om utbildningarna
                   </a>
                   
@@ -82,7 +82,7 @@
                     Hitta hit
                   </a> -->
                    <hr class="navbar-divider">
-                   <a class="navbar-item" [routerLink]="['companyapplication']">
+                   <a class="navbar-item" [routerLink]="['companyapplication']"  id="navbar-pink">
                     Intresseanmälan
                   </a>
                   <!-- <a class="navbar-item" [routerLink]="['companysignin']">
@@ -95,21 +95,21 @@
                 </div>
             </div>
 
-            <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']">
+            <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink">
               Hållbarhet
             </a>
 
 
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
+              <a class="navbar-link"  id="navbar-pink">
                 Om oss
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" [routerLink]="['dreamteam']">
+                  <a class="navbar-item" [routerLink]="['dreamteam']"  id="navbar-pink">
                     Kontakt
                   </a>
-                  <a class="navbar-item" [routerLink]="['about']">
+                  <a class="navbar-item" [routerLink]="['about']"  id="navbar-pink">
                     Om TEAM-dagarna
                   </a> 
                   <!-- <a class="navbar-item" [routerLink]="['integritetspolicy']">
@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-             <a class="navbar-item mobileLink" [routerLink]="['about-english']">
+             <a class="navbar-item mobileLink" [routerLink]="['about-english']"  id="navbar-pink">
             English info
             </a>
 
@@ -134,7 +134,7 @@
 
         <div class="navbar-end">
 
-          <div [hidden]="auth.isSignedIn()" class="navbar-item">
+          <!-- <div [hidden]="auth.isSignedIn()" class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
                 <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
@@ -147,9 +147,9 @@
                 </a>
               </p>
             </div>
-          </div>
+          </div> -->
 
-          <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
+          <!-- <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
             <a class="navbar-link">
               Mina sidor
             </a>
@@ -161,9 +161,9 @@
                 Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i>
               </a>
             </div>
-          </div>
+          </div> -->
 
-          <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
+          <!-- <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
             <span>
               Logga ut &nbsp;
             </span>
@@ -185,7 +185,7 @@
                 </a>
               </p>
             </div>
-          </div>
+          </div> -->
 
           <!-- <span class="is-hidden-desktop"><div id="space"></div></span> -->
       

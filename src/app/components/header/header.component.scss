@@ -15,20 +15,22 @@ nav {
   display: none !important;
 }
 
-// #space {
-//   padding-top: 30px;
-// }
+#navbar-pink {
+  color: #463853;
 
-// .navbar-link {
-//   font-family: "PT Sans", sans-serif;
-//   color: #463853;
-// }
+  &:hover {
+    color: #e77da9;
+  }
+}
 
-// .navbar-link :hover {
-//   color: #e77da9;
-// }
+#pink-arrow {
+  color: #e77da9;
+}
 
-// .navbar-item {
-//   font-family: "PT Sans", sans-serif;
-//   color: #463853;
-// }
+#navburger {
+  color: #e77da9;
+}
+
+img {
+  padding-bottom: 10px;
+}

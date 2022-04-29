@@ -4,6 +4,8 @@
 @import "bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css";
 @import "bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css";
 @import "bulma-extensions/bulma-calendar/dist/css/bulma-calendar.min.css";
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 @import url("https://fonts.googleapis.com/css?family=Cabin");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans");
@@ -18,7 +20,6 @@
 
 /* You can add global styles to this file, and also import other style files */
 $team-blue: #29235c;
-// $team-pink: #e64174;
 $team-pink: #e77da9;
 $team-pink-gradient: linear-gradient(
   141deg,
@@ -62,7 +63,6 @@ $tabs-link-color: white;
 html {
   -webkit-font-smoothing: antialiased;
   font-family: $text-font, sans-serif;
-  // background-color: $team-blue;
 }
 
 body {
