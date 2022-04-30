@@ -1,43 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
-$team-blue: #29235c;
-$team-pink: #e64174;
-$team-pink-gradient: linear-gradient(
-  141deg,
-  #e62373 0%,
-  #e94b75 60%,
-  #ec6474 100%
-);
-$link: $team-pink;
-$primary: $team-pink;
-$text: #463853;
-$title-color: #463853;
-$subtitle-color: #998da0;
-$card-footer-border-top: none;
-$card-header-shadow: none;
-$modal-content-width: 70%;
-$modal-card-head-background-color: white;
-$modal-background-background-color: rgba($team-blue, 0.86);
 @import "../node_modules/bulma/bulma.sass";
 @import "bulma/bulma.sass";
 @import "bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css";
 @import "bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css";
 @import "bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css";
 @import "bulma-extensions/bulma-calendar/dist/css/bulma-calendar.min.css";
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 @import url("https://fonts.googleapis.com/css?family=Cabin");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
 @import "~quill/dist/quill.bubble.css";
 
+/* You can add global styles to this file, and also import other style files */
+$team-blue: #29235c;
+$team-pink: #e77da9;
+$team-pink-gradient: linear-gradient(
+  141deg,
+  #e74e8e 0%,
+  #e75375 60%,
+  #e77da9 100%
+);
+$link: $team-pink;
+$primary: $team-pink;
+$dark-blue: #2a235c;
+$title-color: #e75578;
+$subtitle-color: #e77da9;
+$subsubtitle-color: #3766a0;
+$light-pink: #fadfeb;
+
+$title-size: 20px;
+$subtitle-size: 14px;
+$subsubtitle-size: 12px;
+$text-size: 10px;
+
+$title-font: "Raleway";
+$text-font: "PT-Sans";
+
+$card-footer-border-top: none;
+$card-header-shadow: none;
+
+$modal-content-width: 70%;
+$modal-card-head-background-color: white;
+$modal-background-background-color: rgba($team-blue, 0.86);
+
+// Funkar ej
+$navbar-dropdown-arrow: $primary;
+$navbar-item-hover-color: $light-pink;
+$navbar-burger-color: $primary;
+$navbar-dropdown-item-hover-color: $light-pink;
+
+//tabs
+$tabs-link-active-color: $primary;
+$tabs-link-color: white;
+
 html {
   -webkit-font-smoothing: antialiased;
-  font-family: "Open Sans", sans-serif;
-  // background-color: $team-blue;
+  font-family: $text-font, sans-serif;
 }
 
 body {
-  background-color: white;
+  background-color: $light-pink;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 img {
@@ -69,15 +100,6 @@ img {
 .madewithlove:hover:after {
   content: "DreamTEAM";
 }
-//NAVBAR
-
-.navbar {
-  padding: 1rem 2rem;
-}
-//SECTIONS
-
-// .has-primary-bg {
-// }
 
 .is-greyed {
   background-color: #fbfbfd;
@@ -290,12 +312,65 @@ hr {
   margin-top: auto;
 }
 
-.button {
-  border-radius: 10px;
+//NY
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 65px;
+  color: $title-color;
+  font-weight: bold;
 }
 
+.title {
+  color: $title-color;
+  font-size: $title-size;
+  font-family: $title-font;
+}
+
+.subtitle {
+  color: $subtitle-color;
+  font-size: $subtitle-size;
+  font-family: $title-font;
+}
+
+.icon {
+  color: $primary;
+}
+
+#clickable-icon :hover {
+  color: $light-pink;
+}
+
+.button {
+  border-radius: 25px;
+  background-color: $title-color;
+  color: white;
+  border: none;
+
+  &:hover {
+    // background-color: $subsubtitle-color;
+    //color: $subsubtitle-color;
+    background-color: $team-pink;
+    color: white;
+    //opacity: 0.85;
+    transition: 0.3s;
+  }
+}
+
+// section {
+//   height: 100vh;
+//   width: 100vw;
+//   color: white;
+// }
+
+#pink-section {
+  background-color: $light-pink;
+}
+
+///Slut på ny
 .section {
   padding: 3rem 1.5rem;
+  overflow-x: hidden;
 }
 
 .event-item {
@@ -509,9 +584,49 @@ hr {
 }
 
 .hero {
-  padding-top: 84px;
+  // padding-top: 7vh;
+  background-color: white;
 }
 
-.section {
-  overflow-x: hidden;
+#title-hero {
+  padding-top: 7vh;
+}
+
+#pink-title-hero {
+  padding-top: 7vh;
+  background-color: $light-pink;
+}
+
+.has-text-right {
+  text-align: right;
+}
+
+#white-icon {
+  color: white;
+}
+
+.hero .title {
+  font-family: "PT Sans", sans-serif;
+  color: #463853;
+}
+
+p {
+  color: #463853;
+}
+
+li {
+  color: #463853;
+}
+
+a {
+  font-family: "PT Sans", sans-serif;
+  color: #e77da9;
+
+  &:hover {
+    color: #463853;
+  }
+}
+
+#pink-hero {
+  background-color: $light-pink;
 }

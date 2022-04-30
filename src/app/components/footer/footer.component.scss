@@ -10,6 +10,21 @@
 .social-buttons {
   display: flex;
 }
+
+.title {
+  font-family: "PT Sans", sans-serif;
+  color: #463853;
+}
+
+ul li a {
+  font-family: "PT Sans", sans-serif;
+  color: #e77da9;
+
+  &:hover {
+    color: #463853;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .social-buttons {
     .level-item {
