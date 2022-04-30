@@ -170,16 +170,16 @@ export class AuthService {
     {
       subLinks: [
        {
-        //   subLinks: [],
-        //   label: "Företagen 2021",
-        //   url: "https://teamdagarna.com/companies"
-        //  },
-        // {
-        //   subLinks: [],
-        //   label: "Event",
-        //   url: "https://teamdagarna.com/events"
-        // },
-        // { 
+          subLinks: [],
+          label: "Företagen 2021",
+          url: "https://teamdagarna.com/companies"
+         },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
+        { 
           subLinks: [],
           label: "TEAM-bloggen",
           url: "https://teamdagarna.com/blogposts"  
@@ -204,11 +204,11 @@ export class AuthService {
         //   label: "Sök värd",
         //   url: "https://teamdagarna.com/sokvard"
         // },
-        // {
-        //   subLinks: [],
-        //   label: "Kontaktsamtal",
-        //   url: "https://teamdagarna.com/interview"
-        // },
+        {
+          subLinks: [],
+          label: "Kontaktsamtal",
+          url: "https://teamdagarna.com/interview"
+        },
          //{
           // subLinks: [],
           // label: "Sök DreamTEAM",
@@ -223,20 +223,19 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Erbjudande",
-          url: "https://teamdagarna.com/weoffer"
+          label: "Om TEAM-dagarna",
+          url: "https://teamdagarna.com/about"
         },
         {
           subLinks: [],
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
-        {
-          subLinks: [],
-          label: "Om utbildningarna",
-          url: "https://teamdagarna.com/educations"
-        },
-       
+        // {
+        //   subLinks: [],
+        //   label: "Erbjudande",
+        //   url: "https://teamdagarna.com/weoffer"
+        // },
         // {
         //   subLinks: [],
         //   label: "Hitta hit",
@@ -244,7 +243,7 @@ export class AuthService {
         // },
         {
           subLinks: [],
-          label: "Intresseanmälan",
+          label: "Företagsanmälan",
           url: "https://teamdagarna.com/companyapplication"
         },
         // {
@@ -258,12 +257,6 @@ export class AuthService {
       icon: "fa-briefcase"
     },
     {
-      subLinks: [],
-      label: "Hållbarhet",
-      url: "https://teamdagarna.com/hallbarhet",
-      icon: "fa-cog"
-    },
-    {
       subLinks: [
         {
           subLinks: [],
@@ -275,16 +268,16 @@ export class AuthService {
           label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
-        // {
-        //   subLinks: [],
-        //   label: "Hållbarhet",
-        //   url: "https://teamdagarna.com/hallbarhet"
-        // },
-        // {
-        //   subLinks: [],
-        //   label: "Integritetspolicy",
-        //   url: "https://teamdagarna.com/integritetspolicy"
-        // }
+        {
+          subLinks: [],
+          label: "Hållbarhet",
+          url: "https://teamdagarna.com/hallbarhet"
+        },
+        {
+          subLinks: [],
+          label: "Integritetspolicy",
+          url: "https://teamdagarna.com/integritetspolicy"
+        }
       ],
       label: "Om oss",
       isGrouping: true,
@@ -335,16 +328,16 @@ export class AuthService {
     {
       subLinks: [
         // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
-        // {
-        //   subLinks: [],
-        //   label: "Företagen 2021",
-        //   url: "https://teamdagarna.com/companies"
-        // },
-        // {
-        //   subLinks: [],
-        //   label: "Event",
-        //   url: "https://teamdagarna.com/events"
-        // },
+        {
+          subLinks: [],
+          label: "Företagen 2021",
+          url: "https://teamdagarna.com/companies"
+        },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
         { 
           subLinks: [],
           label: "TEAM-bloggen",
@@ -370,11 +363,11 @@ export class AuthService {
         //   label: "Sök värd",
         //   url: "https://teamdagarna.com/sokvard"
         // },
-        // {
-        //   subLinks: [],
-        //    label: "Kontaktsamtal",
-        //    url: "https://teamdagarna.com/interview"
-        // },
+        {
+          subLinks: [],
+           label: "Kontaktsamtal",
+           url: "https://teamdagarna.com/interview"
+        },
         // {
         //   subLinks: [],
         //   label: "Sök DreamTEAM",
@@ -389,15 +382,19 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Erbjudande",
-          url: "https://teamdagarna.com/weoffer"
+          label: "Om TEAM-dagarna",
+          url: "https://teamdagarna.com/about"
         },
         {
           subLinks: [],
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
-       
+        // {
+        //   subLinks: [],
+        //   label: "Erbjudande",
+        //   url: "https://teamdagarna.com/weoffer"
+        // },
         // {
         //   subLinks: [],
         //   label: "Hitta hit",
@@ -405,12 +402,7 @@ export class AuthService {
         // },
         {
           subLinks: [],
-          label: "Om utbildningarna",
-          url: "https://teamdagarna.com/educations"
-        },
-        {
-          subLinks: [],
-          label: "Intressenamälan",
+          label: "Företagsanmälan",
           url: "https://teamdagarna.com/companyapplication"
         },
         // {
@@ -425,12 +417,6 @@ export class AuthService {
       icon: "fa-briefcase"
     },
     {
-      subLinks: [],
-      label: "Hållbarhet",
-      url: "https://teamdagarna.com/hallbarhet",
-      icon: "fa-cog"
-    },
-    {
       subLinks: [
         {
           subLinks: [],
@@ -442,11 +428,11 @@ export class AuthService {
           label: "Om TEAM-dagarna",
           url: "https://teamdagarna.com/about"
         },
-        // {
-        //   subLinks: [],
-        //   label: "Hållbarhet",
-        //   url: "https://teamdagarna.com/hallbarhet"
-        // },
+        {
+          subLinks: [],
+          label: "Hållbarhet",
+          url: "https://teamdagarna.com/hallbarhet"
+        },
         {
           subLinks: [],
           label: "Integritetspolicy",
