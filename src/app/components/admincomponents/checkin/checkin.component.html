@@ -2,7 +2,7 @@
   <div class="field">
     <label class="label">Välj event</label>
     <div class="control has-icons-left">
-      <div class="select is-primary is-large is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select formControlName="event" (ngModelChange)="getEvent($event)">
           <option value="-1">Välj event</option>
           <option *ngFor="let event of events" value="{{event.id}}">{{ event.title }}</option>

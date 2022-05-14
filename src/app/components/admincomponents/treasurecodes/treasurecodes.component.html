@@ -3,7 +3,7 @@
   <div class="field">
     <label class="label">Välj företag</label>
     <div class="control has-icons-left">
-      <div class="select is-primary is-large is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select formControlName="comp" (ngModelChange)="getTreasureCompanyTuesday($event)">
           <option value="-1">Välj företag</option>
           <option *ngFor="let company of treasureCompaniesTuesday" value="{{company.id}}" [selected]="company.id==preselected" [disabled]="hasCodeTuesday(company.id)">{{ company.name }}</option>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading1}" [disabled]="false">Generera</button>
+  <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading1}" [disabled]="false">Generera</button>
 </form>
 
 <br>
@@ -28,7 +28,7 @@
   <div class="field">
     <label class="label">Välj företag</label>
     <div class="control has-icons-left">
-      <div class="select is-primary is-large is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select formControlName="comp" (ngModelChange)="getTreasureCompanyWednesday($event)">
           <option value="-1">Välj företag</option>
           <option *ngFor="let company of treasureCompaniesWednesday" value="{{company.id}}" [selected]="company.id==preselected" [disabled]="hasCodeWednesday(company.id)">{{ company.name }}</option>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading2}" [disabled]="false">Generera</button>
+  <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading2}" [disabled]="false">Generera</button>
 </form>
 
 <br>

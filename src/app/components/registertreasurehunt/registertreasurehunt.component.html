@@ -1,30 +1,32 @@
-<div class="hero is-primary is-bold">
+<div class="hero" id="title-hero">
   <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <h1 class="title"> Pusseljakten </h1>
-          <h2 class="subtitle">Här kan du läsa mer om pusseljakten samt registrera pusselbitar som du samlar under mässdagarna.</h2>
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
+        <div class="column is-9">
+              <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Pusseljakten</h2>
+              <h5 class="subtitle is-6">Här kan du läsa mer om pusseljakten samt registrera pusselbitar som du samlar under mässdagarna.</h5>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="section"> 
-  <div class="container">
-    <div class="columns is-centered">
-      <div *ngIf="user" class="column is-4 is-12-mobile">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered">
+
+      <div *ngIf="user" class="column is-4 is-12-mobile is-centered">
         <div *ngIf="submitMode">
           <form [formGroup]="submitCodeForm" (ngSubmit)="submit(submitCodeForm.value)">
 
             <div class="field">
-              <label class="label has-text-primary" for="code">Företagskod</label>
+              <label class="label" for="code">Företagskod</label>
               <input class="input" type="text" placeholder="Skriv in koden du fått av företaget" formControlName="code">
             </div>
             <p class="error-message" *ngIf="showerror">Koden du matat in är inte korrekt. Var vänlig testa igen. Företagskoden har 7 tecken och skulle kunna se ut såhär: "0fb3HJ4"</p>
 
-            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Registrera pusselbit! <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
+            <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="false">Registrera pusselbit! <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
           </form>
         </div>
 
@@ -58,26 +60,26 @@
 
       <div *ngIf="!user">
         <h1 class="title is-4">Du måste vara inloggad för att kunna registrera pusselbitar till pusseljakten!</h1>
-        <a [routerLink]="['../signin']" class="subtitle is-4 has-text-primary has-text-weight-semibold">
+        <a [routerLink]="['../signin']" class="subtitle is-4 has-text-weight-semibold">
           Klicka här för att logga in!
         </a>
       </div>
-
+      </div>
     </div>
   </div> 
 
-  <div class="container">
-    <div class="columns">
-      <div class="column is-12">
-        <div class="border-btm">
+  <div class="container has-text-centered is-mobile">
+    <div class="columns is-centered">
+      <div class="column">
           <h1 class="title is-3">Info</h1>
-        </div>
-        <div class="content">
-          <p>En nyhet för i år är Pusseljakten! Ett nytt format av den tidigare mässjakten, som även i år är en tävling under båda mässdagarna. Pusseljakten går ut på att studenten ska samla så många pusselbitar som möjligt. Ju fler pusselbitar, desto större chans att vinna ett pris från prispotten!</p>
+          <p>Pusseljakten är en tävling under båda mässdagarna som går ut på att studenten ska samla så många pusselbitar som möjligt. Ju fler pusselbitar, desto större chans att vinna ett pris från prispotten!</p>
           <p>Pusselbitarna finns att hitta hos de deltagande företagen, hur ni får dem är dock hemligt... Ska ni placera er i topp 10 i en montertävling, fråga om sommarjobb eller kanske veta onödigt mycket information om företaget i fråga? Har ni tur kanske ni även hittar en ytterligare bit gömd på mässområdet.</p>
           <p>Pusselbitarna registreras till er användare via hemsidan eller appen med hjälp av de koder som finns på pusselbitarna. De tre som samlat flest pusselbitar under respektive dag kommer att få välja sitt pris, övriga priser kommer att lottas ut mellan samtliga deltagare!</p>
+      </div>
+        <div class="column">
           <h1 class="title is-5">Priser i pusseljakten:</h1>
-          <ul>
+
+          <ul style="list-style: none;">
             <li>Lunch med anställd från KPMG Linköping</li>
             <li>CV-granskning med Academic Work </li>
             <li>Frukost eller lunch med en företagsrepresentant från Accenture i Stockholm (Resa står studenten själv för) </li>
@@ -94,7 +96,7 @@
             <li>Lunch med en senior kollega samt inbjudan till studentmingel hos Accigo AB</li>
           </ul>
         </div>
+
       </div>
-    </div>
   </div>
-</section> -->
+</section>

@@ -1,7 +1,7 @@
 <div class="field">
   <label class="label">Välj företag</label>
   <div class="control has-icons-left">
-    <div class="select is-primary is-large is-fullwidth">
+    <div class="select is-large is-fullwidth">
       <select (change)="getCompany($event.target.value)">
         <option value="-1">Välj företag</option>
         <option *ngFor="let company of companies" value="{{company.id}}">{{ company.name }}</option>

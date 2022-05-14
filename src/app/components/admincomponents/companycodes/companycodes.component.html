@@ -2,7 +2,7 @@
   <div class="field">
     <label class="label">Välj företag</label>
     <div class="control has-icons-left">
-      <div class="select is-primary is-large is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select formControlName="comp" (ngModelChange)="getCompany($event)">
           <option value="-1">Välj företag</option>
           <option *ngFor="let company of companies" value="{{company.id}}" [selected]="company.id==preselected" [disabled]="hasCode(company.id)">{{ company.name }}</option>
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Generera</button>
+  <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="false">Generera</button>
 </form>
 
 <br>
