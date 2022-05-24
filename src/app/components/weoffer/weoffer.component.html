@@ -45,8 +45,8 @@
                 <nav class="tabs is-boxed is-fullwidth is-medium">
                     <div class="container">
                     <ul>
-                        <li class="tab is-active" (click)="openTab($event, 'id_tab_1')"><a id="tabs-weoffer">Inför-dagarna</a></li>
-                        <li class="tab" (click)="openTab($event, 'id_tab_2')"><a id="tabs-weoffer">TEAM-dagarna</a></li>
+                        <li class="tab" (click)="openTab($event, 'id_tab_1')"><a id="tabs-weoffer">Inför-dagarna</a></li>
+                        <li class="tab is-active" (click)="openTab($event, 'id_tab_2')"><a id="tabs-weoffer">TEAM-dagarna</a></li>
                     </ul>
                     </div>
                 </nav>
@@ -57,7 +57,7 @@
 
         <div class="container section">
           
-            <div id="id_tab_1" class="content-tab">
+            <div id="id_tab_1" class="content-tab" style="display:none">
 
 
               <div class="hero-body">
@@ -88,7 +88,7 @@
           </div>
 
             </div>
-            <div id="id_tab_2" class="content-tab" style="display:none">
+            <div id="id_tab_2" class="content-tab" >
               <div class="hero-body">
                 <div class="container has-text-centered is-mobile">
 
