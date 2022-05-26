@@ -261,7 +261,7 @@ export class AuthService {
       subLinks: [],
       label: "Hållbarhet",
       url: "https://teamdagarna.com/hallbarhet",
-      icon: "fa-feather"
+      icon: "fa-seedling"
     },
     {
       subLinks: [
@@ -428,7 +428,7 @@ export class AuthService {
       subLinks: [],
       label: "Hållbarhet",
       url: "https://teamdagarna.com/hallbarhet",
-      icon: "fa-feather"
+      icon: "fa-seedling"
     },
     {
       subLinks: [
