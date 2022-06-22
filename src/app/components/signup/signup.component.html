@@ -1,11 +1,14 @@
 <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+  <div class="hero" id="pink-title-hero">
+
   <div class="columns is-centered">
-    <div class="column is-one-third">
+    <div class="column is-half">
 
       <div class="card login-card">
         <div class="card-content">
 
-          <h3 class="title is-2">Registrera dig</h3>
+          <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Registrera dig</h3>
+
 
           <div class="field">
             <label class="label" for="liuid">Liu-ID</label>
@@ -166,7 +169,7 @@
           </label> Jag tillåter att Teamdagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
           </div>
           <div *ngIf="signupForm.valid">Allt ser bra ut!</div>
-          <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" class="button is-fullwidth">Registrera och logga in</button><br>
+          <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" id="submit-button" class="button is-fullwidth">Registrera och logga in</button><br>
           <p class="error-message">{{ errorMessage }}</p>
           <p class="is-italic"> Glöm inte att verifiera ditt konto genom att klicka på den länk som kommer att skickas till din "@student.liu.se"-adress. Vissa funktioner på hemsidan kan du inte ta del av förrän du verifierar ditt konto! </p>
         </div>
@@ -174,6 +177,7 @@
       </div>
     </div>
   </div>
+</div>
 </form>
 
 
@@ -247,7 +251,7 @@
 
 
         <h3>Kontaktuppgifter</h3>
-        <p>Vid frågor rörande hur Sektionen För Industriell Ekonomi (moderorganisation) arbetar med GDPR: dataskyddsombud@isektionen.se</p>
+        <p>Vid frågor rörande hur Sektionen För Industriell Ekonomi (moderorganisation) arbetar med GDPR: <a href="mailto:dataskyddsombud@isektionen.se">dataskyddsombud@isektionen.se</a>.</p>
         <p>Vid frågor rörande specifikt Teamdagarna samt begäran av tillgång till data, radering av data eller rättelse av data: <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>.</p>
       </div>
     </section>

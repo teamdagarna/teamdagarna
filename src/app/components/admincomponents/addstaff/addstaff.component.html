@@ -3,7 +3,7 @@
   <div class="card login-card">
 
     <div class="card-content">
-      <h1 class="title is-2">Lägg till Dreamteamer</h1>
+      <h1 class="title is-2" style="text-transform: uppercase">Lägg till Dreamteamer</h1>
       <div class="field">
         <label class="label" for="companyName">För- och efternamn</label>
         <input class="input is-success" type="text" placeholder="Tex. 'Frida Andersson'" formControlName="fullname">
@@ -72,8 +72,8 @@
       <div class="columns">
         <div class="column is-half">
 
-          <div class="file is-info">
-            <label class="file-label">
+          <div class="file">
+            <label class="file-label" >
                 <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
                 <span class="file-cta">
                   <span class="file-icon">
@@ -102,9 +102,9 @@
       </div>
 
 
-      <button type="submit" class="button is-fullwidth" [disabled]="!addDreamteamerForm.valid || !logoUploaded">Lägg till</button>
+      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addDreamteamerForm.valid || !logoUploaded">Lägg till</button>
+
     </div>
 
   </div>
-
 </form>

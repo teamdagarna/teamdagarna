@@ -65,9 +65,6 @@
               </a>
 
               <div class="navbar-dropdown is-boxed" >
-                  <!-- <a class="navbar-item" [routerLink]="['about']">
-                    Om TEAM-dagarna
-                  </a> -->
                   <a class="navbar-item" [routerLink]="['weoffer']"  id="navbar-pink">
                     Erbjudande
                   </a>
@@ -77,7 +74,6 @@
                   <a class="navbar-item" [routerLink]="['educations']"  id="navbar-pink">
                     Om utbildningarna
                   </a>
-                  
                   <!-- <a class="navbar-item" [routerLink]="['find']">
                     Hitta hit
                   </a> -->
@@ -99,7 +95,6 @@
               Hållbarhet
             </a>
 
-
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link"  id="navbar-pink">
                 Om oss
@@ -119,7 +114,6 @@
                     Sammarbetspartners
                   </a> -->
                  
-        
                 </div>
             </div>
 
@@ -134,7 +128,7 @@
 
         <div class="navbar-end">
 
-          <!-- <div [hidden]="auth.isSignedIn()" class="navbar-item">
+          <div [hidden]="auth.isSignedIn()" class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
                 <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
@@ -147,27 +141,27 @@
                 </a>
               </p>
             </div>
-          </div> -->
+          </div>
 
-          <!-- <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
-            <a class="navbar-link">
+          <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
+            <a class="navbar-link" id="navbar-pink">
               Mina sidor
             </a>
             <div class="navbar-dropdown is-boxed">
-              <a [routerLink]="['profile']" class="navbar-item mobileLink">
+              <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink">
                 Min profil
               </a>
-              <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']">
+              <!-- <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']">
                 Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i>
-              </a>
+              </a> -->
             </div>
-          </div> -->
+          </div>
 
-          <!-- <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink">
+          <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink" id="navbar-pink">
             <span>
               Logga ut &nbsp;
             </span>
-            <span class="icon">
+            <span class="icon" style="color: #596ecc;">
               <i class="fas fa-sign-out-alt"></i>
             </span>
           </a>
@@ -175,19 +169,19 @@
           <div [hidden]="!auth.canEdit(user)" class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
-                <a class="bd-tw-button button is-dark mobileLink" [routerLink]="['/dreamteamadmin']">
+                <a class="bd-tw-button button mobileLink" [routerLink]="['/dreamteamadmin']">
                   <span>
                     DreamTEAM Admin
                   </span>
-                  <span class="icon">
+                  <span class="icon" style="color:white;">
                     <i class="fas fa-user-secret"></i>
                   </span>
                 </a>
               </p>
             </div>
-          </div> -->
+          </div>
 
-          <!-- <span class="is-hidden-desktop"><div id="space"></div></span> -->
+          <span class="is-hidden-desktop"><div id="space"></div></span>
       
 
 

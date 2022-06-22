@@ -1,18 +1,18 @@
-<h1 class="title is-2">Alla sökande</h1>
+<h1 class="title is-2" style="text-transform: uppercase">Alla sökande</h1>
 
 <ng-container *ngIf="filteredInterviews">
   <ng-container *ngFor="let interview of filteredInterviews">
     <p>{{ interview.liuid }}</p>
   </ng-container>
   <br>
-  <h1 class="title is-2">Lista mailutskick (Alla ansökningar)</h1>
+  <h1 class="title is-4">Lista mailutskick (Alla ansökningar)</h1>
   <ng-container *ngFor="let interview of filteredInterviews">
     {{ interview.liuid }}@student.liu.se,
   </ng-container>
 </ng-container>
 
 <ng-container *ngIf="selectedfilteredInterviews">
-  <h1 class="title is-2">Lista mailutskick (Alla antagna där studenten tackat ja)</h1>
+  <h1 class="title is-4">Lista mailutskick (Alla antagna där studenten tackat ja)</h1>
   <ng-container *ngFor="let interview of selectedfilteredInterviews">
     {{ interview.liuid }}@student.liu.se,
   </ng-container>

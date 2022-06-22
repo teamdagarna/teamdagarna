@@ -1,20 +1,25 @@
 <form #reset="ngForm" (ngSubmit)="resetPassword(reset.value)">
+  <div class="hero" id="pink-title-hero">
+
   <div class="columns is-centered">
-    <div class="column is-one-third">
+    <div class="column is-half">
 
       <div class="card login-card">
         <div class="card-content">
 
-          <h3 class="title is-2">Återställ lösenord</h3>
-          <p>Skriv in ditt LiU-ID för att återställa lösenordet. Du får ett mail till din LiU-mail med en länk att följa.</p>
+          <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Återställ lösenord</h3>
+
+          <p style="color: #463853;">Skriv in ditt LiU-ID för att återställa lösenordet. Du får ett mail till din LiU-mail med en länk att följa.</p><br>
           <div class="field">
             <label class="label">LiU-ID</label>
             <input class="input" type="text" placeholder="Ditt LiU-ID" name="liuid" ngModel>
           </div>
-          <button type="submit" class="button is-fullwidth">Återställ lösenord</button>
+          <button type="submit" id="submit-button" class="button is-fullwidth">Återställ lösenord</button>
         </div>
 
       </div>
     </div>
   </div>
+</div>
+
 </form>

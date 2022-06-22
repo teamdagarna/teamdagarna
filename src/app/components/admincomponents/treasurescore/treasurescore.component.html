@@ -1,7 +1,7 @@
-<h1 class="title is-2">Topplistor</h1>
+<h1 class="title is-2" style="text-transform: uppercase">Topplistor</h1>
 <div class="columns">
   <div class="column is-half">
-    <p class="has-text-weight-bold"> Tisdag: </p>
+    <p class="has-text-weight-bold"> Tisdag: </p><br>
     <table class="table is-fullwidth">
       <thead>
         <tr>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="column is-half">
-      <p class="has-text-weight-bold"> Onsdag: </p>
+      <p class="has-text-weight-bold"> Onsdag: </p><br>
       <table class="table is-fullwidth">
         <thead>
           <tr>
@@ -32,10 +32,10 @@
             <th>Poäng:</th>
           </tr>
         </thead>
-        <tfoot>
+        <!-- <tfoot>
           <th>Namn:</th>
           <th>Poäng:</th>
-        </tfoot>
+        </tfoot> -->
         <tbody>
           <ng-container *ngFor="let user of leaderBoardWednesday">
             <tr>

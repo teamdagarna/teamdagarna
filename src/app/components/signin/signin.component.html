@@ -1,14 +1,15 @@
-<section class="section">
-  <div class="container" *ngIf="!auth.isSignedIn()">
+<section class="hero" id="pink-title-hero">
+  <div class="hero-body" *ngIf="!auth.isSignedIn()">
     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
       <div class="columns is-centered">
-        <div class="column is-one-third">
+        <div class="column is-half">
+
 
           <div class="card login-card">
             <div class="card-content">
 
-              <h3 class="title is-2">Logga in</h3>
-              <h3 class="subtitle is-6">Om du inte tidigare varit inloggad på TEAM 2022 så ber vi dig skapa ett nytt konto via "Skapa konto" nedan.</h3>
+              <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Logga in</h3>
+              <h3 class="subtitle is-6" style="color: #463853;">Om du inte tidigare varit inloggad på TEAM 2022 så ber vi dig skapa ett nytt konto via "Skapa konto" nedan.</h3>
 
               <div class="field">
                 <label class="label" for="liuid">Liu-ID</label>
@@ -24,7 +25,7 @@
               </div>
               <p class="error-message">{{ errorMessage }}</p>
 
-              <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!loginForm.valid" class="button is-fullwidth">Logga in</button>
+              <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!loginForm.valid" class="button is-fullwidth" id="submit-button">Logga in</button>
               <div class="login-other-actions">
                 <a [routerLink]="['/signup']">
                   <p>

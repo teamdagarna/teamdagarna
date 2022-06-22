@@ -1,16 +1,12 @@
-<h1 class="title is-2">Lägg till event</h1>
-
-
 <form [formGroup]="addEventForm" (ngSubmit)="submit(addEventForm.value)">
-
-
-
   <div class="card login-card">
     <div class="card-content">
+      <h1 class="title is-2" style="text-transform: uppercase">Lägg till event</h1>
+
       <div class="columns">
         <div class="column is-half">
 
-          <div class="file is-info">
+          <div class="file">
             <label class="file-label">
           <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
           <span class="file-cta">
@@ -133,9 +129,8 @@
         <input class="input is-success" type="number" formControlName="coolness">
       </div>
 
-      <button type="submit" class="button is-fullwidth" [disabled]="!addEventForm.valid">Lägg till eventet</button>
+      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addEventForm.valid">Lägg till eventet</button>
     </div>
 
   </div>
-
 </form>

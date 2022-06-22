@@ -34,7 +34,8 @@
     <div class="card login-card">
 
       <div class="card-content">
-        <h1 class="title is-2">Lägg till Dreamteamer</h1>
+        <h1 class="title is-2" style="text-transform: uppercase">Ändra Dreamteamer</h1>
+
         <div class="field">
           <label class="label" for="companyName">För- och efternamn</label>
           <input class="input is-success" type="text" placeholder="Tex. 'Linus Gålén'" formControlName="fullname">
@@ -73,7 +74,7 @@
         <div class="columns">
           <div class="column is-half">
 
-            <div class="file is-info">
+            <div class="file">
               <label class="file-label">
                 <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
                 <span class="file-cta">
@@ -105,6 +106,5 @@
       </div>
 
     </div>
-
   </form>
 </ng-container>

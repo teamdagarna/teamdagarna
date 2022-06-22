@@ -93,7 +93,7 @@
               <p class="has-text-primary" *ngIf="attendedDoc.waitinglist && !confirmDelete">Du står som reserv.</p>
               <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist && !confirmDelete">Du är anmäld (Garanterad mat: <span *ngIf="attendedDoc.getsfood">Ja</span><span *ngIf="!attendedDoc.getsfood">Nej</span>).</p>
               <br>
-              <a class="button is-primary is-outlined" (click)="delete()">
+              <a class="button is-outlined" (click)="delete()">
             <span>Avanmäl dig</span>
             <span class="icon is-small">
               <i class="fas fa-times"></i>
@@ -102,13 +102,13 @@
             </ng-container>
             <ng-container *ngIf="!attended && selectedEvent.signonstarts.toDate() < today && selectedEvent.signonends.toDate() > today && loaded">
 
-              <a class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="attend() " *ngIf="(selectedEvent.maxattendance - numberofsignups)> 0 && loaded || (selectedEvent.maxattendance == 0 && loaded)">Anmäl dig*</a>
+              <a class="button" [ngClass]="{'is-loading': loading}" (click)="attend() " *ngIf="(selectedEvent.maxattendance - numberofsignups)> 0 && loaded || (selectedEvent.maxattendance == 0 && loaded)">Anmäl dig*</a>
 
               <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1 && selectedEvent.maxattendance != 0">Eventet är för tillfället fullt, men du kan sätta upp dig på reservlistan. Kom ihåg att om du sätter upp dig på reservlistan så är det du själv som måste hålla koll på om du fått en plats eller inte. Detta ser du lätt under din profil.</p>
               <br>
               <p class="has-text-danger" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1 && selectedEvent.maxattendance != 0">Just nu är det {{numberofreserves}} stycken reserver på listan.</p>
               <br>
-              <a class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1 && selectedEvent.maxattendance != 0">Sätt upp dig som reserv</a>
+              <a class="button" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="(selectedEvent.maxattendance - numberofsignups) < 1 && selectedEvent.maxattendance != 0">Sätt upp dig som reserv</a>
             </ng-container>
           </ng-container>
           <br>

@@ -1,26 +1,27 @@
-<div class="hero is-black is-bold">
+<div class="hero" id="title-hero">
+
   <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <h1 class="title"> Företagsinlogg </h1>
-          <h2 class="subtitle">Denna inloggningsida är för företag som erbjuder kontaktsamtal på mässan.</h2> </div>
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
+        <div class="column is-9">
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Företagsinlogg</h2>
+          <h2 class="subtitle is-6">Denna inloggningsida är för företag som erbjuder kontaktsamtal på mässan.</h2> </div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="section">
+<section class="hero">
   <div class="container">
     <form [formGroup]="companyLoginForm" (ngSubmit)="login(companyLoginForm.value)">
       <div class="columns is-centered">
-        <div class="column is-one-third">
+        <div class="column is-7">
 
           <div class="card login-card">
             <div class="card-content">
 
-              <h3 class="title is-2">Logga in</h3>
-              <h3 class="subtitle is-4">Du ska ha fått dina inloggningsuppgifter från kontaktsamtalsansvarig. Om du eller någon av dina kollegor inte fått, var vänlig kontakta Julia på <a href="mailto:julia.bogren@teamdagarna.com">julia.bogren@teamdagarna.com</a>.</h3>
+              <h3 class="title is-5">Logga in</h3>
+              <h3 class="subtitle is-8">Du ska ha fått dina inloggningsuppgifter från kontaktsamtalsansvarig. Om du eller någon av dina kollegor inte fått, var vänlig kontakta * på <a href="mailto:*@teamdagarna.com">*@teamdagarna.com</a>.</h3>
 
               <div class="field">
                 <label class="label" for="mail">Användarnamn</label>
@@ -33,7 +34,7 @@
               </div>
               <p class="error-message">{{ errorMessage }}</p>
 
-              <button type="submit" [disabled]="!companyLoginForm.valid" class="button is-fullwidth" [ngClass]="{'is-loading':loading}">Logga in</button>
+              <button type="submit" id="submit-button" [disabled]="!companyLoginForm.valid" class="button is-fullwidth" [ngClass]="{'is-loading':loading}">Logga in</button>
               <br>
               <br>
               <h3 class="subtitle">Om det av någon anledning inte fungerar att logga in eller visa kontaktsamtalen, testa följande:</h3>

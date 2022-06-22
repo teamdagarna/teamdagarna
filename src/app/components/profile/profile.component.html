@@ -1,21 +1,23 @@
-<div class="hero is-primary is-bold">
+<div class="hero" id="title-hero">
   <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <h1 class="title"> Din profil </h1>
-          <h2 class="subtitle">Här kan du hantera din profil. Glöm inte att kolla att årskurs och valda inriktningar stämmer! <!-- ha koll på event du är anmäld på, se dina poäng i pusseljakten samt se dina kontaktsamtalsansökningar.--> </h2> </div>
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered">
+        <div class="column is-9">
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Din profil</h2>
+          <h2 class="subtitle is-6">Här kan du hantera din profil, ha koll på event du är anmäld på, se dina poäng i pusseljakten samt se dina kontaktsamtalsansökningar. Glöm inte att kolla att årskurs och valda inriktningar stämmer!</h2> </div>
       </div>
     </div>
   </div>
 </div>
 
-<section *ngIf="user" class="section">
-  <div class="container">
-    <div class="columns">
+<section *ngIf="user" class="hero">
+  <div class="hero-body">
 
-      <div class="column is-6">
-        <ng-container *ngIf="user && !changeMode">
+    <div class="container is-mobile">
+        <div class="columns">
+          <div class="column">
+
+          <ng-container *ngIf="user && !changeMode">
           <div class="border-btm">
             <h1 class="title is-3 is-spaced">Dina uppgifter</h1>
           </div>
@@ -33,8 +35,8 @@
           <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
           <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
           <br>
-          <a class="button is-black is-small" (click)="toggleChange()">
-               <span class="icon is-small">
+          <a class="button" (click)="toggleChange()">
+               <span class="icon" id="white-icon">
                 <i class="fas fa-cog"></i>
              </span>
              <span>Ändra</span>
@@ -182,10 +184,10 @@
               <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
             </div>
 
-            <div *ngIf="changeForm.valid">Allt ser bra ut!</div>
-            <button type="submit" [disabled]="!changeForm.valid" class="button is-black is-small"><span class="icon is-small"><i class="fas fa-check"></i></span><span>Uppdatera</span></button>
+            <div *ngIf="changeForm.valid">Allt ser bra ut!</div><br>
 
-            <a class="button is-white is-small" (click)="toggleChange()">
+            <button type="submit" id="submit-button" [disabled]="!changeForm.valid" class="button is-small"><span class="icon" id="white-icon"><i class="fas fa-check"></i></span><span>Uppdatera</span></button>
+            &nbsp; <a class="button is-white is-small" (click)="toggleChange()">
                       <span class="icon is-small">
                       <i class="fas fa-times"></i>
                     </span>
@@ -197,7 +199,7 @@
 
 
       </div>
-      <div class="column is-6">
+      <div class="column">
 
         <!--<div class="border-btm">
           <h1 class="title is-3">Dina pusselbitar i pusseljakten:</h1>
@@ -214,13 +216,13 @@
           <h1 class="title is-3">Dina eventanmälningar</h1>
         </div>
         <ng-container *ngIf="events !== undefined && events.length !== 0">
-          <p class="subtitle is-6">Event där du är garanterad plats:</p>
+          <p class="title is-6">Event där du är garanterad plats:</p>
           <ng-container *ngFor="let event of events">
             <a *ngIf="!event.waitinglist" [routerLink]="['../events', event.event]"><i class="fas fa-angle-right"></i><strong>&nbsp;{{ event.eventtitle }} (Garanterad mat: <span *ngIf="event.getsfood">Ja</span><span *ngIf="!event.getsfood">Nej</span>)</strong></a><span *ngIf="!event.waitinglist"><br></span>
           </ng-container>
           <br>
           <br>
-          <h5 class="subtitle is-6">Event som du är reserv på:</h5>
+          <h5 class="title is-6">Event som du är reserv på:</h5>
           <ng-container *ngFor="let event of events">
             <a *ngIf="event.waitinglist" [routerLink]="['../events', event.event]"><i class="fas fa-angle-right"></i><strong>&nbsp;{{ event.eventtitle }} (RESERV)</strong></a><span *ngIf="event.waitinglist"><br></span>
           </ng-container>
@@ -271,14 +273,14 @@
               <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
-                    <span class="icon is-small">
+                    <span class="icon is-small" id="white-icon">
                       <i class="fas fa-check"></i>
                     </span>
                     <span>Tacka ja</span>
                 </button>
                   <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
                   <span>Tacka nej</span>
-                  <span class="icon is-small">
+                  <span class="icon is-small" id="white-icon">
                     <i class="fas fa-times"></i>
                   </span>
                 </button>
@@ -346,14 +348,16 @@
 
       </div>
     </div>
+
+    </div>
   </div>
 </section>
 
 
-<section class="section" *ngIf="!user">
-  <div class="container">
+<section class="hero" *ngIf="!user">
+  <div class="container is-centered">
     <h1 class="title is-3">Du måste vara inloggad för att kunna se din profil!</h1>
-    <a [routerLink]="['../signin']" class="subtitle is-3 has-text-primary has-text-weight-semibold">
+    <a [routerLink]="['../signin']" class="subtitle is-3 has-text-weight-semibold">
       Klicka här för att logga in!
     </a>
   </div>

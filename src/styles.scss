@@ -341,6 +341,22 @@ hr {
   color: $light-pink;
 }
 
+#submit-button {
+  border-radius: 25px;
+  background-color: #e75578;
+  color: white;
+  border: none;
+
+  &:hover {
+    // background-color: $subsubtitle-color;
+    //color: $subsubtitle-color;
+    background-color: #e77da9;
+    color: white;
+    //opacity: 0.85;
+    transition: 0.3s;
+  }
+}
+
 .button {
   border-radius: 25px;
   background-color: $title-color;
@@ -605,7 +621,7 @@ hr {
   color: white;
 }
 
-.hero .title {
+.title {
   font-family: "PT Sans", sans-serif;
   color: #463853;
 }

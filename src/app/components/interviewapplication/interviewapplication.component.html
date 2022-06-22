@@ -1,4 +1,4 @@
-<div class="hero is-primary is-bold">
+<div class="hero">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-vcentered">
@@ -40,7 +40,7 @@
         <div class="field">
           <label class="label">Välj företag</label>
           <div class="control has-icons-left">
-            <div class="select is-primary is-large is-fullwidth">
+            <div class="select is-large is-fullwidth">
               <select formControlName="selectedCompany" (ngModelChange)="getCompany($event)">
                 <option value="-1">Välj företag</option>
                 <option *ngFor="let company of companies" value="{{company.id}}" [selected]="preselected != null && company.id==preselected" [disabled]="hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5)">{{ company.name }}</option>
@@ -201,7 +201,7 @@
             </div>
 
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
-            <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="(hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || !okToSubmit()) && !applyOpenOkToSubmit()">Skicka ansökan</button><br>
+            <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="(hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || !okToSubmit()) && !applyOpenOkToSubmit()">Skicka ansökan</button><br>
             <span *ngIf="hasApplied(company.id) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
             <span *ngIf="(company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt 6 kontaktsamtal och kan därmed inte söka fler! </p><br></span>
 

@@ -1,4 +1,4 @@
-<h1 class="title is-2">Tisdag</h1>
+<h1 class="title is-2" style="text-transform: uppercase">Tisdag</h1>
 <form [formGroup]="treasureGenerateFormTuesday" (ngSubmit)="submitTuesday(treasureGenerateFormTuesday.value)">
   <div class="field">
     <label class="label">Välj företag</label>
@@ -21,9 +21,9 @@
 <br>
 <ng-container *ngFor="let code of treasureCodesTuesday">
   <p>{{ code.companyname }}: {{ code.treasurecode }}</p>
-</ng-container>
+</ng-container><br>
 
-<h1 class="title is-2">Onsdag</h1>
+<h1 class="title is-2" style="text-transform: uppercase">Onsdag</h1>
 <form [formGroup]="treasureGenerateFormWednesday" (ngSubmit)="submitWednesday(treasureGenerateFormWednesday.value)">
   <div class="field">
     <label class="label">Välj företag</label>

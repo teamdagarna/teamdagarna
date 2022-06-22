@@ -2,7 +2,7 @@
   font-size: 16px;
   line-height: 1.5;
   height: 100%;
-  background: #ECF0F3;
+  background: #ecf0f3;
   padding-top: 80px;
 }
 
@@ -30,24 +30,24 @@ nav.navbar {
 }
 
 .menu-label {
-  color: #8F99A3;
+  color: #8f99a3;
   letter-spacing: 1.3;
   font-weight: 700;
 }
 
 .menu-list a {
-  color: #0F1D38;
+  color: #0f1d38;
   font-size: 14px;
   font-weight: 700;
 }
 
 .menu-list a:hover {
   background-color: transparent;
-  color: #276cda;
+  color: #e77da9;
 }
 
 .menu-list a.is-active {
   background-color: transparent;
-  color: #276cda;
+  color: #e77da9;
   font-weight: 700;
 }

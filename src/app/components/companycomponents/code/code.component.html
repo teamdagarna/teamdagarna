@@ -1,10 +1,11 @@
-<div class="hero is-black is-bold">
+<div class="hero" id="title-hero">
+
   <div class="hero-body">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-two-thirds">
-          <h1 class="title"> Välj ut studenter </h1>
-          <h2 class="subtitle">Här kan ni se alla studenter som sökt kontaktsamtal och välja ut de ni vill prata med.</h2> </div>
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
+        <div class="column is-9">
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Välj ut studenter</h2>
+          <h2 class="subtitle is-6">Här kan ni se alla studenter som sökt kontaktsamtal och välja ut de ni vill prata med.</h2> </div>
       </div>
     </div>
   </div>
@@ -17,5 +18,6 @@
     <input class="input" type="text" placeholder="Skriv in koden du fått" formControlName="code">
   </div>
 
-  <button type="submit" class="button is-fullwidth is-primary" [ngClass]="{'is-loading':loading}" [disabled]="false">Generera</button>
+  <button type="submit" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="false">Generera</button>
+<br>
 </form>

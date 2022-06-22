@@ -1,4 +1,4 @@
-<div class="hero is-primary is-bold">
+<div class="hero">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-vcentered">
@@ -20,7 +20,7 @@
         </figure>
         <br>
         <div *ngIf="submitMode && !registered">
-          <button class="button is-fullwidth is-primary" (click)="register()" [ngClass]="{'is-loading':loading}" [disabled]="false">Registrera dig! <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
+          <button class="button is-fullwidth" (click)="register()" [ngClass]="{'is-loading':loading}" [disabled]="false">Registrera dig! <span>&nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
         </div>
         <div *ngIf="success && !loading">
           <div class="notification is-success">

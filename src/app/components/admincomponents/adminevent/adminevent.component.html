@@ -1,14 +1,11 @@
 <form [formGroup]="changeEventForm" (ngSubmit)="submit(changeEventForm.value)">
-
-
-
   <div class="card login-card">
     <div class="card-content">
-      <h1 class="title is-2">Ändra event</h1>
+      <h1 class="title is-2" style="text-transform: uppercase">Ändra event</h1>
       <div class="columns">
         <div class="column is-half">
 
-          <div class="file is-info">
+          <div class="file">
             <label class="file-label">
           <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
           <span class="file-cta">
@@ -130,5 +127,4 @@
     </div>
 
   </div>
-
 </form>

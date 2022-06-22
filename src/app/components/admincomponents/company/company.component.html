@@ -1,12 +1,10 @@
-<h1 class="title is-2">Ändra företag</h1>
-
-
 <form [formGroup]="addCompanyForm" (ngSubmit)="submit(addCompanyForm.value)">
 
 
 
   <div class="card login-card">
     <div class="card-content">
+      <h1 class="title is-2" style="text-transform: uppercase">Ändra företag</h1>
 
 
       <div class="field">
@@ -16,7 +14,7 @@
       <div class="columns">
         <div class="column is-half">
 
-          <div class="file is-info">
+          <div class="file">
             <label class="file-label">
           <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
           <span class="file-cta">
@@ -195,12 +193,12 @@
         </div>
       </div>
 
-      <div class="field">
+      <!-- <div class="field">
         <label class="label" for="placeID">PlatsID</label>
         <input class="input is-success" placeholder="PlatsID från Mapwize" type="text" formControlName="placeID">
-      </div>
+      </div> -->
 
-      <button type="submit" class="button is-fullwidth" [disabled]="!addCompanyForm.valid">Lägg till företaget</button>
+      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addCompanyForm.valid">Spara företaget</button>
     </div>
 
   </div>

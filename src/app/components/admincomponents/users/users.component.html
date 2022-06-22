@@ -1,11 +1,12 @@
-<h1 class="title is-2">Användare</h1>
 <div class="field">
+  <h1 class="title is-2" style="text-transform: uppercase">Användare</h1>
+
   <div class="control">
     <input class="input" type="text" placeholder="Sök..." [(ngModel)]="searchterm" (keydown)="search($event)">
   </div>
 </div>
 
-<table class="table">
+<table class="table is-fullwidth">
   <thead>
 
     <tr>
@@ -38,7 +39,7 @@
         <a [routerLink]="['../modifyuser/', club.uid]" class="button is-info is-rounded is-small">
 
     <span>Ändra</span>
-    <span class="icon is-small">
+    <span class="icon is-small" style="color:white;">
       <i class="fas fa-edit"></i>
     </span>
   </a>
