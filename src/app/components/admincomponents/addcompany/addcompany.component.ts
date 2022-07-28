@@ -166,6 +166,15 @@ export class AddcompanyComponent implements OnInit {
       'pitchLecture': [false, [
         ]
       ],
+      'preTEAM': [false, [
+        ]
+      ],
+      'startUpZone': [false, [
+        ]
+      ],
+      'climateComp': [false, [
+        ]
+      ],
       'interviewinfo': ['', [
         ]
       ],
@@ -178,6 +187,22 @@ export class AddcompanyComponent implements OnInit {
       'reqresume': [false, [
         ]
       ],
+      'linkedIn': ['', [
+        ]
+      ],
+      'instagram': ['', [
+        ]
+      ],
+      'twitter': ['', [
+        ]
+      ],
+      'facebook': ['', [
+        ]
+      ],
+      'hemsida': ['', [
+        Validators.required
+        ]
+      ], 
       'placeID': ['', [
         ]
       ],
@@ -227,6 +252,7 @@ export class AddcompanyComponent implements OnInit {
       thirdyear: data.thirdyear,
       fourthyear: data.fourthyear,
       fifthyear: data.fifthyear,
+      preTEAM: data.preTEAM,
       firstdayappearance: data.firstdayappearance,
       seconddayappearance: data.seconddayappearance,
       interviewpackages: {
@@ -239,6 +265,8 @@ export class AddcompanyComponent implements OnInit {
       treasurehuntTuesday: data.treasurehuntTuesday,
       treasurehuntWednesday: data.treasurehuntWednesday,
       pitchLecture: data.pitchLecture,
+      startUpZone: data.startUpZone,
+      climateComp: data.climateComp,
       about: data.about,
       values: data.values,
       logopath: this.logopath,
@@ -247,6 +275,11 @@ export class AddcompanyComponent implements OnInit {
       reqcl: data.reqcl,
       reqgrades: data.reqgrades,
       interviewinfo: data.interviewinfo,
+      linkedIn: data.linkedIn,
+      instagram: data.instagram,
+      twitter: data.twitter,
+      hemsida: data.hemsida,
+      facebook: data.facebook,
       placeID: data.placeID
     }
 

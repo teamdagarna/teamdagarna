@@ -14,20 +14,21 @@
       </a>
       <div class="card-body ">
         <div class="card-title "> {{ company.name }}</div>
-        <div class="card-meta ">{{ company.industry }} <br><span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span> &nbsp;<span data-balloon="Vi erbjuder kontaktsamtal!
-      " data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;</span>
-          <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+        <div class="card-meta ">{{ company.industry }} <br>
+          <span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" *ngIf="company.climateComp" data-balloon-pos="down"><i class="fas fa-leaf "></i>&nbsp;&nbsp;&nbsp;</span>
+          <span data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;&nbsp;&nbsp;</span>
+          <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i>&nbsp;&nbsp;&nbsp;</span>
         </div>
         <div class="card-description ">
           <div class="tags ">
             <span class="tag " *ngIf="company.internship ">Internship</span>
             <span class="tag " *ngIf="company.fulltime ">Heltidsjobb</span>
-            <span class="tag " *ngIf="company.parttime ">Deltidsjobb</span>
+            <span class="tag " *ngIf="company.parttime ">Extrajobb</span>
             <span class="tag " *ngIf="company.summerjob ">Sommarjobb</span>
             <span class="tag " *ngIf="company.masterthesis ">Ex-jobb</span>
-            <span class="tag " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+            <!-- <span class="tag " *ngIf="company.abroad ">Utlandsmöjligheter</span> -->
             <span class="tag " *ngIf="company.trainee ">Trainee</span>
-            <span class="tag " *ngIf="company.otherthesis ">Uppsatshandledning</span>
+            <!-- <span class="tag " *ngIf="company.otherthesis ">Uppsatshandledning</span> -->
           </div>
         </div>
       </div>
@@ -40,27 +41,44 @@
 <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
   <div class="modal-background " (click)="closeModal() "></div>
   <div class="modal-card">
+
     <header class="modal-card-head ">
       <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>&nbsp;&nbsp;
-        <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf "></i></span>&nbsp;&nbsp;
-        <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="down"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>&nbsp;&nbsp;
-        <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift "></i></span>
+        <span class="modal-fa has-text-success " *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf " style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
+        <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview "></i>&nbsp;&nbsp;&nbsp;</span>
+        <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-gift " style="color: #463853"></i></span>
       </p>
       <button class="delete " aria-label="close " (click)="closeModal() "></button>
-
     </header>
 
     <section class="modal-card-body ">
-      <div class="columns is-multiline ">
+      <div class="columns ">
 
         <div class="column is-4 ">
-          <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+        <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
 
-          <!-- <h5 class="title is-5 ">Vi ställer ut</h5>
+          <img style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+        </a>&nbsp;&nbsp;<br>
+          <a *ngIf="modalCompany.linkedIn" href="{{ modalCompany.linkedIn }}" target="_blank" data-balloon="Besök på LinkedIn" data-balloon-pos="right">
+            <i class="fab fa-linkedin-in" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+          </a>
+          <a *ngIf="modalCompany.instagram" href="{{ modalCompany.instagram }}" target="_blank" data-balloon="Besök på Instagram" data-balloon-pos="right">
+            <i class="fab fa-instagram" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+          </a>
+          <a *ngIf="modalCompany.facebook" href="{{ modalCompany.facebook }}" target="_blank" data-balloon="Besök på Facebook" data-balloon-pos="right">
+            <i class="fab fa-facebook" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+          </a>
+          <a *ngIf="modalCompany.twitter" href="{{ modalCompany.twitter }}" target="_blank" data-balloon="Besök på Twitter" data-balloon-pos="right">
+            <i class="fab fa-twitter" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+          </a><br>
+        
+
+
+          <h5 class="title is-5 ">Vi ställer ut</h5>
           <div class="tags ">
             <span class="tag " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
             <span class="tag " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
-          </div> -->
+          </div>
           <h5 class="title is-5 ">Bransch</h5>
           <div class="tags ">
             <span class="tag " *ngIf="modalCompany.consulting ">Consulting</span>
@@ -80,13 +98,13 @@
           <h5 class="title is-5 ">Vi erbjuder</h5>
           <div class="tags ">
             <span class="tag " *ngIf="modalCompany.internship ">Internship</span>
-            <span class="tag " *ngIf="modalCompany.fulltime ">Heltidsjobb</span>
-            <span class="tag " *ngIf="modalCompany.parttime ">Deltidsjobb</span>
+            <!-- <span class="tag " *ngIf="modalCompany.fulltime ">Heltidsjobb</span> -->
+            <span class="tag " *ngIf="modalCompany.parttime ">Extrajobb</span>
             <span class="tag " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
             <span class="tag " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
-            <span class="tag " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span>
+            <!-- <span class="tag " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span> -->
             <span class="tag " *ngIf="modalCompany.trainee ">Trainee</span>
-            <span class="tag " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span>
+            <!-- <span class="tag " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span> -->
           </div>
 
 

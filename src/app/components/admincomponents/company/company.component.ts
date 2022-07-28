@@ -135,6 +135,15 @@ export class CompanyComponent implements OnInit {
       'pitchLecture': [false, [
         ]
       ],
+      'preTEAM': [false, [
+        ]
+      ],
+      'startUpZone': [false, [
+        ]
+      ],
+     'climateComp': [false, [
+        ]
+      ],
       'interviewinfo': ['', [
         ]
       ],
@@ -151,6 +160,22 @@ export class CompanyComponent implements OnInit {
         ]
       ],
       'seeopenapplicants': [false, [
+        ]
+      ],
+      'linkedIn': ['', [
+        ]
+      ],
+      'instagram': ['', [
+        ]
+      ],
+      'twitter': ['', [
+        ]
+      ],
+      'facebook': ['', [
+        ]
+      ],
+      'hemsida': ['', [
+        Validators.required
         ]
       ],
       'placeID': ['', [
@@ -237,6 +262,7 @@ export class CompanyComponent implements OnInit {
         thirdyear: data.thirdyear,
         fourthyear: data.fourthyear,
         fifthyear: data.fifthyear,
+        preTEAM: data.preTEAM,
         firstdayappearance: data.firstdayappearance,
         seconddayappearance: data.seconddayappearance,
         interviewpackages: {
@@ -248,7 +274,9 @@ export class CompanyComponent implements OnInit {
         treasurehunt: data.treasurehunt,
         treasurehuntTuesday: data.treasurehuntTuesday,
         treasurehuntWednesday: data.treasurehuntWednesday,
-        pitchLecture: data.pitchLecture,
+        pitchLecture: data.pitchLecture,  
+        startUpZone: data.startUpZone,
+        climateComp: data.climateComp,
         about: data.about,
         values: data.values,
         logopath: this.logopath,
@@ -259,6 +287,11 @@ export class CompanyComponent implements OnInit {
         interviewinfo: data.interviewinfo,
         totalapplicants: data.totalapplicants,
         seeopenapplicants: data.seeopenapplicants,
+        linkedIn: data.linkedIn,
+        instagram: data.instagram,
+        twitter: data.twitter,
+        hemsida: data.hemsida,
+        facebook: data.facebook,
         placeID: data.placeID
       }
 

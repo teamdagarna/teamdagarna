@@ -20,7 +20,8 @@ export class EventsComponent implements OnInit {
   selectedEvent: any = null;
 
   constructor(private afs: AngularFirestore) {
-    this.getEvents().subscribe(events => {
+    this.getEvents().subscribe((events: any) => {
+      console.log(events)
       this.events = events;
       this.fairevents = _.orderBy(_.filter(events, function(event) {
        return (event.preorunder == 'Mässdagarna')

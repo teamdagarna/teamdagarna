@@ -81,18 +81,18 @@
           <div class="field">
             <input type="checkbox" formControlName="summerjob"> Sommarjobb
           </div>
-          <div class="field">
+          <!-- <div class="field">
             <input type="checkbox" formControlName="abroad"> Utlandsmöjligheter
           </div>
           <div class="field">
             <input type="checkbox" formControlName="otherthesis"> Uppsatshandledning
-          </div>
+          </div> -->
           <div class="field">
-            <input type="checkbox" formControlName="parttime"> Deltidsjobb
+            <input type="checkbox" formControlName="parttime"> Extrajobb
           </div>
-          <div class="field">
+          <!-- <div class="field">
             <input type="checkbox" formControlName="fulltime"> Heltidsjobb
-          </div>
+          </div> -->
           <div class="field">
             <input type="checkbox" formControlName="trainee"> Traineeprogram
           </div>
@@ -124,6 +124,12 @@
       </div>
 
       <div class="field">
+        <label class="label">Event under inför-dagarna?</label>
+        <input type="checkbox" formControlName="preTEAM"> Ja
+      </div>
+
+
+      <div class="field">
         <label class="label">Ställer ut</label>
         <input type="checkbox" formControlName="firstdayappearance"> Tisdag
       </div>
@@ -133,13 +139,11 @@
 
       <div class="field">
         <label class="label">Kontaktsamtal Tisdag</label>
-        <input type="checkbox" formControlName="firstdaypackage1"> 10x20min
-        <input type="checkbox" formControlName="firstdaypackage2"> 5x40min
+        <input type="checkbox" formControlName="firstdaypackage1"> 8x25min
       </div>
       <div class="field">
         <label class="label">Kontaktsamtal Onsdag</label>
-        <input type="checkbox" formControlName="seconddaypackage1"> 10x20min
-        <input type="checkbox" formControlName="seconddaypackage2"> 5x40min
+        <input type="checkbox" formControlName="seconddaypackage1"> 8x25min
       </div>
 
       <div class="field">
@@ -171,16 +175,27 @@
         <input type="checkbox" formControlName="pitchLecture"> Ja
       </div>
 
+      <div class="field">
+        <label class="label">Startup-zone?</label>
+        <input type="checkbox" formControlName="startUpZone"> Ja
+      </div>
+
 
       <div class="field">
-        <label class="label">Om företaget</label>
+        <label class="label">Klimatkompensation?</label>
+        <input type="checkbox" formControlName="climateComp"> Ja
+      </div>
+
+
+      <div class="field">
+        <label class="label">OM</label>
         <div class="control">
           <textarea class="textarea" placeholder="Som blir avsnittet 'Om oss' i företagsbeskrivningen." formControlName="about"></textarea>
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Företaget värdesätter</label>
+        <label class="label">Vad företaget värdesätter</label>
         <div class="control">
           <textarea class="textarea" placeholder="Som blir avsnittet 'Vi värdesätter' i företagsbeskrivningen." formControlName="values"></textarea>
         </div>
@@ -192,11 +207,29 @@
           <textarea class="textarea" placeholder="Text som syns när student söker kontaktsamtal" formControlName="interviewinfo"></textarea>
         </div>
       </div>
-
-      <!-- <div class="field">
-        <label class="label" for="placeID">PlatsID</label>
-        <input class="input is-success" placeholder="PlatsID från Mapwize" type="text" formControlName="placeID">
-      </div> -->
+      
+      <div class="field">
+        <label class="label">Länk till företagets hemsida</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.XXX.yy/" formControlName="hemsida"></textarea>
+        </div>
+        <label class="label">LinkedIn</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.linkedin.com/in/XXXXXXX/" formControlName="linkedIn"></textarea>
+        </div>
+        <label class="label">Instagram</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.instagram.com/XXXXXXX/" formControlName="instagram"></textarea>
+        </div>
+        <label class="label">Twitter</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.twitter.com/XXXXXXX/" formControlName="twitter"></textarea>
+        </div>
+        <label class="label">Facebook</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.facebook.com/XXXXXXX/" formControlName="facebook"></textarea>
+        </div>
+      </div>
 
       <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addCompanyForm.valid">Spara företaget</button>
     </div>

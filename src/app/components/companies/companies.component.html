@@ -5,9 +5,9 @@
       <div class="columns is-centered ">
         <div class="column is-9">
           <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Företagen 2022</h2>
-          <h2 class="subtitle is-6">Mer information om 2022 års deltagande företag kommer. </h2>
+          <!-- <h2 class="subtitle is-6">Mer information om 2022 års deltagande företag kommer. </h2> -->
 
-          <!-- <h2 class="subtitle">Vi är stolta att presentera 2021 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2> -->
+          <h2 class="subtitle is-6" style="color: #463853" >Vi är stolta att presentera 2022 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
           <a class="button is-inverted is-outlined" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
 
         </div>
@@ -47,11 +47,11 @@
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('masterthesis', $event.target.checked)"> Exjobb
             </div>
-            <div class="dropdown-item">
+            <!-- <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('fulltime', $event.target.checked)"> Heltid
-            </div>
+            </div> -->
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('parttime', $event.target.checked)"> Deltid
+              <input type="checkbox" (change)="filterBoolean('parttime', $event.target.checked)"> Extrajobb
             </div>
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('trainee', $event.target.checked)"> Traineeprogram
@@ -59,12 +59,12 @@
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('summerjob', $event.target.checked)"> Sommarjobb
             </div>
-            <div class="dropdown-item">
+            <!-- <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('abroad', $event.target.checked)"> Utlandsmöjligheter
             </div>
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('otherthesis', $event.target.checked)"> Uppsatshandledning
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
         </div>
       </div>
 
-      <!--
+      
 
 
 
@@ -112,7 +112,7 @@
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
       <span>Bransch</span>
-      <span class="icon is-small">
+      <span class="icon is-small" id="white-icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
     </button>
@@ -157,7 +157,30 @@
 
           </div>
         </div>
-      </div> -->
+      </div>
+
+
+      <div class="filter-dropdown dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Utställningsdag</span>
+      <span class="icon is-small" id="white-icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('firstdayappearance', $event.target.checked)"> Ställer ut tisdag
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('seconddayappearance', $event.target.checked)"> Ställer ut onsdag
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -169,24 +192,25 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
-            <!-- <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('firstdayappearance', $event.target.checked)"> Ställer ut tisdag
+            
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('climateComp', $event.target.checked)"> Klimatkompenserar
             </div>
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('seconddayappearance', $event.target.checked)"> Ställer ut onsdag
+              <input type="checkbox" (change)="filterBoolean('preTEAM', $event.target.checked)"> Event under inför-dagarna
             </div>
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('treasurehunt', $event.target.checked)"> Deltar i pusseljakten
-            </div> -->
+            </div> 
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('offersinterview', $event.target.checked)"> Erbjuder kontaktsamtal
             </div>
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('pitchLecture', $event.target.checked)"> Kommer ha en instagram-takeover!
+              <input type="checkbox" (change)="filterBoolean('startUpZone', $event.target.checked)"> Startup-zone
             </div>
-            <!-- <div class="dropdown-item">
+            <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('pitchLecture', $event.target.checked)"> Håller pitchföreläsning
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -223,11 +247,10 @@
           <div class="card-body">
             <div class="card-title"> {{ company.name }}</div>
             <div class="card-meta ">{{ company.industry }} <br>
-              <!--<span class="icon is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i></span><span class="icon is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="right"><i class="fas fa-leaf"></i></span>-->
-              <span class="icon is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="icon is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="right" *ngIf="company.offersinterview"><i class="fas fa-comments"></i></span>
-              <span class="icon is-hidden-touch" *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i></span><span class="icon is-hidden-desktop" *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="right"><i class="fas fa-puzzle-piece "></i></span>
-              <span class="icon is-hidden-touch" *ngIf="company.pitchLecture" data-balloon="Vi kommer ha en instagram-takeover!" data-balloon-pos="down"><i class="fas fa-eye"></i></span><span class="icon is-hidden-desktop" *ngIf="company.pitchLecture" data-balloon="Vi håller pitchföreläsning!" data-balloon-pos="right"><i class="fas fa-eye"></i></span>
-            </div>
+              <span  *ngIf="company.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i>&nbsp;&nbsp;&nbsp;</span>
+              <span  data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i> &nbsp;&nbsp;&nbsp;</span>
+              <span c *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
+            </div> 
             <div class="card-description ">
               <div class="tags ">
                 <span class="tag   " *ngIf="company.internship ">Internship</span>
@@ -244,7 +267,6 @@
           <div class="card-footer">
             <div class="column footer-column">
             <a class="button   is-outlined is-small" (click)="openModal(company) ">Läs mer</a>&nbsp;
-            <!--<a class="button   is-outlined is-small" [routerLink]="['/masskarta']" [queryParams]="{ preselected: company.placeID }">Hitta plats på mässan!&nbsp;<span class="icon"><i class="fas fa-map-marker-alt"></i></span></a>-->
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="far fa-2x has-text-centered fa-heart"></i></span>
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-centered fa-heart"></i></span>&nbsp;
             <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="fas fa-2x has-text-centered fa-heart"></i></span>
@@ -263,12 +285,11 @@
     <div class="modal-card ">
       <header class="modal-card-head">
         <p class="modal-card-title"><strong>{{ modalCompany.name }}</strong>
-          <span class="modal-fa has-text-success" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="up"><i class="fas fa-leaf"></i></span>
-          <span class="modal-fa has-text-info" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview"></i></span> 
-          <span class="modal-fa has-text-danger" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="up"><i class="fas fa-puzzle-piece"></i></span>
+          <span class="modal-fa has-text-success" *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
+          <span class="modal-fa has-text-info" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview"></i>&nbsp;&nbsp;&nbsp;</span> 
+          <span class="modal-fa has-text-danger" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
           <!-- den här knappen kanske är en fullösning, men testar den så länge-->
           <a class="btn-outline" href ="https://teamdagarna.com/events" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="up"><i class="fas fa-puzzle-piece"></i></a>
-          <span class="modal-fa has-text-warning" *ngIf="modalCompany.pitchLecture" data-balloon="Vi kommer ha en instagram-takeover!" data-balloon-pos="up"><i class="fas fa-eye"></i></span>
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-heart"></i></span>
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-heart"></i></span>
         </p>
@@ -280,14 +301,30 @@
         <div class="columns is-multiline ">
 
           <div class="column is-4">
-            <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+            <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
+              <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+            </a>&nbsp;&nbsp;<br>
 
-            <!--<h5 class="title is-5 ">Vi ställer ut</h5>
+            <a *ngIf="modalCompany.linkedIn" href="{{ modalCompany.linkedIn }}" target="_blank" data-balloon="Besök på LinkedIn" data-balloon-pos="right">
+              <i class="fab fa-linkedin-in" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a *ngIf="modalCompany.instagram" href="{{ modalCompany.instagram }}" target="_blank" data-balloon="Besök på Instagram" data-balloon-pos="right">
+              <i class="fab fa-instagram" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a *ngIf="modalCompany.facebook" href="{{ modalCompany.facebook }}" target="_blank" data-balloon="Besök på Facebook" data-balloon-pos="right">
+              <i class="fab fa-facebook" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a *ngIf="modalCompany.twitter" href="{{ modalCompany.twitter }}" target="_blank" data-balloon="Besök på Twitter" data-balloon-pos="right">
+              <i class="fab fa-twitter" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+            </a><br>
+            
+            <h5 class="title is-5 ">Vi ställer ut</h5>
             <div class="tags ">
               <span class="tag   " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
               <span class="tag   " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
-            </div>-->
+            </div>
             <h5 class="title is-5 ">Bransch</h5>
+
           <div class="tags ">
             <span class="tag   " *ngIf="modalCompany.consulting ">Consulting</span>
             <span class="tag   " *ngIf="modalCompany.industri ">Industri</span>
@@ -306,13 +343,13 @@
             <h5 class="title is-5 ">Vi erbjuder</h5>
             <div class="tags ">
               <span class="tag   " *ngIf="modalCompany.internship ">Internship</span>
-              <span class="tag   " *ngIf="modalCompany.fulltime ">Heltidsjobb</span>
-              <span class="tag   " *ngIf="modalCompany.parttime ">Deltidsjobb</span>
+              <!-- <span class="tag   " *ngIf="modalCompany.fulltime ">Heltidsjobb</span> -->
+              <span class="tag   " *ngIf="modalCompany.parttime ">Extrajobb</span>
               <span class="tag   " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
               <span class="tag   " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
-              <span class="tag   " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span>
+              <!-- <span class="tag   " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span> -->
               <span class="tag   " *ngIf="modalCompany.trainee ">Trainee</span>
-              <span class="tag   " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span>
+              <!-- <span class="tag   " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span> -->
             </div>
 
 

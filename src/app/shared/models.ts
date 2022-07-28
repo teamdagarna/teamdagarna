@@ -106,9 +106,17 @@ export interface Company {
   fourthyear?: boolean;
   fifthyear?: boolean;
 
+  preTEAM?: boolean;
   totalapplicants?: number;
   seeopenapplicants?: boolean;
   pitchLecture?: boolean;
+  startUpZone?: boolean;
+  climateComp?: boolean;
+  hemsida?: string;
+  linkedIn?: string;
+  instagram?: string;
+  twitter?: string;
+  facebook?: string;
   placeID?: string;
 }
 
