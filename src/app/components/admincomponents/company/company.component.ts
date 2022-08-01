@@ -98,6 +98,66 @@ export class CompanyComponent implements OnInit {
       'fifthyear': [false, [
         ]
       ],
+
+
+      'digitalMan': [true, [
+      ]
+     ],
+     'finans': [true, [
+    ]
+   ],
+   'industriellmarknad': [true, [
+  ]
+ ],
+ 'kvalitetVerksam': [true, [
+]
+],
+'logistikMaster': [true, [
+]
+],
+'projektInno': [true, [
+]
+],
+'produktionsledning': [true, [
+]
+],
+'strategiStyrning': [true, [
+]
+],
+'systemteknik': [true, [
+]
+],
+'maskinteknik': [true, [
+]
+],
+'bioteknik': [true, [
+]
+],
+'datateknik': [true, [
+]
+],
+'energiteknik': [true, [
+]
+],
+'redovisning': [true, [
+]
+],
+'ekonomistyrning': [true, [
+]
+],
+'strategiMarknad': [true, [
+]
+],
+'finansiellekonomi': [true, [
+]
+],
+'nationalekonomi': [true, [
+]
+],
+'ekonomiskanalys': [true, [
+]
+],
+
       'about': ['', [
         Validators.required
         ]
@@ -246,6 +306,7 @@ export class CompanyComponent implements OnInit {
 
       const changedCompany: Company = {
         name: data.companyName,
+
         industry: data.industry,
         internship: data.internship,
         masterthesis: data.masterthesis,
@@ -255,6 +316,7 @@ export class CompanyComponent implements OnInit {
         trainee: data.trainee,
         summerjob: data.summerjob,
         abroad: data.abroad,
+
         engineers: data.engineers,
         filfakare: data.filfakare,
         firstyear: data.firstyear,
@@ -262,6 +324,27 @@ export class CompanyComponent implements OnInit {
         thirdyear: data.thirdyear,
         fourthyear: data.fourthyear,
         fifthyear: data.fifthyear,
+
+        digitalMan: data.digitalMan,
+        finans: data.finans,
+        industriellmarknad: data.industriellmarknad,
+        kvalitetVerksam: data.kvalitetVerksam,
+        logistikMaster: data.logistikMaster,
+        projektInno: data.projektInno,
+        produktionsledning: data.produktionsledning,
+        strategiStyrning: data.strategiStyrning,
+        systemteknik: data.systemteknik,
+        maskinteknik: data.maskinteknik,
+        bioteknik: data.bioteknik,
+        datateknik: data.datateknik,
+        energiteknik: data.energiteknik,
+        redovisning: data.redovisning,
+        ekonomistyrning: data.ekonomistyrning,
+        strategiMarknad: data.strategiMarknad,
+        finansiellekonomi: data.finansiellekonomi,
+        nationalekonomi: data.nationalekonomi,
+        ekonomiskanalys: data.ekonomiskanalys,  
+
         preTEAM: data.preTEAM,
         firstdayappearance: data.firstdayappearance,
         seconddayappearance: data.seconddayappearance,

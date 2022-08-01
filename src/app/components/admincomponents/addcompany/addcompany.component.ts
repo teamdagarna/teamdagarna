@@ -129,6 +129,66 @@ export class AddcompanyComponent implements OnInit {
       'fifthyear': [false, [
         ]
       ],
+
+      'digitalMan': [true, [
+      ]
+     ],
+     'finans': [true, [
+    ]
+   ],
+   'industriellmarknad': [true, [
+  ]
+ ],
+ 'kvalitetVerksam': [true, [
+]
+],
+'logistikMaster': [true, [
+]
+],
+'projektInno': [true, [
+]
+],
+'produktionsledning': [true, [
+]
+],
+'strategiStyrning': [true, [
+]
+],
+'systemteknik': [true, [
+]
+],
+'maskinteknik': [true, [
+]
+],
+'bioteknik': [true, [
+]
+],
+'datateknik': [true, [
+]
+],
+'energiteknik': [true, [
+]
+],
+'redovisning': [true, [
+]
+],
+'ekonomistyrning': [true, [
+]
+],
+'strategiMarknad': [true, [
+]
+],
+'finansiellekonomi': [true, [
+]
+],
+'nationalekonomi': [true, [
+]
+],
+'ekonomiskanalys': [true, [
+]
+],
+
+
       'about': ['', [
         Validators.required
         ]
@@ -223,6 +283,7 @@ export class AddcompanyComponent implements OnInit {
 
     const newCompany: Company = {
       name: data.companyName,
+
       industry: data.industry,
       consulting: data.consulting,
       industri: data.industri,
@@ -237,6 +298,7 @@ export class AddcompanyComponent implements OnInit {
       revision: data.revision,
       startup: data.startup,
       other: data.other,
+
       internship: data.internship,
       masterthesis: data.masterthesis,
       otherthesis: data.otherthesis,
@@ -245,13 +307,36 @@ export class AddcompanyComponent implements OnInit {
       trainee: data.trainee,
       summerjob: data.summerjob,
       abroad: data.abroad,
+
       engineers: data.engineers,
       filfakare: data.filfakare,
+
+      digitalMan: data.digitalMan,
+      finans: data.finans,
+      industriellmarknad: data.industriellmarknad,
+      kvalitetVerksam: data.kvalitetVerksam,
+      logistikMaster: data.logistikMaster,
+      projektInno: data.projektInno,
+      produktionsledning: data.produktionsledning,
+      strategiStyrning: data.strategiStyrning,
+      systemteknik: data.systemteknik,
+      maskinteknik: data.maskinteknik,
+      bioteknik: data.bioteknik,
+      datateknik: data.datateknik,
+      energiteknik: data.energiteknik,
+      redovisning: data.redovisning,
+      ekonomistyrning: data.ekonomistyrning,
+      strategiMarknad: data.strategiMarknad,
+      finansiellekonomi: data.finansiellekonomi,
+      nationalekonomi: data.nationalekonomi,
+      ekonomiskanalys: data.ekonomiskanalys,
+
       firstyear: data.firstyear,
       secondyear: data.secondyear,
       thirdyear: data.thirdyear,
       fourthyear: data.fourthyear,
       fifthyear: data.fifthyear,
+
       preTEAM: data.preTEAM,
       firstdayappearance: data.firstdayappearance,
       seconddayappearance: data.seconddayappearance,
@@ -267,8 +352,10 @@ export class AddcompanyComponent implements OnInit {
       pitchLecture: data.pitchLecture,
       startUpZone: data.startUpZone,
       climateComp: data.climateComp,
+
       about: data.about,
       values: data.values,
+
       logopath: this.logopath,
       offersinterview: this.offersinterview,
       reqresume: data.reqresume,

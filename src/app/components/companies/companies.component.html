@@ -4,9 +4,8 @@
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered ">
         <div class="column is-9">
-          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Företagen 2022</h2>
-          <!-- <h2 class="subtitle is-6">Mer information om 2022 års deltagande företag kommer. </h2> -->
 
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Företagen 2022</h2>
           <h2 class="subtitle is-6" style="color: #463853" >Vi är stolta att presentera 2022 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
           <a class="button is-inverted is-outlined" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
 
@@ -16,8 +15,6 @@
   </div>
 </div>
 
-
-
 <!-- <div *ngFor="let company of companies | async">
   <h6>{{company.name}}</h6>
 </div> -->
@@ -25,7 +22,7 @@
 <div class="container">
   <div class="columns is-multiline">
     <div class="column is-12">
-      <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Consulting." (keyup)="onSearch($event)">
+      <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Konsulting." (keyup)="onSearch($event)">
     </div>
 
     <div class="column is-6">
@@ -104,9 +101,91 @@
         </div>
       </div>
 
-      
+      <div class="filter-dropdown dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Inriktningar</span>
+      <span class="icon is-small" id="white-icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
 
+            <div class="columns">
+              <div class="column">
+  
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('digitalMan', $event.target.checked)"> Digitalisering & management
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('finans', $event.target.checked)"> Finans
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('industriellmarknad', $event.target.checked)"> Industriell Marknadsföring
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('kvalitetVerksam', $event.target.checked)"> Kvalitets- och verksamhetsutveckling
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('logistikMaster', $event.target.checked)"> Logistik och supply chain management
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('projektInno', $event.target.checked)"> Projekt, innovation och entreprenörskap
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('produktionsledning', $event.target.checked)"> Produktionsledning
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('strategiStyrning', $event.target.checked)"> Strategi och styrning
+            </div>
 
+          </div>
+
+          <div class="column">
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('systemteknik', $event.target.checked)"> Systemteknik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('maskinteknik', $event.target.checked)"> Maskinteknik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('bioteknik', $event.target.checked)"> Bioteknik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('datateknik', $event.target.checked)"> Datateknik
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('energiteknik', $event.target.checked)"> Energiteknik
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('redovisning', $event.target.checked)"> Redovisning
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('ekonomistyrning', $event.target.checked)"> Ekonomistyrning
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('strategiMarknad', $event.target.checked)"> Strategi och marknadsföring
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('finansiellekonomi', $event.target.checked)"> Finansiell ekonomi
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('nationalekonomi', $event.target.checked)"> Nationalekonomi
+            </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('ekonomiskanalys', $event.target.checked)"> Ekonomisk analys
+            </div>
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
 
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
@@ -120,7 +199,7 @@
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterExact('industry', 'Consulting', $event.target.checked)"> Consulting
+              <input type="checkbox" (change)="filterExact('industry', 'Consulting', $event.target.checked)"> Konsulting
             </div>
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterExact('industry', 'Industri', $event.target.checked)"> Industri
@@ -153,12 +232,9 @@
               <input type="checkbox" (change)="filterExact('industry', 'Övrigt', $event.target.checked)"> Övrigt
             </div>
 
-
-
           </div>
         </div>
       </div>
-
 
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
@@ -172,10 +248,10 @@
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('firstdayappearance', $event.target.checked)"> Ställer ut tisdag
+              <input type="checkbox" (change)="filterBoolean('digitalMan', $event.target.checked)"> Ställer ut tisdag
             </div>
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterBoolean('seconddayappearance', $event.target.checked)"> Ställer ut onsdag
+              <input type="checkbox" (change)="filterBoolean('finans', $event.target.checked)"> Ställer ut onsdag
             </div>
           </div>
         </div>
@@ -326,7 +402,7 @@
             <h5 class="title is-5 ">Bransch</h5>
 
           <div class="tags ">
-            <span class="tag   " *ngIf="modalCompany.consulting ">Consulting</span>
+            <span class="tag   " *ngIf="modalCompany.consulting ">Konsulting</span>
             <span class="tag   " *ngIf="modalCompany.industri ">Industri</span>
             <span class="tag   " *ngIf="modalCompany.logistik ">Logistik</span>
             <span class="tag   " *ngIf="modalCompany.itteknik ">It & Teknik</span>

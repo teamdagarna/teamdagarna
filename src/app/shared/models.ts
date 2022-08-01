@@ -106,6 +106,26 @@ export interface Company {
   fourthyear?: boolean;
   fifthyear?: boolean;
 
+  digitalMan?: boolean;
+  finans?: boolean;
+  industriellmarknad?: boolean;
+  kvalitetVerksam?: boolean;
+  logistikMaster?: boolean;
+  projektInno?: boolean;
+  produktionsledning?: boolean;
+  strategiStyrning?: boolean;
+  systemteknik?: boolean;
+  maskinteknik?: boolean;
+  bioteknik?: boolean;
+  datateknik?: boolean;
+  energiteknik?: boolean;
+  redovisning?: boolean;
+  ekonomistyrning?: boolean;
+  strategiMarknad?: boolean;
+  finansiellekonomi?: boolean;
+  nationalekonomi?: boolean;
+  ekonomiskanalys?: boolean;
+
   preTEAM?: boolean;
   totalapplicants?: number;
   seeopenapplicants?: boolean;

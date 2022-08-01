@@ -47,7 +47,7 @@
         <div class="control">
           <div class="select" required>
             <select formControlName="industry">
-              <option>Consulting</option>
+              <option>Konsulting</option>
               <option>Industri</option>
               <option>Logistik</option>
               <option>IT & Teknik</option>
@@ -57,7 +57,6 @@
               <option>Revision</option>
               <option>Fastigheter & Infrastruktur</option>
               <option>Förening eller Förbund</option>
-              <option>Revision</option>
               <option>Startup</option>
               <option>Övrigt</option>
             </select>
@@ -71,7 +70,7 @@
         <div class="column is-half">
           <div class="field">
             <label class="label">Bransch/er</label>
-            <input type="checkbox" formControlName="consulting"> Consulting
+            <input type="checkbox" formControlName="consulting"> Konsulting
           </div>
           <div class="field">
             <input type="checkbox" formControlName="industri"> Industri
@@ -169,25 +168,127 @@
         </div>
       </div>
 
-      <div class="field">
-        <label class="label">Event under inför-dagarna?</label>
-        <input type="checkbox" formControlName="preTEAM"> Ja
+      <h1 class="subtitle is-5">Om företaget önskat specifika inriktningar så lämna dessa ifyllda och resten blanka. Om inte, lämna samtliga checkboxar ifyllda. 
+      </h1>
+
+      <div class="columns">
+        
+        <div class="column is-half">
+
+          <div class="field">
+            <label class="label">Inriktningar Civilingenjörer</label>
+            <input type="checkbox" formControlName="digitalMan"> Digitalisering & management
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="finans"> Finans
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="industriellmarknad"> Industriell Marknadsföring
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="kvalitetVerksam"> Kvalitets- och verksamhetsutveckling
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="logistikMaster"> Logistik och supply chain management
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="projektInno"> Projekt, innovation och entreprenörskap
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="produktionsledning"> Produktionsledning
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="strategiStyrning"> Strategi och styrning
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="field">
+            <input type="checkbox" formControlName="systemteknik"> Systemteknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="maskinteknik"> Maskinteknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="bioteknik"> Bioteknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="datateknik"> Datateknik
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="energiteknik"> Energiteknik
+          </div>
+        </div>  
+
       </div>
 
-      <div class="field">
-        <label class="label">Ställer ut</label>
-        <input type="checkbox" formControlName="firstdayappearance"> Tisdag
-        <input type="checkbox" formControlName="seconddayappearance"> Onsdag
+
+      <div class="columns">
+        
+        <div class="column is-half">
+
+          <div class="field">
+            <label class="label">Inriktningar Civilekonomer</label>
+            <input type="checkbox" formControlName="redovisning"> Redovisning
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="ekonomistyrning"> Ekonomistyrning
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="strategiMarknad"> Strategi och marknadsföring
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="field">
+            <input type="checkbox" formControlName="finansiellekonomi"> Finansiell ekonomi
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="nationalekonomi"> Nationalekonomi
+          </div>
+          <div class="field">
+            <input type="checkbox" formControlName="ekonomiskanalys"> Ekonomisk analys
+          </div>
+        </div>
+      
       </div>
+  
+    <div class="columns">
+
+      <div class="column is-half">
+        <div class="field">
+          <label class="label">Ställer ut</label>
+          <input type="checkbox" formControlName="firstdayappearance"> Tisdag
+          <input type="checkbox" formControlName="seconddayappearance"> Onsdag
+        </div>
+      </div>
+        
+      <div class="column is-half">
+        <div class="field">
+          <label class="label">Klimatkompensation?</label>
+          <input type="checkbox" formControlName="climateComp"> Ja
+        </div>
+      </div>
+
+    </div>
+
+  <div class="columns">
+        
+    <div class="column is-half">
 
       <div class="field">
         <label class="label">Kontaktsamtal Tisdag</label>
         <input type="checkbox" formControlName="firstdaypackage1"> 8x25min
       </div>
+    </div>
+
+    <div class="column is-half">
       <div class="field">
         <label class="label">Kontaktsamtal Onsdag</label>
         <input type="checkbox" formControlName="seconddaypackage1"> 8x25min
       </div>
+    </div>
+  </div>
 
       <div class="field">
         <label class="label">Kontaktsamtal: Ansökan ska innehålla</label>
@@ -196,28 +297,43 @@
         <input type="checkbox" formControlName="reqgrades"> Betyg
       </div>
 
+      <div class="columns">
+        
+        <div class="column is-half">
+
       <div class="field">
         <label class="label">Deltagande i pusseljakten och vilka dagar?</label>
         <input type="checkbox" formControlName="treasurehunt"> Ja
         <input type="checkbox" formControlName="treasurehuntTuesday"> Tisdag
         <input type="checkbox" formControlName="treasurehuntWednesday"> Onsdag
       </div>
+        </div>
+        <div class="column is-half">
 
       <div class="field">
         <label class="label">Deltagande i pitchföreläsning?</label>
         <input type="checkbox" formControlName="pitchLecture"> Ja
       </div>
+        </div>
+      </div>
 
 
+      <div class="columns">
+        
+        <div class="column is-half">
       <div class="field">
         <label class="label">Startup-zone?</label>
         <input type="checkbox" formControlName="startUpZone"> Ja
       </div>
+        </div>
 
+        <div class="column is-half">
 
       <div class="field">
-        <label class="label">Klimatkompensation?</label>
-        <input type="checkbox" formControlName="climateComp"> Ja
+        <label class="label">Event under inför-dagarna?</label>
+        <input type="checkbox" formControlName="preTEAM"> Ja
+      </div>
+        </div>
       </div>
 
       <div class="field">
@@ -240,6 +356,10 @@
           <textarea class="textarea" placeholder="Text som syns när student söker kontaktsamtal" formControlName="interviewinfo"></textarea>
         </div>
       </div>
+
+
+      <h1 class="subtitle is-5">Det är upp till er att länkarna nedan är giltiga så dubbelkolla en gång extra så det inte blir galet, tack!
+      </h1>
 
       <div class="field">
         <label class="label">Länk till företagets hemsida</label>
