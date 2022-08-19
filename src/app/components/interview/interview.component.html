@@ -5,27 +5,11 @@
       <div class="columns is-centered ">
         <div class="column is-9">
           <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Kontaktsamtal</h2>
-          <!-- <h2 class="subtitle is-6">I år kommer TEAM-dagarna att äga rum på den digitala plattformen Graduateland där även kontaktsamtalen kommer att ta plats.</h2> -->
           </div>
       </div>
     </div>
   </div>
 </div>
-
-  <!-- <section class="section">
-  <div class="container">
-    <h1 class="title is-5">För att boka in dig på ett kontaktsamtal gör du som följande:
-      <br><br>
-      1. Gå in via länken nedan och klicka dig in på de företag du är intresserad av att ha kontaktsamtal med.<br>
-      2. Gå in på deras respektive monter och skrollar ner till ”kontaktsamtal”. Där hittar du olika slottider där företaget är tillgänglig på. <br>
-      3. Välj den tid som passar in i ditt schema och därmed ansöker du om att få ha kontaktsamtal med företaget. Det är sedan upp företaget att välja vilka studenter som får denna möjlighet. </h1>
-      <a class="button" href ="https://fair.teamdagarna.com/sv/event/5267" style="margin: 4px 4px 8px 0;"> Kontaktsamtalsanmälan</a>
-    </div>
-   
-</section> -->
-
-
-
 
 <section class="hero" *ngIf="user && !success && !notsuccess">
   <div class="container has-text-centered is-mobile">
@@ -34,10 +18,10 @@
     <div class="column is-8 is-12-mobile">
 
       <h1 class="subtitle is-6">
-        Ansökan för kontaktsamtal stänger den 18e oktober och därefter får företagen tillgång till alla ansökningar. Du som sökt kontaktsamtal kommer från och med den 29e oktober få reda på vilka företag som valt dig som kandidat. Sista svarsdag för kontaktsamtalen är fredagen den 30e oktober.
+        Ansökan för kontaktsamtal stänger den 6e september och därefter får företagen tillgång till alla ansökningar. Du som sökt kontaktsamtal kommer från och med den 15e september få reda på vilka företag som valt dig som kandidat. Sista svarsdag för kontaktsamtalen är den 16e september.
       </h1>
       <h1 class="subtitle is-6">
-        Öppen ansökan är ytterligare en chans för dig som söker att få gå på kontaktsamtal. Denna ansökan kommer öppna snart! Företag som har angett att de vill kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag. Du söker öppen ansökan genom att välja <strong> Öppen anmälan kontaktsamtal </strong> längst ned i listan nedan.</h1>
+        Öppen ansökan är ytterligare en chans för dig som söker att få gå på kontaktsamtal. Företagen kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag. Du söker öppen ansökan genom att välja<strong> Öppen anmälan kontaktsamtal </strong> längst ned i listan nedan.</h1>
 
       <h1 class="subtitle is-6">
         <em>OBS! Du kan endast söka 6 stycken kontaktsamtal (plus öppen anmälan) och tacka ja till maximalt 6 stycken samtal.</em>
@@ -63,6 +47,7 @@
             </div>
           </div>
         </div>
+        <br>
 
         <ng-container *ngIf="company">
           <div class="is-divider" data-content="FÖRETAGSINFO"></div>
@@ -212,6 +197,9 @@
               </ng-container>
             </div>
 
+            <!-- <p *ngIf="company.reqmaster && (!user.filfakspecialization && !user.engineermaster)"><strong>{{ company.name }}</strong> vill att du fyller i din masterprofil under "Min profil" innan du kan skicka in ansökan.</p> -->
+
+
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
             <button type="submit" id="submit-button" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="(hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || !okToSubmit()) && !applyOpenOkToSubmit()">Skicka ansökan</button><br>
             <span *ngIf="hasApplied(company.id) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
@@ -242,6 +230,8 @@
 
 <section *ngIf="notsuccess" class="hero">
   <div class="container">
+  </div>
+  <div class="container">
     <div class="notification is-warning">
       <h1 class="title is-5">Något gick fel!</h1>
       <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
@@ -253,6 +243,8 @@
 
 
 <section class="hero" *ngIf="!user">
+  <div class="container">
+  </div>
   <div class="container">
     <h1 class="title is-3">Du måste vara inloggad för att kunna söka kontaktsamtal!</h1>
     <a [routerLink]="['../signin']" class="subtitle is-3 has-text-weight-semibold">

@@ -42,7 +42,7 @@ export class AddcompanyComponent implements OnInit {
         ]
       ],
       'industry': [false, [
-        // Validators.required
+        Validators.required
         ]
       ],
       'consulting': [false, [
@@ -244,6 +244,10 @@ export class AddcompanyComponent implements OnInit {
       'reqgrades': [false, [
         ]
       ],
+      'reqmaster': [false, [
+      ]
+    ],
+     
       'reqresume': [false, [
         ]
       ],
@@ -361,6 +365,7 @@ export class AddcompanyComponent implements OnInit {
       reqresume: data.reqresume,
       reqcl: data.reqcl,
       reqgrades: data.reqgrades,
+      reqmaster: data.reqmaster,
       interviewinfo: data.interviewinfo,
       linkedIn: data.linkedIn,
       instagram: data.instagram,

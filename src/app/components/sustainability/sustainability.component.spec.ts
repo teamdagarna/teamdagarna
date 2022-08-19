@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SustainabilityComponent } from './sustainability.component';
 
@@ -6,7 +6,7 @@ describe('SustainabilityComponent', () => {
   let component: SustainabilityComponent;
   let fixture: ComponentFixture<SustainabilityComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SustainabilityComponent ]
     })

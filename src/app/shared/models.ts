@@ -69,6 +69,7 @@ export interface Company {
   reqresume?: boolean;
   reqcl?: boolean;
   reqgrades?:boolean;
+  reqmaster?:boolean;
 
   interviewinfo?: string;
 

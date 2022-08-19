@@ -52,6 +52,10 @@ export class CompanyComponent implements OnInit {
             if (this.company.reqgrades  === undefined) {
               this.companyDoc.update({reqgrades: false})
             }
+            if (this.company.reqmaster  === undefined) {
+              this.companyDoc.update({reqmaster: false})
+            }
+          
             if (this.company.interviewinfo  === undefined) {
               this.companyDoc.update({interviewinfo: ''})
             }
@@ -67,6 +71,19 @@ export class CompanyComponent implements OnInit {
     this.addCompanyForm = this.fb.group({
       'companyName': ['', [Validators.required]],
       'industry': ['', [Validators.required]],
+      'consulting': [false, []],
+      'industri': [false, []],
+      'logistik': [false, []],
+      'itteknik': [false, []],
+      'rekrytering': [false, []],
+      'bank': [false, []],
+      'retail': [false, []],
+      'fastigheter': [false, []],
+      'forening': [false, []],
+      'telekom': [false, []],
+      'revision': [false, []],
+      'startup': [false, []],
+      'other': [false, []],
       'internship': [false, []],
       'masterthesis': [false, []],
       'otherthesis': [false, []],
@@ -213,6 +230,9 @@ export class CompanyComponent implements OnInit {
       'reqgrades': [false, [
         ]
       ],
+      'reqmaster': [false, [
+      ]
+    ],
       'reqresume': [false, [
         ]
       ],
@@ -308,6 +328,20 @@ export class CompanyComponent implements OnInit {
         name: data.companyName,
 
         industry: data.industry,
+        consulting: data.consulting,
+        industri: data.industri,
+        logistik: data.logistik,
+        itteknik: data.itteknik,
+        rekrytering: data.rekrytering,
+        bank: data.bank,
+        retail: data.retail,
+        fastigheter: data.fastigheter,
+        forening: data.forening,
+        telekom: data.telekom,
+        revision: data.revision,
+        startup: data.startup,
+        other: data.other,
+        
         internship: data.internship,
         masterthesis: data.masterthesis,
         otherthesis: data.otherthesis,
@@ -367,6 +401,7 @@ export class CompanyComponent implements OnInit {
         reqresume: data.reqresume,
         reqcl: data.reqcl,
         reqgrades: data.reqgrades,
+        reqmaster: data.reqmaster,
         interviewinfo: data.interviewinfo,
         totalapplicants: data.totalapplicants,
         seeopenapplicants: data.seeopenapplicants,

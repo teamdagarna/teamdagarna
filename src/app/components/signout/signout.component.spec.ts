@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignoutComponent } from './signout.component';
 
@@ -6,7 +6,7 @@ describe('SignoutComponent', () => {
   let component: SignoutComponent;
   let fixture: ComponentFixture<SignoutComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SignoutComponent ]
     })
