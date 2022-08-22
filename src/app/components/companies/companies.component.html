@@ -7,7 +7,7 @@
 
           <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Företagen 2022</h2>
           <h2 class="subtitle is-6" style="color: #463853" >Vi är stolta att presentera 2022 års deltagande företag. Här kan du söka, filtrera och hitta ditt drömföretag och framtida arbetsgivare. Kontaktsamtalen söker du på mäss-sidan, här finns endast information om årets företag. Du som är inloggad kan även <i class="fas has-text-centered fa-heart"></i>-markera dina favoritföretag för att spara dessa till "Mina favoritföretag". </h2>
-          <a class="button is-inverted is-outlined" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
+          <a class="button is-inverted is-outlined"  *ngIf="auth.isSignedIn()" [routerLink]="['../favoritforetag']">Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart"></i></a>
 
         </div>
       </div>
@@ -25,7 +25,7 @@
       <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Konsulting." (keyup)="onSearch($event)">
     </div>
 
-    <div class="column is-6">
+    <div class="column is-12">
 
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
@@ -278,13 +278,13 @@
       </div>
       <a class="button is-outlined" *ngIf="filterIsOn()" (click)=" clearFilter() ">Ta bort filter <i class="fas fa-filter "></i></a>
     </div>
-    <div class="column is-6 ">
+    <!-- <div class="column is-6 "> -->
       <div class="buttons has-addons is-pulled-right ">
         <span class="button " (click)="applyOrder(1) " [ngClass]="{ ' ': orderBy==1} "><i class="fas fa-random "></i></span>
         <span class="button " (click)="applyOrder(2) " [ngClass]="{ ' ': orderBy==2} "><i class="fas fa-sort-alpha-down "></i></span>
         <span class="button " (click)="applyOrder(3) " [ngClass]="{ ' ': orderBy==3} "><i class="fas fa-sort-alpha-up "></i></span>
       </div>
-    </div>
+    <!-- </div> -->
 
   </div>
 
@@ -342,9 +342,9 @@
   </div>
 
 
-  <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
+  <div *ngIf="isModalActive " class="modal" [ngClass]="{ 'is-active' : isModalActive } ">
     <div class="modal-background " (click)="closeModal() "></div>
-    <div class="modal-card ">
+    <div class="modal-card " id="modal-image" >
       <header class="modal-card-head">
         <p class="modal-card-title"><strong>{{ modalCompany.name }}</strong>
           <span class="modal-fa has-text-success" *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
@@ -361,7 +361,7 @@
       <section class="modal-card-body ">
         <div class="columns is-multiline ">
 
-          <div class="column is-4">
+          <div class="column is-3">
             <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
               <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
             </a>&nbsp;&nbsp;<br>

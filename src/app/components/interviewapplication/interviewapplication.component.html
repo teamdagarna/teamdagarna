@@ -226,7 +226,7 @@
 </section>
 
 <section *ngIf="notsuccess" class="section">
-  <div class="container">
+  <div class="container has-text-centered is-mobile">
     <div class="notification is-warning">
       <h1 class="title is-5">Något gick fel!</h1>
       <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
@@ -238,11 +238,11 @@
 
 
  <section class="section" *ngIf="!user">
-  <div class="container">
+  <div class="container has-text-centered is-mobile">
     <h1 class="title is-3">Du måste vara inloggad för att kunna söka kontaktsamtal!</h1>
     <a [routerLink]="['../signin']" class="subtitle is-3 has-text-primary has-text-weight-semibold">
       Klicka här för att logga in!
     </a>
-  </div>
-</section> --> 
+  </div><br>
+</section> 
 

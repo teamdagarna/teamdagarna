@@ -1,5 +1,7 @@
 <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
-  <div class="hero" id="pink-title-hero">
+  <section class="hero">
+
+  <div class="hero-body">
 
   <div class="columns is-centered">
     <div class="column is-half">
@@ -166,7 +168,7 @@
             <label class="checkbox">
             <input type="checkbox" formControlName="gdpr">
 
-          </label> Jag tillåter att Teamdagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
+          </label> Jag tillåter att TEAM-dagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
           </div>
           <div *ngIf="signupForm.valid">Allt ser bra ut!</div>
           <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" id="submit-button" class="button is-fullwidth">Registrera och logga in</button><br>
@@ -178,6 +180,7 @@
     </div>
   </div>
 </div>
+  </section>
 </form>
 
 
@@ -209,7 +212,7 @@
           <li>Anmälan till olika event</li>
           <li>Söka kontaktsamtal</li>
           <li>Söka till mässvärd</li>
-          <li>Söka till Teamdagarnas kommitté</li>
+          <li>Söka till TEAM-dagarnas kommitté</li>
         </ul>
 
         <h3>Information vi lagrar om dig</h3>
@@ -237,8 +240,8 @@
           har tillgång till din information:</p>
         <ul>
           <li><strong>IT Ansvarig:</strong> tillgång till all data i underhålls och utvecklingssyfte</li>
-          <li><strong>Teamdagarnas kommitté:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar för att hantera event</li>
-          <li><strong>Medlemmar i Teamdagarnas kommitté och värdar som hanterar kontaktsamtalen du sökt:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar, kontaktsamtalsanmälningar exkl. cv, personligt brev och betyg för hantering
+          <li><strong>TEAM-dagarnas kommitté:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar för att hantera event</li>
+          <li><strong>Medlemmar i TEAM-dagarnas kommitté och värdar som hanterar kontaktsamtalen du sökt:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar, kontaktsamtalsanmälningar exkl. cv, personligt brev och betyg för hantering
             av kontaktsamtal</li>
           <li><strong>Företagsrepresentant om du sökt kontaktsamtal hos företaget:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, kontaktsamtalsanmälningar inkl. cv, personligt brev och betyg (om det existerar)</li>
         </ul>
@@ -252,7 +255,7 @@
 
         <h3>Kontaktuppgifter</h3>
         <p>Vid frågor rörande hur Sektionen För Industriell Ekonomi (moderorganisation) arbetar med GDPR: <a href="mailto:dataskyddsombud@isektionen.se">dataskyddsombud@isektionen.se</a>.</p>
-        <p>Vid frågor rörande specifikt Teamdagarna samt begäran av tillgång till data, radering av data eller rättelse av data: <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>.</p>
+        <p>Vid frågor rörande specifikt TEAM-dagarna samt begäran av tillgång till data, radering av data eller rättelse av data: <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>.</p>
       </div>
     </section>
   </div>

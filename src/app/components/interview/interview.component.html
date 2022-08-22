@@ -104,6 +104,7 @@
           <ng-container *ngIf="!((applicationsMade > 5 && company.name!='Öppen anmälan kontaktsamtal') || (appliedOpen && company.name=='Öppen anmälan kontaktsamtal'))">
 
 
+            <p *ngIf="company.reqmaster"><strong>OBS! <br>{{ company.name }}</strong> vill att du fyller i din masterprofil/inriktning under "Min profil" innan du skickar in ansökan.</p>
 
 
             <p><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
@@ -197,9 +198,6 @@
               </ng-container>
             </div>
 
-            <!-- <p *ngIf="company.reqmaster && (!user.filfakspecialization && !user.engineermaster)"><strong>{{ company.name }}</strong> vill att du fyller i din masterprofil under "Min profil" innan du kan skicka in ansökan.</p> -->
-
-
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
             <button type="submit" id="submit-button" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="(hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || !okToSubmit()) && !applyOpenOkToSubmit()">Skicka ansökan</button><br>
             <span *ngIf="hasApplied(company.id) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
@@ -210,45 +208,41 @@
       </form>
 
     </div>
-  </div>
+    </div>
   </div>
 </section>
 
 
 <section *ngIf="success" class="hero">
-  <div class="container">
-    <div class="notification is-success">
+  <div class="container has-text-centered is-mobile" *ngIf="success">
       <h1 class="title is-5">Ansökan inskickad!</h1>
       <p>Du kan se dina gjorda ansökningar under "Min profil". Där kan du även se status för din ansökan.</p>
       <br>
       <p>Du har nu sökt {{ applicationsMade }} stycken samtal (excl. öppen anmälan). Du kan max söka till 6 stycken företag plus skicka in till den öppna ansökan.</p>
       <br>
-      <a class="button is-white" (click)="refresh()">Tillbaka till att söka fler</a>
-    </div>
+      <a class="button" (click)="refresh()">Tillbaka till att söka fler</a>
   </div>
 </section>
 
 <section *ngIf="notsuccess" class="hero">
-  <div class="container">
+  <div class="container" *ngIf="notsuccess">
   </div>
-  <div class="container">
-    <div class="notification is-warning">
+  <div class="container has-text-centered is-mobile" *ngIf="notsuccess">
       <h1 class="title is-5">Något gick fel!</h1>
       <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
       <br>
-      <a class="button is-white" (click)="refresh()">Tillbaka</a>
-    </div>
+      <a class="button" (click)="refresh()">Tillbaka</a>
   </div>
 </section> 
 
 
 <section class="hero" *ngIf="!user">
-  <div class="container">
+  <div class="container" *ngIf="!user">
   </div>
-  <div class="container">
+  <div class="container has-text-centered is-mobile" *ngIf="!user">
     <h1 class="title is-3">Du måste vara inloggad för att kunna söka kontaktsamtal!</h1>
     <a [routerLink]="['../signin']" class="subtitle is-3 has-text-weight-semibold">
       Klicka här för att logga in!
     </a>
-  </div>
+  </div><br>
 </section>
