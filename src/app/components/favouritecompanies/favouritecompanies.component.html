@@ -6,15 +6,14 @@
           <h1 class="title is-1 is-spaced" style="text-transform: uppercase"> Mina favoritföretag </h1>
           <h2 class="subtitle is-6">Nedan presenteras dina favoritföretag, d.v.s. de företag som du har hjärtmarkerat <i class="fas has-text-centered fa-heart"></i>.</h2>
           <a class="button is-inverted is-outlined" [routerLink]="['../companies']">Företagen 2022</a>
-
-        </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <section class="hero">
-  <div class="hero-body ">
+<section class="section">
+    <div class="container"> 
     <br>
     <br>
     <app-spinner *ngIf="showSpinner"></app-spinner>
@@ -31,60 +30,55 @@
               <!-- </div> -->
             </a>
             <div class="card-body">
+              
               <div class="card-title"> {{ company.name }}</div>
               <div class="card-meta ">{{ company.industry }} <br>
-                <span class="icon is-hidden-touch" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i></span><span class="icon is-hidden-desktop" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="right"><i class="fas fa-leaf "></i></span>
-                <span class="icon is-hidden-touch" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span><span class="icon is-hidden-desktop" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="right" *ngIf="company.offersinterview "><i class="fas fa-comments "></i></span>
-                <span class="icon is-hidden-touch" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i></span><span class="icon is-hidden-desktop" *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="right"><i class="fas fa-puzzle-piece"></i></span>
-                <span class="icon is-hidden-touch" *ngIf="company.pitchLecture" data-balloon="Vi är med på pitch-Instagramstoryn!" data-balloon-pos="down"><i class="fas fa-eye"></i></span><span class="icon is-hidden-desktop" *ngIf="company.pitchLecture" data-balloon="Vi är med på pitch-Instagramstoryn!" data-balloon-pos="right"><i class="fas fa-eye"></i></span>
+                <span  *ngIf="company.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i>&nbsp;&nbsp;&nbsp;</span>
+                <span  data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i> &nbsp;&nbsp;&nbsp;</span>
+                <span c *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
               </div>
+              
               <div class="card-description ">
                 <div class="tags ">
-                  <span class="tag is-primary " *ngIf="company.internship ">Internship</span>
-                  <span class="tag is-primary " *ngIf="company.fulltime ">Heltidsjobb</span>
-                  <span class="tag is-primary " *ngIf="company.parttime ">Deltidsjobb</span>
-                  <span class="tag is-primary " *ngIf="company.summerjob ">Sommarjobb</span>
-                  <span class="tag is-primary " *ngIf="company.masterthesis ">Ex-jobb</span>
-                  <span class="tag is-primary " *ngIf="company.abroad ">Utlandsmöjligheter</span>
-                  <span class="tag is-primary " *ngIf="company.trainee ">Trainee</span>
-                  <span class="tag is-primary " *ngIf="company.otherthesis ">Uppsatshandledning</span>
+                  <span class="tag   " *ngIf="company.internship ">Internship</span>
+                  <span class="tag   " *ngIf="company.fulltime ">Heltidsjobb</span>
+                  <span class="tag   " *ngIf="company.parttime ">Deltidsjobb</span>
+                  <span class="tag   " *ngIf="company.summerjob ">Sommarjobb</span>
+                  <span class="tag   " *ngIf="company.masterthesis ">Ex-jobb</span>
+                  <span class="tag   " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+                  <span class="tag   " *ngIf="company.trainee ">Trainee</span>
+                  <span class="tag   " *ngIf="company.otherthesis ">Uppsatshandledning</span>
                 </div>
               </div>
             </div>
+
             <div class="card-footer">
               <div class="column footer-column">
-              <a class="button is-primary is-outlined is-small" (click)="openModal(company) ">Läs mer</a>
-              <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
-              <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>&nbsp;
-              <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
-              <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
+                <a class="button   is-outlined is-small" (click)="openModal(company) ">Läs mer</a>&nbsp;
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="far fa-2x has-text-centered fa-heart"></i></span>
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && !checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-centered fa-heart"></i></span>&nbsp;
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="down" data-balloon-length="medium"><i class="fas fa-2x has-text-centered fa-heart"></i></span>
+                <span (click)="toggleFavouriteCompany(company)" *ngIf="auth.isSignedIn() && checkFavourite(company)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-centered fa-heart"></i></span>
               </div>
-              </div>
+            </div>
           </div>
 
         </div>
       </ng-container>
-
-      <!-- <section class="section">
-        <div class="container has-text-centered">
-          <a [routerLink]="['../companies']" class="subtitle is-3 has-text-primary has-text-weight-semibold">
-            Klicka här för att komma till företagskatalogen där du kan lägga till fler företag!
-          </a>
-        </div>
-      </section> -->
+    </div>
 
 
       <div *ngIf="isModalActive " class="modal " [ngClass]="{ 'is-active' : isModalActive } ">
         <div class="modal-background " (click)="closeModal() "></div>
-        <div class="modal-card ">
+        <div class="modal-card " id="modal-image" > 
           <header class="modal-card-head ">
             <p class="modal-card-title "><strong>{{ modalCompany.name }}</strong>
-              <span class="modal-fa has-text-success " data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="up"><i class="fas fa-leaf "></i></span>
-              <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="up"><i class="fas fa-comments " *ngIf="modalCompany.offersinterview "></i></span>
-              <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="up"><i class="fas fa-puzzle-piece"></i></span>
-              <span class="modal-fa has-text-warning" *ngIf="modalCompany.pitchLecture" data-balloon="Vi är med på pitch-Instagramstoryn!" data-balloon-pos="up"><i class="fas fa-eye"></i></span>
-              <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far has-text-primary fa-heart"></i></span>
-              <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas has-text-primary fa-heart"></i></span>
+              <span class="modal-fa has-text-success" *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
+          <span class="modal-fa has-text-info" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview"></i>&nbsp;&nbsp;&nbsp;</span> 
+          <span class="modal-fa has-text-danger" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
+          <!-- den här knappen kanske är en fullösning, men testar den så länge-->
+          <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-heart"></i></span>
+          <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-heart"></i></span>
             </p>
             <button class="delete " aria-label="close " (click)="closeModal() "></button>
 
@@ -94,40 +88,68 @@
             <div class="columns is-multiline ">
 
               <div class="column is-3 ">
-                <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+                <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
+                  <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
+                </a>&nbsp;&nbsp;<br><br>
 
-                <!-- <h5 class="title is-5 ">Vi ställer ut</h5>
-                <div class="tags ">
-                  <span class="tag is-primary " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
-                </div> -->
-                <h5 class="title is-5 ">Vi erbjuder</h5>
-                <div class="tags ">
-                  <span class="tag is-primary " *ngIf="modalCompany.internship ">Internship</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.fulltime ">Heltidsjobb</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.parttime ">Deltidsjobb</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.abroad ">Utlandsmöjligheter</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.trainee ">Trainee</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.otherthesis ">Uppsatshandledning</span>
-                </div>
+                <a *ngIf="modalCompany.linkedIn" href="{{ modalCompany.linkedIn }}" target="_blank" data-balloon="Besök på LinkedIn" data-balloon-pos="right">
+                  <i class="fab fa-linkedin-in" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+                </a>
+                <a *ngIf="modalCompany.instagram" href="{{ modalCompany.instagram }}" target="_blank" data-balloon="Besök på Instagram" data-balloon-pos="right">
+                  <i class="fab fa-instagram" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+                </a>
+                <a *ngIf="modalCompany.facebook" href="{{ modalCompany.facebook }}" target="_blank" data-balloon="Besök på Facebook" data-balloon-pos="right">
+                  <i class="fab fa-facebook" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+                </a>
+                <a *ngIf="modalCompany.twitter" href="{{ modalCompany.twitter }}" target="_blank" data-balloon="Besök på Twitter" data-balloon-pos="right">
+                  <i class="fab fa-twitter" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+                </a><br><br>
+    
+                <h5 class="title is-5 " style="margin-bottom: 3%;">Vi ställer ut</h5>
+            <div class="tags">
+              <span class="tag   " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
+              <span class="tag   " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
+            </div>
+
+            <h5 class="title is-5 " style="margin-bottom: 3%;">Bransch</h5>
+
+            <div class="tags ">
+              <span class="tag   " *ngIf="modalCompany.consulting ">Konsultverksamhet</span>
+              <span class="tag   " *ngIf="modalCompany.industri ">Industri</span>
+              <span class="tag   " *ngIf="modalCompany.logistik ">Logistik</span>
+              <span class="tag   " *ngIf="modalCompany.itteknik ">It & Teknik</span>
+              <span class="tag   " *ngIf="modalCompany.rekrytering ">Rekrytering</span>
+              <span class="tag   " *ngIf="modalCompany.bank ">Bank & Finans</span>
+              <span class="tag   " *ngIf="modalCompany.retail ">Retail</span>
+              <span class="tag   " *ngIf="modalCompany.fastigheter ">Fastigheter & Infrastruktur</span>
+              <span class="tag   " *ngIf="modalCompany.forening ">Förening eller Förbund</span>
+              <span class="tag   " *ngIf="modalCompany.telekom ">Telekom</span>
+              <span class="tag   " *ngIf="modalCompany.revision ">Revision</span>
+              <span class="tag   " *ngIf="modalCompany.startup ">Startup</span>
+              <span class="tag   " *ngIf="modalCompany.other ">Övrigt</span>
+            </div>
+
+            <h5 class="title is-5 " style="margin-bottom: 3%;" *ngIf="modalCompany.internship || modalCompany.parttime || modalCompany.summerjob || modalCompany.masterthesis || modalCompany.trainee   ">Vi erbjuder</h5>
+            <div class="tags ">
+              <span class="tag   " *ngIf="modalCompany.internship ">Internship</span>
+              <span class="tag   " *ngIf="modalCompany.parttime ">Extrajobb</span>
+              <span class="tag   " *ngIf="modalCompany.summerjob ">Sommarjobb</span>
+              <span class="tag   " *ngIf="modalCompany.masterthesis ">Ex-jobb</span>
+              <span class="tag   " *ngIf="modalCompany.trainee ">Trainee</span>
+            </div>
 
 
-                <h5 class="title is-5 ">Vi söker</h5>
-                <div class="tags ">
-                  <span class="tag is-primary " *ngIf="modalCompany.engineers ">Civilingenjörer i Industriell Ekonomi</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.filfakare ">Civilekonomer</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.firstyear ">1:or</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.secondyear ">2:or</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.thirdyear ">3:or</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.fourthyear ">4:or</span>
-                  <span class="tag is-primary " *ngIf="modalCompany.fifthyear ">5:or</span>
-                </div>
-                <a *ngIf="modalCompany.offersinterview" class="button is-primary is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Kontaktsamtal</a>
-                <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-primary has-text-centered fa-heart"></i></span>
-                <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-primary has-text-centered fa-heart"></i></span>
-              </div>
+            <h5 class="title is-5 " style="margin-bottom: 3%;" *ngIf="modalCompany.engineers || modalCompany.filfakare">Vi söker</h5>
+            <div class="tags ">
+              <span class="tag   " *ngIf="modalCompany.engineers ">Civilingenjörer i Industriell Ekonomi</span>
+              <span class="tag   " *ngIf="modalCompany.filfakare ">Civilekonomer</span>
+          
+            </div>
+
+            <a *ngIf="modalCompany.offersinterview" class="button   is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Kontaktsamtal</a>
+            <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-centered fa-heart"></i></span>
+            <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="fas fa-2x has-text-centered fa-heart"></i></span>
+          </div>
               <div class="is-divider-vertical "></div>
               <div class="column is-auto ">
                 <div class="about-company ">
@@ -142,6 +164,5 @@
           </section>
         </div>
       </div>
-    </div>
   </div>
 </section>

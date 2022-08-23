@@ -257,9 +257,9 @@
               <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
               <td>{{ interview.companyname }} </td>
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-              <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>  -->
-              <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
-              <!-- <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> -->
+              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+              <!-- <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>  -->
+              <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">10e Nov </span><span *ngIf="interview.day == 'wednesday'">10de Nov </span>{{ interview.time }}</td>
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
