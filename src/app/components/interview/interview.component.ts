@@ -4,7 +4,7 @@ import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'
 import { finalize } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Company, InterviewApplication } from '../../shared/models';
+import { Company, InterviewApplication, User } from '../../shared/models';
 import * as _ from 'lodash';
 import { AuthService } from '../../services/auth.service';
 import { switchMap, map} from 'rxjs/operators';
@@ -23,7 +23,7 @@ export class InterviewComponent implements OnInit {
   success = false;
   notsuccess = false;
 
-  user;
+  user: User;
 
   clfile: any;
   clpath: any = null;
@@ -52,6 +52,15 @@ export class InterviewComponent implements OnInit {
   gradesuploaded: boolean = false;
   gradeserror: boolean = false;
 
+  motivationfile: any;
+  motivationpath: any = null;
+  motivationtask: AngularFireUploadTask;
+  motivationpercentage: Observable<number>;
+  motivationsnapshot: Observable<any>;
+  motivationdownloadURL: Observable<string>;
+  motivationuploaded: boolean = false;
+  motivationerror: boolean = false;
+
   companies: any;
   filteredCompanies: any;
   private companiesCollection: AngularFirestoreCollection<Company>;
@@ -71,7 +80,7 @@ export class InterviewComponent implements OnInit {
   constructor(public auth: AuthService, private storage: AngularFireStorage, private db: AngularFirestore, public fb: FormBuilder, private readonly afs: AngularFirestore, private route: ActivatedRoute,
     private router: Router) {
     this.auth.user$.subscribe(user => {
-      this.user = user
+      this.user = user;
       this.setValues();
       this.getInterviews().subscribe(interviews => {
           this.applied = interviews;
@@ -194,7 +203,8 @@ export class InterviewComponent implements OnInit {
       studentdeclined: false,
       resumepath: this.cvpath,
       coverletterpath: this.clpath,
-      gradespath: this.gradespath
+      gradespath: this.gradespath,
+      motivationpath: this.motivationpath
     }
 
     try {
@@ -238,7 +248,8 @@ export class InterviewComponent implements OnInit {
             studentdeclined: false,
             resumepath: this.cvpath,
             coverletterpath: this.clpath,
-            gradespath: this.gradespath
+            gradespath: this.gradespath,
+            motivationpath: this.motivationpath
           }
 
           try {
@@ -254,7 +265,7 @@ export class InterviewComponent implements OnInit {
   }
 
   okToSubmit() {
-    if ((this.company.reqcl && (!this.cluploaded || this.clerror)) || (this.company.reqresume && (!this.cvuploaded || this.cverror)) || (this.company.reqgrades && (!this.gradesuploaded || this.gradeserror)) || !this.interviewForm.valid) {
+    if ((this.company.reqcl && (!this.cluploaded || this.clerror)) || (this.company.reqmotivation && (!this.motivationuploaded || this.motivationerror)) || (this.company.reqresume && (!this.cvuploaded || this.cverror)) || (this.company.reqgrades && (!this.gradesuploaded || this.gradeserror)) || !this.interviewForm.valid) {
       return false;
     } else {
       return true;
@@ -323,6 +334,25 @@ export class InterviewComponent implements OnInit {
       console.error(err)
       this.gradesuploaded = false;
       this.gradeserror = true;
+    }
+  }
+
+  async startUploadMotivation(event: FileList) {
+    this.motivationpath = `motivation/${this.user.liuid}_${new Date().getTime()}`;
+    this.motivationfile = event.item(0)
+    if (this.motivationfile.type !== 'application/pdf') {
+      this.motivationuploaded = false;
+      this.motivationerror = true;
+      return;
+    }
+    try {
+    this.motivationtask = this.storage.upload(this.motivationpath, this.motivationfile);
+    this.motivationerror = false;
+    this.motivationuploaded = true;
+    } catch(err) {
+      console.error(err)
+      this.motivationuploaded = false;
+      this.motivationerror = true;
     }
   }
 

@@ -70,6 +70,8 @@ export interface Company {
   reqcl?: boolean;
   reqgrades?:boolean;
   reqmaster?:boolean;
+  reqmotivation?:boolean;
+
 
   interviewinfo?: string;
 
@@ -180,6 +182,7 @@ export interface InterviewApplication {
   resumepath?: string;
   coverletterpath?: string;
   gradespath?: string;
+  motivationpath?: string;
   day?: string;
   time?: string;
 }

@@ -244,6 +244,9 @@ export class AddcompanyComponent implements OnInit {
       'reqgrades': [false, [
         ]
       ],
+      'reqmotivation': [false, [
+      ]
+    ],
       'reqmaster': [false, [
       ]
     ],
@@ -365,6 +368,7 @@ export class AddcompanyComponent implements OnInit {
       reqresume: data.reqresume,
       reqcl: data.reqcl,
       reqgrades: data.reqgrades,
+      reqmotivation: data.reqmotivation,
       reqmaster: data.reqmaster,
       interviewinfo: data.interviewinfo,
       linkedIn: data.linkedIn,

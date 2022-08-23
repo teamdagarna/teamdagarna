@@ -52,6 +52,9 @@ export class CompanyComponent implements OnInit {
             if (this.company.reqgrades  === undefined) {
               this.companyDoc.update({reqgrades: false})
             }
+            if (this.company.reqmotivation  === undefined) {
+              this.companyDoc.update({reqmotivation: false})
+            }
             if (this.company.reqmaster  === undefined) {
               this.companyDoc.update({reqmaster: false})
             }
@@ -230,6 +233,9 @@ export class CompanyComponent implements OnInit {
       'reqgrades': [false, [
         ]
       ],
+      'reqmotivation': [false, [
+      ]
+    ],
       'reqmaster': [false, [
       ]
     ],
@@ -401,6 +407,7 @@ export class CompanyComponent implements OnInit {
         reqresume: data.reqresume,
         reqcl: data.reqcl,
         reqgrades: data.reqgrades,
+        reqmotivation: data.reqmotivation,
         reqmaster: data.reqmaster,
         interviewinfo: data.interviewinfo,
         totalapplicants: data.totalapplicants,

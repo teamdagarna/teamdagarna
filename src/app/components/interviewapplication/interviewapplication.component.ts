@@ -52,6 +52,15 @@ export class InterviewapplicationComponent implements OnInit {
   gradesuploaded: boolean = false;
   gradeserror: boolean = false;
 
+  motivationfile: any;
+  motivationpath: any = null;
+  motivationtask: AngularFireUploadTask;
+  motivationpercentage: Observable<number>;
+  motivationsnapshot: Observable<any>;
+  motivationdownloadURL: Observable<string>;
+  motivationuploaded: boolean = false;
+  motivationerror: boolean = false;
+
   companies: any;
   filteredCompanies: any;
   private companiesCollection: AngularFirestoreCollection<Company>;
@@ -194,7 +203,9 @@ export class InterviewapplicationComponent implements OnInit {
       studentdeclined: false,
       resumepath: this.cvpath,
       coverletterpath: this.clpath,
-      gradespath: this.gradespath
+      gradespath: this.gradespath,
+      motivationpath: this.motivationpath
+
     }
 
     try {
@@ -238,7 +249,9 @@ export class InterviewapplicationComponent implements OnInit {
             studentdeclined: false,
             resumepath: this.cvpath,
             coverletterpath: this.clpath,
-            gradespath: this.gradespath
+            gradespath: this.gradespath,
+            motivationpath: this.motivationpath
+
           }
 
           try {
@@ -254,7 +267,7 @@ export class InterviewapplicationComponent implements OnInit {
   }
 
   okToSubmit() {
-    if ((this.company.reqcl && (!this.cluploaded || this.clerror)) || (this.company.reqresume && (!this.cvuploaded || this.cverror)) || (this.company.reqgrades && (!this.gradesuploaded || this.gradeserror)) || !this.interviewForm.valid) {
+    if ((this.company.reqcl && (!this.cluploaded || this.clerror)) || (this.company.reqmotivation && (!this.motivationuploaded || this.motivationerror)) || (this.company.reqresume && (!this.cvuploaded || this.cverror)) || (this.company.reqgrades && (!this.gradesuploaded || this.gradeserror)) || !this.interviewForm.valid) {
       return false;
     } else {
       return true;
@@ -323,6 +336,25 @@ export class InterviewapplicationComponent implements OnInit {
       console.error(err)
       this.gradesuploaded = false;
       this.gradeserror = true;
+    }
+  }
+
+  async startUploadMotivation(event: FileList) {
+    this.motivationpath = `motivation/${this.user.liuid}_${new Date().getTime()}`;
+    this.motivationfile = event.item(0)
+    if (this.motivationfile.type !== 'application/pdf') {
+      this.motivationuploaded = false;
+      this.motivationerror = true;
+      return;
+    }
+    try {
+    this.motivationtask = this.storage.upload(this.motivationpath, this.motivationfile);
+    this.motivationerror = false;
+    this.motivationuploaded = true;
+    } catch(err) {
+      console.error(err)
+      this.motivationuploaded = false;
+      this.motivationerror = true;
     }
   }
 

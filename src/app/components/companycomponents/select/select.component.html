@@ -59,6 +59,7 @@
               <th *ngIf="company.reqresume">CV</th>
               <th *ngIf="company.reqcl">PB</th>
               <th *ngIf="company.reqgrades">Betyg</th>
+              <th *ngIf="company.reqmotivation">Motivering</th>
               
             </tr>
             <tbody>
@@ -95,6 +96,9 @@
                   <td *ngIf="company.reqgrades">
                     <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                   </td>
+                  <td *ngIf="company.reqmotivation">
+                    <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
                 </tr>
               </ng-container>
             </tbody>
@@ -114,6 +118,8 @@
               <th *ngIf="company.reqresume">CV</th>
               <th *ngIf="company.reqcl">PB</th>
               <th *ngIf="company.reqgrades">Betyg</th>
+              <th *ngIf="company.reqmotivation">Motivering</th>
+
             </tr>
             <tbody>
               <ng-container *ngFor="let interview of selectedinterviews">
@@ -149,6 +155,9 @@
                   <td *ngIf="company.reqgrades">
                     <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                   </td>
+                  <td *ngIf="company.reqmotivation">
+                    <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
                 </tr>
               </ng-container>
             </tbody>
@@ -169,6 +178,7 @@
               <th *ngIf="company.reqresume">CV</th>
               <th *ngIf="company.reqcl">PB</th>
               <th *ngIf="company.reqgrades">Betyg</th>
+              <th *ngIf="company.reqmotivation">Motivering</th>
             </tr>
             <tbody>
               <ng-container *ngFor="let interview of backupinterviews; let i = index">
@@ -204,6 +214,9 @@
                   </td>
                   <td *ngIf="company.reqgrades">
                     <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  </td>
+                  <td *ngIf="company.reqmotivation">
+                    <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
                   </td>
                 </tr>
               </ng-container>
@@ -241,6 +254,8 @@
               <th *ngIf="company.reqresume">CV</th>
               <th *ngIf="company.reqcl">PB</th>
               <th *ngIf="company.reqgrades">Betyg</th>
+              <th *ngIf="company.reqmotivation">Motivering</th>
+
               <th>Status <a (click)="applyOrder('status')"><i class="fas fa-sort"></i></a></th>
               <th>Ändra/Uppdatera </th>
 
@@ -259,6 +274,8 @@
               <th *ngIf="company.reqresume">CV</th>
               <th *ngIf="company.reqcl">PB</th>
               <th *ngIf="company.reqgrades">Betyg</th>
+              <th *ngIf="company.reqmotivation">Motivering</th>
+
               <th>Status</th>
               <th>Ändra/Uppdatera </th>
             </tr>
@@ -297,6 +314,10 @@
               </td>
               <td *ngIf="company.reqgrades">
                 <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
+
+              <td *ngIf="company.reqmotivation">
+                <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
               <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
               <td>
@@ -343,6 +364,8 @@
                 <th *ngIf="company.reqresume">CV</th>
                 <th *ngIf="company.reqcl">PB</th>
                 <th *ngIf="company.reqgrades">Betyg</th>
+                <th *ngIf="company.reqmotivation">Motivering</th>
+
                 <th>Status <a (click)="applyOrderOpen('status')"><i class="fas fa-sort"></i></a></th>
                 <th>Ändra/Uppdatera </th>
 
@@ -361,6 +384,8 @@
                 <th *ngIf="company.reqresume">CV</th>
                 <th *ngIf="company.reqcl">PB</th>
                 <th *ngIf="company.reqgrades">Betyg</th>
+                <th *ngIf="company.reqmotivation">Motivering</th>
+
                 <th>Status</th>
                 <th>Ändra/Uppdatera </th>
               </tr>
@@ -399,6 +424,9 @@
                 </td>
                 <td *ngIf="company.reqgrades">
                   <ng-container *ngIf="openinterview.gradespath"><a *ngIf="openinterview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+                <td *ngIf="company.reqmotivation">
+                  <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
                 <td>

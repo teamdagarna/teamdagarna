@@ -107,7 +107,7 @@
             <p *ngIf="company.reqmaster"><strong>{{ company.name }}</strong> vill att du fyller i din masterprofil/inriktning under "Min profil" innan du skickar in ansökan.</p>
 
 
-            <p *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
+            <p *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqmotivation">Kort motivering</strong>, <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
             <br>
             <div class="field">
               <label class="label" for="phoneNumber">Mobilnummer</label>
@@ -196,6 +196,29 @@
                   </div>
                 </div>
               </ng-container>
+
+              <ng-container *ngIf="company.reqmotivation">
+                <div class="column is-3">
+                  <div class="file has-name is-boxed">
+                    <label class="file-label upload">
+                <input class="file-input" type="file" (change)="startUploadMotivation($event.target.files)" accept="application/pdf">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Ladda upp kort motivering
+                  </span>
+                </span>
+                <span class="file-name has-text-centered">
+                  <ng-container *ngIf="motivationuploaded">Filen är ok!</ng-container>
+                  <ng-container *ngIf="motivationerror">Fel format! Ladda upp .pdf</ng-container>
+                </span>
+              </label>
+                  </div>
+                </div>
+              </ng-container>
+
             </div>
 
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
@@ -220,7 +243,7 @@
       <br>
       <p>Du har nu sökt {{ applicationsMade }} stycken samtal (excl. öppen anmälan). Du kan max söka till 6 stycken företag plus skicka in till den öppna ansökan.</p>
       <br>
-      <a class="button" (click)="refresh()">Tillbaka till att söka fler</a><br>
+      <a class="button" (click)="refresh()">Tillbaka till att söka fler</a><br><br>
   </div>
 </section>
 
@@ -231,13 +254,13 @@
       <h1 class="title is-5">Något gick fel!</h1>
       <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
       <br>
-      <a class="button" (click)="refresh()">Tillbaka</a>
+      <a class="button" (click)="refresh()">Tillbaka</a><br><br>
   </div>
 </section> 
 
 
 <section class="hero" *ngIf="!user">
-  <div class="container" *ngIf="!user">
+  <div class="container">
   </div>
   <div class="container has-text-centered is-mobile" *ngIf="!user">
     <h1 class="title is-3">Du måste vara inloggad för att kunna söka kontaktsamtal!</h1>
