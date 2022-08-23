@@ -22,10 +22,10 @@
 <div class="container">
   <div class="columns is-multiline">
     <div class="column is-12">
-      <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Konsulting." (keyup)="onSearch($event)">
+      <input class="input" [(ngModel)]="searchInput" type="text" placeholder="Sök på företagsnamn eller bransch. Exempelvis SEB eller Konsultverksamhet." (keyup)="onSearch($event)">
     </div>
 
-    <div class="column is-12">
+    <div class="column is-10">
 
       <div class="filter-dropdown dropdown is-hoverable">
         <div class="dropdown-trigger">
@@ -185,7 +185,7 @@
         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
           <div class="dropdown-content">
             <div class="dropdown-item">
-              <input type="checkbox" (change)="filterExact('industry', 'Consulting', $event.target.checked)"> Konsulting
+              <input type="checkbox" (change)="filterExact('industry', 'Consulting', $event.target.checked)"> Konsultverksamhet
             </div>
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterExact('industry', 'Industri', $event.target.checked)"> Industri
@@ -364,7 +364,7 @@
           <div class="column is-3">
             <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
               <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl ">
-            </a>&nbsp;&nbsp;<br>
+            </a>&nbsp;&nbsp;<br><br>
 
             <a *ngIf="modalCompany.linkedIn" href="{{ modalCompany.linkedIn }}" target="_blank" data-balloon="Besök på LinkedIn" data-balloon-pos="right">
               <i class="fab fa-linkedin-in" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
@@ -377,17 +377,17 @@
             </a>
             <a *ngIf="modalCompany.twitter" href="{{ modalCompany.twitter }}" target="_blank" data-balloon="Besök på Twitter" data-balloon-pos="right">
               <i class="fab fa-twitter" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
-            </a><br>
+            </a><br><br>
             
-            <h5 class="title is-5 ">Vi ställer ut</h5>
-            <div class="tags ">
+            <h5 class="title is-5 " style="margin-bottom: 3%;">Vi ställer ut</h5>
+            <div class="tags">
               <span class="tag   " *ngIf="modalCompany.firstdayappearance ">Tisdag</span>
               <span class="tag   " *ngIf="modalCompany.seconddayappearance ">Onsdag</span>
             </div>
-            <h5 class="title is-5 ">Bransch</h5>
+            <h5 class="title is-5 " style="margin-bottom: 3%;">Bransch</h5>
 
           <div class="tags ">
-            <span class="tag   " *ngIf="modalCompany.consulting ">Konsulting</span>
+            <span class="tag   " *ngIf="modalCompany.consulting ">Konsultverksamhet</span>
             <span class="tag   " *ngIf="modalCompany.industri ">Industri</span>
             <span class="tag   " *ngIf="modalCompany.logistik ">Logistik</span>
             <span class="tag   " *ngIf="modalCompany.itteknik ">It & Teknik</span>
@@ -401,7 +401,7 @@
             <span class="tag   " *ngIf="modalCompany.startup ">Startup</span>
             <span class="tag   " *ngIf="modalCompany.other ">Övrigt</span>
           </div>
-            <h5 class="title is-5 " *ngIf="modalCompany.internship || modalCompany.parttime || modalCompany.summerjob || modalCompany.masterthesis || modalCompany.trainee   ">Vi erbjuder</h5>
+            <h5 class="title is-5 " style="margin-bottom: 3%;" *ngIf="modalCompany.internship || modalCompany.parttime || modalCompany.summerjob || modalCompany.masterthesis || modalCompany.trainee   ">Vi erbjuder</h5>
             <div class="tags ">
               <span class="tag   " *ngIf="modalCompany.internship ">Internship</span>
               <!-- <span class="tag   " *ngIf="modalCompany.fulltime ">Heltidsjobb</span> -->
@@ -414,15 +414,11 @@
             </div>
 
 
-            <h5 class="title is-5 " *ngIf="modalCompany.engineers || modalCompany.filfakare">Vi söker</h5>
+            <h5 class="title is-5 " style="margin-bottom: 3%;" *ngIf="modalCompany.engineers || modalCompany.filfakare">Vi söker</h5>
             <div class="tags ">
               <span class="tag   " *ngIf="modalCompany.engineers ">Civilingenjörer i Industriell Ekonomi</span>
               <span class="tag   " *ngIf="modalCompany.filfakare ">Civilekonomer</span>
-              <!-- <span class="tag   " *ngIf="modalCompany.firstyear ">1:or</span>
-              <span class="tag   " *ngIf="modalCompany.secondyear ">2:or</span>
-              <span class="tag   " *ngIf="modalCompany.thirdyear ">3:or</span>
-              <span class="tag   " *ngIf="modalCompany.fourthyear ">4:or</span>
-              <span class="tag   " *ngIf="modalCompany.fifthyear ">5:or</span> -->
+          
             </div>
             <a *ngIf="modalCompany.offersinterview" class="button   is-outlined" [routerLink]="['/interview']" [queryParams]="{ preselected: modalCompany.id }">Kontaktsamtal</a>
             <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="icon is-medium is-pulled-right is-hidden-desktop"><i class="far fa-2x has-text-centered fa-heart"></i></span>

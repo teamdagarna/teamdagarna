@@ -50,30 +50,30 @@
         <br>
 
         <ng-container *ngIf="company">
-          <div class="is-divider" data-content="FÖRETAGSINFO"></div>
-          <h5 class="title is-5 is-centered ">Vi erbjuder</h5>
+          <div class="is-divider" data-content="FÖRETAGSINFO" *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"></div>
+          <h5 class="title is-5 is-centered " *ngIf="company.internship || company.fulltime || company.parttime || company.summerjob || company.masterthesis || company.trainee || company.otherthesis">Vi erbjuder</h5>
           <div class="tags ">
             <span class="tag " *ngIf="company.internship ">Internship</span>
             <span class="tag " *ngIf="company.fulltime ">Heltidsjobb</span>
             <span class="tag " *ngIf="company.parttime ">Deltidsjobb</span>
             <span class="tag " *ngIf="company.summerjob ">Sommarjobb</span>
             <span class="tag " *ngIf="company.masterthesis ">Ex-jobb</span>
-            <span class="tag " *ngIf="company.abroad ">Utlandsmöjligheter</span>
+            <!-- <span class="tag " *ngIf="company.abroad ">Utlandsmöjligheter</span> -->
             <span class="tag " *ngIf="company.trainee ">Trainee</span>
             <span class="tag " *ngIf="company.otherthesis ">Uppsatshandledning</span>
           </div>
 
-          <h5 class="title is-5 is-centered ">Vi söker</h5>
+          <h5 class="title is-5 is-centered " *ngIf="company.engineers || company.filfakare">Vi söker</h5>
           <div class="tags ">
             <span class="tag " *ngIf="company.engineers ">Civilingenjörer i Industriell Ekonomi</span>
             <span class="tag " *ngIf="company.filfakare ">Civilekonomer</span>
-            <span class="tag " *ngIf="company.firstyear ">1:or</span>
+            <!-- <span class="tag " *ngIf="company.firstyear ">1:or</span>
             <span class="tag " *ngIf="company.secondyear ">2:or</span>
             <span class="tag " *ngIf="company.thirdyear ">3:or</span>
             <span class="tag " *ngIf="company.fourthyear ">4:or</span>
-            <span class="tag " *ngIf="company.fifthyear ">5:or</span>
+            <span class="tag " *ngIf="company.fifthyear ">5:or</span> -->
           </div>
-          <h5 class="title is-5 ">Om oss</h5>
+          <h5 class="title is-5 " *ngIf="company.about">Om oss</h5>
           <p style="white-space: pre-wrap;">{{ company.about }}</p>
           <br>
           <h5 *ngIf="company.values" class="title is-5 ">Vi värdesätter</h5>
@@ -104,10 +104,10 @@
           <ng-container *ngIf="!((applicationsMade > 5 && company.name!='Öppen anmälan kontaktsamtal') || (appliedOpen && company.name=='Öppen anmälan kontaktsamtal'))">
 
 
-            <p *ngIf="company.reqmaster"><strong>OBS! <br>{{ company.name }}</strong> vill att du fyller i din masterprofil/inriktning under "Min profil" innan du skickar in ansökan.</p>
+            <p *ngIf="company.reqmaster"><strong>{{ company.name }}</strong> vill att du fyller i din masterprofil/inriktning under "Min profil" innan du skickar in ansökan.</p>
 
 
-            <p><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
+            <p *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
             <br>
             <div class="field">
               <label class="label" for="phoneNumber">Mobilnummer</label>
