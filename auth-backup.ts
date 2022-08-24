@@ -28,7 +28,7 @@ export class AuthService {
 
   private user$: Observable<firebase.User>;
   userDetails: firebase.User = null;
-  userData: user = null;
+  userData: firebase.User = null;
   isAuthenticated: Boolean = false;
   emailIsVerified: Boolean = false;
 
@@ -37,13 +37,13 @@ export class AuthService {
               private router: Router) {
                 // Define the user observable
                   afs.firestore.settings({timestampsInSnapshots: true});
-                  this.user = this.afAuth.authState;
-                  this.user.pipe(switchMap(auth => {
+                  this.user$ = this.afAuth.authState;
+                  this.user$.pipe(switchMap(auth => {
                       if (auth) {
                         this.emailIsVerified = this.afAuth.auth.currentUser.emailVerified;
                         this.userDetails = auth;
-                        const userData: AngularFirestoreDocument<user> = afs.doc('users/' + auth.uid);
-                        const userData$: Observable<user> = userData.valueChanges();
+                        const userData: AngularFirestoreDocument<User> = afs.doc('users/' + auth.uid);
+                        const userData$: Observable<User> = userData.valueChanges();
                         userData$.subscribe((data) => {
                           this.userData = data;
                         });
@@ -78,7 +78,7 @@ export class AuthService {
 
 
   // Update properties on the user document
-  updateUser(user: user, data: any) {
+  updateUser(user: User, data: any) {
     return this.afs.doc(`users/${user.uid}`).update(data)
   }
 
