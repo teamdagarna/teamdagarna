@@ -48,9 +48,14 @@
       </div>
     </form>
   </div>
-  <div class="hero container" *ngIf="auth.isSignedIn()">
+</section>
+
+
+<section class="hero"  *ngIf="auth.isSignedIn()">
+  <div class="container has-text-centered is-mobile">
+
     <div class="columns is-centered">
-          <h1 class="title is-3 has-text-primary has-text-centered">Snyggt, du är redan inloggad! Klicka på pusselbiten för att ta dig till startsidan :)</h1>
+          <h1 class="title is-3 has-text-centered">Snyggt, du är redan inloggad! Klicka på pusselbiten för att ta dig till startsidan :)</h1>
     </div>
     <br>
     <div class="columns is-centered">
