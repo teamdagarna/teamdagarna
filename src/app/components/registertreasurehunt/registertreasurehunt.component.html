@@ -3,7 +3,7 @@
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered ">
         <div class="column is-9">
-              <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Pusseljakten</h2>
+              <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Pusseljakten 2022</h2>
               <h5 class="subtitle is-6">Här kan du läsa mer om pusseljakten samt registrera pusselbitar som du samlar under mässdagarna.</h5>
         </div>
       </div>
@@ -31,30 +31,30 @@
         </div>
 
         <div *ngIf="success">
-          <div class="notification is-success">
+          <div class="notification">
             <h1 class="title is-5">Pusselbiten är registrerad!</h1>
             <p>Du har registrerat pusselbit från {{ treasureCompany.companyname }}. Du har nu samlat {{ noOfPointsWednesday }} <span *ngIf="noOfPointsWednesday == 1">pusselbit </span> <span *ngIf="noOfPointsWednesday != 1">stycken pusselbitar </span>i pusseljakten för onsdagen.</p>
             <br>
-            <a class="button is-white" (click)="refresh()">Registrera fler pusselbitar!</a>
-          </div>
+            <a class="button" (click)="refresh()">Registrera fler pusselbitar!</a>
+          </div><br>
         </div>
 
         <div *ngIf="notsuccess">
-          <div class="notification is-warning">
+          <div class="notification">
             <h1 class="title is-5">Något gick fel!</h1>
             <p>Något gick snett när pusselbiten skulle registreras. Var vänlig försök igen!</p>
             <br>
-            <a class="button is-white" (click)="refresh()">Prova igen!</a>
-          </div>
+            <a class="button" (click)="refresh()">Prova igen!</a>
+          </div><br>
         </div>
 
         <div *ngIf="hasPoint">
-          <div class="notification is-info">
+          <div class="notification ">
             <h1 class="title is-5">Pusselbit redan registrerad!</h1>
             <p>Du har redan registrerat pusselbit från {{ treasureCompany.companyname }} idag. Försök samla andra pusselbitar!</p>
             <br>
-            <a class="button is-white" (click)="refresh()">Ange ny kod!</a>
-          </div>
+            <a class="button" (click)="refresh()">Ange ny kod!</a>
+          </div><br>
         </div>
       </div>
 
@@ -63,7 +63,7 @@
         <a [routerLink]="['../signin']" class="subtitle is-4 has-text-weight-semibold">
           Klicka här för att logga in!
         </a>
-      </div>
+      </div><br>
       </div>
     </div>
   </div> 
@@ -71,15 +71,22 @@
   <div class="container has-text-centered is-mobile">
     <div class="columns is-centered">
       <div class="column">
-          <h1 class="title is-3">Info</h1>
-          <p>Pusseljakten är en tävling under båda mässdagarna som går ut på att studenten ska samla så många pusselbitar som möjligt. Ju fler pusselbitar, desto större chans att vinna ett pris från prispotten!</p>
-          <p>Pusselbitarna finns att hitta hos de deltagande företagen, hur ni får dem är dock hemligt... Ska ni placera er i topp 10 i en montertävling, fråga om sommarjobb eller kanske veta onödigt mycket information om företaget i fråga? Har ni tur kanske ni även hittar en ytterligare bit gömd på mässområdet.</p>
-          <p>Pusselbitarna registreras till er användare via hemsidan eller appen med hjälp av de koder som finns på pusselbitarna. De tre som samlat flest pusselbitar under respektive dag kommer att få välja sitt pris, övriga priser kommer att lottas ut mellan samtliga deltagare!</p>
+          <h1 class="title is-4">Info</h1>
+          <p>Pusseljakten är en tävling under båda mässdagarna som går ut på att studenten ska samla så många pusselbitar som möjligt. Ju fler pusselbitar, desto större chans att vinna ett pris från prispotten!
+          </p><br>
+          <p>Ni kommer under båda mässdagarna ha möjlighet att samla pusselbitskoder till tävlingen. Pusselbitskoderna hittas i montrarna hos företag som är med i Pusseljakten. Vilka företag som är med i pusseljakten kommer att synas på bland annat vår hemsida och på mässkartan. Hur ni får en pusselbit skiljer sig åt från företag till företag. Exempelvis kan ni få en pusselbit efter att ha deltagit i en montertävling eller efter att ha visat intresse för pusseljakten eller företaget.
+
+          </p><br>
+          <p>Ni kommer i sin tur skriva in pusselbitskoden i ett tävlingsformuläret ovan för att registrera er pusselbit. De tre studenter som samlat flest pusselbitar under respektive mässdag kommer att få välja ett pris, övriga priser kommer att lottas ut mellan resterande deltagare. Tänk på att fler pusselbitar ökar dina chanser! 
+
+          </p><br>
       </div>
         <div class="column">
-          <h1 class="title is-5">Priser i pusseljakten:</h1>
+          <h1 class="title is-4">Priser i pusseljakten:</h1>
+          <p>Mer info kommer senare!
+          </p>
 
-          <ul style="list-style: none;">
+          <!-- <ul style="list-style: none;">
             <li>Lunch med anställd från KPMG Linköping</li>
             <li>CV-granskning med Academic Work </li>
             <li>Frukost eller lunch med en företagsrepresentant från Accenture i Stockholm (Resa står studenten själv för) </li>
@@ -94,7 +101,7 @@
             <li>Kaffekort i baljan</li>
             <li>En fredag på Optilons kontor med möjlighet till karriärtips från konsulter och ledning (Resan står dem för)</li>
             <li>Lunch med en senior kollega samt inbjudan till studentmingel hos Accigo AB</li>
-          </ul>
+          </ul> -->
         </div>
 
       </div>
