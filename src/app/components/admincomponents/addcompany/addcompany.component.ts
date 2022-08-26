@@ -76,6 +76,9 @@ export class AddcompanyComponent implements OnInit {
        ]
       ],
      'revision': [false, [
+     ]]
+     ,
+     'companyRedovisning': [false, [
      ]
      ],
      'startup': [false, [
@@ -304,6 +307,7 @@ export class AddcompanyComponent implements OnInit {
       telekom: data.telekom,
       revision: data.revision,
       startup: data.startup,
+      companyRedovisning: data.companyRedovisning,
       other: data.other,
 
       internship: data.internship,

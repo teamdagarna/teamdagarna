@@ -212,6 +212,9 @@
               <input type="checkbox" (change)="filterExact('industry', 'Fastigheter & Infrastruktur', $event.target.checked)"> Fastigheter & Infrastruktur
             </div>
             <div class="dropdown-item">
+              <input type="checkbox" (change)="filterExact('industry', 'Redovisning', $event.target.checked)"> Redovisning
+            </div>
+            <div class="dropdown-item">
               <input type="checkbox" (change)="filterExact('industry', 'Förening eller Förbund', $event.target.checked)"> Förening eller Förbund
             </div>
             <div class="dropdown-item">
@@ -393,12 +396,13 @@
             <span class="tag   " *ngIf="modalCompany.consulting ">Konsultverksamhet</span>
             <span class="tag   " *ngIf="modalCompany.industri ">Industri</span>
             <span class="tag   " *ngIf="modalCompany.logistik ">Logistik</span>
-            <span class="tag   " *ngIf="modalCompany.itteknik ">It & Teknik</span>
+            <span class="tag   " *ngIf="modalCompany.itteknik ">IT & Teknik</span>
             <span class="tag   " *ngIf="modalCompany.rekrytering ">Rekrytering</span>
             <span class="tag   " *ngIf="modalCompany.bank ">Bank & Finans</span>
             <span class="tag   " *ngIf="modalCompany.retail ">Retail</span>
             <span class="tag   " *ngIf="modalCompany.fastigheter ">Fastigheter & Infrastruktur</span>
             <span class="tag   " *ngIf="modalCompany.forening ">Förening eller Förbund</span>
+            <span class="tag   " *ngIf="modalCompany.companyRedovisning ">Redovisning</span>
             <span class="tag   " *ngIf="modalCompany.telekom ">Telekom</span>
             <span class="tag   " *ngIf="modalCompany.revision ">Revision</span>
             <span class="tag   " *ngIf="modalCompany.startup ">Startup</span>

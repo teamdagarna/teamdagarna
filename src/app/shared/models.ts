@@ -89,6 +89,7 @@ export interface Company {
   forening?: boolean;
   telekom?: boolean;
   revision?: boolean;
+  companyRedovisning?: boolean;
   startup?: boolean;
   other?: boolean;
   

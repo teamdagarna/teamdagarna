@@ -85,6 +85,7 @@ export class CompanyComponent implements OnInit {
       'forening': [false, []],
       'telekom': [false, []],
       'revision': [false, []],
+      'companyRedovisning': [false, []],
       'startup': [false, []],
       'other': [false, []],
       'internship': [false, []],
@@ -345,6 +346,7 @@ export class CompanyComponent implements OnInit {
         forening: data.forening,
         telekom: data.telekom,
         revision: data.revision,
+        companyRedovisning: data.companyRedovisning,
         startup: data.startup,
         other: data.other,
         
