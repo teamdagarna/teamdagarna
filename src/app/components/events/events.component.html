@@ -12,7 +12,9 @@
 </div>
 
 
-<section class="section" *ngIf="!toggleEvent">
+<section class="hero" *ngIf="!toggleEvent">
+  <div class="hero-body">
+
   <div class="container">
 
 
@@ -28,8 +30,8 @@
             <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
           </a>
           <div class="event-content">
-            <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
-            <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
+            <h3> <a class="event-title" style="color: #463853" [routerLink]="[event.id]">{{ event.title }}</a></h3>
+            <p class="event-meta" style="color: #463853"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
             <a class="" [routerLink]="[event.id]">Läs mer</a>
           </div>
         </div>
@@ -40,7 +42,7 @@
     <div class="columns is-multiline is-variable is-5">
       <div class="column is-12">
         <div class="border-btm">
-          <h1 class="subtitle is-3">Alla event</h1>
+          <h1 class="title is-3">Infördagarna</h1>
         </div>
       </div>
       <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of preevents">
@@ -49,8 +51,8 @@
             <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
           </a>
           <div class="event-content">
-            <h3> <a class="event-title" [routerLink]="[event.id]">{{ event.title }}</a></h3>
-            <p class="event-meta"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
+            <h3> <a class="event-title" style="color: #463853" [routerLink]="[event.id]">{{ event.title }}</a></h3>
+            <p class="event-meta" style="color: #463853"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
             <a class="" [routerLink]="[event.id]">Läs mer</a>
           </div>
         </div>
@@ -60,4 +62,6 @@
 
 
   </div>
+  </div>
+
 </section>

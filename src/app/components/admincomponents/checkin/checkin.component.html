@@ -69,16 +69,16 @@
           <td><span *ngIf="attendant.getsfood">Ja</span><span *ngIf="!attendant.getsfood">Nej</span></td>
           <td>{{attendant.specialfood}}</td>
           <td>{{attendant.timestamp.toDate() | date:'dd MMM HH:mm'}}</td>
-          <td><span class="has-text-danger" *ngIf="attendant.waitinglist">Ja</span><span class="has-text-success" *ngIf="!attendant.waitinglist">Nej</span></td>
-          <td *ngIf="!attendant.checkedin"><a (click)="checkin(attendant.id)" class="button is-success is-small">
-            <span class="icon is-small">
+          <td><span class="has-text-danger" *ngIf="attendant.waitinglist">Ja</span><span *ngIf="!attendant.waitinglist">Nej</span></td>
+          <td *ngIf="!attendant.checkedin"><a (click)="checkin(attendant.id)" class="button is-small">
+            <span class="icon is-small" id="white-icon">
              <i class="fas fa-check"></i>
              </span>
             <span>Checka in</span>
           </a></td>
           <td *ngIf="attendant.checkedin"><a (click)="checkout(attendant.id)" class="button is-danger is-outlined is-small">
            <span>Checka ut</span>
-           <span class="icon is-small">
+           <span class="icon is-small" id="white-icon">
              <i class="fas fa-times"></i>
            </span>
          </a></td>
