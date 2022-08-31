@@ -199,11 +199,11 @@ export class AuthService {
         //   label: "Företagsskyltar",
         //   url: "https://teamdagarna.com/foretagsskyltar"
         // },
-        // {
-        //   subLinks: [],
-        //   label: "Sök värd",
-        //   url: "https://teamdagarna.com/sokvard"
-        // },
+        {
+          subLinks: [],
+          label: "Sök värd",
+          url: "https://teamdagarna.com/sokvard"
+        },
         {
           subLinks: [],
           label: "Kontaktsamtal",
@@ -365,11 +365,11 @@ export class AuthService {
         //   label: "Företagsskyltar",
         //   url: "https://teamdagarna.com/foretagsskyltar"
         // },
-        // {
-        //   subLinks: [],
-        //   label: "Sök värd",
-        //   url: "https://teamdagarna.com/sokvard"
-        // },
+        {
+          subLinks: [],
+          label: "Sök värd",
+          url: "https://teamdagarna.com/sokvard"
+        },
         {
           subLinks: [],
            label: "Kontaktsamtal",
