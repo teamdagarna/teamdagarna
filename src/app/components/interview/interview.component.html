@@ -11,6 +11,21 @@
   </div>
 </div>
 
+
+<section class="hero" *ngIf="user && !success && !notsuccess">
+  <div class="container has-text-centered is-mobile">
+
+  <div class="columns is-centered">
+    <div class="column is-8 is-12-mobile">
+
+      <h1 class="subtitle is-6"><strong>Ansökan för kontaktsamtal för TEAM-dagarna 2022 är stängd.</strong><br><br> Du som sökt kontaktsamtal kommer från och med den 15e september få reda på vilka företag som valt dig som kandidat under Mina sidor. Sista svarsdag för kontaktsamtalen är den 16e september.
+      </h1><br>
+    </div>
+  </div>
+  </div>
+</section>
+  
+<!-- 
 <section class="hero" *ngIf="user && !success && !notsuccess">
   <div class="container has-text-centered is-mobile">
 
@@ -58,7 +73,6 @@
             <span class="tag " *ngIf="company.parttime ">Deltidsjobb</span>
             <span class="tag " *ngIf="company.summerjob ">Sommarjobb</span>
             <span class="tag " *ngIf="company.masterthesis ">Ex-jobb</span>
-            <!-- <span class="tag " *ngIf="company.abroad ">Utlandsmöjligheter</span> -->
             <span class="tag " *ngIf="company.trainee ">Trainee</span>
             <span class="tag " *ngIf="company.otherthesis ">Uppsatshandledning</span>
           </div>
@@ -67,11 +81,7 @@
           <div class="tags ">
             <span class="tag " *ngIf="company.engineers ">Civilingenjörer i Industriell Ekonomi</span>
             <span class="tag " *ngIf="company.filfakare ">Civilekonomer</span>
-            <!-- <span class="tag " *ngIf="company.firstyear ">1:or</span>
-            <span class="tag " *ngIf="company.secondyear ">2:or</span>
-            <span class="tag " *ngIf="company.thirdyear ">3:or</span>
-            <span class="tag " *ngIf="company.fourthyear ">4:or</span>
-            <span class="tag " *ngIf="company.fifthyear ">5:or</span> -->
+     
           </div>
           <h5 class="title is-5 " *ngIf="company.about">Om oss</h5>
           <p style="white-space: pre-wrap;">{{ company.about }}</p>
@@ -268,4 +278,4 @@
       Klicka här för att logga in!
     </a>
   </div><br>
-</section>
+</section> -->

@@ -233,6 +233,8 @@
         <div class="border-btm">
           <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
         </div>
+        <h1 class="title is-6">Företagens urvalsprocess börjar onsdag den 7:e september. <br>
+          Du kommer att få reda på vilka företag som valt dig som kandidat från och med den 15:onde september.</h1>
         <!-- <h1 class="subtitle is-5">Kontaktsamtalen sker via Graduateland i år!</h1> -->
         <!--
         <h1 class="subtitle is-5">Företagens urvalsprocess börjar <strong>söndagen den 18:e oktober</strong>.</h1>
@@ -242,7 +244,7 @@
         <h1 class="subtitle is-5"><strong>Informationen om ditt kontaktsamtal</strong> får du skickat till den mail du registrerade ditt konto med.</h1>
         <h1 class="subtitle is-5"><strong>Om du inte kan eller vill lämna återbud</strong> så gör du det genom att kontakta kontaktsamtalsansvarig Julia Bogren på <a href="mailto:julia.bogren@teamdagarna.com">julia.bogren@teamdagarna.com</a>.</h1> -->
 
-        <table class="table is-fullwidth">
+        <!-- <table class="table is-fullwidth">
           <thead>
             <tr>
               <th>Företag:</th>
@@ -258,17 +260,28 @@
               <td>{{ interview.companyname }} </td>
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+ -->
+
               <!-- <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>  -->
+
+<!-- 
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">27e Sep </span><span *ngIf="interview.day == 'wednesday'">28e Sep </span>{{ interview.time }}</td>
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
-              <td *ngIf="interview.studentaccepted && !interview.time && interview.selected">Schemaläggs</td> <!-- Ändra inte testat denna fullt ut-->
+              <td *ngIf="interview.studentaccepted && !interview.time && interview.selected">Schemaläggs</td>  -->
+              
+              <!-- Ändra inte testat denna fullt ut-->
+<!--               
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
-              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
+              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th> -->
+
+
               <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> (ändra till denna när svartiden för studenter är stängd)-->
-               <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
+               
+<!--               
+              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
               <th *ngIf="!interview.selected">-</th>
               <td *ngIf="interview.selected">
                 <p class="buttons">
@@ -286,11 +299,16 @@
                 </button>
                 </p>
 
-              </td>
+              </td> -->
+
+
               <!-- <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
               </td> -->
-              </ng-container>
+
+
+              
+              <!-- </ng-container>
             </tr>
             <tr *ngFor="let interview of openinterviews">
               <td>{{ interview.companyname }}*</td>
@@ -299,13 +317,22 @@
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">27e Sep </span><span *ngIf="interview.day == 'wednesday'">28e Sep </span>{{ interview.time }}</td>
-              <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td> <!-- Ändra inte testat denna fullt ut-->
+              <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td>  -->
+
+              <!-- Ändra inte testat denna fullt ut-->
+<!--               
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
-              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
+              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th> -->
+
+
+
               <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> ändra till denna när ansökan stängt -->
-              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+              
+              
+              
+              <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
 
 
               <th *ngIf="!interview.selected">-</th>
@@ -325,25 +352,30 @@
                 </button>
                 </p>
 
-              </td> 
+              </td>  -->
 
               <!-- <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
               </td> -->
-            </tr>
+            <!-- </tr>
           </tbody>
-        </table>
+        </table> -->
+
         <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
         <br>
 
 
-        <ng-container *ngIf="openinterviews">
+        <!-- <ng-container *ngIf="openinterviews">
           <p><em>*Från öppna ansökan.</em></p>
         </ng-container>
         <ng-container *ngIf="openinterviews || interviews">
-          <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
+          <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p> -->
+
+
           <!-- <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
-        </ng-container>
+       
+       
+        <!-- </ng-container> -->
 
 
       </div>
