@@ -438,7 +438,7 @@
                   <ng-container *ngIf="openinterview.gradespath"><a *ngIf="openinterview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <td *ngIf="company.reqmotivation">
-                  <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <ng-container *ngIf="openinterview.motivationpath"><a *ngIf="openinterview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
                 <td>
