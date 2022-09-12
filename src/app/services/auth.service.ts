@@ -175,11 +175,11 @@ export class AuthService {
           url: "https://teamdagarna.com/companies"
          },
         {
-        //   subLinks: [],
-        //   label: "Event",
-        //   url: "https://teamdagarna.com/events"
-        // },
-        // { 
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
+        { 
           subLinks: [],
           label: "TEAM-bloggen",
           url: "https://teamdagarna.com/blogposts"  
@@ -340,11 +340,11 @@ export class AuthService {
           label: "Företagen 2022",
           url: "https://teamdagarna.com/companies"
         },
-        // {
-        //   subLinks: [],
-        //   label: "Event",
-        //   url: "https://teamdagarna.com/events"
-        // },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
         { 
           subLinks: [],
           label: "TEAM-bloggen",
