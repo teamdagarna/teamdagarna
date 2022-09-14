@@ -90,6 +90,7 @@ import { ApplyComponent } from './components/apply/apply.component';
 import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 import { SignoutComponent } from './components/signout/signout.component';
 import { SustainabilityComponent } from './components/sustainability/sustainability.component';
+import { SponsorComponent } from './components/sponsors/sponsors.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
 import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
@@ -120,6 +121,7 @@ registerLocaleData(localeSv, 'sv');
     ForgotComponent,
     ProfileComponent,
     DashboardComponent,
+    SponsorComponent,
     UsersComponent,
     UserComponent,
     CompaniesComponent,
@@ -219,6 +221,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
+    { path: 'sponsors', component: SponsorComponent },
     { path: 'about', component: AboutComponent },
     { path: 'about-english', component: AboutenglishComponent },
     { path: 'companies', component: CompaniesComponent },

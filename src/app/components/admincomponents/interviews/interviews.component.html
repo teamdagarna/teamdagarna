@@ -149,7 +149,7 @@
 
       <td>
         <button [disabled]="interview.numberofaccepted > 5 || selectedinterviews.length >= company.totalapplicants" (click)="setSelected(interview.id)" class="button is-success is-small">
-          <span class="icon is-small">
+          <span class="icon is-small" id="white-icon">
             <i class="fas fa-check"></i>
           </span>
           <span>Flytta till "Antagen"</span>

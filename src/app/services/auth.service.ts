@@ -237,11 +237,17 @@ export class AuthService {
           url: "https://teamdagarna.com/educations"
         },
        
-        // {
-        //   subLinks: [],
-        //   label: "Hitta hit",
-        //   url: "https://teamdagarna.com/find"
-        // },
+       
+        {
+          subLinks: [],
+          label: "Hitta hit",
+          url: "https://teamdagarna.com/find"
+        },
+        {
+          subLinks: [],
+          label: "Sponsorer",
+          url: "https://teamdagarna.com/sponsors"
+        },
         // {
         //   subLinks: [],
         //   label: "Intresseanmälan",
@@ -397,16 +403,20 @@ export class AuthService {
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
-       
-        // {
-        //   subLinks: [],
-        //   label: "Hitta hit",
-        //   url: "https://teamdagarna.com/find"
-        // },
         {
           subLinks: [],
           label: "Om utbildningarna",
           url: "https://teamdagarna.com/educations"
+        },
+        {
+          subLinks: [],
+          label: "Hitta hit",
+          url: "https://teamdagarna.com/find"
+        },
+        {
+          subLinks: [],
+          label: "Sponsorer",
+          url: "https://teamdagarna.com/sponsors"
         },
         // {
         //   subLinks: [],
