@@ -184,11 +184,11 @@ export class AuthService {
           label: "TEAM-bloggen",
           url: "https://teamdagarna.com/blogposts"  
         },
-        // {
-        //   subLinks: [],
-        //   label: "Mässkarta",
-        //   url: "https://teamdagarna.com/masskarta"
-        // },
+        {
+          subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/masskarta"
+        },
        {
         subLinks: [],
          label: "Pusseljakten",
@@ -356,11 +356,11 @@ export class AuthService {
           label: "TEAM-bloggen",
           url: "https://teamdagarna.com/blogposts"  
         },
-        // {
-        //   subLinks: [],
-        //   label: "Mässkarta",
-        //   url: "https://teamdagarna.com/masskarta"
-        // },
+        {
+          subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/masskarta"
+        },
        {
          subLinks: [],
          label: "Pusseljakten",
