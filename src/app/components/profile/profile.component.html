@@ -259,13 +259,13 @@
               <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
               <td>{{ interview.companyname }} </td>
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+              <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>  -->
 
 
-              <!-- <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th>  -->
+              <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
 
 
-              <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
+              <!-- <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> -->
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">27e Sep </span><span *ngIf="interview.day == 'wednesday'">28e Sep </span>{{ interview.time }}</td>
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
@@ -277,13 +277,13 @@
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
               <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
 
-
-              <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> (ändra till denna när svartiden för studenter är stängd)-->
+            <!--   (ändra till denna när svartiden för studenter är stängd) -->
+              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
                
               
-              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
+              <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>  -->
               <th *ngIf="!interview.selected">-</th>
-              <td *ngIf="interview.selected">
+              <!-- <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
                     <span class="icon is-small" id="white-icon">
@@ -299,12 +299,12 @@
                 </button>
                 </p>
 
-              </td>
-
-
-              <!-- <td *ngIf="interview.selected" class="has-text-danger">
-                Stängt
               </td> -->
+
+
+              <td *ngIf="interview.selected" class="has-text-danger">
+                Stängt
+              </td>
 
 
               
@@ -327,16 +327,16 @@
               <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
 
 
-
-              <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> ändra till denna när ansökan stängt -->
+              <!-- ändra till denna när ansökan stängt -->
+              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
               
               
               
-              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+              <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> -->
 
 
               <th *ngIf="!interview.selected">-</th>
-              <td *ngIf="interview.selected">
+              <!-- <td *ngIf="interview.selected">
                 <p class="buttons">
                   <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, true)" class="button is-success is-small">
                     <span class="icon is-small" id="white-icon">
@@ -352,11 +352,11 @@
                 </button>
                 </p>
 
-              </td> 
+              </td>  -->
 
-              <!-- <td *ngIf="interview.selected" class="has-text-danger">
+              <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
-              </td> -->
+              </td>
             </tr>
           </tbody>
         </table>
