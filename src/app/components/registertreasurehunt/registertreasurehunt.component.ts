@@ -43,6 +43,8 @@ export class RegistertreasurehuntComponent implements OnInit {
           } else {
             this.noOfPointsTuesday = 0;
           }
+
+          console.log(treasurehuntPoints)
         });
         this.treasure.getTreasurePointsWednesday(this.user).subscribe((treasurehuntPoints: string | object) => {
           this.treasurehuntPointsWednesday = treasurehuntPoints;
@@ -64,7 +66,7 @@ export class RegistertreasurehuntComponent implements OnInit {
 
   //Change value of this to approriate afs-collection depending on day for the competition.
   getCompanyID(code) {
-    return this.afs.collection('treasurecodesWednesday', ref => {
+    return this.afs.collection('treasurecodesTuesday', ref => {
       return ref
         .where('treasurecode', '==', code)
         .limit(1);
@@ -74,7 +76,7 @@ export class RegistertreasurehuntComponent implements OnInit {
   checkPoint(company) {
     const user = this.user;
     const companyName = company.companyname;
-    const treasurehuntPoints = this.treasurehuntPointsWednesday;
+    const treasurehuntPoints = this.treasurehuntPointsTuesday;
     var hasPoint: any;
     if(treasurehuntPoints) {
       if(treasurehuntPoints[companyName] != null) {
@@ -98,7 +100,7 @@ export class RegistertreasurehuntComponent implements OnInit {
       this.treasureCompany = code[0];
       if (!this.checkPoint(this.treasureCompany)) {
         try {
-          await this.treasure.registerPointsWednesday(this.user, this.treasureCompany.companyname);
+          await this.treasure.registerPointsTuesday(this.user, this.treasureCompany.companyname);
           this.success = true;
         } catch(err) {
           console.log(err)
