@@ -356,7 +356,30 @@ hr {
     //opacity: 0.85;
     transition: 0.3s;
   }
+
 }
+
+.apply-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  background-color: white;
+  font-weight: bold;
+  color: #e75578;
+  border: none;
+
+  &:hover {
+    border-radius: 60px;
+    padding: 15px 25px;
+    transition: 0.3s;
+    color: #e75578;
+    background-color: white;
+    font-weight: bold;
+    border: none;
+  }
+}
+
 
 .button {
   border-radius: 25px;
@@ -373,6 +396,7 @@ hr {
     transition: 0.3s;
   }
 }
+
 
 // section {
 //   height: 100vh;
@@ -620,6 +644,9 @@ hr {
 
 #white-icon {
   color: white;
+}
+#pink-icon {
+  color: #e75578;
 }
 
 .title {
