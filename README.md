@@ -15,4 +15,4 @@ https://teamdagarna.com/
 
 ![alt text](https://i.imgur.com/8KUtb.jpg)
 
-© Teamdagarna 2022
+© Teamdagarna 2023
