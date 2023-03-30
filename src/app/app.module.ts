@@ -60,6 +60,7 @@ import { AddeventComponent } from './components/admincomponents/addevent/addeven
 import { AddblogpostsComponent } from './components/admincomponents/addblogposts/addblogposts.component';
 import { BlogpostsComponent } from './components/blogposts/blogposts.component';
 import { InterviewsComponent } from './components/admincomponents/interviews/interviews.component';
+import { ProductportfolioComponent } from './components/productportfolio/productportfolio.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -174,7 +175,8 @@ registerLocaleData(localeSv, 'sv');
     LeaderboardComponent,
     QuizComponent,
     SpecialEventComponent,
-    VRComponent
+    VRComponent,
+    ProductportfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -249,8 +251,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'leaderboard', component: LeaderboardComponent},
     { path: 'quiz', component: QuizComponent},
     { path: 'specialevent', component: SpecialEventComponent},
-    
-    { path: 'vr', component: VRComponent}
+    { path: 'vr', component: VRComponent},
+    { path: 'productportfolio', component: ProductportfolioComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
