@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 768px) {
   .has-bg-img {
-    background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Kopia%20av%20Bakgrund2021-2.png?alt=media&token=dcf46027-ad4e-4339-a83e-c08d0d37d133");
+    background: url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Background%20homepage%20better%20for%20app.png?alt=media&token=766bb2a8-a087-40b7-960b-354152caac1c");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -105,3 +105,24 @@ img {
 .is-clickable {
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .title.is-1.smaller-text {
+    scale: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title.smaller-text {
+    scale: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .level.is-size-2 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+}
+
+

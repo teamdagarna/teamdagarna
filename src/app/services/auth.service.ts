@@ -228,6 +228,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Produktportfölj",
+          url: "https://teamdagarna.com/productportfolio"
+        },
+        {
+          subLinks: [],
           label: "FAQ",
           url: "https://teamdagarna.com/faq"
         },
