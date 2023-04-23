@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap, map, take, first} from 'rxjs/operators';
+import { switchMap, map, take, first } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -25,39 +25,39 @@ export class AuthService {
   emailIsVerified: Boolean = false;
 
   constructor(private afAuth: AngularFireAuth,
-              private afs: AngularFirestore,
-              private router: Router) {
+    private afs: AngularFirestore,
+    private router: Router) {
 
-              afs.firestore.settings({});
-              this.user$ = this.afAuth.authState.pipe(switchMap(user => {
-                    if (user) {
-                      //Checks if request comes from the app
-                      if (navigator.userAgent.indexOf('gonative') > -1) {
-                        this.loggedInMenuApp();
-                      }
-                      this.isAuthenticated = true;
-                      this.emailIsVerified = user.emailVerified;
-                      return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-                    } else {
-                      if (navigator.userAgent.indexOf('gonative') > -1) {
-                        this.loggedOutMenuApp();
-                      }
-                      this.isAuthenticated = false;
-                      return of(null)
-                    }
-                  })
-              )
-              // this.afAuth.authState.subscribe(res => {
-              //   if (res && res.uid) {
-              //     this.isAuthenticated = true;
-              //       this.emailIsVerified = res.emailVerified;
-              //     // this.emailIsVerified = res.emailVerified;
-              //   } else {
-              //     this.isAuthenticated = false;
-              //     this.emailIsVerified = true;
-              //   }
-              // });
-            }
+    afs.firestore.settings({});
+    this.user$ = this.afAuth.authState.pipe(switchMap(user => {
+      if (user) {
+        //Checks if request comes from the app
+        if (navigator.userAgent.indexOf('gonative') > -1) {
+          this.loggedInMenuApp();
+        }
+        this.isAuthenticated = true;
+        this.emailIsVerified = user.emailVerified;
+        return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+      } else {
+        if (navigator.userAgent.indexOf('gonative') > -1) {
+          this.loggedOutMenuApp();
+        }
+        this.isAuthenticated = false;
+        return of(null)
+      }
+    })
+    )
+    // this.afAuth.authState.subscribe(res => {
+    //   if (res && res.uid) {
+    //     this.isAuthenticated = true;
+    //       this.emailIsVerified = res.emailVerified;
+    //     // this.emailIsVerified = res.emailVerified;
+    //   } else {
+    //     this.isAuthenticated = false;
+    //     this.emailIsVerified = true;
+    //   }
+    // });
+  }
 
   private updateUserData(user) {
     // Sets user data to firestore on login
@@ -94,11 +94,11 @@ export class AuthService {
         this.updateUserData(newUser);
         // return this.createProfile(email)
         // return this.setUserDoc(user); // create initial user document
-      }).catch(function(error) {
+      }).catch(function (error) {
         console.log(error);
       });
       // return this.setUserDoc(user) // create initial user document
-    } catch(error) {
+    } catch (error) {
       var errorCode = error.code;
       var errorMessage: string;
       if (errorCode == "auth/email-already-in-use") {
@@ -169,31 +169,26 @@ export class AuthService {
     },
     {
       subLinks: [
-       {
+        {
           subLinks: [],
           label: "Företagen 2022",
           url: "https://teamdagarna.com/companies"
-         },
+        },
         {
           subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
-        },
-        { 
-          subLinks: [],
-          label: "TEAM-bloggen",
-          url: "https://teamdagarna.com/blogposts"  
         },
         {
           subLinks: [],
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
         },
-       {
-        subLinks: [],
-         label: "Pusseljakten",
-         url: "https://teamdagarna.com/pusseljakten"
-       }, 
+        // {
+        // subLinks: [],
+        //  label: "Pusseljakten",
+        // url: "https://teamdagarna.com/pusseljakten"
+        // }, 
         // {
         //   subLinks: [],
         //   label: "Företagsskyltar",
@@ -209,10 +204,10 @@ export class AuthService {
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
         },
-         //{
-          // subLinks: [],
-          // label: "Sök DreamTEAM",
-          // url: "https://teamdagarna.com/sokdreamteam"
+        //{
+        // subLinks: [],
+        // label: "Sök DreamTEAM",
+        // url: "https://teamdagarna.com/sokdreamteam"
         // }
       ],
       label: "För Studenter",
@@ -241,8 +236,6 @@ export class AuthService {
           label: "Om utbildningarna",
           url: "https://teamdagarna.com/educations"
         },
-       
-       
         {
           subLinks: [],
           label: "Hitta hit",
@@ -253,16 +246,16 @@ export class AuthService {
           label: "Sponsorer",
           url: "https://teamdagarna.com/sponsors"
         },
-        // {
-        //   subLinks: [],
-        //   label: "Intresseanmälan",
-        //   url: "https://teamdagarna.com/companyapplication"
-        // },
-        // {
-        //  subLinks: [],
-        //  label: "Inloggning gästföretag",
-        //  url: "https://teamdagarna.com/companysignin"
-        // }
+        {
+          subLinks: [],
+          label: "Intresseanmälan",
+          url: "https://teamdagarna.com/companyapplication"
+        },
+        {
+          subLinks: [],
+          label: "Inloggning gästföretag",
+          url: "https://teamdagarna.com/companysignin"
+        }
       ],
       label: "För företag",
       isGrouping: true,
@@ -273,6 +266,12 @@ export class AuthService {
       label: "Hållbarhet",
       url: "https://teamdagarna.com/hallbarhet",
       icon: "fa-leaf"
+    },
+    {
+      subLinks: [],
+      label: "TEAM-bloggen",
+      url: "https://teamdagarna.com/blogposts",
+      icon: "fa-comment"
     },
     {
       subLinks: [
@@ -291,11 +290,11 @@ export class AuthService {
         //   label: "Hållbarhet",
         //   url: "https://teamdagarna.com/hallbarhet"
         // },
-        // {
-        //   subLinks: [],
-        //   label: "Integritetspolicy",
-        //   url: "https://teamdagarna.com/integritetspolicy"
-        // }
+        {
+          subLinks: [],
+          label: "Integritetspolicy",
+          url: "https://teamdagarna.com/integritetspolicy"
+        }
       ],
       label: "Om oss",
       isGrouping: true,
@@ -331,7 +330,7 @@ export class AuthService {
       url: "https://teamdagarna.com/signout",
       icon: "fa-sign-out"
     }
-  ];
+    ];
     var json = JSON.stringify(items);
     window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
   }
@@ -356,21 +355,21 @@ export class AuthService {
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
-        { 
+        {
           subLinks: [],
           label: "TEAM-bloggen",
-          url: "https://teamdagarna.com/blogposts"  
+          url: "https://teamdagarna.com/blogposts"
         },
         {
           subLinks: [],
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
         },
-       {
-         subLinks: [],
-         label: "Pusseljakten",
-         url: "https://teamdagarna.com/pusseljakten"
-       },
+        //{
+        //subLinks: [],
+        //label: "Pusseljakten",
+        //url: "https://teamdagarna.com/pusseljakten"
+        //},
         // {
         //   subLinks: [],
         //   label: "Företagsskyltar",
@@ -383,8 +382,8 @@ export class AuthService {
         },
         {
           subLinks: [],
-           label: "Kontaktsamtal",
-           url: "https://teamdagarna.com/interview"
+          label: "Kontaktsamtal",
+          url: "https://teamdagarna.com/interview"
         },
         // {
         //   subLinks: [],
@@ -428,17 +427,17 @@ export class AuthService {
           label: "Sponsorer",
           url: "https://teamdagarna.com/sponsors"
         },
-        // {
-        //   subLinks: [],
-        //   label: "Intressenamälan",
-        //   url: "https://teamdagarna.com/companyapplication"
-        // },
-        // {
-        //  subLinks: [],
-        //  label: "Inloggning gästföretag",
-        //  url: "https://teamdagarna.com/companysignin"
-        // }
-        
+        {
+          subLinks: [],
+          label: "Intressenamälan",
+          url: "https://teamdagarna.com/companyapplication"
+        },
+        {
+          subLinks: [],
+          label: "Inloggning gästföretag",
+          url: "https://teamdagarna.com/companysignin"
+        }
+
       ],
       label: "För företag",
       isGrouping: true,
@@ -449,6 +448,12 @@ export class AuthService {
       label: "Hållbarhet",
       url: "https://teamdagarna.com/hallbarhet",
       icon: "fa-leaf"
+    },
+    {
+      subLinks: [],
+      label: "TEAM-bloggen",
+      url: "https://teamdagarna.com/blogposts",
+      icon: "fa-comment"
     },
     {
       subLinks: [
@@ -489,9 +494,9 @@ export class AuthService {
       url: "https://teamdagarna.com/signin",
       icon: "fa-sign-out"
     }
-  ];
-      var json = JSON.stringify(items2);
-      window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
+    ];
+    var json = JSON.stringify(items2);
+    window.location.href = 'gonative://sidebar/setItems?items=' + encodeURIComponent(json);
   }
 
   isVerified() {
@@ -544,22 +549,15 @@ export class AuthService {
     return this.checkAuthorization(user, allowed)
   }
 
-
-
   // determines if user has matching role
   private checkAuthorization(user: User, allowedRoles: string[]): boolean {
     if (!user) return false
     for (const role of allowedRoles) {
-      if ( user.roles[role] ) {
+      if (user.roles[role]) {
         return true
       }
     }
     return false
   }
-
-
-
-
-
 
 }
