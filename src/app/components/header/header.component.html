@@ -1,7 +1,7 @@
 <nav id ="navbar" class="navbar is-fixed-top is-spaced">
     <div class="navbar-brand">
       <a class="navbar-item" [routerLink]="['']">
-        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 40px;" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 50px;" >
       </a>
 
       <a role="button" class="navbar-burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" id="navburger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -38,9 +38,9 @@
                   <!-- <a class="navbar-item" [routerLink]="['leaderboard']">
                   Ledartavla
                 </a> -->
-                <a class="navbar-item" [routerLink]="['blogposts']"  id="navbar-pink">
+               <!-- <a class="navbar-item" [routerLink]="['blogposts']"  id="navbar-pink">
                   TEAM-bloggen
-                </a>
+                </a> -->
                     <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
                   Quiz
                 </a> -->
@@ -101,6 +101,10 @@
 
             <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink">
               Hållbarhet
+            </a>
+
+            <a class="navbar-item mobileLink" [routerLink]="['blogposts']"  id="navbar-pink">
+              TEAM-bloggen
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">

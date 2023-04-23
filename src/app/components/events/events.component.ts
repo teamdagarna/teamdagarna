@@ -29,6 +29,9 @@ export class EventsComponent implements OnInit {
        this.preevents = _.orderBy(_.filter(events, function(event) {
         return (event.preorunder == 'Infördagarna')
       }), ['eventstarts'], ['asc']);
+      this.otherevents = _.orderBy(_.filter(events, function(event) {
+        return (event.preorunder == 'Övrigt')
+      }), ['eventstarts'], ['asc']);
 
     });
   }
