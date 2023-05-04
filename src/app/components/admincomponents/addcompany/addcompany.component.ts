@@ -255,8 +255,14 @@ export class AddcompanyComponent implements OnInit {
     ],
      
       'reqresume': [false, [
-        ]
-      ],
+      ]
+    ],
+    'totalapplicants': [0, [
+      ]
+    ],
+    'seeopenapplicants': [true, [
+      ]
+    ],
       'linkedIn': ['', [
         ]
       ],
@@ -375,6 +381,8 @@ export class AddcompanyComponent implements OnInit {
       reqmotivation: data.reqmotivation,
       reqmaster: data.reqmaster,
       interviewinfo: data.interviewinfo,
+      totalapplicants: data.totalapplicants,
+      seeopenapplicants: data.seeopenapplicants,
       linkedIn: data.linkedIn,
       instagram: data.instagram,
       twitter: data.twitter,
