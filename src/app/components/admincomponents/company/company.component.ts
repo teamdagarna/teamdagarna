@@ -246,7 +246,7 @@ export class CompanyComponent implements OnInit {
       'totalapplicants': [0, [
         ]
       ],
-      'seeopenapplicants': [false, [
+      'seeopenapplicants': [true, [
         ]
       ],
       'linkedIn': ['', [
