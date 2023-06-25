@@ -1,0 +1,68 @@
+.about-company {
+  padding-right: 60px;
+  padding-bottom: 60px;
+}
+
+i.fa {
+  display: inline-block;
+}
+
+.modal-card {
+  overflow: visible;
+}
+
+.modal-fa {
+  margin-left: 0.4em;
+}
+
+#modal-image {
+  width: 75%;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.show-filters {
+  display: none;
+}
+
+.filter-dropdown {
+  margin-right: 10px;
+}
+
+.card-header {
+  height: 100px;
+
+  img {
+    max-height: 7rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.card-title {
+  overflow: hidden;
+}
+
+.modal-card-title {
+  width: 90%;
+}
+
+.card {
+  width: 100%;
+}
+
+.footer-column {
+  padding: 0px;
+}
+
+.heart {
+  margin-right: 20px;
+}

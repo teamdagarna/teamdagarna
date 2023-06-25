@@ -1,10 +1,10 @@
 // import { InternalNgModuleRef } from "@angular/core/src/linker/ng_module_factory";
 
 export interface Roles {
-    student?: boolean;
-    dreamteamMember?: boolean;
-    dreamteamPlatinumMember?: boolean;
- }
+  student?: boolean;
+  dreamteamMember?: boolean;
+  dreamteamPlatinumMember?: boolean;
+}
 
 export interface LeaderBoardUser {
   liuid: string;
@@ -68,9 +68,9 @@ export interface Company {
   offersinterview: boolean;
   reqresume?: boolean;
   reqcl?: boolean;
-  reqgrades?:boolean;
-  reqmaster?:boolean;
-  reqmotivation?:boolean;
+  reqgrades?: boolean;
+  reqmaster?: boolean;
+  reqmotivation?: boolean;
 
 
   interviewinfo?: string;
@@ -92,7 +92,7 @@ export interface Company {
   companyRedovisning?: boolean;
   startup?: boolean;
   other?: boolean;
-  
+
   internship?: boolean;
   masterthesis?: boolean;
   otherthesis?: boolean;
@@ -142,6 +142,22 @@ export interface Company {
   twitter?: string;
   facebook?: string;
   placeID?: string;
+
+  jobTitle1?: string;
+  jobInfo1?: string;
+  jobProfile1?: string;
+  jobBenefits1?: string;
+  jobApplication1?: string;
+  jobLocation1?: string;
+  jobLink1?: string;
+
+  jobTitle2?: string;
+  jobInfo2?: string;
+  jobProfile2?: string;
+  jobBenefits2?: string;
+  jobApplication2?: string;
+  jobLocation2?: string;
+  jobLink2?: string;
 }
 
 export interface Dreamteamer {
@@ -214,7 +230,7 @@ export interface Blogpost {
   primaryimagepath: string;
   priority: number;
   date: string;
-  
+
 }
 
 export interface AttendEvent {

@@ -9,13 +9,17 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   user;
+  isMenuActive: boolean = false;  
 
   constructor(public auth: AuthService) {
     this.auth.user$.subscribe(user => this.user = user)
-   }
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
 
+
+  toggleMenu() {
+    this.isMenuActive = !this.isMenuActive;
   }
 
 }
