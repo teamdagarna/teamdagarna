@@ -407,6 +407,96 @@
           <textarea class="textarea" rows="1" placeholder="https://www.facebook.com/XXXXXXX/" formControlName="facebook"></textarea>
         </div>
       </div>
+<br>
+
+      <!--Nedan är till för att lägga till jobbannonser hos företagen-->
+      <h1 class="subtitle is-5">Om företaget vill annonsera om aktuella jobbtillfällen för studenterna kan nedan fyllas i, annars
+        lämna det blank. Det är huvudsakligen Sana som sköter detta. 
+      </h1>
+      <br>
+   
+      <h1 class="title is-size-2" >Jobbannons 1</h1> 
+      <div class="field">
+
+        <label class="label">Jobbtitel</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="Vad har jobbet för titel?" formControlName="jobTitle1"></textarea>
+        </div>
+<br>
+        <label class="label">Beskrivning av jobbet</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Beskrivning från företaget om jobbet och arbetsuppgifterna" formControlName="jobInfo1"></textarea>
+        </div>
+  <br>
+        <label class="label">Din Profil</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Kandidatens profil som företaget söker" formControlName="jobProfile1"></textarea>
+        </div>
+<br>
+        <label class="label">Företaget erbjuder</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Beskrivning av de förmåner som företaget erbjuder" formControlName="jobBenefits1"></textarea>
+        </div>
+<br>
+        <label class="label">Ansökan</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Information om hur ansökan går till" formControlName="jobApplication1"></textarea>
+        </div>
+<br>
+        <label class="label">Plats</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="Vilken ort ligger jobbet på?" formControlName="jobLocation1"></textarea>
+        </div>
+<br>
+        <label class="label">Länk till jobbannonsen</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.scania.com/group/en/home/career/available-positions/job-description.html?q=*&job_id=24632&lang=en" formControlName="jobLink1"></textarea>
+        </div>
+      </div>
+<br>
+
+
+<!-- Här nedan fyller man in för jobbannons 2 som företaget har-->
+      <h1 class="title is-size-2" >Jobbannons 2</h1>
+      <div class="field">
+
+        <label class="label">Jobbtitel</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="Vad har jobbet för titel?" formControlName="jobTitle2"></textarea>
+        </div>
+<br>
+        <label class="label">Beskrivning av jobbet</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Beskrivning från företaget om jobbet och arbetsuppgifterna" formControlName="jobInfo2"></textarea>
+        </div>
+  <br>
+        <label class="label">Din Profil</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Kandidatens profil som företaget söker" formControlName="jobProfile2"></textarea>
+        </div>
+<br>
+        <label class="label">Företaget erbjuder</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Beskrivning av de förmåner som företaget erbjuder" formControlName="jobBenefits2"></textarea>
+        </div>
+<br>
+        <label class="label">Ansökan</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Information om hur ansökan går till" formControlName="jobApplication2"></textarea>
+        </div>
+<br>
+        <label class="label">Plats</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="Vilken ort ligger jobbet på?" formControlName="jobLocation2"></textarea>
+        </div>
+<br>
+        <label class="label">Länk till jobbannonsen</label>
+        <div class="control">
+          <textarea class="textarea" rows="1" placeholder="https://www.scania.com/group/en/home/career/available-positions/job-description.html?q=*&job_id=24632&lang=en" formControlName="jobLink2"></textarea>
+        </div>
+      </div>
+<br>
+<br>
 
       <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addCompanyForm.valid">Spara företaget</button>
     </div>

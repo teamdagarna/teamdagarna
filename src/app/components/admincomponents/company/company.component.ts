@@ -119,8 +119,6 @@ export class CompanyComponent implements OnInit {
       'fifthyear': [false, [
         ]
       ],
-
-
       'digitalMan': [true, [
       ]
      ],
@@ -267,6 +265,48 @@ export class CompanyComponent implements OnInit {
       ],
       'placeID': ['', [
         ]
+      ],
+      'jobTitle1': ['', [
+      ]
+      ],
+      'jobInfo1': ['', [
+      ]
+      ],
+      'jobProfile1': ['', [
+      ]
+      ],
+      'jobBenefits1': ['', [
+      ]
+      ],
+      'jobApplication1': ['', [
+      ]
+      ],
+      'jobLocation1': ['', [
+      ]
+      ],
+      'jobLink1': ['', [
+      ]
+      ],
+      'jobTitle2': ['', [
+      ]
+      ],
+      'jobInfo2': ['', [
+      ]
+      ],
+      'jobProfile2': ['', [
+      ]
+      ],
+      'jobBenefits2': ['', [
+      ]
+      ],
+      'jobApplication2': ['', [
+      ]
+      ],
+      'jobLocation2': ['', [
+      ]
+      ],
+      'jobLink2': ['', [
+      ]
       ],
     });
 
@@ -419,7 +459,25 @@ export class CompanyComponent implements OnInit {
         twitter: data.twitter,
         hemsida: data.hemsida,
         facebook: data.facebook,
-        placeID: data.placeID
+        placeID: data.placeID,
+
+        jobTitle1: data.jobTitle1,
+        jobInfo1: data.jobInfo1,
+        jobProfile1: data.jobProfile1,
+        jobBenefits1: data.jobBenefits1,
+        jobApplication1: data.jobApplication1,
+        jobLocation1: data.jobLocation1,
+        jobLink1: data.jobLink1,
+
+        jobTitle2: data.jobTitle2,
+        jobInfo2: data.jobInfo2,
+        jobProfile2: data.jobProfile2,
+        jobBenefits2: data.jobBenefits2,
+        jobApplication2: data.jobApplication2,
+        jobLocation2: data.jobLocation2,
+        jobLink2: data.jobLink2
+
+
       }
 
       this.update(changedCompany)

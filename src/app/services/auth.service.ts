@@ -176,6 +176,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Jobbmöjligheter",
+          url: "https://teamdagarna.com/jobopportunities"
+        },
+        {
+          subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
@@ -349,6 +354,11 @@ export class AuthService {
           subLinks: [],
           label: "Företagen 2022",
           url: "https://teamdagarna.com/companies"
+        },
+        {
+          subLinks: [],
+          label: "Jobbmöjligheter",
+          url: "https://teamdagarna.com/jobopportunities"
         },
         {
           subLinks: [],

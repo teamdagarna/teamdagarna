@@ -39,248 +39,248 @@ export class AddcompanyComponent implements OnInit {
     this.addCompanyForm = this.fb.group({
       'companyName': ['', [
         Validators.required
-        ]
+      ]
       ],
       'industry': [false, [
         Validators.required
-        ]
+      ]
       ],
       'consulting': [false, [
       ]
-    ],
-    'industri': [false, [
-       ]
+      ],
+      'industri': [false, [
+      ]
       ],
       'logistik': [false, [
-        ]
+      ]
       ],
       'itteknik': [false, [
-        ]
+      ]
       ],
       'rekrytering': [false, [
-       ]
+      ]
       ],
-     'bank': [false, [
+      'bank': [false, [
       ]
-     ],
-     'retail': [false, [
-       ]
-     ],
-     'fastigheter': [false, [
-       ]
-     ],
-     'forening': [false, [
+      ],
+      'retail': [false, [
       ]
-     ],
+      ],
+      'fastigheter': [false, [
+      ]
+      ],
+      'forening': [false, [
+      ]
+      ],
       'telekom': [false, [
-       ]
-      ],
-     'revision': [false, [
-     ]]
-     ,
-     'companyRedovisning': [false, [
-     ]
-     ],
-     'startup': [false, [
       ]
-     ],
-     'other': [false, [
-       ]
+      ],
+      'revision': [false, [
+      ]]
+      ,
+      'companyRedovisning': [false, [
+      ]
+      ],
+      'startup': [false, [
+      ]
+      ],
+      'other': [false, [
+      ]
       ],
       'internship': [false, [
-        ]
+      ]
       ],
       'masterthesis': [false, [
-        ]
+      ]
       ],
       'otherthesis': [false, [
-        ]
+      ]
       ],
       'parttime': [false, [
-        ]
+      ]
       ],
       'fulltime': [false, [
-        ]
+      ]
       ],
       'trainee': [false, [
-        ]
+      ]
       ],
       'summerjob': [false, [
-        ]
+      ]
       ],
       'abroad': [false, [
-        ]
+      ]
       ],
       'engineers': [false, [
-        ]
+      ]
       ],
       'filfakare': [false, [
-        ]
+      ]
       ],
       'firstyear': [false, [
-        ]
+      ]
       ],
       'secondyear': [false, [
-        ]
+      ]
       ],
       'thirdyear': [false, [
-        ]
+      ]
       ],
       'fourthyear': [false, [
-        ]
+      ]
       ],
       'fifthyear': [false, [
-        ]
+      ]
       ],
 
       'digitalMan': [true, [
       ]
-     ],
-     'finans': [true, [
-    ]
-   ],
-   'industriellmarknad': [true, [
-  ]
- ],
- 'kvalitetVerksam': [true, [
-]
-],
-'logistikMaster': [true, [
-]
-],
-'projektInno': [true, [
-]
-],
-'produktionsledning': [true, [
-]
-],
-'strategiStyrning': [true, [
-]
-],
-'systemteknik': [true, [
-]
-],
-'maskinteknik': [true, [
-]
-],
-'bioteknik': [true, [
-]
-],
-'datateknik': [true, [
-]
-],
-'energiteknik': [true, [
-]
-],
-'redovisning': [true, [
-]
-],
-'ekonomistyrning': [true, [
-]
-],
-'strategiMarknad': [true, [
-]
-],
-'finansiellekonomi': [true, [
-]
-],
-'nationalekonomi': [true, [
-]
-],
-'ekonomiskanalys': [true, [
-]
-],
+      ],
+      'finans': [true, [
+      ]
+      ],
+      'industriellmarknad': [true, [
+      ]
+      ],
+      'kvalitetVerksam': [true, [
+      ]
+      ],
+      'logistikMaster': [true, [
+      ]
+      ],
+      'projektInno': [true, [
+      ]
+      ],
+      'produktionsledning': [true, [
+      ]
+      ],
+      'strategiStyrning': [true, [
+      ]
+      ],
+      'systemteknik': [true, [
+      ]
+      ],
+      'maskinteknik': [true, [
+      ]
+      ],
+      'bioteknik': [true, [
+      ]
+      ],
+      'datateknik': [true, [
+      ]
+      ],
+      'energiteknik': [true, [
+      ]
+      ],
+      'redovisning': [true, [
+      ]
+      ],
+      'ekonomistyrning': [true, [
+      ]
+      ],
+      'strategiMarknad': [true, [
+      ]
+      ],
+      'finansiellekonomi': [true, [
+      ]
+      ],
+      'nationalekonomi': [true, [
+      ]
+      ],
+      'ekonomiskanalys': [true, [
+      ]
+      ],
 
 
       'about': ['', [
         Validators.required
-        ]
+      ]
       ],
       'values': ['', [
-        ]
+      ]
       ],
       'firstdayappearance': [false, [
-        ]
+      ]
       ],
       'seconddayappearance': [false, [
-        ]
+      ]
       ],
       'firstdaypackage1': [false, [
-        ]
+      ]
       ],
       'firstdaypackage2': [false, [
-        ]
+      ]
       ],
       'seconddaypackage1': [false, [
-        ]
+      ]
       ],
       'seconddaypackage2': [false, [
-        ]
+      ]
       ],
       'treasurehunt': [false, [
-        ]
+      ]
       ],
       'treasurehuntTuesday': [false, [
-        ]
+      ]
       ],
       'treasurehuntWednesday': [false, [
-        ]
+      ]
       ],
       'pitchLecture': [false, [
-        ]
+      ]
       ],
       'preTEAM': [false, [
-        ]
+      ]
       ],
       'startUpZone': [false, [
-        ]
+      ]
       ],
       'climateComp': [false, [
-        ]
+      ]
       ],
       'interviewinfo': ['', [
-        ]
+      ]
       ],
       'reqcl': [false, [
-        ]
+      ]
       ],
       'reqgrades': [false, [
-        ]
+      ]
       ],
       'reqmotivation': [false, [
       ]
-    ],
+      ],
       'reqmaster': [false, [
       ]
-    ],
-     
+      ],
+
       'reqresume': [false, [
       ]
-    ],
-    'totalapplicants': [0, [
+      ],
+      'totalapplicants': [0, [
       ]
-    ],
-    'seeopenapplicants': [true, [
+      ],
+      'seeopenapplicants': [true, [
       ]
-    ],
+      ],
       'linkedIn': ['', [
-        ]
+      ]
       ],
       'instagram': ['', [
-        ]
+      ]
       ],
       'twitter': ['', [
-        ]
+      ]
       ],
       'facebook': ['', [
-        ]
+      ]
       ],
       'hemsida': ['', [
         Validators.required
-        ]
-      ], 
+      ]
+      ],
       'placeID': ['', [
-        ]
+      ]
       ],
     });
 
@@ -392,7 +392,7 @@ export class AddcompanyComponent implements OnInit {
     }
 
     companiesCollection.add(newCompany).then(() => {
-        this.router.navigate(['dreamteamadmin/companies'])
+      this.router.navigate(['dreamteamadmin/companies'])
     });
 
 
@@ -423,11 +423,11 @@ export class AddcompanyComponent implements OnInit {
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
-    this.snapshot   = this.task.snapshotChanges()
+    this.snapshot = this.task.snapshotChanges()
 
     // The file's download URL
     this.task.snapshotChanges().pipe(
-        finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL() )
+      finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL())
     ).subscribe()
 
     this.logoUploaded = true;
