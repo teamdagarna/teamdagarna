@@ -4,7 +4,7 @@
       <div class="columns is-centered ">
         <div class="column is-9">
 
-          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Jobbmöjligheter</h2>
+          <h2 class="title is-2 is-spaced title-smaller-text" style="text-transform: uppercase">Jobbmöjligheter</h2>
           <h2 class="subtitle is-6" style="color: #463853">Här kan du söka, filtrera och hitta aktuella jobb hos
             företagen.</h2>
         </div>
@@ -18,11 +18,13 @@
     <div class="columns is-multiline">
 
       <!--sökruta-->
-      <div class="column is-12" style="display: flex; align-items: center;">
+      <div class="column is-10" style="display: flex; align-items: center;">
         <input class="input" [(ngModel)]="searchInput" type="text"
           placeholder="Sök på företagsnamn eller bransch. Exempelvis Exsitec eller Konsultverksamhet."
           (keyup)="onSearch($event)">
-          <div class="column is-5-mobile is-2-desktop">
+         </div>
+         <div class="level">
+          <div class="is-2-desktop">
           <div class="filter-dropdown dropdown is-hoverable">
             <div class="dropdown-trigger">
 
@@ -30,11 +32,11 @@
                   class="fas fa-filter "></i></a>
             </div>
             <div class="buttons has-addons is-pulled-right ">
-              <span class="button " (click)="applyOrder(1) " [ngClass]="{ ' ': orderBy==1} "><i
+              <span class="button smaller-buttons" (click)="applyOrder(1) " [ngClass]="{ ' ': orderBy==1} "><i
                   class="fas fa-random "></i></span>
-              <span class="button " (click)="applyOrder(2) " [ngClass]="{ ' ': orderBy==2} "><i
+              <span class="button smaller-buttons" (click)="applyOrder(2) " [ngClass]="{ ' ': orderBy==2} "><i
                   class="fas fa-sort-alpha-down "></i></span>
-              <span class="button " (click)="applyOrder(3) " [ngClass]="{ ' ': orderBy==3} "><i
+              <span class="button smaller-buttons" (click)="applyOrder(3) " [ngClass]="{ ' ': orderBy==3} "><i
                   class="fas fa-sort-alpha-up "></i></span>
             </div>
           </div>
