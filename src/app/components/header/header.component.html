@@ -20,17 +20,17 @@
               </a>
 
               <div class="navbar-dropdown is-boxed" id="pink-arrow">
-                <a class="navbar-item" [routerLink]="['companies']" id="navbar-pink">
+                <a class="navbar-item" [routerLink]="['companies']" id="navbar-pink" (click)="toggleMenu()">
                   Företagen 2022
                 </a>
-                <a class="navbar-item" [routerLink]="['jobopportunities']" id="navbar-pink">
+                <a class="navbar-item" [routerLink]="['jobopportunities']" id="navbar-pink" (click)="toggleMenu()">
                   Jobbmöjligheter
                 </a>
-                <a class="navbar-item" [routerLink]="['masskarta']" id="navbar-pink">
+                <a class="navbar-item" [routerLink]="['masskarta']" id="navbar-pink" (click)="toggleMenu()">
                   Mässkarta
                 </a>
 
-                <a class="navbar-item" [routerLink]="['events']" id="navbar-pink">
+                <a class="navbar-item" [routerLink]="['events']" id="navbar-pink" (click)="toggleMenu()">
                   Event
                 </a>
                 <!--
@@ -52,10 +52,10 @@
                   Företagsskyltar
                 </a> -->
                 <!-- <hr class="navbar-divider"> -->
-                <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokvard']" id="navbar-pink">
+                <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokvard']" id="navbar-pink" (click)="toggleMenu()">
                   Sök värd
                 </a>
-                <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']" id="navbar-pink">
+                <a class="navbar-item mobileLink is-disabled" [routerLink]="['interview']" id="navbar-pink" (click)="toggleMenu()">
                   Kontaktsamtal
                 </a>
                 <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
@@ -71,29 +71,29 @@
               </a>
 
               <div class="navbar-dropdown is-boxed" >
-                  <a class="navbar-item" [routerLink]="['weoffer']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['weoffer']"  id="navbar-pink" (click)="toggleMenu()">
                     Erbjudande
                   </a>
-                  <a class="navbar-item" [routerLink]="['productportfolio']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['productportfolio']"  id="navbar-pink" (click)="toggleMenu()">
                     Produktportfölj
                   </a> 
-                  <a class="navbar-item" [routerLink]="['faq']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['faq']"  id="navbar-pink" (click)="toggleMenu()">
                     FAQ
                   </a> 
-                  <a class="navbar-item" [routerLink]="['educations']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['educations']"  id="navbar-pink" (click)="toggleMenu()">
                     Om utbildningarna
                   </a>
-                  <a class="navbar-item" [routerLink]="['find']" id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['find']" id="navbar-pink" (click)="toggleMenu()">
                     Hitta hit
                   </a>
-                  <a class="navbar-item" [routerLink]="['sponsors']" id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['sponsors']" id="navbar-pink" (click)="toggleMenu()">
                     Sponsorer
                   </a>
                    <hr class="navbar-divider">
-                    <a class="navbar-item" [routerLink]="['companyapplication']"  id="navbar-pink">
+                    <a class="navbar-item" [routerLink]="['companyapplication']"  id="navbar-pink" (click)="toggleMenu()">
                     Intresseanmälan
                   </a> 
-                  <a class="navbar-item" [routerLink]="['companysignin']" id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['companysignin']" id="navbar-pink" (click)="toggleMenu()">
                     Inloggning gästföretag
                  </a>
                   <!-- <a class="navbar-item" [routerLink]="['companyguest']">
@@ -103,27 +103,27 @@
                 </div>
             </div>
 
-            <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink">
+            <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink" (click)="toggleMenu()">
               Hållbarhet
             </a>
 
-            <a class="navbar-item mobileLink" [routerLink]="['blogposts']"  id="navbar-pink">
+            <a class="navbar-item mobileLink" [routerLink]="['blogposts']"  id="navbar-pink" (click)="toggleMenu()">
               TEAM-bloggen
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link"  id="navbar-pink">
+              <a class="navbar-link"  id="navbar-pink" (click)="toggleMenu()">
                 Om oss
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" [routerLink]="['dreamteam']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['dreamteam']"  id="navbar-pink" (click)="toggleMenu()">
                     Kontakt
                   </a>
-                  <a class="navbar-item" [routerLink]="['about']"  id="navbar-pink">
+                  <a class="navbar-item" [routerLink]="['about']"  id="navbar-pink" (click)="toggleMenu()">
                     Om TEAM-dagarna
                   </a> 
-                   <a class="navbar-item" [routerLink]="['integritetspolicy']">
+                   <a class="navbar-item" [routerLink]="['integritetspolicy']" id="navbar-pink" (click)="toggleMenu()">
                     Integritetspolicy
                   </a> 
                     <!-- <a class="navbar-item" href="#">
@@ -133,7 +133,7 @@
                 </div>
             </div>
 
-             <a class="navbar-item mobileLink" [routerLink]="['about-english']"  id="navbar-pink">
+             <a class="navbar-item mobileLink" [routerLink]="['about-english']"  id="navbar-pink" (click)="toggleMenu()">
             English info
             </a>
 
@@ -160,15 +160,15 @@
           </div> 
 
           <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
-            <a class="navbar-link" id="navbar-pink">
+            <a class="navbar-link" id="navbar-pink" (click)="toggleMenu()">
               Mina sidor
             </a>
             <div class="navbar-dropdown is-boxed">
-              <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink">
+              <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink" (click)="toggleMenu()">
                 Min profil
               </a>
               <a class="navbar-item mobileLink" [routerLink]="['favoritforetag']" >
-                Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart" id="navbar-pink"></i>
+                Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart" id="navbar-pink" (click)="toggleMenu()"></i>
               </a>
             </div>
           </div>
@@ -182,7 +182,7 @@
             </span>
           </a>
 
-          <div [hidden]="!auth.canEdit(user)" class="navbar-item">
+          <div [hidden]="!auth.canEdit(user)" class="navbar-item" (click)="toggleMenu()">
             <div class="field is-grouped">
               <p class="control">
                 <a class="bd-tw-button button mobileLink" [routerLink]="['/dreamteamadmin']">
