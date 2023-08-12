@@ -4,7 +4,7 @@
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered ">
         <div class="column is-9">
-              <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Event 2022</h2>
+              <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Event 2023</h2>
               <h2 class="subtitle is-6">Både innan och under mässan anordnar vi ett antal event som står öppet för alla studenter som pluggar Civilekonom eller Civilingenjör Industriell Ekonomi. Nedan kan du hitta dessa event, läsa mer och anmäla dig. </h2>
               
             </div>
@@ -112,14 +112,14 @@
             </ng-container>
           </ng-container>
           <br>
-          <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du Kunde inte anmäla dig. Är du redan anmäld?</p>
+          <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du kunde inte anmäla dig. Är du redan anmäld?</p>
           <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
           <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Följ om du fått en plats under din profil.</p>
         </ng-container>
         <p *ngIf="!user && selectedEvent.signon"><em>Du måste vara inloggad för att kunna anmäla dig.</em></p>
         <br>
         <br>
-        <p class="subtitle is-6">*Vi kan endast garantera specialkost om anmälan kommer in 4 dagar innan. Om du anmält dig på ett event och inte dyker upp gäller samma policy som I-Sektionen och ELIN tillämpar. Läs mer på din respektive sektions hemsida.</p>
+        <p *ngIf="selectedEvent.preorunder != 'Övrigt'" class="subtitle is-6">*Vi kan endast garantera specialkost om anmälan kommer in 4 dagar innan. Om du anmält dig på ett event och inte dyker upp gäller samma policy som I-Sektionen och ELIN tillämpar. Läs mer på din respektive sektions hemsida.</p>
       </div>
     </div>
   </div>
