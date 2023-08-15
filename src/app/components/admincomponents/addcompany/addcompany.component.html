@@ -41,6 +41,9 @@
           </div>
         </div>
       </div>
+      <div *ngIf="downloadURL | async as url">
+        <img [src]="url" style="max-height: 100px;"><br>
+      </div>
       <div class="field">
         <label class="label">Huvudbransch</label>
         <div class="control">
@@ -63,9 +66,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="downloadURL | async as url">
-        <img [src]="url" style="max-height: 100px;"><br>
-      </div>
+  
       <div class="columns">
         <div class="column is-half">
           <div class="field">

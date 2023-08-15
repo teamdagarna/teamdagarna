@@ -52,7 +52,7 @@ export class CompanysigninComponent implements OnInit {
                 },
                 {
                   subLinks: [],
-                  label: "Företagen 2022",
+                  label: "Företagen 2023",
                   url: "https://teamdagarna.com/companies"
                 },
                 {
