@@ -27,7 +27,7 @@
   </div>
 </section>
   
-<!-- 
+<!--
 <section class="hero" *ngIf="user && !success && !notsuccess">
   <div class="container has-text-centered is-mobile">
 
@@ -120,7 +120,7 @@
             <p *ngIf="company.reqmaster"><strong>{{ company.name }}</strong> vill att du fyller i din masterprofil/inriktning under "Min profil" innan du skickar in ansökan.</p>
 
 
-            <p *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqmotivation">Kort motivering</strong>, <strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
+            <p *ngIf="company.name !== 'Öppen anmälan kontaktsamtal'"><strong>{{ company.name }}</strong> vill gärna att ni skickar med <strong *ngIf="company.reqresume">CV, </strong><strong *ngIf="company.reqcl">Personligt Brev, </strong> <strong *ngIf="company.reqmotivation">Kort motivering, </strong><strong *ngIf="company.reqgrades">Betyg</strong> och <strong>Mobilnummer.</strong></p>
             <br>
             <div class="field">
               <label class="label" for="phoneNumber">Mobilnummer</label>
@@ -235,6 +235,21 @@
             </div>
 
             <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
+            
+            <div class="field">
+              <label class="label" for="GDPR">GDPR</label>
+              <label class="checkbox">
+              <input type="checkbox" formControlName="GDPR">
+  
+            </label> 
+            Jag godkänner att teamdagarna får dela med sig av de uppgifter som jag laddar upp på hemsidan till de medverkande 
+              företagen på teamdagarna. Detta är nödvändigt för att kunna ansöka om kontaktsamtal. Jag godkänner att jag ansvarar 
+              för att kontakta de medverkande företagen vid återkallande av samtycke och att teamdagarna ej ansvarar för denna process.
+  
+            </div>
+
+
+
             <button type="submit" id="submit-button" class="button is-fullwidth" [ngClass]="{'is-loading':loading}" [disabled]="(hasApplied(company.id) || (company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) || !okToSubmit()) && !applyOpenOkToSubmit()">Skicka ansökan</button><br>
             <span *ngIf="hasApplied(company.id) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt till {{ company.name }} och kan därmed inte söka kontaktsamtal till dem igen.</p><br></span>
             <span *ngIf="(company.name !== 'Öppen anmälan kontaktsamtal' && applicationsMade > 5) && !loading"><p class="has-text-danger has-text-centered is-italic"> Du har redan sökt 6 kontaktsamtal och kan därmed inte söka fler! </p><br></span>

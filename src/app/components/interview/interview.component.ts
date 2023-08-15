@@ -128,7 +128,11 @@ export class InterviewComponent implements OnInit {
         Validators.pattern('[0-9]{9}$'),
         Validators.required
         ]
+      ],
+      'GDPR': [false, 
+        Validators.requiredTrue
       ]
+
     });
   }
 
