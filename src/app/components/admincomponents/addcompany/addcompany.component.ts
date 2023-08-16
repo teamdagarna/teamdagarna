@@ -275,6 +275,9 @@ export class AddcompanyComponent implements OnInit {
       'facebook': ['', [
       ]
       ],
+      'youtube': ['', [
+      ]
+      ],
       'hemsida': ['', [
         Validators.required
       ]
@@ -388,6 +391,7 @@ export class AddcompanyComponent implements OnInit {
       twitter: data.twitter,
       hemsida: data.hemsida,
       facebook: data.facebook,
+      youtube: data.youtube,
       placeID: data.placeID
     }
 

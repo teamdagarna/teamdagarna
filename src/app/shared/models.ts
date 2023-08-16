@@ -141,6 +141,7 @@ export interface Company {
   instagram?: string;
   twitter?: string;
   facebook?: string;
+  youtube?: string;
   placeID?: string;
 
   jobTitle1?: string;
