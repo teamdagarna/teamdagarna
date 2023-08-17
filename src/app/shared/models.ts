@@ -241,6 +241,7 @@ export interface AttendEvent {
   firstname: string;
   lastname: string;
   liuid: string;
+  program: string;
   specialfood?: string;
   getsfood: boolean;
   waitinglist: boolean;

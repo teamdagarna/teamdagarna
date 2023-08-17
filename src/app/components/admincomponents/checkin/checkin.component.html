@@ -40,6 +40,7 @@
         <th>Index</th>
         <th>Namn <a (click)="applyOrder('firstname')"><i class="fas fa-sort"></i></a></th>
         <th>Liu-ID <a (click)="applyOrder('liuid')"><i class="fas fa-sort"></i></a></th>
+        <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
         <th>Garanterad mat <a (click)="applyOrder('getsfood')"><i class="fas fa-sort"></i></a></th>
         <th>Specialkost <a (click)="applyOrder('specialfood')"><i class="fas fa-sort"></i></a></th>
         <th>Anmäld <a (click)="applyOrder('timestamp')"><i class="fas fa-sort"></i></a></th>
@@ -52,6 +53,7 @@
         <th>Index</th>
         <th>Namn</th>
         <th>Liu-ID</th>
+        <th>Program</th>
         <th>Garanterad mat</th>
         <th>Specialkost</th>
         <th>Anmäld</th>
@@ -66,6 +68,7 @@
           <td>{{i + 1}}</td>
           <td>{{attendant.firstname}} {{attendant.lastname}}</td>
           <td>{{attendant.liuid}}</td>
+          <td>{{attendant.program}}</td>
           <td><span *ngIf="attendant.getsfood">Ja</span><span *ngIf="!attendant.getsfood">Nej</span></td>
           <td>{{attendant.specialfood}}</td>
           <td>{{attendant.timestamp.toDate() | date:'dd MMM HH:mm'}}</td>
