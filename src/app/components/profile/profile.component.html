@@ -211,7 +211,7 @@
         <p *ngIf="treasurehuntPointsTuesday == undefined && treasurehuntPointsWednesday == undefined">Du har inte registrerat några pusselbitar. <a [routerLink]="['/pusseljakten']">Registrera pusselbitar här!</a></p>
  -->
 
-        <div class="border-btm">
+      <div class="border-btm">
           <h1 class="title is-3">Dina eventanmälningar</h1>
         </div>
         <ng-container *ngIf="events !== undefined && events.length !== 0">
@@ -233,7 +233,8 @@
           <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
         </div>
         <h1 class="subtitle is-6">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen den 15:e september kl 23:59.</strong>. Om du inte svarat innan dess räknas det som du tackat nej.<br><br>
-          Mer information kommer via mail, hör av er till <a>kontaktsamtal@teamdagarna.com</a> vid frågor!</h1>
+          Mer information kommer via mail, hör av dig till <a>kontaktsamtal@teamdagarna.com</a> vid frågor! <br><br>
+        Har du råkat ladda upp fel dokument? Maila till <a>itwebb@teamdagarna.com</a> med för- och efternamn, liu-ID, vilken typ av dokument det är och bifoga dokumentet du vill byta till.</h1>
         <!--
         <h1 class="subtitle is-5">Företagens urvalsprocess börjar <strong>måndagen den 4:e september</strong>.</h1>
         <h1 class="subtitle is-5">Du kommer att få reda på vilka företag som valt dig som kandidat från och med <strong>torsdagen den 14:e september. </strong>.</h1>
@@ -246,6 +247,7 @@
           <thead>
             <tr>
               <th>Företag:</th>
+              <th>Dokument:</th>
               <th>Status:</th>
               <th>Tid:</th>
               <th>Ditt svar:</th>
@@ -256,11 +258,22 @@
             <tr *ngFor="let interview of interviews">
               <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
               <td>{{ interview.companyname }} </td>
+
+              <td>
+                <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev <i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
+
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-              <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>  -->
+              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
 
 
-              <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
+              <!-- <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> -->
 
 
               <!-- <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> -->
@@ -276,7 +289,7 @@
               <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
 
             <!--   (ändra till denna när svartiden för studenter är stängd) -->
-              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
+             <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> -->
                
               
               <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>  -->
@@ -300,16 +313,25 @@
               </td> -->
 
 
-              <td *ngIf="interview.selected" class="has-text-danger">
+             <!-- <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
-              </td>
+              </td> -->
 
 
-              
+              <!--Öppen anmälan nedan-->
               </ng-container>
             </tr>
             <tr *ngFor="let interview of openinterviews">
               <td>{{ interview.companyname }}*</td>
+              <td>
+                <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                <p></p>
+                <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+              </td>
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
               <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th>
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
@@ -326,7 +348,7 @@
 
 
               <!-- ändra till denna när ansökan stängt -->
-              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
+            <!--  <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> -->
               
               
               
@@ -352,12 +374,12 @@
 
               </td>  -->
 
-              <td *ngIf="interview.selected" class="has-text-danger">
+             <!-- <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
-              </td>
+              </td>-->
             </tr>
           </tbody>
-        </table>
+        </table> 
 
         <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
         <br>
@@ -370,7 +392,7 @@
           <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
 
 
-          <!-- <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
+           <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> 
        
        
         </ng-container>
