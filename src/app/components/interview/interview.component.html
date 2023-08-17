@@ -44,8 +44,8 @@
 </section>
   
 <!-- Aktivera denna text 21/8-->
-
-<!-- <section class="hero" *ngIf="user && !success && !notsuccess">
+<!--
+ <section class="hero" *ngIf="user && !success && !notsuccess">
   <div class="container has-text-centered is-mobile">
 
   <div class="columns is-centered">
@@ -54,7 +54,7 @@
       <h1 class="subtitle is-6"> Ansökan för kontaktsamtal stänger den <b>3:e september</b> och därefter får företagen tillgång till alla ansökningar.</h1>
       <h1 class="subtitle is-6">
       Öppen ansökan är ytterligare en chans för dig som söker att få gå på kontaktsamtal. Företagen kommer att få tillgång till dessa ansökningar utöver de ansökningar som kommit explicit till deras företag. Du söker öppen ansökan genom att välja
-    <strong> Öppen anmälan kontaktsamtal</strong> längst ned i listan nedan.</h1>
+    <strong> Öppen anmälan kontaktsamtal</strong> i slutet på listan nedan.</h1>
 
       <h1 class="subtitle is-6">
         <em>OBS! Du kan endast söka 6 stycken kontaktsamtal (plus öppen anmälan) och tacka ja till maximalt 6 stycken samtal.</em>
@@ -249,9 +249,9 @@
 
             </div>
 
-            <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, Personligt Brev eller Betyg men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
+            <span *ngIf="company.name == 'Öppen anmälan kontaktsamtal'"><p class="has-text-danger is-italic"> OBS! För den öppna ansökan är det valfritt att skicka med CV, betyg eller kort motivering men det är obligatoriskt att ange sitt mobilnummer.</p><br></span>
             
-            <div class="field">
+           <div class="field">
               <label class="label" for="GDPR">GDPR</label>
               <label class="checkbox">
               <input type="checkbox" formControlName="GDPR">
@@ -261,7 +261,7 @@
               företagen på teamdagarna. Detta är nödvändigt för att kunna ansöka om kontaktsamtal. Jag godkänner att jag ansvarar 
               för att kontakta de medverkande företagen vid återkallande av samtycke och att teamdagarna ej ansvarar för denna process.
   
-            </div>
+            </div> 
 
 
 
@@ -295,7 +295,7 @@
   </div>
   <div class="container has-text-centered is-mobile" *ngIf="notsuccess">
       <h1 class="title is-5">Något gick fel!</h1>
-      <p>Något gick snett när ansäkan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
+      <p>Något gick snett när ansökan skulle skickas. Var vänlig kolla under "Min profil" och se om ansökan finns med där. Om den gör det så kan du se det som en bekräftelse, om inte, testa igen.</p>
       <br>
       <a class="button" (click)="refresh()">Tillbaka</a><br><br>
   </div>
@@ -311,4 +311,5 @@
       Klicka här för att logga in!
     </a>
   </div><br>
-</section> -->
+</section> 
+-->
