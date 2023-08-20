@@ -84,6 +84,12 @@ export class AddcompanyComponent implements OnInit {
       'startup': [false, [
       ]
       ],
+      'detaljhandel': [false, [
+      ]
+      ],
+      'livsmedel': [false, [
+      ]
+      ],
       'other': [false, [
       ]
       ],
@@ -316,6 +322,8 @@ export class AddcompanyComponent implements OnInit {
       telekom: data.telekom,
       revision: data.revision,
       startup: data.startup,
+      detaljhandel: data.detaljhandel,
+      livsmedel: data.livsmedel,
       companyRedovisning: data.companyRedovisning,
       other: data.other,
 

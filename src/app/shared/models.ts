@@ -91,6 +91,8 @@ export interface Company {
   revision?: boolean;
   companyRedovisning?: boolean;
   startup?: boolean;
+  detaljhandel?: boolean;
+  livsmedel?: boolean;
   other?: boolean;
 
   internship?: boolean;
