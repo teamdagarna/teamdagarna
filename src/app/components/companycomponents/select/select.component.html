@@ -236,13 +236,13 @@
   -->
 <!--Ovan är schemaläggningen för företagen -->
 
-    <!--Nedan är urval för företagen, kommentera bort 22/9 -->
+    <!--Nedan är urval för företagen, kommentera bort 11/9 -->
    <section class="section">
       <h1 class="title is-3">Urval:</h1>
       <div class="container"> 
         <h2 class="subtitle is-5">Ni väljer vilka studenter ni vill prata med genom att ändra menyn längst till höger på varje kandidat. Så fort ni uppdaterat menyn kommer uppdateringen att gå igenom, dvs ni behöver inte spara på något sätt. Utöver att välja ut de kandidater som blir antagna kan ni ta ut upp till fem reserver som rangordnas mellan 1-5 där nummer 1 kommer att få en plats först. Välj gärna minst 3 st reserver. Skulle ni ha några frågor eller har problem kan ni kontakta kontaktsamtalsansvarig på <a href="mailto:kontaktsamtal@teamdagarna.com">kontaktsamtal@teamdagarna.com</a> eller IT-ansvarig på <a href="mailto:itwebb@teamdagarna.com">itwebb@teamdagarna.com</a>. <strong>Det kommer alltid vara det som står under "status" som gäller och inte det som står under högra menyn.</strong> Ändras inte "status" kan det bero på att internetkoppling inte finns.</h2>
-        <h2 class="subtitle is-5 has-text-danger">Möjligheten för urval öppnar den <strong class="has-text-danger">4e september</strong>.</h2>
-        <h2 class="subtitle is-5">Urvalsprocessen är nu stängd.</h2>
+       <!-- <h2 class="subtitle is-5 has-text-danger">Möjligheten för urval öppnar den <strong class="has-text-danger">4e september</strong>.</h2> -->
+       <!-- <h2 class="subtitle is-5">Urvalsprocessen är nu stängd.</h2> -->
         <h1 class="subtitle is-5"><strong> Ni har totalt {{ company.totalapplicants }} kontaktsamtal.</strong></h1>
         <h2 class="subtitle is-5">Sista dagen för urval är den <strong>11e september.</strong></h2>
         <br>
@@ -334,6 +334,7 @@
                 <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
               <th [ngClass]="{ 'has-text-success': interview.status == 'Antagen', 'has-text-danger': interview.status == 'Nekad', 'has-text-warning': interview.status == 'Avvakta'} ">{{ interview.status }}</th>
+          <!--Här är knappen för att ändra status på studenten som ska kommenteras bort 11/9-->
               <td>
                 <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                   <div class="select is-small">
@@ -452,6 +453,7 @@
                   <ng-container *ngIf="openinterview.motivationpath"><a *ngIf="openinterview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
                 </td>
                 <th [ngClass]="{ 'has-text-success': openinterview.status == 'Antagen', 'has-text-danger': openinterview.status == 'Nekad', 'has-text-warning': openinterview.status == 'Avvakta'} ">{{ openinterview.status }}</th>
+                <!--Här är knappen för att ändra status på studenten som ska kommenteras bort 11/9-->
                 <td>
                   <form [formGroup]="changeStatus" (ngSubmit)="submit()">
                     <div class="select is-small">
