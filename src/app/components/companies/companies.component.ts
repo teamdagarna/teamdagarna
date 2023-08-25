@@ -119,7 +119,14 @@ export class CompaniesComponent implements OnInit {
   applyOrder(cond) {
     if (cond == 1) {
       this.orderBy = 1;
+      
+      let exsitecCompany = _.remove(this.filteredCompanies, function(company: Company) {
+        return company.name === 'Exsitec';
+      });
       this.filteredCompanies = _.shuffle(this.filteredCompanies);
+      if (exsitecCompany.length > 0) {
+        this.filteredCompanies.unshift(exsitecCompany[0]);
+      }
     } else if (cond == 2) {
       this.orderBy = 2;
       this.filteredCompanies = _.orderBy(this.filteredCompanies, ['name'])
