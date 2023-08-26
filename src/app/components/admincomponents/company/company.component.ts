@@ -216,6 +216,9 @@ export class CompanyComponent implements OnInit {
       'pitchLecture': [false, [
         ]
       ],
+      'goldpieces': [false, [
+        ]
+      ],
       'preTEAM': [false, [
         ]
       ],
@@ -447,6 +450,7 @@ export class CompanyComponent implements OnInit {
         treasurehuntTuesday: data.treasurehuntTuesday,
         treasurehuntWednesday: data.treasurehuntWednesday,
         pitchLecture: data.pitchLecture,  
+        goldpieces: data.goldpieces,
         startUpZone: data.startUpZone,
         climateComp: data.climateComp,
         about: data.about,

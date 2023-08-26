@@ -136,6 +136,7 @@ export interface Company {
   totalapplicants?: number;
   seeopenapplicants?: boolean;
   pitchLecture?: boolean;
+  goldpieces?: boolean;
   startUpZone?: boolean;
   climateComp?: boolean;
   hemsida?: string;

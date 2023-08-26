@@ -62,6 +62,7 @@ import { BlogpostsComponent } from './components/blogposts/blogposts.component';
 import { InterviewsComponent } from './components/admincomponents/interviews/interviews.component';
 import { ProductportfolioComponent } from './components/productportfolio/productportfolio.component';
 import { JobOpportunitiesComponent } from './components/jobopportunities/jobopportunities.component';
+import { GoldpiecesComponent } from './components/goldpieces/goldpieces.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -255,7 +256,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'specialevent', component: SpecialEventComponent},
     { path: 'vr', component: VRComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
-    { path: 'jobopportunities', component: JobOpportunitiesComponent}
+    { path: 'jobopportunities', component: JobOpportunitiesComponent},
+    { path: 'goldpieces', component: GoldpiecesComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],

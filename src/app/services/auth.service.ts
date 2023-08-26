@@ -181,6 +181,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Guldbitarna",
+          url: "https://teamdagarna.com/goldpieces"
+        },
+        {
+          subLinks: [],
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
@@ -359,6 +364,11 @@ export class AuthService {
           subLinks: [],
           label: "Jobbmöjligheter",
           url: "https://teamdagarna.com/jobopportunities"
+        },
+        {
+          subLinks: [],
+          label: "Guldbitarna",
+          url: "https://teamdagarna.com/goldpieces"
         },
         {
           subLinks: [],

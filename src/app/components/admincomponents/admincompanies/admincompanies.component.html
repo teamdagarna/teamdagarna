@@ -18,6 +18,7 @@
           <span data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" *ngIf="company.climateComp" data-balloon-pos="down"><i class="fas fa-leaf "></i>&nbsp;&nbsp;&nbsp;</span>
           <span data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i>&nbsp;&nbsp;&nbsp;</span>
           <span *ngIf="company.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
+          <span *ngIf="company.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;</span>
         </div>
         <div class="card-description ">
           <div class="tags ">
@@ -50,6 +51,8 @@
         <span class="modal-fa has-text-success " *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan! " data-balloon-pos="down"><i class="fas fa-leaf " style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
         <span class="modal-fa has-text-info " data-balloon="Vi erbjuder kontaktsamtal! " data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview "></i>&nbsp;&nbsp;&nbsp;</span>
         <span class="modal-fa has-text-danger " *ngIf="modalCompany.treasurehunt " data-balloon="Vi deltar i pusseljakten! " data-balloon-pos="down"><i class="fas fa-puzzle-piece" style="color: #463853"></i></span>
+        <span class="modal-fa has-text-info " *ngIf="modalCompany.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins" style="color: #463853"></i></span>
+      
       </p>
       <button class="delete " aria-label="close " (click)="closeModal() "></button>
     </header>

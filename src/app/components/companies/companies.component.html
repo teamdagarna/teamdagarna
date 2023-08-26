@@ -273,6 +273,9 @@
             <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('preTEAM', $event.target.checked)"> Event under inför-dagarna
             </div>
+            <div class="dropdown-item">
+              <input type="checkbox" (change)="filterBoolean('goldpieces', $event.target.checked)"> Erbjuder guldbitar
+            </div>
             <!-- <div class="dropdown-item">
               <input type="checkbox" (change)="filterBoolean('treasurehunt', $event.target.checked)"> Deltar i pusseljakten
             </div>  -->
@@ -324,7 +327,8 @@
             <div class="card-meta ">{{ company.industry }} <br>
               <span  *ngIf="company.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf"></i>&nbsp;&nbsp;&nbsp;</span>
               <span  data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i> &nbsp;&nbsp;&nbsp;</span>
-              <span c *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
+              <span  *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
+              <span *ngIf="company.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;</span>
             </div> 
             
             <div class="card-description ">
@@ -366,6 +370,7 @@
           <span class="modal-fa has-text-success" *ngIf="modalCompany.climateComp" data-balloon="Vi klimatkompenserar för våra utsläpp under mässan!" data-balloon-pos="down"><i class="fas fa-leaf" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
           <span class="modal-fa has-text-info" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview"></i>&nbsp;&nbsp;&nbsp;</span> 
           <span class="modal-fa has-text-danger" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
+          <span class="modal-fa has-text-info " *ngIf="modalCompany.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins" style="color: #463853"></i></span>
           <!-- den här knappen kanske är en fullösning, men testar den så länge-->
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-heart"></i></span>
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-heart"></i></span>
