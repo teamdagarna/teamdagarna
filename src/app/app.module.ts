@@ -179,7 +179,8 @@ registerLocaleData(localeSv, 'sv');
     SpecialEventComponent,
     VRComponent,
     ProductportfolioComponent,
-    JobOpportunitiesComponent
+    JobOpportunitiesComponent,
+    GoldpiecesComponent
   ],
   imports: [
     BrowserModule,

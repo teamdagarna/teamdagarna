@@ -85,7 +85,7 @@
                     <td>{{ interview.engineerbachelor }}</td>
                     <td>{{ interview.engineermaster }}</td>
                   </ng-container>
-                  <ng-container *ngIf="interview.program == 'Annat'">
+                  <ng-container *ngIf="interview.program == 'Annat' || interview.program == 'Masterprogram inom ekonomi'">
                     <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
                     <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
                     <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
@@ -144,7 +144,7 @@
                     <td>{{ interview.engineerbachelor }}</td>
                     <td>{{ interview.engineermaster }}</td>
                   </ng-container>
-                  <ng-container *ngIf="interview.program == 'Annat'">
+                  <ng-container *ngIf="interview.program == 'Annat' || interview.program == 'Masterprogram inom ekonomi'">
                     <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
                     <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
                     <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
@@ -204,7 +204,7 @@
                     <td>{{ interview.engineerbachelor }}</td>
                     <td>{{ interview.engineermaster }}</td>
                   </ng-container>
-                  <ng-container *ngIf="interview.program == 'Annat'">
+                  <ng-container *ngIf="interview.program == 'Annat' || interview.program == 'Masterprogram inom ekonomi'">
                     <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
                     <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
                     <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
@@ -310,7 +310,7 @@
                 <td>{{ interview.engineerbachelor }}</td>
                 <td>{{ interview.engineermaster }}</td>
               </ng-container>
-              <ng-container *ngIf="interview.program == 'Annat'">
+              <ng-container *ngIf="interview.program == 'Annat' || interview.program == 'Masterprogram inom ekonomi'">
                 <td *ngIf="interview.nekorfek !== ''">{{ interview.nekorfek }}</td>
                 <td *ngIf="interview.filfakspecialization !== ''">{{ interview.filfakspecialization }}</td>
                 <td *ngIf="interview.engineerbachelor !== '' && interview.nekorfek == ''">{{ interview.nekorfek }}</td>
@@ -430,7 +430,7 @@
                   <td>{{ openinterview.engineerbachelor }}</td>
                   <td>{{ openinterview.engineermaster }}</td>
                 </ng-container>
-                <ng-container *ngIf="openinterview.program == 'Annat'">
+                <ng-container *ngIf="openinterview.program == 'Annat' || openinterview.program == 'Masterprogram inom ekonomi'">
                   <td *ngIf="openinterview.nekorfek !== ''">{{ openinterview.nekorfek }}</td>
                   <td *ngIf="openinterview.filfakspecialization !== ''">{{ openinterview.filfakspecialization }}</td>
                   <td *ngIf="openinterview.engineerbachelor !== '' && openinterview.nekorfek == ''">{{ openinterview.nekorfek }}</td>

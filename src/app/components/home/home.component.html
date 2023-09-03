@@ -11,17 +11,27 @@
           alt="TEAM-dagarna" style="max-height: 300px;">
 
         <h2 class="title smaller-text" style="font-size: 30px; color: white;">26-27 september 2023</h2>
+        <!--
+        <div class="has-text-centered is-mobile">
+          <h2 class="title is-2 smaller-text" style="text-transform: uppercase" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0"><br>Tagga TEAM 2023!</h2>
+          <div id="theEndIsNear" class="title is-1" style="color: white;" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div> 
+        </div> -->
 
        <!-- <h2 class="title smaller-text" style="font-size: 30px; color: white;">Där du lägger ditt karriärspussel!</h2> -->
 
-        <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sugen på att intresseanmäla ditt företag?</h2>
-        <br>
-        <a class="apply-button" id="apply-button" href="https://forms.gle/uDT4f13wPYeVYTsz8" target="_blank"><span>
+      <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sugen på att intresseanmäla ditt företag?</h2> 
+
+      <!--  <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sök värd!</h2> -->
+        <!--
+          <a class="apply-button" id="apply-button" href="https://forms.gle/p5wKbwr2A5yhzx1MA" target="_blank"><span>
+            Anmälan</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a> -->
+
+         <a class="apply-button" id="apply-button" href="https://forms.gle/uDT4f13wPYeVYTsz8" target="_blank"><span>
             Anmälan</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a>
 
             <a class="apply-button" id="apply-button" [routerLink]="['productportfolio']"><span>
               Priser</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a> 
-       <br>
+        <br>
         <br>
         <br>
 
@@ -137,11 +147,10 @@
       </div>
     </div>
     <div class="has-text-centered is-mobile">
-      <h2 class="title is-2 smaller-text" style="text-transform: uppercase"><br>Tagga TEAM 2023!</h2>
-      <div id="theEndIsNear" class="subtitle is-2" style="margin-bottom: 7%;">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div> 
+      <h2 class="title is-2 smaller-text" style="text-transform: uppercase" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0"><br>Tagga TEAM 2023!</h2>
+      <div id="theEndIsNear" class="subtitle is-2" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div> 
+      <br><br>
     </div>
-    
-
   </section>
 
 
