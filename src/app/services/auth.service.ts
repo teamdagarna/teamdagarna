@@ -176,6 +176,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Tävling med Exsitec",
+          url: "https://teamdagarna.com/exsiteccompetition"
+        },
+        {
+          subLinks: [],
           label: "Jobbmöjligheter",
           url: "https://teamdagarna.com/jobopportunities"
         },
@@ -209,11 +214,11 @@ export class AuthService {
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         },
-        {
+       /*  {
           subLinks: [],
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
-        },
+        }, */
         //{
         // subLinks: [],
         // label: "Sök DreamTEAM",
@@ -256,11 +261,11 @@ export class AuthService {
           label: "Sponsorer",
           url: "https://teamdagarna.com/sponsors"
         },
-        {
+        /* {
           subLinks: [],
           label: "Intresseanmälan",
           url: "https://teamdagarna.com/companyapplication"
-        },
+        }, */
         {
           subLinks: [],
           label: "Inloggning gästföretag",
@@ -362,6 +367,11 @@ export class AuthService {
         },
         {
           subLinks: [],
+          label: "Tävling med Exsitec",
+          url: "https://teamdagarna.com/exsiteccompetition"
+        },
+        {
+          subLinks: [],
           label: "Jobbmöjligheter",
           url: "https://teamdagarna.com/jobopportunities"
         },
@@ -400,11 +410,11 @@ export class AuthService {
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         },
-        {
+       /*  {
           subLinks: [],
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
-        },
+        }, */
         // {
         //   subLinks: [],
         //   label: "Sök DreamTEAM",
@@ -447,11 +457,11 @@ export class AuthService {
           label: "Sponsorer",
           url: "https://teamdagarna.com/sponsors"
         },
-        {
+       /*  {
           subLinks: [],
           label: "Intressenamälan",
           url: "https://teamdagarna.com/companyapplication"
-        },
+        }, */
         {
           subLinks: [],
           label: "Inloggning gästföretag",
