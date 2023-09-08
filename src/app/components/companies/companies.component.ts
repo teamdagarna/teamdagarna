@@ -119,14 +119,21 @@ export class CompaniesComponent implements OnInit {
   applyOrder(cond) {
     if (cond == 1) {
       this.orderBy = 1;
+      let specialCompanies = ['Exsitec', 'Deloitte AB', 'SCA'];
+      let orderedCompanies = [];
       
-      let exsitecCompany = _.remove(this.filteredCompanies, function(company: Company) {
-        return company.name === 'Exsitec';
+      for(let i=0; i < specialCompanies.length; i++){
+        let company = _.remove(this.filteredCompanies, function(company: Company) {
+          return company.name === specialCompanies[i];
       });
-      this.filteredCompanies = _.shuffle(this.filteredCompanies);
-      if (exsitecCompany.length > 0) {
-        this.filteredCompanies.unshift(exsitecCompany[0]);
+      
+      if (company.length > 0) {
+        orderedCompanies.push(company[0]);
       }
+    }
+    this.filteredCompanies = _.shuffle(this.filteredCompanies);
+    // Now, we'll add the companies back to 'filteredCompanies' in the correct order
+    this.filteredCompanies.unshift(...orderedCompanies);
     } else if (cond == 2) {
       this.orderBy = 2;
       this.filteredCompanies = _.orderBy(this.filteredCompanies, ['name'])
