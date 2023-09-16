@@ -329,7 +329,8 @@
               <span  data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down" *ngIf="company.offersinterview "><i class="fas fa-comments "></i> &nbsp;&nbsp;&nbsp;</span>
               <span  *ngIf="company.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece"></i>&nbsp;&nbsp;&nbsp;</span>
               <span *ngIf="company.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;</span>
-            </div> 
+              <span *ngIf="company.name == 'Exsitec'" href="https://open.spotify.com/episode/4wYGcJrEd2NljVdoYRuquC?si=ce1ae45c91494220&nd=1"data-balloon="Lyssna på vår podd med Team! " data-balloon-pos="down"><i class="fab fa-spotify"></i>&nbsp;&nbsp;&nbsp;</span>
+              </div> 
             
             <div class="card-description ">
               <div class="tags ">
@@ -372,6 +373,7 @@
           <span class="modal-fa has-text-info" data-balloon="Vi erbjuder kontaktsamtal!" data-balloon-pos="down"><i class="fas fa-comments " style="color: #463853" *ngIf="modalCompany.offersinterview"></i>&nbsp;&nbsp;&nbsp;</span> 
           <span class="modal-fa has-text-danger" *ngIf="modalCompany.treasurehunt" data-balloon="Vi deltar i pusseljakten!" data-balloon-pos="down"><i class="fas fa-puzzle-piece" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;</span>
           <span class="modal-fa has-text-info " *ngIf="modalCompany.goldpieces " data-balloon="Vi erbjuder guldbitar! " data-balloon-pos="down"><i class="fas fa-coins" style="color: #463853"></i></span>
+
           <!-- den här knappen kanske är en fullösning, men testar den så länge-->
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && !checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Lägg till företaget till dina favoritföretag!" data-balloon-pos="left"><i class="far fa-heart"></i></span>
           <span (click)="toggleFavouriteCompany(modalCompany)" *ngIf="auth.isSignedIn() && checkFavourite(modalCompany)" class="heart icon is-pulled-right is-hidden-touch" data-balloon="Ta bort företaget från dina favoritföretag!" data-balloon-pos="left"><i class="fas fa-heart"></i></span>
@@ -402,6 +404,9 @@
             </a>
             <a *ngIf="modalCompany.youtube" href="{{ modalCompany.youtube }}" target="_blank" data-balloon="Besök på Youtube" data-balloon-pos="right">
               <i class="fab fa-youtube" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a *ngIf="modalCompany.name == 'Exsitec'" href="https://open.spotify.com/episode/4wYGcJrEd2NljVdoYRuquC?si=ce1ae45c91494220&nd=1" target="_blank" data-balloon="Lyssna på vår podd med Team!" data-balloon-pos="right">
+              <i class="fab fa-spotify" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
             </a>
             <br><br>
             

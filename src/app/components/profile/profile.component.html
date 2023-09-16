@@ -293,11 +293,11 @@
 
 
             <!--   (ändra till denna när svartiden för studenter är stängd) -->
-             <!-- <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> -->
+              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
              
 
              <!--Denna ska avaktiveras när svarstid för studenter är stängd ner till td-->
-              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+            <!--  <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
               <th *ngIf="!interview.selected">-</th>
                <td *ngIf="interview.selected">
                 <p class="buttons">
@@ -314,13 +314,13 @@
                   </span>
                 </button>
                 </p>
-              </td> 
+              </td>  -->
               <!--ta bort fram till hit från ovan när svarstiden stänger för studenterna-->
 
               <!--Aktivera när studenterans val stänger-->
-             <!-- <td *ngIf="interview.selected" class="has-text-danger">
+              <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
-              </td> -->
+              </td>
 
 
               <!--Öppen anmälan nedan-->
@@ -356,11 +356,11 @@
 
 
               <!-- ändra till denna när ansökan stängt -->
-            <!--  <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> -->
+              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
               
               
               
-              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
+             <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
 
 
               <th *ngIf="!interview.selected">-</th>
@@ -380,11 +380,11 @@
                 </button>
                 </p>
 
-              </td>  
+              </td>  -->
 
-             <!-- <td *ngIf="interview.selected" class="has-text-danger">
+              <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
-              </td>-->
+              </td>
             </tr>
           </tbody>
         </table> 
