@@ -105,7 +105,9 @@ import { CompanysignsComponent } from './components/companysigns/companysigns.co
 import { LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { SpecialEventComponent } from './components/specialevent/specialevent.component';
-import { VRComponent } from './components/vr/vr.component'
+import { VRComponent } from './components/vr/vr.component';
+import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
+
 
 
 registerLocaleData(localeSv, 'sv');
@@ -182,7 +184,8 @@ registerLocaleData(localeSv, 'sv');
     ProductportfolioComponent,
     JobOpportunitiesComponent,
     GoldpiecesComponent,
-    exsiteccompetitionComponent
+    exsiteccompetitionComponent,
+    FairscheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -261,7 +264,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'productportfolio', component: ProductportfolioComponent},
     { path: 'jobopportunities', component: JobOpportunitiesComponent},
     { path: 'goldpieces', component: GoldpiecesComponent},
-    { path: 'exsiteccompetition', component: exsiteccompetitionComponent}
+    { path: 'exsiteccompetition', component: exsiteccompetitionComponent},
+    { path: 'fairschedule', component: FairscheduleComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],

@@ -199,6 +199,11 @@ export class AuthService {
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
         },
+        {
+          subLinks: [],
+          label: "Mässchema",
+          url: "https://teamdagarna.com/fairschedule"
+        },
         // {
         // subLinks: [],
         //  label: "Pusseljakten",
@@ -394,6 +399,11 @@ export class AuthService {
           subLinks: [],
           label: "Mässkarta",
           url: "https://teamdagarna.com/masskarta"
+        },
+        {
+          subLinks: [],
+          label: "Mässchema",
+          url: "https://teamdagarna.com/fairschedule"
         },
         //{
         //subLinks: [],
