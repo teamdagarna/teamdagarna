@@ -132,7 +132,6 @@ export class CompaniesComponent implements OnInit {
       }
     }
     this.filteredCompanies = _.shuffle(this.filteredCompanies);
-    // Now, we'll add the companies back to 'filteredCompanies' in the correct order
     this.filteredCompanies.unshift(...orderedCompanies);
     } else if (cond == 2) {
       this.orderBy = 2;
