@@ -107,6 +107,7 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { SpecialEventComponent } from './components/specialevent/specialevent.component';
 import { VRComponent } from './components/vr/vr.component';
 import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
+import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
 
 
 
@@ -185,7 +186,8 @@ registerLocaleData(localeSv, 'sv');
     JobOpportunitiesComponent,
     GoldpiecesComponent,
     exsiteccompetitionComponent,
-    FairscheduleComponent
+    FairscheduleComponent,
+    ExhibitorsPreRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -248,6 +250,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'masskarta', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'companyapplication', component: CompanyapplicationComponent},
+    { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'kontaktsamtaltest', component: InterviewapplicationComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},

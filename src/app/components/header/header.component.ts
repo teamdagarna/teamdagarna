@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuActive = !this.isMenuActive;
+    console.log('Menu toggled, is now:', this.isMenuActive);
   }
 
 }
