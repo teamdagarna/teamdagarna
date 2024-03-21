@@ -317,7 +317,7 @@
           <a class="card-header " (click)="openModal(company) ">
             <!-- <div *ngIf="company.logopath | url "> -->
             <div class="card-image has-text-centered is-vcentered">
-              <img *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl" loading="lazy">
+              <img *ngIf="company.logopath | storage | async as photoUrl " [src]="photoUrl">
             </div>
             <!-- </div> -->
           </a>
@@ -387,7 +387,7 @@
 
           <div class="column is-3">
             <a *ngIf="modalCompany.hemsida" href="{{ modalCompany.hemsida }}" target="_blank" data-balloon="Besök vår hemsida" data-balloon-pos="right">
-              <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl " loading="lazy">
+              <img class=" " style="max-height:90px; padding-bottom: 0.4em; " *ngIf="modalCompany.logopath | storage | async as photoUrl " [src]="photoUrl " >
             </a>&nbsp;&nbsp;<br><br>
 
             <a *ngIf="modalCompany.linkedIn" href="{{ modalCompany.linkedIn }}" target="_blank" data-balloon="Besök på LinkedIn" data-balloon-pos="right">

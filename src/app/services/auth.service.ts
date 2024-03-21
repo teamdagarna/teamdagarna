@@ -169,11 +169,11 @@ export class AuthService {
     },
     {
       subLinks: [
-        {
-          subLinks: [],
-          label: "Företagen 2023",
-          url: "https://teamdagarna.com/companies"
-        },
+        //{
+          //subLinks: [],
+          //label: "Företagen 2023",
+          //url: "https://teamdagarna.com/companies"
+        //},
         {
           subLinks: [],
           label: "Tävling med Exsitec",
@@ -186,8 +186,8 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Guldbitarna",
-          url: "https://teamdagarna.com/goldpieces"
+          label: "Framtidschansen",
+          url: "https://teamdagarna.com/framtidschansen"
         },
         {
           subLinks: [],
@@ -261,16 +261,16 @@ export class AuthService {
           label: "Hitta hit",
           url: "https://teamdagarna.com/find"
         },
+        //{
+        //  subLinks: [],
+        //  label: "Sponsorer",
+        //  url: "https://teamdagarna.com/sponsors"
+        //},
         {
           subLinks: [],
-          label: "Sponsorer",
-          url: "https://teamdagarna.com/sponsors"
-        },
-        /* {
-          subLinks: [],
           label: "Intresseanmälan",
-          url: "https://teamdagarna.com/companyapplication"
-        }, */
+          url: "https://teamdagarna.com/pre-registration"
+        }, 
         {
           subLinks: [],
           label: "Inloggning gästföretag",
@@ -365,11 +365,11 @@ export class AuthService {
     {
       subLinks: [
         // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
-        {
-          subLinks: [],
-          label: "Företagen 2023",
-          url: "https://teamdagarna.com/companies"
-        },
+        //{
+          //subLinks: [],
+          //label: "Företagen 2023",
+          //url: "https://teamdagarna.com/companies"
+        //},
         {
           subLinks: [],
           label: "Tävling med Exsitec",
@@ -382,8 +382,8 @@ export class AuthService {
         },
         {
           subLinks: [],
-          label: "Guldbitarna",
-          url: "https://teamdagarna.com/goldpieces"
+          label: "Framtidschansen",
+          url: "https://teamdagarna.com/framtidschansen"
         },
         {
           subLinks: [],
@@ -462,16 +462,16 @@ export class AuthService {
           label: "Hitta hit",
           url: "https://teamdagarna.com/find"
         },
+        //{
+        //  subLinks: [],
+        //  label: "Sponsorer",
+        //  url: "https://teamdagarna.com/sponsors"
+        //},
         {
           subLinks: [],
-          label: "Sponsorer",
-          url: "https://teamdagarna.com/sponsors"
-        },
-       /*  {
-          subLinks: [],
-          label: "Intressenamälan",
-          url: "https://teamdagarna.com/companyapplication"
-        }, */
+          label: "Intresseanmälan",
+          url: "https://teamdagarna.com/pre-registration"
+        }, 
         {
           subLinks: [],
           label: "Inloggning gästföretag",

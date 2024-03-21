@@ -266,7 +266,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'vr', component: VRComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
     { path: 'jobopportunities', component: JobOpportunitiesComponent},
-    { path: 'goldpieces', component: GoldpiecesComponent},
+    { path: 'framtidschansen', component: GoldpiecesComponent},
     { path: 'exsiteccompetition', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent}
     ])
