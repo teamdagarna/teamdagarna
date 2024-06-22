@@ -109,6 +109,7 @@ import { VRComponent } from './components/vr/vr.component';
 import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ApplicationComponent } from './components/application/application.component';
 
 
 
@@ -189,7 +190,8 @@ registerLocaleData(localeSv, 'sv');
     exsiteccompetitionComponent,
     FairscheduleComponent,
     ExhibitorsPreRegistrationComponent,
-    RegisterComponent
+    RegisterComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -271,7 +273,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'framtidschansen', component: GoldpiecesComponent},
     { path: 'exsiteccompetition', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
-    { path: 'registration', component: RegisterComponent}
+    { path: 'registration', component: RegisterComponent},
+    { path: 'interviewapplication', component: ApplicationComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
