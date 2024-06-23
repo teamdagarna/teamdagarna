@@ -110,6 +110,8 @@ import { FairscheduleComponent } from './components/fairschedule/fairschedule.co
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
+import { CandidateComponent } from './components/candidate/candidate.component';
+import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 
 
 
@@ -191,7 +193,9 @@ registerLocaleData(localeSv, 'sv');
     FairscheduleComponent,
     ExhibitorsPreRegistrationComponent,
     RegisterComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    CandidateComponent,
+    ExhibitorComponent
   ],
   imports: [
     BrowserModule,
@@ -274,7 +278,9 @@ registerLocaleData(localeSv, 'sv');
     { path: 'exsiteccompetition', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'registration', component: RegisterComponent},
-    { path: 'interviewapplication', component: ApplicationComponent}
+    { path: 'interviewapplication', component: ApplicationComponent},
+    { path: 'candidate', component: CandidateComponent},
+    { path: 'exhibitor', component: ExhibitorComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
