@@ -112,6 +112,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
 import { CandidateComponent } from './components/candidate/candidate.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
+import { CasecompComponent } from './components/casecomp/casecomp.component';
 
 
 
@@ -195,7 +196,8 @@ registerLocaleData(localeSv, 'sv');
     RegisterComponent,
     ApplicationComponent,
     CandidateComponent,
-    ExhibitorComponent
+    ExhibitorComponent,
+    CasecompComponent
   ],
   imports: [
     BrowserModule,
@@ -280,7 +282,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'registration', component: RegisterComponent},
     { path: 'interviewapplication', component: ApplicationComponent},
     { path: 'candidate', component: CandidateComponent},
-    { path: 'exhibitor', component: ExhibitorComponent}
+    { path: 'exhibitor', component: ExhibitorComponent},
+    { path: 'casecomp', component: CasecompComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],

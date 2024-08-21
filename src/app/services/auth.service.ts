@@ -174,36 +174,36 @@ export class AuthService {
           //label: "Företagen 2023",
           //url: "https://teamdagarna.com/companies"
         //},
-        {
-          subLinks: [],
-          label: "Tävling med Exsitec",
-          url: "https://teamdagarna.com/exsiteccompetition"
-        },
-        {
-          subLinks: [],
-          label: "Jobbmöjligheter",
-          url: "https://teamdagarna.com/jobopportunities"
-        },
+       // {
+        //  subLinks: [],
+        //  label: "Tävling med Exsitec",
+        //  url: "https://teamdagarna.com/exsiteccompetition"
+        //},
+     //   {
+       //   subLinks: [],
+        //  label: "Jobbmöjligheter",
+        //  url: "https://teamdagarna.com/jobopportunities"
+       // },
         {
           subLinks: [],
           label: "Framtidschansen",
           url: "https://teamdagarna.com/framtidschansen"
         },
-        {
-          subLinks: [],
-          label: "Event",
-          url: "https://teamdagarna.com/events"
-        },
-        {
-          subLinks: [],
-          label: "Mässkarta",
-          url: "https://teamdagarna.com/masskarta"
-        },
-        {
-          subLinks: [],
-          label: "Mässchema",
-          url: "https://teamdagarna.com/fairschedule"
-        },
+       // {
+         // subLinks: [],
+        //  label: "Event",
+        //  url: "https://teamdagarna.com/events"
+       // },
+        //{
+          //subLinks: [],
+         // label: "Mässkarta",
+         // url: "https://teamdagarna.com/masskarta"
+        //},
+       // {
+         // subLinks: [],
+        //  label: "Mässchema",
+         // url: "https://teamdagarna.com/fairschedule"
+        //},
         // {
         // subLinks: [],
         //  label: "Pusseljakten",
@@ -219,11 +219,11 @@ export class AuthService {
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         }, */
-       /*  {
+        {
           subLinks: [],
           label: "Kontaktsamtal",
-          url: "https://teamdagarna.com/interview"
-        }, */
+          url: "https://teamdagarna.com/interviewapplication"
+        },
         //{
         // subLinks: [],
         // label: "Sök DreamTEAM",

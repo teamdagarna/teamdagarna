@@ -231,22 +231,22 @@
 
         <p *ngIf="events == undefined || events.length == 0">Inga anmälningar gjorda. <a [routerLink]="['/events']">Anmäl dig till evenemang här!</a></p>
 
-        <div class="border-btm">
+       <!--<div class="border-btm">
           <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
-        </div>
-        <h1 class="subtitle is-6">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen den 15:e september kl 23:59.</strong>. Om du inte svarat innan dess räknas det som att du tackat nej.<br><br>
-        <!---  Mer information kommer via mail, hör av dig till <a>kontaktsamtal@teamdagarna.com</a> vid frågor! <br><br>Ifall du råkat ladda upp fel dokument eller vill ta bort en ansökan kan du maila till itwebb@teamdagarna.com. För byte av dokument krävs för- och efternamn, liu-ID, företagets namn och dokumentet du vill byta till som bilaga i mailet. Gäller det borttagning av ansökan behövs för- och efternamn, liu-ID och företagets namn.
-          Vi kan senast garantera ändringar om dessa kommer in innan 1/9. -->
+        </div>--> 
+       <!-- <h1 class="subtitle is-6">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen den 15:e september kl 23:59.</strong>. Om du inte svarat innan dess räknas det som att du tackat nej.<br><br>
+        -  Mer information kommer via mail, hör av dig till <a>kontaktsamtal@teamdagarna.com</a> vid frågor! <br><br>Ifall du råkat ladda upp fel dokument eller vill ta bort en ansökan kan du maila till itwebb@teamdagarna.com. För byte av dokument krävs för- och efternamn, liu-ID, företagets namn och dokumentet du vill byta till som bilaga i mailet. Gäller det borttagning av ansökan behövs för- och efternamn, liu-ID och företagets namn.
+          Vi kan senast garantera ändringar om dessa kommer in innan 1/9. -
         </h1>
         
-       <!-- <h1 class="subtitle is-6">Företagens urvalsprocess börjar <strong>måndagen den 4:e september</strong>.</h1> -->
+        <h1 class="subtitle is-6">Företagens urvalsprocess börjar <strong>måndagen den 4:e september</strong>.</h1> -->
       <!--  <h1 class="subtitle is-6">Du kommer att få reda på vilka företag som valt dig som kandidat från och med <strong>torsdagen den 14:e september. </strong>.</h1> -->
         <!-- <h1 class="subtitle is-5">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen 15:e september kl 23:59</strong>. Om du inte svarat innan dess räknas det som du tackat nej.</h1> -->
-        <h1 class="subtitle is-6"><strong>Platsen för ditt/dina kontaktsamtal</strong> får du vid kontaktsamtalssdisken i A-huset när du checkar in för ditt/dina samtal.</h1> 
+      <!-- <h1 class="subtitle is-6"><strong>Platsen för ditt/dina kontaktsamtal</strong> får du vid kontaktsamtalssdisken i A-huset när du checkar in för ditt/dina samtal.</h1> 
         <h1 class="subtitle is-6"><strong>Informationen om ditt/dina kontaktsamtal</strong> får du skickat till den mail du registrerade ditt konto med.</h1>
         <h1 class="subtitle is-6"><strong>Om du inte kan eller vill lämna återbud</strong> så gör du det genom att kontakta kontaktsamtalsansvariga via <a href="mailto:kontaktsamtal@teamdagarna.com">kontaktsamtal@teamdagarna.com</a>.</h1> 
-     <!---   <h1 class="subtitle is-6">Obeservera att din öppna ansökan inte syns i din profil förrän ett företag valt dig.</h1> -->
-        <table class="table is-fullwidth">
+        <h1 class="subtitle is-6">Obeservera att din öppna ansökan inte syns i din profil förrän ett företag valt dig.</h1> -->
+       <!-- <table class="table is-fullwidth">
           <thead>
             <tr>
               <th>Företag:</th>
@@ -271,32 +271,32 @@
                 <p></p>
                 <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
-              <!--hårdkodad inväntar svar-->
-             <!-- <th class="has-text-warning">Inväntar svar</th> -->
+              hårdkodad inväntar svar
+              <th class="has-text-warning">Inväntar svar</th> -->
 
-
+<!--
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-              <!--Om studenterna ska kunna se medan företagen väljer-->
-              <!-- <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> -->
-              <!-- <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> -->
+              Om studenterna ska kunna se medan företagen väljer
+              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+              <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> 
                <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
                <th *ngIf="interview.backup" class="has-text-warning">Reserv** </th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td> 
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <td *ngIf="interview.studentaccepted && !interview.time && interview.selected">Schemaläggs</td> 
               
-              <!-- Ändra inte testat denna fullt ut-->
+               Ändra inte testat denna fullt ut
               <th *ngIf="!interview.selected">-</th>
               <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
               <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
 
 
 
-            <!--   (ändra till denna när svartiden för studenter är stängd) -->
+               (ändra till denna när svartiden för studenter är stängd) 
               <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
              
 
-             <!--Denna ska avaktiveras när svarstid för studenter är stängd ner till td-->
+             Denna ska avaktiveras när svarstid för studenter är stängd ner till td-->
             <!--  <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
               <th *ngIf="!interview.selected">-</th>
                <td *ngIf="interview.selected">
@@ -315,15 +315,15 @@
                 </button>
                 </p>
               </td>  -->
-              <!--ta bort fram till hit från ovan när svarstiden stänger för studenterna-->
+              <!--ta bort fram till hit från ovan när svarstiden stänger för studenterna
 
-              <!--Aktivera när studenterans val stänger-->
+              Aktivera när studenterans val stänger
               <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
               </td>
 
 
-              <!--Öppen anmälan nedan-->
+              Öppen anmälan nedan
               </ng-container>
             </tr>
             <tr *ngFor="let interview of openinterviews">
@@ -338,16 +338,16 @@
                 <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
               </td>
 
-             <!-- <th class="has-text-warning">Inväntar svar</th> -->
+              <th class="has-text-warning">Inväntar svar</th> 
               
               <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-            <!--  <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> -->
+             <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
               <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
               <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
               <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td>
               <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td>  
 
-              <!-- Ändra inte testat denna fullt ut-->
+               Ändra inte testat denna fullt ut
               
               <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
               <th *ngIf="!interview.selected">-</th>
@@ -355,12 +355,12 @@
               <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
 
 
-              <!-- ändra till denna när ansökan stängt -->
+              ändra till denna när ansökan stängt 
               <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
               
               
               
-             <!-- <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
+             <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
 
 
               <th *ngIf="!interview.selected">-</th>
@@ -380,7 +380,7 @@
                 </button>
                 </p>
 
-              </td>  -->
+              </td>  
 
               <td *ngIf="interview.selected" class="has-text-danger">
                 Stängt
@@ -400,10 +400,10 @@
           <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
 
 
-       <!--    <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
+           <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
        
        
-        </ng-container>
+       <!-- </ng-container>-->
 
 
       </div>
