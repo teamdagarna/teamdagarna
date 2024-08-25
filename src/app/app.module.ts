@@ -113,6 +113,8 @@ import { ApplicationComponent } from './components/application/application.compo
 import { CandidateComponent } from './components/candidate/candidate.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
+import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.component';
+import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
 
 
 
@@ -197,7 +199,8 @@ registerLocaleData(localeSv, 'sv');
     ApplicationComponent,
     CandidateComponent,
     ExhibitorComponent,
-    CasecompComponent
+    CasecompComponent,
+    JobcatalogueComponent
   ],
   imports: [
     BrowserModule,
@@ -247,7 +250,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'sponsors', component: SponsorComponent },
     { path: 'arbetsmarknadsmassa', component: AboutComponent },
     { path: 'career-fair', component: AboutenglishComponent },
-    { path: 'companies', component: CompaniesComponent },
+    { path: 'companies', component: CompaniescatalogueComponent },
     { path: 'educations', component: EducationsComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
@@ -259,14 +262,14 @@ registerLocaleData(localeSv, 'sv');
     { path: 'blogposts', component: BlogpostsComponent },
     { path: 'masskarta', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
-    { path: 'companyapplication', component: CompanyapplicationComponent},
+    //{ path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'kontaktsamtaltest', component: InterviewapplicationComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
-    { path: 'massjakt', component: TreasurehuntComponent },
-    { path: 'favoritforetag', component: FavouritecompaniesComponent},
+    //{ path: 'massjakt', component: TreasurehuntComponent },
+    //{ path: 'favoritforetag', component: FavouritecompaniesComponent},
     { path: 'pusseljakten', component: RegistertreasurehuntComponent},
     { path: 'foretagsskyltar', component: CompanysignsComponent},
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] },
@@ -283,7 +286,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'interviewapplication', component: ApplicationComponent},
     { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
-    { path: 'casecomp', component: CasecompComponent}
+    { path: 'casecomp', component: CasecompComponent},
+    { path: 'jobcatalogue', component: JobcatalogueComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
