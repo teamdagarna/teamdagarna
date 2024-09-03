@@ -254,7 +254,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'educations', component: EducationsComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
-    { path: 'sokvard', component: VolunteerComponent },
+    //{ path: 'sokvard', component: VolunteerComponent },
     { path: 'sokdreamteam', component: ApplyComponent },
     //{ path: 'interview', component: InterviewComponent },
     { path: 'events/:id', component: EventComponent },
