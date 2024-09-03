@@ -1,20 +1,23 @@
 <div class="hero" id="title-hero">
-    <div class="hero-body">
-      <div class="container has-text-centered is-mobile">
-        <div class="columns is-centered">
-          <div class="column is-9">
-            <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Casetävling med Exsitec</h2>
-            <h5 class="subtitle is-6">
-              TEAM-dagarna bjuder in till en spännande case-tävling den 25/9 i samarbete med Exsitec, ett snabbväxande IT-konsultbolag med stora karriärmöjligheter. Tävla i lag om 3-4 personer och lös ett utmanande case på 3,5 timmar, följt av en presentation inför Exsitecs panel. Ta chansen att visa upp er kreativitet, knyta värdefulla kontakter och tävla om fantastiska priser. Missa inte denna möjligheten!
-            </h5>
-            <a href="https://docs.google.com/forms/d/1OCgPfOJYdqDSQ2EUWo2NsQi9d-vqz0-eYsGdZWL_TDI/edit#settings" class="button is-large" style="background-color: #e77da9; color: white;" target="_blank" *ngIf="auth.isSignedIn()">
-              Anmäl dig här
-            </a>
-            <p *ngIf="!auth.isSignedIn()" class="button is-large" style="background-color: #e77da9; color: white;" (click)="redirectToLogin()">
-                Logga in för att anmäla er
-              </p>
-          </div>
+  <div class="hero-body">
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered">
+        <div class="column is-9">
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Casetävling med Exsitec</h2>
+          <h5 class="subtitle is-6">
+            TEAM-dagarna bjuder in till en spännande case-tävling den 25/9 i samarbete med Exsitec, ett snabbväxande IT-konsultbolag med stora karriärmöjligheter. Tävla i lag om 3-4 personer och lös ett utmanande case på 3,5 timmar, följt av en presentation inför Exsitecs panel. Ta chansen att visa upp er kreativitet, knyta värdefulla kontakter och tävla om fantastiska priser. Missa inte denna möjligheten!
+          </h5>
+          <a *ngIf="isButtonVisible" href="https://docs.google.com/forms/d/1OCgPfOJYdqDSQ2EUWo2NsQi9d-vqz0-eYsGdZWL_TDI/edit#settings" class="button is-large" style="background-color: #e77da9; color: white;" target="_blank"> <!--För att lägga in ett krav på inlogg är det bara att kommentera ut det som står nedan och lägga in *ngIf="auth.isSignedIn()" efter "_blank"-->
+            Anmäl dig här
+          </a>
+          <p *ngIf="!isButtonVisible" class="button is-large" style="background-color: #e77da9; color: white;">
+            Anmälan öppnar 4/9 12.00
+          </p>
+          <!--<p *ngIf="!auth.isSignedIn()" class="button is-large" style="background-color: #e77da9; color: white;" (click)="redirectToLogin()">
+              Logga in för att anmäla er
+            </p>-->
         </div>
       </div>
     </div>
   </div>
+</div>
