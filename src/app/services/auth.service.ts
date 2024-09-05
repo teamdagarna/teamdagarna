@@ -365,11 +365,11 @@ export class AuthService {
     {
       subLinks: [
         // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
-        //{
-          //subLinks: [],
-          //label: "Företagen 2023",
-          //url: "https://teamdagarna.com/companies"
-        //},
+        {
+          subLinks: [],
+          label: "Företagen 2024",
+          url: "https://teamdagarna.com/companies"
+        },
         //{
          // subLinks: [],
           //label: "Tävling med Exsitec",
@@ -378,7 +378,7 @@ export class AuthService {
         {
           subLinks: [],
           label: "Jobbmöjligheter",
-          url: "https://teamdagarna.com/jobopportunities"
+          url: "https://teamdagarna.com/jobcatalogue"
         },
         {
           subLinks: [],
@@ -395,16 +395,16 @@ export class AuthService {
         //   label: "TEAM-bloggen",
         //   url: "https://teamdagarna.com/blogposts"
         // },
-        {
-          subLinks: [],
-          label: "Mässkarta",
-          url: "https://teamdagarna.com/masskarta"
-        },
-        {
-          subLinks: [],
-          label: "Mässchema",
-          url: "https://teamdagarna.com/fairschedule"
-        },
+        //{
+        //  subLinks: [],
+        //  label: "Mässkarta",
+        //  url: "https://teamdagarna.com/masskarta"
+        //},
+        //{
+        //  subLinks: [],
+        //  label: "Mässchema",
+        //  url: "https://teamdagarna.com/fairschedule"
+        //},
         //{
         //subLinks: [],
         //label: "Pusseljakten",
@@ -420,11 +420,11 @@ export class AuthService {
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         }, */
-       /*  {
+         {
           subLinks: [],
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interview"
-        }, */
+        }, 
         // {
         //   subLinks: [],
         //   label: "Sök DreamTEAM",
@@ -467,16 +467,16 @@ export class AuthService {
         //  label: "Sponsorer",
         //  url: "https://teamdagarna.com/sponsors"
         //},
-        {
-          subLinks: [],
-          label: "Intresseanmälan",
-          url: "https://teamdagarna.com/pre-registration"
-        }, 
-        {
-          subLinks: [],
-          label: "Inloggning gästföretag",
-          url: "https://teamdagarna.com/companysignin"
-        }
+        //{
+        //  subLinks: [],
+        //  label: "Intresseanmälan",
+        //  url: "https://teamdagarna.com/pre-registration"
+        //}, 
+        //{
+        //  subLinks: [],
+        //  label: "Inloggning gästföretag",
+        //  url: "https://teamdagarna.com/companysignin"
+        //}
 
       ],
       label: "För företag",
