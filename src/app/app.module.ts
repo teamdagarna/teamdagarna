@@ -116,6 +116,7 @@ import { CasecompComponent } from './components/casecomp/casecomp.component';
 import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.component';
 import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
 import { InforComponent } from './components/infor/infor.component';
+import { HostsComponent } from './components/hosts/hosts.component';
 
 
 
@@ -202,7 +203,8 @@ registerLocaleData(localeSv, 'sv');
     ExhibitorComponent,
     CasecompComponent,
     JobcatalogueComponent,
-    InforComponent
+    InforComponent,
+    HostsComponent
   ],
   imports: [
     BrowserModule,
@@ -290,7 +292,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},
     { path: 'jobcatalogue', component: JobcatalogueComponent},
-    {path: 'infordagarna', component: InforComponent}
+    { path: 'infordagarna', component: InforComponent},
+    { path: 'hosts', component: HostsComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],
