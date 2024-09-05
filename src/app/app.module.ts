@@ -115,6 +115,7 @@ import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
 import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.component';
 import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
+import { InforComponent } from './components/infor/infor.component';
 
 
 
@@ -200,7 +201,8 @@ registerLocaleData(localeSv, 'sv');
     CandidateComponent,
     ExhibitorComponent,
     CasecompComponent,
-    JobcatalogueComponent
+    JobcatalogueComponent,
+    InforComponent
   ],
   imports: [
     BrowserModule,
@@ -247,7 +249,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
-    //{ path: 'sponsors', component: SponsorComponent },
+    { path: 'sponsors', component: SponsorComponent },
     { path: 'arbetsmarknadsmassa', component: AboutComponent },
     { path: 'career-fair', component: AboutenglishComponent },
     { path: 'companies', component: CompaniescatalogueComponent },
@@ -287,7 +289,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},
-    { path: 'jobcatalogue', component: JobcatalogueComponent}
+    { path: 'jobcatalogue', component: JobcatalogueComponent},
+    {path: 'infordagarna', component: InforComponent}
     ])
   ],
   providers: [AuthService,AngularFireAuth,ThirdapiService,AdminGuard, PlatinumadminGuard, CompanyGuard, FirestoreService,DatePipe, { provide: LOCALE_ID, useValue: 'sv' }],

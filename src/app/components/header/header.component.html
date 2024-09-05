@@ -20,9 +20,6 @@
               </a>
 
               <div class="navbar-dropdown is-boxed" id="pink-arrow">
-                <a class="navbar-item" [routerLink]="['companies']" id="navbar-pink" (click)="toggleMenu()">
-                  Företagen 2024
-                </a>
                 <!--<a class="navbar-item" [routerLink]="['exsiteccompetition']" id="navbar-pink" (click)="toggleMenu()">
                   Tävling med Exsitec
                 </a>-->
@@ -39,9 +36,7 @@
                   Mässchema
                 </a>-->
 
-                <a class="navbar-item" [routerLink]="['events']" id="navbar-pink" (click)="toggleMenu()">
-                  Event
-                </a> 
+                
                 <a class="navbar-item" [routerLink]="['casetavling']" id="navbar-pink" (click)="toggleMenu()">
                   Casetävling med Exsitec
                 </a>  
@@ -101,11 +96,11 @@
                   <!--<a class="navbar-item" [routerLink]="['sponsors']" id="navbar-pink" (click)="toggleMenu()">
                     Sponsorer
                   </a>-->
-                  <hr class="navbar-divider">
+                  <!--<hr class="navbar-divider">
                   <a class="navbar-item" [routerLink]="['pre-registration']"  id="navbar-pink" (click)="toggleMenu()">
                     Intresseanmälan
                   
-                  </a>
+                  </a>-->
                   <!--<a class="navbar-item" [routerLink]="['registration']" id="navbar-pink" (click)="toggleMenu()">
                     Anmälan
                   </a>-->
@@ -119,6 +114,24 @@
         
                 </div>
             </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"  id="navbar-pink">
+                Mässan
+              </a>
+              <div class="navbar-dropdown is-boxed" >
+                <a class="navbar-item" [routerLink]="['companies']" id="navbar-pink" (click)="toggleMenu()">
+                  Företagen 2024
+                </a>
+                <a class="navbar-item" [routerLink]="['events']" id="navbar-pink" (click)="toggleMenu()">
+                  Event
+                </a> 
+               <!--<a class="navbar-item" [routerLink]="['infordagarna']" id="navbar-pink" (click)="toggleMenu()">
+                  Infördagarna
+                </a>--> 
+              </div>
+            </div>
+
 
             <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink" (click)="toggleMenu()">
               Hållbarhet
