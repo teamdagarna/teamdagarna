@@ -423,7 +423,7 @@ export class AuthService {
          {
           subLinks: [],
           label: "Kontaktsamtal",
-          url: "https://teamdagarna.com/interview"
+          url: "https://teamdagarna.com/interviewapplication"
         }, 
         // {
         //   subLinks: [],
