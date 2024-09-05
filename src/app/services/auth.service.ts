@@ -169,11 +169,11 @@ export class AuthService {
     },
     {
       subLinks: [
-        //{
-          //subLinks: [],
-          //label: "Företagen 2023",
-          //url: "https://teamdagarna.com/companies"
-        //},
+        {
+          subLinks: [],
+          label: "Företagen 2024",
+          url: "https://teamdagarna.com/companies"
+        },
        // {
         //  subLinks: [],
         //  label: "Tävling med Exsitec",
@@ -189,11 +189,11 @@ export class AuthService {
           label: "Framtidschansen",
           url: "https://teamdagarna.com/framtidschansen"
         },
-       // {
-         // subLinks: [],
-        //  label: "Event",
-        //  url: "https://teamdagarna.com/events"
-       // },
+        {
+          subLinks: [],
+          label: "Event",
+          url: "https://teamdagarna.com/events"
+        },
         //{
           //subLinks: [],
          // label: "Mässkarta",
@@ -219,11 +219,11 @@ export class AuthService {
           label: "Sök värd",
           url: "https://teamdagarna.com/sokvard"
         }, */
-        {
+       {
           subLinks: [],
           label: "Kontaktsamtal",
           url: "https://teamdagarna.com/interviewapplication"
-        },
+       },
         //{
         // subLinks: [],
         // label: "Sök DreamTEAM",
@@ -266,16 +266,16 @@ export class AuthService {
         //  label: "Sponsorer",
         //  url: "https://teamdagarna.com/sponsors"
         //},
-        {
-          subLinks: [],
-          label: "Intresseanmälan",
-          url: "https://teamdagarna.com/pre-registration"
-        }, 
-        {
-          subLinks: [],
-          label: "Inloggning gästföretag",
-          url: "https://teamdagarna.com/companysignin"
-        }
+      //  {
+      //    subLinks: [],
+      //    label: "Intresseanmälan",
+      //    url: "https://teamdagarna.com/pre-registration"
+      //  }, 
+      //  {
+       //   subLinks: [],
+        //  label: "Inloggning gästföretag",
+        //  url: "https://teamdagarna.com/companysignin"
+       // }
       ],
       label: "För företag",
       isGrouping: true,
@@ -333,12 +333,12 @@ export class AuthService {
           label: "Min profil",
           url: "https://teamdagarna.com/profile",
         },
-        {
-          sublinks: [],
-          label: "Mina favoritföretag",
-          url: "https://teamdagarna.com/favoritforetag",
-          icon: "fa-heart"
-        }
+       // {
+       //   sublinks: [],
+       //   label: "Mina favoritföretag",
+       //   url: "https://teamdagarna.com/favoritforetag",
+       //   icon: "fa-heart"
+       // }
       ],
       label: "Mina sidor",
       isGrouping: true,
@@ -370,11 +370,11 @@ export class AuthService {
           //label: "Företagen 2023",
           //url: "https://teamdagarna.com/companies"
         //},
-        {
-          subLinks: [],
-          label: "Tävling med Exsitec",
-          url: "https://teamdagarna.com/exsiteccompetition"
-        },
+        //{
+         // subLinks: [],
+          //label: "Tävling med Exsitec",
+          //url: "https://teamdagarna.com/exsiteccompetition"
+        //},
         {
           subLinks: [],
           label: "Jobbmöjligheter",
