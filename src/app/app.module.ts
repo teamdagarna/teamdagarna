@@ -284,7 +284,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'productportfolio', component: ProductportfolioComponent},
     { path: 'jobopportunities', component: JobOpportunitiesComponent},
     { path: 'framtidschansen', component: GoldpiecesComponent},
-    { path: 'exsitecsignup', component: exsiteccompetitionComponent},
+    //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'registration', component: RegisterComponent},
     //{ path: 'interviewapplication', component: ApplicationComponent},
