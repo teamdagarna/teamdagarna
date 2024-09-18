@@ -194,16 +194,16 @@ export class AuthService {
           label: "Event",
           url: "https://teamdagarna.com/events"
         },
-        //{
-          //subLinks: [],
-         // label: "Mässkarta",
-         // url: "https://teamdagarna.com/masskarta"
-        //},
-       // {
-         // subLinks: [],
-        //  label: "Mässchema",
-         // url: "https://teamdagarna.com/fairschedule"
-        //},
+        {
+          subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/fairmap"
+        },
+        {
+          subLinks: [],
+          label: "Mässchema",
+          url: "https://teamdagarna.com/fairschedule"
+        },
         // {
         // subLinks: [],
         //  label: "Pusseljakten",
@@ -261,11 +261,11 @@ export class AuthService {
           label: "Hitta hit",
           url: "https://teamdagarna.com/find"
         },
-        //{
-        //  subLinks: [],
-        //  label: "Sponsorer",
-        //  url: "https://teamdagarna.com/sponsors"
-        //},
+        {
+          subLinks: [],
+          label: "Sponsorer",
+          url: "https://teamdagarna.com/sponsors"
+        },
       //  {
       //    subLinks: [],
       //    label: "Intresseanmälan",
@@ -395,16 +395,16 @@ export class AuthService {
         //   label: "TEAM-bloggen",
         //   url: "https://teamdagarna.com/blogposts"
         // },
-        //{
-        //  subLinks: [],
-        //  label: "Mässkarta",
-        //  url: "https://teamdagarna.com/masskarta"
-        //},
-        //{
-        //  subLinks: [],
-        //  label: "Mässchema",
-        //  url: "https://teamdagarna.com/fairschedule"
-        //},
+        {
+          subLinks: [],
+          label: "Mässkarta",
+          url: "https://teamdagarna.com/fairmap"
+        },
+        {
+          subLinks: [],
+          label: "Mässchema",
+          url: "https://teamdagarna.com/fairschedule"
+        },
         //{
         //subLinks: [],
         //label: "Pusseljakten",
@@ -462,11 +462,11 @@ export class AuthService {
           label: "Hitta hit",
           url: "https://teamdagarna.com/find"
         },
-        //{
-        //  subLinks: [],
-        //  label: "Sponsorer",
-        //  url: "https://teamdagarna.com/sponsors"
-        //},
+        {
+          subLinks: [],
+          label: "Sponsorer",
+          url: "https://teamdagarna.com/sponsors"
+        }, 
         //{
         //  subLinks: [],
         //  label: "Intresseanmälan",
