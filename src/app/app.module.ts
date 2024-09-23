@@ -264,7 +264,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
     { path: 'blogposts', component: BlogpostsComponent },
-    //{ path: 'fairmap', component: CompanymapComponent },
+    { path: 'fairmap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     //{ path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
