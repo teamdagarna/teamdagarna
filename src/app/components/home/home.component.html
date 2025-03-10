@@ -1,38 +1,58 @@
 <body>
-
   <!-- <div id="particles-js"></div> -->
-
-
   <section class="hero is-fullheight has-bg-img">
     <div class="hero-body">
       <div class="container has-text-centered is-mobile">
         <div class="columns is-centered" style="margin-top: 20px;">
           <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Logga_vit.png?alt=media&token=bc67f9d5-f57d-470b-b18e-0cb513b78108" alt="TEAM-dagarna" style="max-height: 300px; ">
-          <br>
+          <!--<br>
           <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/40-%C3%A5rsjubileum%20Vit%20Centrerad.png?alt=media&token=65780d04-0fce-4f03-b866-754b920fe464" alt="TEAM-40" style="max-height: 300px;">
+          -->
         </div>
-        <h1 class="title is-1 smaller-text" style="font-size: 25px; color: white;">En arbetsmarknadsmässa vid Linköpings universitet i världsklass</h1>
-        <h2 class="title smaller-text" style="font-size: 30px; color: white;">24-25 september 2024</h2>
+        <h1 class="title is-1 smaller-text" style="font-size: 25px; color: white;">
+          En arbetsmarknadsmässa vid Linköpings universitet i världsklass
+        </h1>
+        <h2 class="title smaller-text" style="font-size: 30px; color: white;">
+          23-24 september 2025
+        </h2>
         
         <div class="has-text-centered is-mobile">
+          <div id="theEndIsNear" class="title is-1" style="color: white;" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">
+            {{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s
+          </div> 
+        </div>
 
-          <div id="theEndIsNear" class="title is-1" style="color: white;" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div> 
-        </div> 
+        <!-- <h2 class="title smaller-text" style="font-size: 30px; color: white;">Där du lägger ditt karriärspussel!</h2> -->
 
-       <!-- <h2 class="title smaller-text" style="font-size: 30px; color: white;">Där du lägger ditt karriärspussel!</h2> -->
+        <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sugen på att intresseanmäla ditt företag?</h2>
+        <a class="apply-button" id="company-apply-button" href="https://teamdagarna.com/pre-registration" target="_blank">
+          <span>Anmälan</span>
+          <span class="icon" id="pink-icon">
+            <i class="fas fa-external-link-alt"></i>
+          </span>
+        </a>
 
-     <!-- <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sugen på att intresseanmäla ditt företag?</h2>  -->
-
-      <!--  <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sök värd!</h2> -->
         <!--
-          <a class="apply-button" id="apply-button" href="https://forms.gle/p5wKbwr2A5yhzx1MA" target="_blank"><span>
-            Anmälan</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a> -->
+        <h2 class="title smaller-text" style="font-size: 30px; color: white;">Sök värd!</h2>
+        <a class="apply-button" id="apply-button" href="https://forms.gle/p5wKbwr2A5yhzx1MA" target="_blank">
+          <span>Anmälan</span>
+          <span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span>
+        </a>
+        -->
 
-       <!--  <a class="apply-button" id="apply-button" href="https://forms.gle/uDT4f13wPYeVYTsz8" target="_blank"><span>
-            Anmälan</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a>
+        <!--
+        <a class="apply-button" id="apply-button" href="https://forms.gle/uDT4f13wPYeVYTsz8" target="_blank">
+          <span>Anmälan</span>
+          <span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span>
+        </a>
+        -->
 
-            <a class="apply-button" id="apply-button" [routerLink]="['productportfolio']"><span>
-              Priser</span><span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span></a> -->
+        <!--
+        <a class="apply-button" id="apply-button" [routerLink]="['productportfolio']">
+          <span>Priser</span>
+          <span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span>
+        </a> 
+        -->
         <br>
         <br>
         <br>
@@ -40,38 +60,41 @@
         <div class="columns is-centered ">
           <div class="column is-5">
             <div class="block">
-
               <div class="level is-size-2">
                 <div class="level-item has-text-centered"></div>
                 <div class="level-item has-text-centered"></div>
                 <div class="level-item has-text-centered">
-
-                  <a href="https://www.linkedin.com/company/teamdagarna/" target="_blank"
-                    class="level-item has-text-centered">
-                    <span class="icon" style="color: white;" id="clickable-icon"><i
-                        class="fab fa-linkedin-in"></i></span>
+                  <a class="level-item has-text-centered" href="https://www.linkedin.com/company/teamdagarna/" target="_blank" >
+                    <span class="icon" style="color: white;" id="clickable-icon">
+                      <i class="fab fa-linkedin-in"></i>
+                    </span>
                   </a>
                 </div>
-                <div class="level-item has-text-centered">
 
+                <div class="level-item has-text-centered">
                   <a href="https://www.facebook.com/teamdagarna/" target="_blank" class="level-item has-text-centered">
-                    <span class="icon" style="color: white;" id="clickable-icon"><i
-                        class="fab fa-facebook-f"></i></span>
+                    <span class="icon" style="color: white;" id="clickable-icon">
+                      <i class="fab fa-facebook-f"></i>
+                    </span>
                   </a>
-
                 </div>
+                
                 <div class="level-item has-text-centered">
-
                   <a href="https://www.instagram.com/teamdagarna/" target="_blank" class="level-item has-text-centered">
-                    <span class="icon" style="color: white;" id="clickable-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="icon" style="color: white;" id="clickable-icon">
+                      <i class="fab fa-instagram"></i>
+                    </span>
                   </a>
                 </div>
-                <div class="level-item has-text-centered">
 
+                <div class="level-item has-text-centered">
                 <a href="https://open.spotify.com/episode/4wYGcJrEd2NljVdoYRuquC?si=ce1ae45c91494220&nd=1" target="_blank" class="level-item has-text-centered">
-                  <span class="icon" style="color: white;" id="clickable-icon"><i class="fab fa-spotify"></i></span>
+                  <span class="icon" style="color: white;" id="clickable-icon">
+                    <i class="fab fa-spotify"></i>
+                  </span>
                 </a>
                 </div>
+
                 <div class="level-item has-text-centered">
                   <a href="https://link.orbiapp.io/odwZ" target="_blank" class="level-item has-text-centered">
                     <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/orbi-logo-white.png?alt=media&token=79d590aa-0070-44fd-b41d-3e94509ebab3" alt="Orbi Logo" style="height: 24px;">
@@ -83,48 +106,43 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
 
-
   <section class="hero">
     <div class="hero-body">
       <div class="container has-text-centered is-mobile">
-
         <div class="columns is-centered ">
           <div class="column is-9">
             <div class="block">
-
-              <h1 class="title is-2 smaller-text" style="text-transform: uppercase; margin-top: 7%;">Arbetsmarknadsmässa i Linköping för drivna studenter & drömföretag</h1><br>
-              <h3 class="subtitle is-6 "> Ända sedan starten har vårt mål varit att varje år koppla samman drivna
-                studenter på Linköpings
-                Universitet med Sveriges främsta företag genom en arbetsmarknadsmässa i världsklass. I år anordnar vi TEAM-dagarna för 40:e året i rad och vi kunde
-                inte vara mer taggade på
-                att träffa er på TEAM-dagarna 2024!</h3>
-            </div><br>
+              <h1 class="title is-2 smaller-text" style="text-transform: uppercase; margin-top: 7%;">
+                Arbetsmarknadsmässa i Linköping för drivna studenter & drömföretag
+              </h1>
+              <br>
+              <h3 class="subtitle is-6 "> 
+                Ända sedan starten har vårt mål varit att varje år koppla samman drivna studenter på Linköpings Universitet 
+                med Sveriges främsta företag genom en arbetsmarknadsmässa i världsklass. I år anordnar vi TEAM-dagarna för 
+                41:e året i rad och vi kunde inte vara mer taggade på att träffa er på TEAM-dagarna 2025!
+              </h3>
             </div>
+            <br>
+          </div>
       </div>
  
       <div class="columns is-centered " style="margin-bottom: 5rem;">
         <div class="column is-11">
             <div class="block">
               <nav class="level is-mobile is-centered">
-                <div class="level-item has-text-centered ">
-                </div>
-
+                <div class="level-item has-text-centered "></div>
                 <div class="level-item has-text-centered ">
                   <div>
                     <span class="icon is-medium">
                       <i class="fas fa-briefcase fa-2x"></i>
                     </span>
-
                     <!-- <span class="title is-3">&nbsp;**</span> -->
                     <p class="title is-2 smaller-text"> 73</p>
-
-
                     <p class="title is-5">Företag</p>
                   </div>
                 </div>
@@ -146,7 +164,6 @@
                       <i class="fas fa-handshake fa-2x"></i>
                     </span>
                     <p class="title is-2 smaller-text">2</p>
-
                     <!-- <span class="title is-3">&nbsp;&nbsp;2</span> -->
                     <p class="title is-5">Dagar</p>
                   </div>
@@ -166,20 +183,21 @@
     </div> -->
   </section>
 
-
-
   <section class="hero is-fullheight" id="hero-img">
     <div class="hero-body">
       <div class="container has-text-centered is-mobile hide-on-small-screen">
-
-        <p class="title is-2" style="color: white; text-transform: uppercase;">Ladda ner appen</p><br>
+        <p class="title is-2" style="color: white; text-transform: uppercase;">
+          Ladda ner appen
+        </p>
+        <br>
         <img
           src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/QR-codes%2Fappen%20appstore.png?alt=media&token=e185fe6f-b870-4672-b385-bd13a7cacc8f"
-          alt="QR-kod" style="max-height: 220px; margin-right: 2rem;">
-          <img
+          alt="QR-kod" 
+          style="max-height: 220px; margin-right: 2rem;">
+        <img
           src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/QR-codes%2Fappen%20playstore.png?alt=media&token=b3b8a61f-4eda-4c12-92da-a399dbdc516a"
-          alt="QR-kod" style="max-height: 220px; margin-left: 2rem;">
-
+          alt="QR-kod" 
+          style="max-height: 220px; margin-left: 2rem;">
       </div>
     </div>
   </section>
@@ -196,17 +214,13 @@
     <div class="hero-body ">
       <div class="container hsp">
         <div class="section-body is-coverage is-medium hsp">
-
           <div class="columns is-centered">
-
             <div class="column is-10">
-
               <div class="container has-text-centered">
                 <h2 class="title is-4 is-spaced" style="text-transform: uppercase"> Arrangörer </h2>
               </div> <br>
 
               <div class="level is-mobile">
-
                 <div class="level-item ">
                   <a href="http://www.isektionen.se" target="_blank ">
                     <img style="max-height: 145px;" alt="Industriell Ekonomi " role="presentation "
@@ -220,32 +234,31 @@
                       src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/ELIN%20(1).png?alt=media&token=5b5b2bc8-0e7f-40ce-bc80-dc5312fe7c1d">
                   </a>
                 </div>
-
               </div>
 
               <!--<div class="container has-text-centered">
                 <a class="button is-inverted is-outlined is-medium" [routerLink]="['companies']">Företagen 2023</a>
               </div>-->
-
             </div>
 
-
-
             <div class="column is-10">
-
               <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;">
-                Huvudsamarbetspartner </h2><br>
+                Huvudsamarbetspartner
+              </h2>
+              <br>
 
               <div style="text-align: center;">
                 <a href="https://www.exsitec.se/" target="_blank ">
                   <img style="max-height: 55px; align-self: center;" alt="Exsitec " role="presentation "
                     src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Exsitec_Logo_L_Rubine_RGB.png?alt=media&token=49de7f59-22fb-4a72-89ac-02019afb5285">
                 </a>
-              </div><br>
-
+              </div>
+              <br>
               
-              <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;"> Premium Partners
-              </h2><br>
+              <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;">
+                Premium Partners
+              </h2>
+              <br>
               <div style="display: flex; justify-content: center; align-items: center;">
                 <a href="https://www2.deloitte.com/se/sv.html" target="_blank ">
                   <img style="max-height: 40px;" alt="Deloitte" role="presentation "
@@ -256,10 +269,7 @@
                     src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/LIDL.png?alt=media&token=d0800f77-d397-49ce-aeb6-d8db20ddb278">
                 </a>
               </div>
-              
             </div>
-
-
           </div>
         </div>
       </div>
@@ -293,7 +303,5 @@
 
     <!-- </div> -->
     <!-- </div> -->
-
   </section>
-
 </body>

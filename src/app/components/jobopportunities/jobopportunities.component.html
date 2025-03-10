@@ -2,20 +2,17 @@
   <div class="hero-body">
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered" style="margin-top: 1,5rem;">
-      
-
-          <h2 class="title is-3 is-spaced" style="text-transform: uppercase">Jobbmöjligheter</h2>
+          <h2 class="title is-3 is-spaced" style="text-transform: uppercase">
+            Jobbmöjligheter
+          </h2>
           <br>
-
-
- 
       </div>
     </div>
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered ">
         <div class="column is-9">
-          <h2 class="subtitle is-6" style="color: #463853">Här kan du hitta aktuella jobb hos
-            företagen.</h2>
+          <h2 class="subtitle is-6" style="color: #463853">
+            Här kan du hitta aktuella jobb hosföretagen.</h2>
         </div>
       </div>
     </div>
@@ -37,22 +34,24 @@
           <div class="filter-dropdown dropdown is-hoverable">
             <div class="dropdown-trigger">
 
-              <a class="button is-outlined" *ngIf="filterIsOn()" (click)=" clearFilter() ">Ta bort filter <i
-                  class="fas fa-filter "></i></a>
+              <a class="button is-outlined" *ngIf="filterIsOn()" (click)=" clearFilter() ">
+                Ta bort filter 
+                <i class="fas fa-filter "></i></a>
             </div>
             <div class="buttons has-addons is-pulled-right ">
-              <span class="button smaller-buttons" (click)="applyOrder(1) " [ngClass]="{ ' ': orderBy==1} "><i
-                  class="fas fa-random "></i></span>
-              <span class="button smaller-buttons" (click)="applyOrder(2) " [ngClass]="{ ' ': orderBy==2} "><i
-                  class="fas fa-sort-alpha-down "></i></span>
-              <span class="button smaller-buttons" (click)="applyOrder(3) " [ngClass]="{ ' ': orderBy==3} "><i
-                  class="fas fa-sort-alpha-up "></i></span>
+              <span class="button smaller-buttons" (click)="applyOrder(1) " [ngClass]="{ ' ': orderBy==1} ">
+                <i class="fas fa-random "></i>
+              </span>
+              <span class="button smaller-buttons" (click)="applyOrder(2) " [ngClass]="{ ' ': orderBy==2} ">
+                <i class="fas fa-sort-alpha-down "></i>
+              </span>
+              <span class="button smaller-buttons" (click)="applyOrder(3) " [ngClass]="{ ' ': orderBy==3} ">
+                <i class="fas fa-sort-alpha-up "></i>
+              </span>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
 
 
@@ -72,7 +71,6 @@
 
             <div class="card-body">
               <div class="card-description ">
-
                 <div class="content">
                   <p class="title">{{ company.jobTitle1 }}</p>
                   <p class="subtitle is-6">{{ company.jobLocation1 }}</p>
@@ -83,17 +81,24 @@
 
             <div class="card-footer">
               <div class="column footer-column">
-                <a class="button   is-outlined is-small" (click)="openModal(company) ">Läs mer</a>&nbsp;
-                <a class="button is-outlined is-small" [href]="company.jobLink1" target="_blank"><span>
-                    Ansök</span><span class="icon" id="white-icon"><i
-                      class="fas fa-external-link-alt"></i></span></a>&nbsp;
+                <a class="button   is-outlined is-small" (click)="openModal(company) ">
+                  Läs mer
+                </a>&nbsp;
+                <a class="button is-outlined is-small" [href]="company.jobLink1" target="_blank">
+                  <span>
+                    Ansök
+                  </span>
+                  <span class="icon" id="white-icon">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+                &nbsp;
               </div>
             </div>
           </div>
         </div>
 
         <div class="column is-one-quarter" *ngIf="company.name != 'Öppen anmälan kontaktsamtal' && company.jobTitle2">
-
           <!-- Jobbkort jobb 2-->
           <div class="card is-storyworld bm--card-equal-height ">
             <a class="card-header " (click)="openModal2(company) ">
@@ -103,7 +108,6 @@
             </a>
             <div class="card-body">
               <div class="card-description ">
-
                 <div class="content">
                   <p class="title">{{ company.jobTitle2 }}</p>
                   <p class="subtitle is-6">{{ company.jobLocation2 }}</p>
@@ -115,9 +119,15 @@
             <div class="card-footer">
               <div class="column footer-column">
                 <a class="button   is-outlined is-small" (click)="openModal2(company) ">Läs mer</a>&nbsp;
-                <a class="button is-outlined is-small" [href]="company.jobLink2" target="_blank"><span>
-                    Ansök</span><span class="icon" id="white-icon"><i
-                      class="fas fa-external-link-alt"></i></span></a>&nbsp;
+                <a class="button is-outlined is-small" [href]="company.jobLink2" target="_blank">
+                  <span>
+                    Ansök
+                  </span>
+                  <span class="icon" id="white-icon">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+                &nbsp;
               </div>
             </div>
           </div>
@@ -149,9 +159,15 @@
               </div>
               <br>
               <div>
-                <a class="button is-outlined is-small" [href]="modalCompany.jobLink1" target="_blank"><span>
-                    Ansök</span><span class="icon" id="white-icon"><i
-                      class="fas fa-external-link-alt"></i></span></a>&nbsp;
+                <a class="button is-outlined is-small" [href]="modalCompany.jobLink1" target="_blank">
+                  <span>
+                    Ansök
+                  </span>
+                  <span class="icon" id="white-icon">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+                &nbsp;
               </div>
               <br>
               <div>
@@ -175,7 +191,7 @@
                 data-balloon="Besök på Youtube" data-balloon-pos="right">
                 <i class="fab fa-youtube" style="color: #463853"></i>&nbsp;&nbsp;&nbsp;
               </a>
-                <br><br>
+              <br><br>
               </div>
             </div>
             <div class="is-divider-vertical "></div>
@@ -198,7 +214,6 @@
         </section>
       </div>
     </div>
-
 
     <!--modal för jobb 2-->
     <div *ngIf="isModal2Active " class="modal" [ngClass]="{ 'is-active' : isModal2Active } ">
@@ -224,9 +239,14 @@
               </div>
               <br>
               <div>
-                <a class="button is-outlined is-small" [href]="modalCompany.jobLink2" target="_blank"><span>
-                    Ansök</span><span class="icon" id="white-icon"><i
-                      class="fas fa-external-link-alt"></i></span></a>&nbsp;
+                <a class="button is-outlined is-small" [href]="modalCompany.jobLink2" target="_blank">
+                  <span>
+                    Ansök
+                  </span>
+                  <span class="icon" id="white-icon">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>&nbsp;
               </div>
               <br>
               <div>
