@@ -11,204 +11,205 @@
   </div>
 </div> -->
 
-
 <section class="hero is-fullheight has-bg-img">
-  <div class="hero-head">
+  <div class="hero-body">
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
+        <div class="column is-9">
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase; color: white;">Vad vi erbjuder företagen</h2>
 
-    </div>
-       
-    <div class="hero-body">
-      <div class="container has-text-centered is-mobile">
-        <div class="columns is-centered ">
-          <div class="column is-9">
-                <h2 class="title is-1 is-spaced" style="text-transform: uppercase; color: white;">Vad vi erbjuder företagen</h2>
-
-                <h2 class="subtitle is-6" style="color: white;">Digital marknadsföring är något som kommer vara i fokus i år. Efter feedback kommer vi 
-                  fortsätta vidareutveckla vår applikation TEAM-dagarna samt satsa på övriga sociala kanaler för att sprida information kring mässan till 
-                  våra engagerade studenter. Genom våra digitala kanaler erbjuder vi en rad olika marknadsföringsmöjligheter både innan och under mässan.
-                <!-- </h2>
-                <h2 class="subtitle is-6" style="color: white;"> -->
-                  Under mässdagarna kommer det ges fantastiska möjligheter för både studenter och företag. 
-                  Årets upplaga kommer kantas av flera aktiviteter såsom föreläsningar, kontaktsamtal och mycket mer. Efter första mässdagen tar 
-                  vi en välförtjänt AW och hela mässan kommer avslutas med en bankett för att fira vad vi åstadkommit tillsammans. 
-                </h2> 
-
-
-                
-                <!-- <a class="button" href="https://teamdagarna.com/companyapplication" target="_blank"><span>Intresseanmälan</span><span class="icon" id="white-icon"><i class="fas fa-external-link-alt"></i></span></a> <br> -->
-
-              </div>
+          <h2 class="subtitle is-6" style="color: white;">
+            Digital marknadsföring är något som kommer vara i fokus i år. Efter feedback kommer vi 
+            fortsätta vidareutveckla vår applikation TEAM-dagarna samt satsa på övriga sociala kanaler 
+            för att sprida information kring mässan till våra engagerade studenter. Genom våra digitala 
+            kanaler erbjuder vi en rad olika marknadsföringsmöjligheter både innan och under mässan.
+            Under mässdagarna kommer det ges fantastiska möjligheter för både studenter och företag. 
+            Årets upplaga kommer kantas av flera aktiviteter såsom föreläsningar, kontaktsamtal och 
+            mycket mer. Efter första mässdagen tar vi en välförtjänt AW och hela mässan kommer avslutas 
+            med en bankett för att fira vad vi åstadkommit tillsammans. 
+          </h2> 
+          
+          <!-- <a class="button" href="https://teamdagarna.com/companyapplication" target="_blank"><span>Intresseanmälan</span><span class="icon" id="white-icon"><i class="fas fa-external-link-alt"></i></span></a> <br> -->
         </div>
       </div>
     </div>
-            <div class="hero-foot">
-                <nav class="tabs is-boxed is-fullwidth is-medium">
-                    <div class="container">
-                    <ul>
-                        <li class="tab" (click)="openTab($event, 'id_tab_1')"><a id="tabs-weoffer">Inför-dagarna</a></li>
-                        <li class="tab is-active" (click)="openTab($event, 'id_tab_2')"><a id="tabs-weoffer">TEAM-dagarna</a></li>
-                    </ul>
-                    </div>
-                </nav>
-            </div>
-</section>   
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth is-medium">
+      <div class="container">
+        <ul>
+          <li class="tab" (click)="openTab($event, 'id_tab_1')"><a id="tabs-weoffer">Inför-dagarna</a></li>
+          <li class="tab is-active" (click)="openTab($event, 'id_tab_2')"><a id="tabs-weoffer">TEAM-dagarna</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>  
 
 <section class="hero">
+  <div class="container section">
+    <div id="id_tab_1" class="content-tab" style="display:none">
+      <div class="hero-body">
+        <div class="container has-text-centered is-mobile">
+          <div class="columns is-centered ">
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Inför-dagarna</h1>
+              <p>Inför de faktiska mässdagarna 24-25 september kommer det att under två veckor (9-20 september) anordnas olika 
+                företagsevenemang där ni har möjlighet att introducera er verksamhet till studenterna. Denna vecka kallar vi 
+                Inför-dagarna. Att delta på Inför-dagarna är en möjlighet för utställare att bekanta sig med studenter innan 
+                mässan och således öka chanserna för hög montertrafik under själva mässan. Vi erbjuder flera olika slags event 
+                under Inför-dagarna som planeras i samråd med företagen. Exempel på uppskattade evenemang av studenter är 
+                lunchföreläsningar, workshopkvällar eller varför inte mingel med ölprovning?
+              </p>
+            </div>
 
-        <div class="container section">
-          
-            <div id="id_tab_1" class="content-tab" style="display:none">
-
-
-              <div class="hero-body">
-                <div class="container has-text-centered is-mobile">
-
-                <div class="columns is-centered ">
-
-                <div class="column">
-                  <h1 class="title is-5 is-spaced">Inför-dagarna</h1>
-                  <p>Inför de faktiska mässdagarna 24-25 september kommer det att under två veckor (9-20 september) anordnas olika 
-                    företagsevenemang där ni har möjlighet att introducera er verksamhet till studenterna. Denna vecka kallar vi Inför-dagarna. 
-                    Att delta på Inför-dagarna är en möjlighet för utställare att bekanta sig med studenter innan mässan och således öka chanserna 
-                    för hög montertrafik under själva mässan. Vi erbjuder flera olika slags event under Inför-dagarna som planeras i samråd med 
-                    företagen. Exempel på uppskattade evenemang av studenter är lunchföreläsningar, workshopkvällar eller varför inte mingel med 
-                    ölprovning?
-                  </p>
-                </div>
-                <div class="column">
-                  <h1 class="title is-5 is-spaced">Grön Inför-dag</h1>
-                  <p>Under Inför-dagarna kommer vi dedikera en dag till event som förhåller sig till miljö och hållbarhet. TEAM-dagarna 2024 kommer 
-                    vara ett hållbarhetscertifierat evenemang och hållbarhet och miljö är något vi verkligen vill framhäva. Brinner ert företag för 
-                    miljön ser vi till att just era event hamnar under denna dag.
-                  </p>
-                </div>
-
-              </div>
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Grön Inför-dag</h1>
+              <p>Under Inför-dagarna kommer vi dedikera en dag till event som förhåller sig till miljö och hållbarhet. 
+                TEAM-dagarna 2025 kommer vara ett hållbarhetscertifierat evenemang och hållbarhet och miljö är något vi 
+                verkligen vill framhäva. Brinner ert företag för miljön ser vi till att just era event hamnar under denna dag.
+              </p>
             </div>
           </div>
-
-            </div>
-            <div id="id_tab_2" class="content-tab" >
-              <div class="hero-body">
-                <div class="container has-text-centered is-mobile">
-
-                <div class="columns is-centered ">
-
-                  <div class="column">
-                    <h1 class="title is-5 is-spaced">Framtidschansen</h1>
-                    <p>
-                      Framtidschansen är en aktivitet för studenter som pågår under mässans två dagar med syftet att öka 
-                      integrationen mellan företag och studenter. Genom att medverka i Framtidschansen kommer ni få ökad 
-                      trafik till er monterplats av studenter med intresse för er verksamhet. Framtidschansen kommer att 
-                      marknadsföras innan, men också under mässdagarna så att studenter hittar till företag som har 
-                      valt att delta. Konceptet går ut på att ni, företagen, ger ut "Framtidschanser" till studenter 
-                      ni tycker har visat intresse eller som ni vill ha en fortsatt dialog med. Ni bestämmer vilka studenter 
-                      ni tycker förtjänar era Framtidschanser.</p> <br>
-                      <p>
-                      Framtidschanser motsvarar priser som ni själva väljer! Priser måste vara immateriella i form av exempelvis
-                      en inbjudan till ert huvudkontor, en lunch med en företagsrepresentant, ett företagsevent eller någon
-                      slags inbjudan som ger studenten möjlighet att lära känna just er verksamhet bättre.
-
-                    </p>
-                    </div>
-                <!-- 
-                <div class="column">
-                  <h1 class="title is-5 is-spaced">Pusseljakten</h1>
-                  <p>Pusseljakten är en tävling för studenter som pågår under mässans två dagar med syftet att öka integrationen mellan företag och 
-                    studenter. Målet med upplägget är att öka värdet för både deltagande studenter och medverkande företag. Ni delar ut pusselbitar i 
-                    er monter till de studenter som ni anser förtjäna en. Det gör ni till exempel om ni har en givande diskussion där studenten visar 
-                    på kunskap om företaget eller om ni har en montertävling där studenterna samlar poäng som genererar pusselbitar. Genom att medverka 
-                    i Pusseljakten kommer ni få ökad trafik till er monterplats från tävlingsdeltagare. De studenter med flest pusselbitar efter vardera
-                     mässdag får ett pris. </p><br>
-
-                    <p>Som företag kan ni bidra med immateriella priser, exempelvis CV-hjälp eller lunch med en företagsrepresentant vilket ger er mer tid 
-                    med intresserade studenter.
-                  </p>
-                  </div>
-                -->
-
-                  <div class="column">
-                    <h1 class="title is-5 is-spaced">Klimatkompensation</h1>
-                    <p>I år erbjuder TEAM er som företag att klimatkompensera era utsläpp i samband med mässan. Klimatkompensation sker via organisationen. 
-                      Vi-skogen som planterar träd som kompensation för de koldioxidutsläpp som mässan orsakar. Genom att klimatkompensera era utsläpp i 
-                      samband med mässan bidrar ni inte bara till att minska er klimatpåverkan, utan även till att bekämpa fattigdom och förbättra livsmiljön 
-                      för de människor som riskerar att drabbas hårdast av klimatförändringarna. Klimatkompensationen kommer att kosta 500kr/företag och 
-                      utställandedag. I utbyte kommer företaget att få en symbolisk-skylt vid montern under mässan samt en symbol på våra digitala plattformar 
-                      som visar företagets engagemang. </p>
-                    </div>
-              
-
-                </div>
-
-                <div class="columns is-centered ">
-
-                  <div class="column">
-                  <h1 class="title is-5 is-spaced">Sommar- & Extrajobb möjligheter</h1>
-                  <p>Mässan är ett tillfälle då många studenter letar sommarjobb, exjobb och traineeprogram. Det ger därmed er möjligheter att 
-                    hitta framtida kollegor. Ni kommer inte bara kunna marknadsföra era jobb- och internshipmöjligheter vid er monter, utan även kunna 
-                    delta i ett mingel under tisdagen specifikt för de företag som vill lyfta fram eventuella sommarjobb och extrajobb. På så sätt blir 
-                    det lättare för studenter att hitta just er. Det är ett perfekt tillfälle för er och likaså för studenter att knyta kontakter.
-                  </p>
-                  </div>
-
-                  <div class="column">
-                    <h1 class="title is-5 is-spaced">Startup Zone</h1>
-                    <p>Under mässan kommer det finnas möjlighet för start-ups, eller företag som tidigare varit det men
-                      etablerats, att inspirera studenter att gå samma väg. Det är en unik chans att träffa studenter och att
-                      sprida era visioner inför framtida affärsmöjligheter. Start-up Zone är ett utmärkt tillfälle att vara
-                      med och bidra till exponering för era företag och interagera med studenter på Linköpings universitet.
-                      Vi hoppas kunna erbjuda en unik möjlighet för er start-up på TEAM-dagarna där ni kan träffa och
-                      inspirera drivna studenter med era egna erfarenheter av entreprenörskap och företagande.</p>
-                      <br>
-                      <p>
-                      Pris för att delta som start-up på TEAM-dagarna beror på hur länge ni vill medverka och i vilken
-                      form ni vill göra detta vilket möjliggör att medverka på det sätt som passar er bäst!                       
-                    </p>
-                  </div>
-
-                </div>
-
-                <div class="columns is-centered ">
-  
-                    <div class="column">
-                    <h1 class="title is-5 is-spaced">Pitch-föreläsning</h1>
-                    <p>Pitchföreläsningen är ett koncept där ni som företag får möjligheten att, på onsdagen under 90 sekunder, övertyga studenterna om 
-                      varför just ni är intressanta. Presentationen kan handla om internship-möjligheter, en personlig resa inom företaget, hur det är att 
-                      jobba inom ett visst område eller någonting annat som studenter kan tycka skapar mervärde. Ni väljer själva vad ni vill marknadsföra 
-                      extra. Likt en hiss-pitch får ni chansen att sälja in er till studenterna.</p><br>
-                      <p>
-                      Pitchen gör studenterna mer medvetna om er närvaro på mässan och har för avsikt att skapa ett större flöde besökare till just er monter. 
-                      Genom att lyssna på er pitch inspireras studenterna att besöka er monter för personlig kontakt.
-                      </p>
-                    </div>
-
-
-                   <div class="column">
-                    <h1 class="title is-5 is-spaced">Kontaktsamtal</h1>
-                    <p>Är ert företag intresserade av att träffa och knyta personlig kontakt med några av Sveriges mest eftertraktade studenter? Då är 
-                      kontaktsamtal något för er!</p><br>
-                      <P>Individuella möten hålls under mässdagarna där ni har möjlighet att berätta mer om ert företag och
-                        få lära känna våra studenter bättre. Studenter kommer att ansöka om kontaktsamtal via vår hemsida,
-                        där ni har möjlighet att se vilka som har sökt möte med er och välja vilka ni är intresserade av att
-                        prata med. Kontaktsamtalen är 25 minuter långa + 5 minuter rast och ni får tillgång till ett privat rum
-                        under dagen i anslutning till mässan.
-                        Kontaktsamtalen äger rum under hela dagen, från mässans öppning till stängning (kl 10:00 - 15:00).
-                        Varje dag innehåller 8 samtal med en lunchrast på 45 min och det finns även möjlighet att lägga till
-                        fler rum till en extra kostnad.</P>
-                         <!-- Text från 2022
-                      
-                      <p>Kontaktsamtal hålls under mässdagarna där ni har möjlighet att berätta mer om ert företag och få lära känna våra studenter bättre. 
-                      Studenterna kommer att ansöka om kontaktsamtal via vår hemsida, där ni har möjlighet att se vilka som har sökt ert företag och välja 
-                      vilka ni är intresserade av att prata med. Samtalen äger rum under hela dagen, från mässans öppning till stängning. Varje dag hålls 
-                      åtta samtal á 25 minuter med en lunchrast på 60 minuter och det finns även möjlighet att lägga till fler rum mot en extra kostnad.  -->
-                  </div>
-                </div>
-                
-                </div>
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
+    
+    <div id="id_tab_2" class="content-tab" >
+      <div class="hero-body">
+        <div class="container has-text-centered is-mobile">
+          <div class="columns is-centered ">
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Framtidschansen</h1>
+              <p>Framtidschansen är en aktivitet för studenter som pågår under mässans två dagar med syftet att öka 
+                integrationen mellan företag och studenter. Genom att medverka i Framtidschansen kommer ni få ökad 
+                trafik till er monterplats av studenter med intresse för er verksamhet. Framtidschansen kommer att 
+                marknadsföras innan, men också under mässdagarna så att studenter hittar till företag som har 
+                valt att delta. Konceptet går ut på att ni, företagen, ger ut "Framtidschanser" till studenter 
+                ni tycker har visat intresse eller som ni vill ha en fortsatt dialog med. Ni bestämmer vilka studenter 
+                ni tycker förtjänar era Framtidschanser.
+              </p>
+              <br>
+              <p>Framtidschanser motsvarar priser som ni själva väljer! Priser måste vara immateriella i form av exempelvis
+                en inbjudan till ert huvudkontor, en lunch med en företagsrepresentant, ett företagsevent eller någon
+                slags inbjudan som ger studenten möjlighet att lära känna just er verksamhet bättre.
+              </p>
+            </div>
 
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Klimatkompensation</h1>
+              <p>I år erbjuder TEAM er som företag att klimatkompensera era utsläpp i samband med mässan. Klimatkompensation sker via organisationen. 
+                Vi-skogen som planterar träd som kompensation för de koldioxidutsläpp som mässan orsakar. Genom att klimatkompensera era utsläpp i 
+                samband med mässan bidrar ni inte bara till att minska er klimatpåverkan, utan även till att bekämpa fattigdom och förbättra livsmiljön 
+                för de människor som riskerar att drabbas hårdast av klimatförändringarna. Klimatkompensationen kommer att kosta 500kr/företag och 
+                utställandedag. I utbyte kommer företaget att få en symbolisk-skylt vid montern under mässan samt en symbol på våra digitala plattformar 
+                som visar företagets engagemang.
+              </p>
+            </div>
+
+            <!-- 
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Pusseljakten</h1>
+              <p>Pusseljakten är en tävling för studenter som pågår under mässans två dagar med syftet att öka integrationen mellan företag och 
+                studenter. Målet med upplägget är att öka värdet för både deltagande studenter och medverkande företag. Ni delar ut pusselbitar i 
+                er monter till de studenter som ni anser förtjäna en. Det gör ni till exempel om ni har en givande diskussion där studenten visar 
+                på kunskap om företaget eller om ni har en montertävling där studenterna samlar poäng som genererar pusselbitar. Genom att medverka 
+                i Pusseljakten kommer ni få ökad trafik till er monterplats från tävlingsdeltagare. De studenter med flest pusselbitar efter vardera
+                mässdag får ett pris. </p><br>
+
+                <p>Som företag kan ni bidra med immateriella priser, exempelvis CV-hjälp eller lunch med en företagsrepresentant vilket ger er mer tid 
+                med intresserade studenter.
+              </p>
+              </div>
+              -->
+          </div>
+          <br>
+
+          <div class="columns is-centered ">
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Sommar- & Extrajobb möjligheter</h1>
+              <p>Mässan är ett tillfälle då många studenter letar sommarjobb, exjobb och traineeprogram. Det ger därmed 
+                er möjligheter att hitta framtida kollegor. Ni kommer inte bara kunna marknadsföra era jobb- och 
+                internshipmöjligheter vid er monter, utan även kunna delta i ett mingel under tisdagen specifikt för de 
+                företag som vill lyfta fram eventuella sommarjobb och extrajobb. På så sätt blir det lättare för studenter 
+                att hitta just er. Det är ett perfekt tillfälle för er och likaså för studenter att knyta kontakter.
+              </p>
+            </div>
+
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Startup Zone</h1>
+              <p>Under mässan kommer det finnas möjlighet för start-ups, eller företag som tidigare varit det men
+                etablerats, att inspirera studenter att gå samma väg. Det är en unik chans att träffa studenter och att
+                sprida era visioner inför framtida affärsmöjligheter. Start-up Zone är ett utmärkt tillfälle att vara
+                med och bidra till exponering för era företag och interagera med studenter på Linköpings universitet.
+                Vi hoppas kunna erbjuda en unik möjlighet för er start-up på TEAM-dagarna där ni kan träffa och
+                inspirera drivna studenter med era egna erfarenheter av entreprenörskap och företagande.
+              </p>
+              <br>
+              <p>Pris för att delta som start-up på TEAM-dagarna beror på hur länge ni vill medverka och i vilken
+                form ni vill göra detta vilket möjliggör att medverka på det sätt som passar er bäst!                       
+              </p>
+            </div>
+          </div>
+          <br>
+
+          <div class="columns is-centered ">
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Pitch-föreläsning</h1>
+              <p>Pitchföreläsningen är ett koncept där ni som företag får möjligheten att, på onsdagen under 90 sekunder, 
+                övertyga studenterna om varför just ni är intressanta. Presentationen kan handla om internship-möjligheter, 
+                en personlig resa inom företaget, hur det är att jobba inom ett visst område eller någonting annat som 
+                studenter kan tycka skapar mervärde. Ni väljer själva vad ni vill marknadsföra extra. Likt en hiss-pitch 
+                får ni chansen att sälja in er till studenterna.
+              </p>
+              <br>
+              <p>Pitchen gör studenterna mer medvetna om er närvaro på mässan och har för avsikt att skapa ett större flöde besökare till just er monter. 
+                Genom att lyssna på er pitch inspireras studenterna att besöka er monter för personlig kontakt.
+              </p>
+            </div>
+
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Kontaktsamtal</h1>
+              <p>Är ert företag intresserade av att träffa och knyta personlig kontakt med några av Sveriges mest eftertraktade studenter? Då är 
+                kontaktsamtal något för er!
+              </p>
+              <br>
+              <p>Individuella möten hålls under mässdagarna där ni har möjlighet att berätta mer om ert företag och
+                få lära känna våra studenter bättre. Studenter kommer att ansöka om kontaktsamtal via vår hemsida,
+                där ni har möjlighet att se vilka som har sökt möte med er och välja vilka ni är intresserade av att
+                prata med. Kontaktsamtalen är 25 minuter långa + 5 minuter rast och ni får tillgång till ett privat rum
+                under dagen i anslutning till mässan.
+                Kontaktsamtalen äger rum under hela dagen, från mässans öppning till stängning (kl 10:00 - 15:00).
+                Varje dag innehåller 8 samtal med en lunchrast på 45 min och det finns även möjlighet att lägga till
+                fler rum till en extra kostnad.
+              </p>
+            </div>
+          </div>
+          <br>
+          
+          <div class="columns is-centered ">
+            <div class="column">
+              <h1 class="title is-5 is-spaced">Case-tävling</h1>
+              <p>Vill ni ge framtidens ekonomer och ingenjörer en verklig utmaning och samtidigt få värdefulla insikter på 
+                hur de angriper affärskritiska problem? TEAM-dagarnas case-tävling är en exklusiv möjlighet för ert företag 
+                att låta studenter från industriell ekonomi och civilekonomi analysera och lösa en konkret utmaning från er 
+                verksamhet.
+              </p>
+              <br>
+              <p>Som case-företag får ni presentera ett verklighetsnära business case där tvärfunktionella studentteam utvecklar 
+                innovativa lösningar. Efter en intensiv problemlösningsfas avslutas tävlingen med presentationer inför en jury, 
+                där ni får insikter i studenternas analyser, strategiska resonemang och nytänkande idéer. Detta är en möjlighet 
+                att positionera ert företag som en drivande aktör inom problemlösning och affärsutveckling, samtidigt som ni får 
+                nya perspektiv på utmaningar inom er bransch. Case-tävlingen är en av de mest prestigefyllda 
+                aktiviteterna under TEAM-dagarna – först till kvarn gäller!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 

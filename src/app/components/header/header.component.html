@@ -1,11 +1,11 @@
 <nav id ="navbar" class="navbar is-fixed-top is-spaced">
   <div class="navbar-brand">
     <a class="navbar-item" [routerLink]="['']">
-      <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e" alt="TEAM-dagarna" style="max-height: 50px;">
+      <img alt="TEAM-dagarna" style="max-height: 50px;" src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/TEAM-logga.png?alt=media&token=d1d44724-1013-4583-aa4a-c218932fbb2e">
     </a>
 
-    <a role="button" class="navbar-burger" id="navburger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" 
-       (click)="toggleMenu()" [ngClass]="{'is-active': isMenuActive}">
+    <a role="button" class="navbar-burger" id="navburger" aria-label="menu" aria-expanded="false" 
+    data-target="navbarBasicExample" (click)="toggleMenu()" [ngClass]="{'is-active': isMenuActive}">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -17,11 +17,11 @@
       <div class="navbar-item has-dropdown is-hoverable" id="pink-arrow">
         <a class="navbar-link" id="navbar-pink">
           Student
-        </a>
+        </a> 
         <div class="navbar-dropdown is-boxed" id="pink-arrow">
-          <a class="navbar-item" [routerLink]="['jobcatalogue']" id="navbar-pink" (click)="toggleMenu()">
+          <!--<a class="navbar-item" [routerLink]="['jobcatalogue']" id="navbar-pink" (click)="toggleMenu()">
             Jobbmöjligheter
-          </a>
+          </a>-->
           <a class="navbar-item" [routerLink]="['framtidschansen']" id="navbar-pink" (click)="toggleMenu()">
             Framtidschansen
           </a>
@@ -40,13 +40,13 @@
           <!--<a class="navbar-item" [routerLink]="['pusseljakten']" id="navbar-pink">
             Pusseljakten
           </a>-->
-          <!-- <a class="navbar-item" [routerLink]="['leaderboard']">
+          <!--<a class="navbar-item" [routerLink]="['leaderboard']">
             Ledartavla
-          </a> -->
-          <!-- <a class="navbar-item" [routerLink]="['blogposts']"  id="navbar-pink">
+          </a>-->
+          <!--<a class="navbar-item" [routerLink]="['blogposts']" id="navbar-pink">
             TEAM-bloggen
-          </a> -->
-          <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
+          </a>-->
+          <!--<a class="navbar-item mobileLink is-disabled" [routerLink]="['quiz']">
             Quiz
           </a>-->
           <!--<a class="navbar-item mobileLink is-disabled" [routerLink]="['foretagsskyltar']">
@@ -59,14 +59,14 @@
           <a class="navbar-item mobileLink is-disabled" [routerLink]="['interviewapplication']" id="navbar-pink" (click)="toggleMenu()">
             Kontaktsamtal
           </a>
-          <!-- <a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
+          <!--<a class="navbar-item mobileLink is-disabled" [routerLink]="['sokdreamteam']">
             Sök DreamTEAM 2021
-          </a> -->
+          </a>-->
         </div>
       </div>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link"  id="navbar-pink">
+        <a class="navbar-link" id="navbar-pink">
           Företag
         </a>
         <div class="navbar-dropdown is-boxed" >
@@ -98,13 +98,13 @@
           <!--<a class="navbar-item" [routerLink]="['companysignin']" id="navbar-pink" (click)="toggleMenu()">
             Inloggning gästföretag
           </a>-->
-          <!-- <a class="navbar-item" [routerLink]="['companyguest']">
+          <!--<a class="navbar-item" [routerLink]="['companyguest']">
             Företagssida
           </a>-->
         </div>
       </div>
 
-      <div class="navbar-item has-dropdown is-hoverable">
+      <!--<div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"  id="navbar-pink">
           Mässan
         </a>
@@ -128,7 +128,7 @@
             Sponsorer
           </a>
         </div>
-      </div>
+      </div>-->
 
       <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink" (click)="toggleMenu()">
         Hållbarhet
@@ -152,9 +152,9 @@
             <a class="navbar-item" [routerLink]="['integritetspolicy']" id="navbar-pink" (click)="toggleMenu()">
             Integritetspolicy
           </a> 
-            <!-- <a class="navbar-item" href="#">
+          <!--<a class="navbar-item" href="#">
             Sammarbetspartners
-          </a> -->
+          </a>-->
         </div>
       </div>
 
