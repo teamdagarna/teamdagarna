@@ -1,39 +1,30 @@
 <form [formGroup]="addCompanyForm" (ngSubmit)="submit(addCompanyForm.value)">
-
-
   <div class="card login-card">
     <div class="card-content">
       <h1 class="title is-2" style="text-transform: uppercase">Lägg till företag</h1>
-
-
       <div class="field">
         <label class="label" for="companyName">Företagsnamn</label>
         <input class="input is-success" type="text" placeholder="Tex. 'Xylem Inc.'" formControlName="companyName">
       </div>
+
       <div class="columns">
         <div class="column is-half">
-
           <div class="file">
             <label class="file-label">
               <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
               <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Ladda upp företagslogo
-                </span>
+                <span class="file-icon"><i class="fas fa-upload"></i></span>
+                <span class="file-label">Ladda upp företagslogo</span>
               </span>
             </label>
           </div>
         </div>
         <div class="column is-half">
           <div *ngIf="percentage | async as pct">
-
-            <progress class="progress is-success" [value]="pct" max="100">
-            </progress> {{ pct | number }}%
-
+            <progress class="progress is-success" [value]="pct" max="100"></progress>
+            {{ pct | number }}%
           </div>
+
           <div *ngIf="downloadURL | async as url">
             <h3>Uploaded!</h3>
             <!-- <img [src]="url"><br>
@@ -41,9 +32,11 @@
           </div>
         </div>
       </div>
+
       <div *ngIf="downloadURL | async as url">
         <img [src]="url" style="max-height: 100px;"><br>
       </div>
+
       <div class="field">
         <label class="label">Huvudbransch</label>
         <div class="control">
@@ -123,9 +116,8 @@
             <input type="checkbox" formControlName="other"> Övrigt
           </div>
         </div>
-
-
       </div>
+
       <div class="columns">
         <div class="column is-half">
           <div class="field">
@@ -154,6 +146,7 @@
             <input type="checkbox" formControlName="trainee"> Traineeprogram
           </div>
         </div>
+
         <div class="column is-half">
           <div class="field">
             <label class="label">Söker</label>
@@ -180,14 +173,13 @@
         </div>
       </div>
 
-      <h1 class="subtitle is-5">Om företaget önskat specifika inriktningar så lämna dessa ifyllda och resten blanka. Om
-        inte, lämna samtliga checkboxar ifyllda.
+      <h1 class="subtitle is-5">
+        Om företaget önskat specifika inriktningar så lämna dessa ifyllda och resten blanka. 
+        Om inte, lämna samtliga checkboxar ifyllda.
       </h1>
 
       <div class="columns">
-
         <div class="column is-half">
-
           <div class="field">
             <label class="label">Inriktningar Civilingenjörer</label>
             <input type="checkbox" formControlName="digitalMan"> Digitalisering & management
@@ -232,14 +224,11 @@
             <input type="checkbox" formControlName="energiteknik"> Energiteknik
           </div>
         </div>
-
       </div>
-
 
       <div class="columns">
 
         <div class="column is-half">
-
           <div class="field">
             <label class="label">Inriktningar Civilekonomer</label>
             <input type="checkbox" formControlName="redovisning"> Redovisning
@@ -266,6 +255,7 @@
 
       </div>
 
+
       <div class="columns">
 
         <div class="column is-half">
@@ -288,7 +278,6 @@
       <div class="columns">
 
         <div class="column is-half">
-
           <div class="field">
             <label class="label">Kontaktsamtal Tisdag</label>
             <input type="checkbox" formControlName="firstdaypackage1"> 8x25min
@@ -302,11 +291,12 @@
           </div>
         </div>
       </div>
+
+
       <div class="field">
         <label class="label" for="totalapplicants">Totalt antal kontaktsamtal</label>
         <input class="input is-success" type="text" formControlName="totalapplicants">
       </div>
-
 
 
       <div class="field">
@@ -316,7 +306,6 @@
         <input type="checkbox" formControlName="reqgrades"> Betyg
         <input type="checkbox" formControlName="reqmaster"> Inriktning
         <input type="checkbox" formControlName="reqmotivation"> Kort motivering
-
       </div>
 
       <div class="columns">
@@ -324,26 +313,25 @@
         <div class="column is-half">
           <!--Pusseljakt-->
           <!-- <div class="field">
-        <label class="label">Deltagande i pusseljakten och vilka dagar?</label>
-        <input type="checkbox" formControlName="treasurehunt"> Ja
-        <input type="checkbox" formControlName="treasurehuntTuesday"> Tisdag
-        <input type="checkbox" formControlName="treasurehuntWednesday"> Onsdag
-      </div> -->
-      <div class="field">
-        <label class="label">Guldbitarna?</label>
-        <input type="checkbox" formControlName="goldpieces"> Ja
-      </div>
-        
-        </div>
-        <div class="column is-half">
+            <label class="label">Deltagande i pusseljakten och vilka dagar?</label>
+            <input type="checkbox" formControlName="treasurehunt"> Ja
+            <input type="checkbox" formControlName="treasurehuntTuesday"> Tisdag
+            <input type="checkbox" formControlName="treasurehuntWednesday"> Onsdag
+          </div> -->
 
+          <div class="field">
+            <label class="label">Guldbitarna?</label>
+            <input type="checkbox" formControlName="goldpieces"> Ja
+          </div>
+        </div>
+
+        <div class="column is-half">
           <div class="field">
             <label class="label">Deltagande i pitchföreläsning?</label>
             <input type="checkbox" formControlName="pitchLecture"> Ja
           </div>
         </div>
       </div>
-
 
       <div class="columns">
 
@@ -355,7 +343,6 @@
         </div>
 
         <div class="column is-half">
-
           <div class="field">
             <label class="label">Event under inför-dagarna?</label>
             <input type="checkbox" formControlName="preTEAM"> Ja
@@ -388,8 +375,8 @@
       </div>
 
 
-      <h1 class="subtitle is-5">Det är upp till er att länkarna nedan är giltiga så dubbelkolla en gång extra så det
-        inte blir galet, tack!
+      <h1 class="subtitle is-5">
+        Det är upp till er att länkarna nedan är giltiga så dubbelkolla en gång extra så det inte blir galet, tack!
       </h1>
 
       <div class="field">
@@ -424,10 +411,9 @@
         </div>
       </div>
 
-      <button type="submit" class="button is-fullwidth" id="submit-button"
-        [disabled]="!addCompanyForm.valid || !logoUploaded">Lägg till företaget</button>
+      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addCompanyForm.valid || !logoUploaded">
+        Lägg till företaget
+      </button>
     </div>
-
   </div>
-
 </form>

@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss', '../../../styles.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   _trialEndsAt;
@@ -51,7 +52,7 @@ export class HomeComponent implements OnInit {
     
     toggleModal() {
       this.isModalActive = !this.isModalActive;
-  }
+    }
 
     getDays(t) {
       return Math.floor( t / (1000 * 60 * 60 * 24) );

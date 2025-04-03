@@ -1,54 +1,48 @@
 <!-- END NAV -->
 <div class="admin">
-
-
   <div class="columns">
     <div class="column is-2 is-offset-1">
       <aside class="menu">
-        <p class="menu-label">
-          General
-        </p>
+        
+        <p class="menu-label">General</p>
         <ul class="menu-list">
           <li><a class="is-active" [routerLink]="['/dreamteamadmin']">Dashboard</a></li>
           <li><a>Generella inställningar</a></li>
         </ul>
-        <p class="menu-label">
-          Admin
-        </p>
+
+        <p class="menu-label">Admin</p>
         <ul class="menu-list">
           <li><a [routerLink]="['dreamteam']">Dreamteamers</a>
             <ul>
               <li><a [routerLink]="['addstaff']">Lägg till Dreamteamer</a></li>
             </ul>
           </li>
-          <li>
-            <a [routerLink]="['companies']">Företagen</a>
+
+          <li><a [routerLink]="['companies']">Företagen</a>
             <ul>
               <li><a [routerLink]="['addcompany']">Lägg till företag</a></li>
-
             </ul>
           </li>
-          <li>
-            <a [routerLink]="['events']">Event</a>
+
+          <li><a [routerLink]="['events']">Event</a>
             <ul>
               <li><a [routerLink]="['addevent']">Lägg till event</a></li>
               <li><a [routerLink]="['checkin']">Incheckning</a></li>
             </ul>
           </li>
-          <li>
-        <!--   <a [routerLink]="['treasurescore']">Pusseljaktens ledartavlor</a> -->
-          </li>
+
+          <!-- <li>
+            <a [routerLink]="['treasurescore']">Pusseljaktens ledartavlor</a>
+          </li> -->
+
           <li>
             <a [routerLink]="['blogpost']">Blogginlägg</a>
             <ul>
-              <li>
-                <a [routerLink]="['addblogposts']">Lägg till blogginlägg</a>
-              </li>
+              <li><a [routerLink]="['addblogposts']">Lägg till blogginlägg</a></li>
             </ul>
           </li>
-
-
         </ul>
+
         <p class="menu-label">
           <span>Admin Platinum&trade; <i class="fas fa-chess-king"></i></span>
         </p>
@@ -56,7 +50,7 @@
           <!-- <li><a [routerLink]="['users']">Alla användare</a></li> -->
           <li><a>Alla användare</a></li>
           <li><a [routerLink]="['companycodes']">Företagens inlogg </a></li>
-       <!--  <li><a [routerLink]="['treasurecodes']">Företagens pusseljaktskoder</a></li> --> 
+          <!-- <li><a [routerLink]="['treasurecodes']">Företagens pusseljaktskoder</a></li> --> 
           <li><a>Hantera adminroller</a></li>
           <li><a [routerLink]="['allinterviews']">Alla ansökningar</a>
             <ul>
@@ -67,6 +61,7 @@
         </ul>
       </aside>
     </div>
+
     <div class="column is-8">
       <div class="containerWhite"></div>
       <router-outlet></router-outlet>
