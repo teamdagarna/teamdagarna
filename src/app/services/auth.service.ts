@@ -171,7 +171,7 @@ export class AuthService {
       subLinks: [
         {
           subLinks: [],
-          label: "Företagen 2024",
+          label: "Företagen 2025",
           url: "https://teamdagarna.com/companies"
         },
        // {
@@ -367,7 +367,7 @@ export class AuthService {
         // OBS LÄGG TILL KOMMA EFTER kontaktsamtal
         {
           subLinks: [],
-          label: "Företagen 2024",
+          label: "Företagen 2025",
           url: "https://teamdagarna.com/companies"
         },
         //{
