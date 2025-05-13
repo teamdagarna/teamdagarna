@@ -7,7 +7,7 @@
         <p class="menu-label">General</p>
         <ul class="menu-list">
           <li><a class="is-active" [routerLink]="['/dreamteamadmin']">Dashboard</a></li>
-          <li><a>Generella inställningar</a></li>
+          <!-- <li><a>Generella inställningar</a></li> -->
         </ul>
 
         <p class="menu-label">Admin</p>
@@ -47,15 +47,17 @@
           <span>Admin Platinum&trade; <i class="fas fa-chess-king"></i></span>
         </p>
         <ul class="menu-list">
-          <!-- <li><a [routerLink]="['users']">Alla användare</a></li> -->
-          <li><a>Alla användare</a></li>
+          <!-- <li><a [routerLink]="['users']">Alla användare</a></li> --> <!-- NOT WORKING! -->
           <li><a [routerLink]="['companycodes']">Företagens inlogg </a></li>
           <!-- <li><a [routerLink]="['treasurecodes']">Företagens pusseljaktskoder</a></li> --> 
-          <li><a>Hantera adminroller</a></li>
+          
+          <!-- TODO: Add page to handle admin roles (can now be done in Firebase)-->
+          <!-- <li><a>Hantera adminroller</a></li> -->
+
           <li><a [routerLink]="['allinterviews']">Alla ansökningar</a>
             <ul>
               <li [routerLink]="['interviews']"><a>Hantera schema</a></li>
-              <li><a>Företagsvy</a></li>
+              <!-- <li><a>Företagsvy</a></li> -->
             </ul>
           </li>
         </ul>
