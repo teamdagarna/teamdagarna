@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4300",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -61,6 +61,7 @@
     "serialize-javascript": "^6.0.0",
     "tree-kill": "^1.2.2",
     "web-animations-js": "^2.3.2",
+    "webpack": "^5.98.0",
     "websocket-extensions": "^0.1.4",
     "yargs-parser": "^21.0.1",
     "zone.js": "^0.11.5"
