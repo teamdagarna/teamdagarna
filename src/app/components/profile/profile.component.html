@@ -2,7 +2,7 @@
   <div class="hero-body">
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered">
-        <div class="column is-9">
+        <div class="column is-9" *ngIf="user">
           <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Din profil</h2>
           <h2 class="subtitle is-6">Här kan du hantera din profil, ha koll på event du är anmäld på samt se dina kontaktsamtalsansökningar. Glöm inte att kolla att årskurs och valda inriktningar stämmer!</h2> </div>
       </div>
@@ -417,8 +417,11 @@
 <section class="hero" *ngIf="!user">
   <div class="container is-centered">
     <h1 class="title is-3">Du måste vara inloggad för att kunna se din profil!</h1>
-    <a [routerLink]="['../signin']" class="subtitle is-3 has-text-weight-semibold">
+    <br>
+    <a [routerLink]="['../signin']" class="subtitle is-3 has-text-weight-semibold" style="display: block; text-align: center; font-size:25px;">
       Klicka här för att logga in!
     </a>
+    <br>
+    <br>
   </div>
 </section>
