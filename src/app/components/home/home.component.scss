@@ -8,21 +8,14 @@
   }
 }
 
-#hero-img {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/bankett.jpg?alt=media&token=0a609c0a-8171-49b5-8ba5-819bffe06b71");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
-
 i .fas {
   padding-top: 10%;
 }
 
 img {
   padding-bottom: 3%;
+  height: auto;
+  max-width: 100%;
 }
 
 .hsp {
@@ -36,17 +29,6 @@ img {
   max-height: 80px;
   max-width: 140px;
 }
-
-img {
-  height: auto;
-  max-width: 100%;
-}
-
-//.box {
-// box-shadow: 0 0.5em 1em -0.125em rgba(#e64174, 1),
-//    0 0px 0 1px rgba(#e64174, 0.02);
-//  padding: 10;
-//}
 
 .hsp-section {
   background-color: #fbfbfd;
