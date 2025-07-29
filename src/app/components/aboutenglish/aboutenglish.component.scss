@@ -1,0 +1,14 @@
+@media screen and (min-width: 769px) {
+  .has-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+      url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/vareventet_overview_2025.png?alt=media&token=972b4f24-b753-4f2f-bec3-0f10c8762003");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+.white-text {
+    color: white;
+}
