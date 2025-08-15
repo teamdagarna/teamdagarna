@@ -1,0 +1,17 @@
+
+.title {
+  text-transform: uppercase;
+}
+
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 1200px;
+}
+
+.calendly-embed {
+  margin-top: 2rem;
+  iframe {
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+}
