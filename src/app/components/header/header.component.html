@@ -154,20 +154,10 @@
     </div>
   </div> 
 
-  <div class="navbar-item has-dropdown is-hoverable" [hidden]="!auth.isSignedIn()">
-    <a class="navbar-link" id="navbar-pink" (click)="toggleMenu()">
-      Mina sidor
-    </a>
-    <div class="navbar-dropdown is-boxed">
-      <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink" (click)="toggleMenu()">
-        Min profil
-      </a>
-      <!--<a class="navbar-item mobileLink" [routerLink]="['favoritforetag']" >
-        Mina favoritföretag &nbsp;<i class="fas has-text-centered fa-heart" id="navbar-pink" (click)="toggleMenu()"></i>
-      </a>-->
-    </div>
-  </div>
-
+  <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink" (click)="toggleMenu()">
+    Min profil
+  </a>
+  
   <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink" id="navbar-pink">
     <span>
       Logga ut &nbsp;
