@@ -1,0 +1,22 @@
+
+@media screen and (min-width: 769px) {
+  .has-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+      url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/business-battle.jpg?alt=media&token=f5ee1a31-5cff-4e6c-8358-02fb8982ac8f");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .has-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+      url("https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/business-battle.jpg?alt=media&token=f5ee1a31-5cff-4e6c-8358-02fb8982ac8f");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
