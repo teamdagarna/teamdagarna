@@ -114,6 +114,7 @@ import { CandidateComponent } from './components/candidate/candidate.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
 import { CvReviewComponent } from './components/cv-review/cv-review.component';
+import { BusinessBattleComponent } from './components/businessbattle/businessbattle.component';
 import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.component';
 import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
 import { InforComponent } from './components/infor/infor.component';
@@ -204,6 +205,7 @@ registerLocaleData(localeSv, 'sv');
     ExhibitorComponent,
     CasecompComponent,
     CvReviewComponent,
+    BusinessBattleComponent,
     JobcatalogueComponent,
     InforComponent,
     HostsComponent
@@ -294,6 +296,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},
     { path: 'cv-review', component: CvReviewComponent},
+    { path: 'businessbattle', component: BusinessBattleComponent},
     { path: 'jobcatalogue', component: JobcatalogueComponent},
     { path: 'infordagarna', component: InforComponent},
     { path: 'hosts', component: HostsComponent}
