@@ -1,7 +1,7 @@
 <form [formGroup]="addDreamteamerForm" (ngSubmit)="submit(addDreamteamerForm.value)">
 
   <div class="card login-card">
-
+    
     <div class="card-content">
       <h1 class="title is-2" style="text-transform: uppercase">Lägg till Dreamteamer</h1>
       <div class="field">
@@ -15,19 +15,16 @@
           <div class="select" required>
             <select formControlName="position">
               <option value="1337,IT-ansvarig">IT-ansvarig</option>
-              <!-- <option value="1,Projektledare">Projektledare</option> -->
               <option value="1,Projektledare med HR-ansvar">Projektledare med HR-ansvar</option>
-              <option value="1,Projektledare med ekonomiansvar">Projektledare med ekonomiansvar</option>
+              <option value="1,Projektledare med ekonomiansvar">Projektledare med Ekonomiansvar</option>
               <option value="2,Gruppledare Företagsgruppen">Gruppledare Företagsgruppen</option>
               <option value="2,Gruppledare Mässgruppen">Gruppledare Mässgruppen</option>
               <option value="2,Gruppledare Eventgruppen">Gruppledare Eventgruppen</option>
-              <!--<option value="2,Koordinator">Koordinator</option> -->
-              <!--<option value="3,Ekonomiansvarig">Ekonomiansvarig</option> -->
-              <option value="4,Företagsansvarig och Kontaktsamtal">Kontaktsamtal</option>
+              <option value="4,Företagsansvarig och Kontaktsamtal">Kontaktsamtalsansvarig</option>
               <option value="5,Företagsansvarig">Företagsansvarig</option>
-              <option value="6,Spons och Serviceansvarig">Spons och Serviceansvarig</option>
-              <option value="7,Bankett & AW ansvarig">Bankett & AW ansvarig</option>
-              <option value="8,Info & Miljöansvarig">Info & Miljöansvarig</option>
+              <option value="6,Spons och Serviceansvarig">Spons- och Serviceansvarig</option>
+              <option value="7,Bankett & AW ansvarig">Bankett & AW-ansvarig</option>
+              <option value="8,Info & Miljöansvarig">Info & Hållbarhet</option>
               <option value="8,Ansvarig Företagsevent">Ansvarig Företagsevent</option>
               <option value="9,Marknadsföring & Info">Marknadsföring & Info</option>
               <option value="9,Marknadsföring & Foto/Film">Marknadsföring & Foto/Film</option>
@@ -40,20 +37,10 @@
         </div>
       </div>
 
-
       <div *ngIf="downloadURL | async as url">
         <img [src]="url" style="max-height: 100px;"><br>
       </div>
 
-
-
-
-      <!-- <div class="field">
-        <label class="label">About</label>
-        <div class="control">
-          <textarea class="textarea" placeholder="" formControlName="about"></textarea>
-        </div>
-      </div> -->
       <div class="field">
         <label class="label" for="mail">Mail</label>
         <input class="input is-success" type="text" placeholder="" formControlName="mail">
@@ -67,11 +54,8 @@
         <input class="input is-success" type="text" placeholder="Tex. 'https://www.linkedin.com/in/XXX/'" formControlName="linkedinurl">
       </div>
 
-
-
       <div class="columns">
         <div class="column is-half">
-
           <div class="file">
             <label class="file-label" >
                 <input class="file-input" type="file" name="resume" (change)="startUpload($event.target.files)">
@@ -88,23 +72,15 @@
         </div>
         <div class="column is-half">
           <div *ngIf="percentage | async as pct">
-
-            <progress class="progress is-success" [value]="pct" max="100">
-                </progress> {{ pct | number }}%
-
+            <progress class="progress is-success" [value]="pct" max="100"></progress>
+            {{ pct | number }}%
           </div>
           <div *ngIf="downloadURL | async as url">
             <h3>Uploaded!</h3>
-            <!-- <img [src]="url"><br>
-                  <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
           </div>
         </div>
       </div>
-
-
       <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addDreamteamerForm.valid || !logoUploaded">Lägg till</button>
-
     </div>
-
   </div>
 </form>
