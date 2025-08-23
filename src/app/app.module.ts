@@ -46,7 +46,6 @@ import { CompanyComponent } from './components/admincomponents/company/company.c
 import { AddcompanyComponent } from './components/admincomponents/addcompany/addcompany.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddstaffComponent } from './components/admincomponents/addstaff/addstaff.component';
-import { InterviewapplicationComponent } from './components/interviewapplication/interviewapplication.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { StoragePipe } from './shared/storage.pipe';
 import { AboutComponent } from './components/about/about.component';
@@ -89,22 +88,18 @@ import { DreamteamsComponent } from './components/admincomponents/dreamteams/dre
 import { BlogpostComponent } from './components/admincomponents/blogpost/blogpost.component';
 import { MapComponent } from './components/map/map.component';
 import { InterviewscheduleComponent } from './components/admincomponents/interviewschedule/interviewschedule.component';
-import { TreasurehuntComponent } from './components/treasurehunt/treasurehunt.component';
 import { ApplyComponent } from './components/apply/apply.component';
-import { CompanyapplicationComponent } from './components/companyapplication/companyapplication.component';
 import { SignoutComponent } from './components/signout/signout.component';
 import { SustainabilityComponent } from './components/sustainability/sustainability.component';
 import { SponsorComponent } from './components/sponsors/sponsors.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
-import { RegistertreasurehuntComponent } from './components/registertreasurehunt/registertreasurehunt.component';
 import { TreasurecodesComponent } from './components/admincomponents/treasurecodes/treasurecodes.component';
 import { TreasurescoreComponent } from './components/admincomponents/treasurescore/treasurescore.component';
 import { AppcompetitionComponent } from './components/appcompetition/appcompetition.component';
 import { CompanysignsComponent } from './components/companysigns/companysigns.component';
 import { LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { SpecialEventComponent } from './components/specialevent/specialevent.component';
 import { VRComponent } from './components/vr/vr.component';
 import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
@@ -148,7 +143,6 @@ registerLocaleData(localeSv, 'sv');
     AddcompanyComponent,
     SpinnerComponent,
     AddstaffComponent,
-    InterviewapplicationComponent,
     FilterPipe,
     StoragePipe,
     AboutComponent,
@@ -177,21 +171,17 @@ registerLocaleData(localeSv, 'sv');
     BlogpostComponent,
     MapComponent,
     InterviewscheduleComponent,
-    TreasurehuntComponent,
     ApplyComponent,
-    CompanyapplicationComponent,
     SignoutComponent,
     SustainabilityComponent,
     FavouritecompaniesComponent,
     PrivacypolicyComponent,
-    RegistertreasurehuntComponent,
     TreasurecodesComponent,
     TreasurescoreComponent,
     AppcompetitionComponent,
     CompanysignsComponent,
     LeaderboardComponent,
     QuizComponent,
-    SpecialEventComponent,
     VRComponent,
     ProductportfolioComponent,
     JobOpportunitiesComponent,
@@ -270,20 +260,15 @@ registerLocaleData(localeSv, 'sv');
     { path: 'blogposts', component: BlogpostsComponent },
     { path: 'fairmap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
-    //{ path: 'companyapplication', component: CompanyapplicationComponent},
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
-    //{ path: 'kontaktsamtaltest', component: InterviewapplicationComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
-    //{ path: 'massjakt', component: TreasurehuntComponent },
     //{ path: 'favoritforetag', component: FavouritecompaniesComponent},
-    { path: 'pusseljakten', component: RegistertreasurehuntComponent},
     { path: 'foretagsskyltar', component: CompanysignsComponent},
     { path: 'companyguest', component: SelectComponent, canActivate: [CompanyGuard] },
     { path: 'leaderboard', component: LeaderboardComponent},
     { path: 'quiz', component: QuizComponent},
-    { path: 'specialevent', component: SpecialEventComponent},
     { path: 'vr', component: VRComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
     { path: 'jobopportunities', component: JobOpportunitiesComponent},

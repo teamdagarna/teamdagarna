@@ -205,11 +205,6 @@ export class AuthService {
           url: "https://teamdagarna.com/fairschedule"
         },
         // {
-        // subLinks: [],
-        //  label: "Pusseljakten",
-        // url: "https://teamdagarna.com/pusseljakten"
-        // }, 
-        // {
         //   subLinks: [],
         //   label: "Företagsskyltar",
         //   url: "https://teamdagarna.com/foretagsskyltar"
@@ -405,11 +400,6 @@ export class AuthService {
           label: "Mässchema",
           url: "https://teamdagarna.com/fairschedule"
         },
-        //{
-        //subLinks: [],
-        //label: "Pusseljakten",
-        //url: "https://teamdagarna.com/pusseljakten"
-        //},
         // {
         //   subLinks: [],
         //   label: "Företagsskyltar",
