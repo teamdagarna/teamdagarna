@@ -38,7 +38,6 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/admincomponents/dashboard/dashboard.component';
-import { UsersComponent } from './components/admincomponents/users/users.component';
 import { UserComponent } from './components/admincomponents/user/user.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { AdmincompaniesComponent } from './components/admincomponents/admincompanies/admincompanies.component';
@@ -134,7 +133,6 @@ registerLocaleData(localeSv, 'sv');
     ProfileComponent,
     DashboardComponent,
     SponsorComponent,
-    UsersComponent,
     UserComponent,
     CompaniesComponent,
     AdmincompaniesComponent,
@@ -216,7 +214,6 @@ registerLocaleData(localeSv, 'sv');
     { path: 'dreamteamadmin', component: AdminComponent, canActivate: [AdminGuard],
     children: [
         { path: '', component: DashboardComponent },
-        { path: 'users', component: UsersComponent, canActivate: [PlatinumadminGuard]},
         { path: 'modifyuser/:id', component: UserComponent, canActivate: [PlatinumadminGuard] },
         { path: 'companies', component: AdmincompaniesComponent },
         { path: 'modifycompany/:id', component: CompanyComponent },
