@@ -70,7 +70,6 @@ import { EventsComponent } from './components/events/events.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
-import { EventComponent } from './components/event/event.component';
 import { AdmineventsComponent } from './components/admincomponents/adminevents/adminevents.component';
 import { AdmineventComponent } from './components/admincomponents/adminevent/adminevent.component';
 
@@ -157,7 +156,6 @@ registerLocaleData(localeSv, 'sv');
     BlogpostsComponent,
     InterviewsComponent,
     EventsComponent,
-    EventComponent,
     AdmineventsComponent,
     AdmineventComponent,
     CompanysigninComponent,
@@ -255,7 +253,6 @@ registerLocaleData(localeSv, 'sv');
     //{ path: 'sokvard', component: VolunteerComponent },
     { path: 'sokdreamteam', component: ApplyComponent },
     //{ path: 'interview', component: InterviewComponent },
-    { path: 'events/:id', component: EventComponent },
     { path: 'events', component: EventsComponent },
     { path: 'blogposts', component: BlogpostsComponent },
     { path: 'fairmap', component: CompanymapComponent },
