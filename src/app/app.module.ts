@@ -38,7 +38,6 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/admincomponents/dashboard/dashboard.component';
-import { UserComponent } from './components/admincomponents/user/user.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddstaffComponent } from './components/admincomponents/addstaff/addstaff.component';
 import { FilterPipe } from './shared/filter.pipe';
@@ -51,7 +50,6 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
 import { ProductportfolioComponent } from './components/productportfolio/productportfolio.component';
-import { JobOpportunitiesComponent } from './components/jobopportunities/jobopportunities.component';
 import { GoldpiecesComponent } from './components/goldpieces/goldpieces.component';
 import { exsiteccompetitionComponent } from './components/exsiteccompetition/exsiteccompetition.component';
 
@@ -78,16 +76,11 @@ import { SustainabilityComponent } from './components/sustainability/sustainabil
 import { SponsorComponent } from './components/sponsors/sponsors.component';
 import { FavouritecompaniesComponent } from './components/favouritecompanies/favouritecompanies.component';
 import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
-import { AppcompetitionComponent } from './components/appcompetition/appcompetition.component';
 import { CompanysignsComponent } from './components/companysigns/companysigns.component';
-import { LeaderboardComponent} from './components/leaderboard/leaderboard.component';
-import { QuizComponent } from './components/quiz/quiz.component';
-import { VRComponent } from './components/vr/vr.component';
 import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
-import { CandidateComponent } from './components/candidate/candidate.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
 import { CvReviewComponent } from './components/cv-review/cv-review.component';
@@ -117,7 +110,6 @@ registerLocaleData(localeSv, 'sv');
     ProfileComponent,
     DashboardComponent,
     SponsorComponent,
-    UserComponent,
     SpinnerComponent,
     AddstaffComponent,
     FilterPipe,
@@ -142,20 +134,14 @@ registerLocaleData(localeSv, 'sv');
     SustainabilityComponent,
     FavouritecompaniesComponent,
     PrivacypolicyComponent,
-    AppcompetitionComponent,
     CompanysignsComponent,
-    LeaderboardComponent,
-    QuizComponent,
-    VRComponent,
     ProductportfolioComponent,
-    JobOpportunitiesComponent,
     GoldpiecesComponent,
     exsiteccompetitionComponent,
     FairscheduleComponent,
     ExhibitorsPreRegistrationComponent,
     RegisterComponent,
     ApplicationComponent,
-    CandidateComponent,
     ExhibitorComponent,
     CasecompComponent,
     CvReviewComponent,
@@ -182,7 +168,6 @@ registerLocaleData(localeSv, 'sv');
     { path: 'dreamteamadmin', component: AdminComponent, canActivate: [AdminGuard],
     children: [
         { path: '', component: DashboardComponent },
-        { path: 'modifyuser/:id', component: UserComponent, canActivate: [PlatinumadminGuard] },
         { path: 'addstaff', component: AddstaffComponent },
         { path: 'addevent', component: AddeventComponent },
         { path: 'events/:id', component: AdmineventComponent },
@@ -204,8 +189,8 @@ registerLocaleData(localeSv, 'sv');
     { path: 'educations', component: EducationsComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
-    //{ path: 'sokvard', component: VolunteerComponent },
-    { path: 'sokdreamteam', component: ApplyComponent },
+    // { path: 'sokvard', component: VolunteerComponent },
+    // { path: 'sokdreamteam', component: ApplyComponent },
     { path: 'events', component: EventsComponent },
     { path: 'fairmap', component: CompanymapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
@@ -213,18 +198,12 @@ registerLocaleData(localeSv, 'sv');
     { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
-    { path: 'foretagsskyltar', component: CompanysignsComponent},
-    { path: 'leaderboard', component: LeaderboardComponent},
-    { path: 'quiz', component: QuizComponent},
-    { path: 'vr', component: VRComponent},
+    // { path: 'foretagsskyltar', component: CompanysignsComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
-    { path: 'jobopportunities', component: JobOpportunitiesComponent},
     { path: 'framtidschansen', component: GoldpiecesComponent},
     //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
-    { path: 'registration', component: RegisterComponent},
     { path: 'interviewapplication', component: ApplicationComponent},
-    { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},
     { path: 'cv-review', component: CvReviewComponent},

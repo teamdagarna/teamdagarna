@@ -179,11 +179,6 @@ export class AuthService {
         //  label: "Tävling med Exsitec",
         //  url: "https://teamdagarna.com/exsiteccompetition"
         //},
-     //   {
-       //   subLinks: [],
-        //  label: "Jobbmöjligheter",
-        //  url: "https://teamdagarna.com/jobopportunities"
-       // },
         {
           subLinks: [],
           label: "Framtidschansen",
