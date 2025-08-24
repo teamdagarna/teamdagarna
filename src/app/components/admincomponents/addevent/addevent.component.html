@@ -13,11 +13,12 @@
                   <i class="fas fa-upload"></i>
                 </span>
                 <span class="file-label">
-                  Ladda upp bild (Bäst med ratio runt 5:3)
+                  Ladda upp bild
                 </span>
               </span>
             </label>
           </div>
+          <p style="font-size: 14px; font-style: italic;"> Bäst med ratio runt 5:3</p>
         </div>
 
         <div class="column is-half">
@@ -38,13 +39,12 @@
       </div>
 
       <div class="field">
-        <label class="label">Ingress/inledning (Optional)</label>
+        <label class="label">Inledning (Optional)</label>
         <input class="input is-success" type="text" formControlName="ingress">
       </div>
 
       <div class="field">
-        <label class="label">Beskrivande text</label>
-        <!-- <quill-editor formControlName="about"></quill-editor> -->
+        <label class="label">Beskrivning</label>
         <textarea class="textarea is-success" type="text" formControlName="about"></textarea>
       </div>
 
@@ -79,7 +79,7 @@
       </div>
 
       <div class="field">
-        <label class="label">Ska anmälan finnas? (Nej om det t.ex. sköts externt)</label>
+        <label class="label">Ska anmälan finnas? (Nej om det sköts externt, tex orbi)</label>
         <input type="checkbox" formControlName="signon"> Ja
       </div>
 
@@ -114,7 +114,7 @@
       </div>
 
       <div class="field">
-        <label class="label">Publicera? (Ska eventet synas?)</label>
+        <label class="label">Ska eventet synas?</label>
         <input type="checkbox" formControlName="published"> JA
       </div>
 
@@ -123,7 +123,7 @@
         <input class="input is-success" type="number" formControlName="coolness">
       </div>
 
-      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addEventForm.valid">Lägg till eventet</button>
+      <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addEventForm.valid">LÄGG TILL</button>
     </div>
   </div>
 </form>
