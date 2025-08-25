@@ -54,7 +54,7 @@ import { GoldpiecesComponent } from './components/goldpieces/goldpieces.componen
 import { exsiteccompetitionComponent } from './components/exsiteccompetition/exsiteccompetition.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsComponent } from './components/events/events.component';
 
 import { registerLocaleData } from '@angular/common';
@@ -189,7 +189,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'educations', component: EducationsComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'weoffer', component: WeofferComponent },
-    // { path: 'sokvard', component: VolunteerComponent },
+    { path: 'sokvard', component: VolunteerComponent },
     // { path: 'sokdreamteam', component: ApplyComponent },
     { path: 'events', component: EventsComponent },
     { path: 'fairmap', component: CompanymapComponent },

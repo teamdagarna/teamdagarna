@@ -22,6 +22,10 @@
           Student
         </a> 
         <div class="navbar-dropdown is-boxed" id="pink-arrow">
+          <a class="navbar-item" [routerLink]="['sokvard']" id="navbar-pink" (click)="toggleMenu()">
+            SÖK VÄRD 2025
+          </a>
+          <hr class="navbar-divider">
           <a class="navbar-item" [routerLink]="['jobcatalogue']" id="navbar-pink" (click)="toggleMenu()">
             Jobbmöjligheter
           </a>
@@ -109,10 +113,6 @@
       <a class="navbar-item mobileLink" [routerLink]="['hallbarhet']" id="navbar-pink" (click)="toggleMenu()">
         Hållbarhet
       </a>
-
-      <!-- <a class="navbar-item mobileLink" [routerLink]="['blogposts']"  id="navbar-pink" (click)="toggleMenu()">
-        TEAM-bloggen
-      </a> -->
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"  id="navbar-pink" (click)="toggleMenu()">
