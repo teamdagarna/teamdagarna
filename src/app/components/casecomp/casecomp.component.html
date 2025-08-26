@@ -1,23 +1,61 @@
-<div class="hero" id="title-hero">
+
+<section class="hero" id="pink-hero" style="padding-top: 100px;">
   <div class="hero-body">
     <div class="container has-text-centered is-mobile">
+      <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Casetävling med Exsitec</h2>
+      <h1 class="subtitle is-4 is-spaced">
+        24:e september
+      </h1>
+    </div>
+  </div>
+</section> 
+
+<div class="hero" id="title-hero">
+    <div class="container has-text-centered is-mobile">
       <div class="columns is-centered">
-        <div class="column is-9">
-          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">Casetävling med Exsitec</h2>
-          <h5 class="subtitle is-6">
-            TEAM-dagarna bjuder in till en spännande case-tävling den 25/9 i samarbete med Exsitec, ett snabbväxande IT-konsultbolag med stora karriärmöjligheter. Tävla i lag om 3-4 personer och lös ett utmanande case på 3,5 timmar, följt av en presentation inför Exsitecs panel. Ta chansen att visa upp er kreativitet, knyta värdefulla kontakter och tävla om fantastiska priser. Missa inte denna möjligheten!
-          </h5>
-          <a *ngIf="isButtonVisible" href="https://docs.google.com/forms/d/1OCgPfOJYdqDSQ2EUWo2NsQi9d-vqz0-eYsGdZWL_TDI/edit#settings" class="button is-large" style="background-color: #e77da9; color: white;" target="_blank"> <!--För att lägga in ett krav på inlogg är det bara att kommentera ut det som står nedan och lägga in *ngIf="auth.isSignedIn()" efter "_blank"-->
-            Anmäl dig här
-          </a>
-          <p *ngIf="!isButtonVisible" class="button is-large" style="background-color: #e77da9; color: white;">
-            Anmälan öppnar 4/9 12.00
+        <div class="column is-6">
+          <h1 style="font-weight: bold;">
+            Utmana dig själv och visa vad du går för i årets casetävling 🚀 
+            <br><br>
+          </h1>
+          <p class="is-6">
+            Tillsammans med Exsitec, ett av Sveriges snabbast växande IT- och konsultbolag, bjuder TEAM-dagarna in till 
+            casetävling. Här får du och ditt lag chansen att ta er an ett case baserat på ett verkligt uppdrag som Exsitec 
+            själva har mött och löst. Caset är business-fokuserat och utformat för att utmana både ingenjörer och ekonomer. 
+            Här gäller det att analysera, tänka strategiskt och hitta kreativa lösningar som håller i praktiken.
+            <br><br>
+            Anmäl ett helt lag på 3-4 personer eller registrera dig själv, så sätter vi ihop ett lag åt dig. Ni får ca 3,5 
+            timmar på er att förbereda er lösning innan ni presenterar den inför Exsitecs panel.
+            <br><br>
+            Vinnarlaget belönas med en exklusiv lunch med Exsitecs rekryteringsteam. En chans att fira segern, bygga 
+            värdefulla kontakter och få personliga tips kring CV och intervjuer.
+            <br><br>
           </p>
-          <!--<p *ngIf="!auth.isSignedIn()" class="button is-large" style="background-color: #e77da9; color: white;" (click)="redirectToLogin()">
-              Logga in för att anmäla er
-            </p>-->
+
+          <p>
+            <strong>Anmälan öppnar i början av september!</strong>
+            <br>
+            Håll utkik på vår 
+            <a href="https://www.instagram.com/teamdagarna/" target="_blank">Instagram</a>, 
+            <a href="https://www.facebook.com/TEAMdagarna" target="_blank">Facebook</a> 
+            och här på hemsidan för mer info och anmälan.
+          </p>
+
+          <div style="text-align: center; margin: 90px;">
+            <a href="https://www.exsitec.se/" target="_blank ">
+              <img style="max-height: 55px; align-self: center;" alt="Exsitec " role="presentation "
+                src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/Exsitec_Logo_L_Rubine_RGB.png?alt=media&token=49de7f59-22fb-4a72-89ac-02019afb5285">
+            </a>
+          </div>
+
+          <!-- <a
+            *ngIf="isButtonVisible" 
+            class="button is-large" 
+            style="background-color: #e77da9; color: white;" target="_blank"
+            href="https://docs.google.com/forms/d/1OCgPfOJYdqDSQ2EUWo2NsQi9d-vqz0-eYsGdZWL_TDI/edit#settings">
+            Anmäl dig här
+          </a> -->
         </div>
       </div>
     </div>
-  </div>
 </div>
