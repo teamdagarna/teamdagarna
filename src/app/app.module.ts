@@ -50,7 +50,7 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
 import { ProductportfolioComponent } from './components/productportfolio/productportfolio.component';
-import { GoldpiecesComponent } from './components/goldpieces/goldpieces.component';
+import { FramtidschansenComponent } from './components/framtidschansen/framtidschansen.component';
 import { exsiteccompetitionComponent } from './components/exsiteccompetition/exsiteccompetition.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -136,7 +136,7 @@ registerLocaleData(localeSv, 'sv');
     PrivacypolicyComponent,
     CompanysignsComponent,
     ProductportfolioComponent,
-    GoldpiecesComponent,
+    FramtidschansenComponent,
     exsiteccompetitionComponent,
     FairscheduleComponent,
     ExhibitorsPreRegistrationComponent,
@@ -200,7 +200,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'find', component: MapComponent },
     // { path: 'foretagsskyltar', component: CompanysignsComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
-    { path: 'framtidschansen', component: GoldpiecesComponent},
+    { path: 'framtidschansen', component: FramtidschansenComponent},
     //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'interviewapplication', component: ApplicationComponent},

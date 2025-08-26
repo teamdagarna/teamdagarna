@@ -1,20 +1,20 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoldpiecesComponent } from './goldpieces.component';
+import { FramtidschansenComponent } from './framtidschansen.component';
 
-describe('GoldpiecesComponent', () => {
-  let component: GoldpiecesComponent;
-  let fixture: ComponentFixture<GoldpiecesComponent>;
+describe('FramtidschansenComponent', () => {
+  let component: FramtidschansenComponent;
+  let fixture: ComponentFixture<FramtidschansenComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoldpiecesComponent ]
+      declarations: [ FramtidschansenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoldpiecesComponent);
+    fixture = TestBed.createComponent(FramtidschansenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
