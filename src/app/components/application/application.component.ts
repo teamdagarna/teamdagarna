@@ -52,3 +52,15 @@ export class ApplicationComponent implements AfterViewInit, OnInit {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector<HTMLButtonElement>("#pink-hero .toggle-btn");
+  const content = document.querySelector<HTMLDivElement>("#pink-hero .collapsible-content");
+
+  if (toggleBtn && content) {
+    toggleBtn.addEventListener("click", () => {
+      content.classList.toggle("open");
+      toggleBtn.classList.toggle("active");
+    });
+  }
+});
