@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 // declare const MapwizeUI;
 
 @Component({
-  selector: 'app-companymap',
-  templateUrl: './companymap.component.html',
-  styleUrls: ['./companymap.component.scss']
+  selector: 'app-fairmap',
+  templateUrl: './fairmap.component.html',
+  styleUrls: ['./fairmap.component.scss']
 })
-export class CompanymapComponent implements OnInit {
+export class FairMapComponent implements OnInit {
 
   preselected: string;
 

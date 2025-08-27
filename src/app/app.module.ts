@@ -50,7 +50,6 @@ import { WeofferComponent } from './components/weoffer/weoffer.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { AddeventComponent } from './components/admincomponents/addevent/addevent.component';
 import { ProductportfolioComponent } from './components/productportfolio/productportfolio.component';
-import { FramtidschansenComponent } from './components/framtidschansen/framtidschansen.component';
 import { exsiteccompetitionComponent } from './components/exsiteccompetition/exsiteccompetition.component';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -67,7 +66,7 @@ import { DatePipe } from '@angular/common';
 import { QuillModule } from 'ngx-quill';
 import { CompanysigninComponent } from './components/companycomponents/companysignin/companysignin.component';
 import { CheckinComponent } from './components/admincomponents/checkin/checkin.component';
-import { CompanymapComponent } from './components/companymap/companymap.component';
+import { FairMapComponent } from './components/fairmap/fairmap.component';
 import { DreamteamsComponent } from './components/admincomponents/dreamteams/dreamteams.component';
 import { MapComponent } from './components/map/map.component';
 import { ApplyComponent } from './components/apply/apply.component';
@@ -83,6 +82,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
+import { FramtidschansenComponent } from './components/framtidschansen/framtidschansen.component';
 import { CvReviewComponent } from './components/cv-review/cv-review.component';
 import { BusinessBattleComponent } from './components/businessbattle/businessbattle.component';
 import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.component';
@@ -126,7 +126,7 @@ registerLocaleData(localeSv, 'sv');
     AdmineventComponent,
     CompanysigninComponent,
     CheckinComponent,
-    CompanymapComponent,
+    FairMapComponent,
     DreamteamsComponent,
     MapComponent,
     ApplyComponent,
@@ -192,7 +192,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'sokvard', component: VolunteerComponent },
     // { path: 'sokdreamteam', component: ApplyComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'fairmap', component: CompanymapComponent },
+    { path: 'fairmap', component: FairMapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},

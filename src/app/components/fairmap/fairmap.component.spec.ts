@@ -1,20 +1,20 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompanymapComponent } from './companymap.component';
+import { FairMapComponent } from './fairmap.component';
 
-describe('CompanymapComponent', () => {
-  let component: CompanymapComponent;
-  let fixture: ComponentFixture<CompanymapComponent>;
+describe('FairMapComponent', () => {
+  let component: FairMapComponent;
+  let fixture: ComponentFixture<FairMapComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompanymapComponent ]
+      declarations: [ FairMapComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompanymapComponent);
+    fixture = TestBed.createComponent(FairMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
