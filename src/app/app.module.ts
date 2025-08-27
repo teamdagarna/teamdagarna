@@ -79,6 +79,7 @@ import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy
 import { CompanysignsComponent } from './components/companysigns/companysigns.component';
 import { FairscheduleComponent } from './components/fairschedule/fairschedule.component';
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
@@ -139,6 +140,7 @@ registerLocaleData(localeSv, 'sv');
     exsiteccompetitionComponent,
     FairscheduleComponent,
     ExhibitorsPreRegistrationComponent,
+    RegisterComponent,
     ApplicationComponent,
     ExhibitorComponent,
     CasecompComponent,
@@ -199,7 +201,7 @@ registerLocaleData(localeSv, 'sv');
     // { path: 'foretagsskyltar', component: CompanysignsComponent},
     { path: 'productportfolio', component: ProductportfolioComponent},
     { path: 'framtidschansen', component: FramtidschansenComponent},
-    // { path: 'exsitecsignup', component: exsiteccompetitionComponent},
+    //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'interviewapplication', component: ApplicationComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
