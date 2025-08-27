@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 declare var Jexpo: any;
 declare global {
@@ -12,7 +12,7 @@ declare global {
   templateUrl: './application.component.html',
   styleUrls: ['./application.component.scss']
 })
-export class ApplicationComponent implements AfterViewInit, OnInit {
+export class ApplicationComponent implements AfterViewInit {
 
   isMessageVisible: boolean = false;
 
@@ -22,9 +22,17 @@ export class ApplicationComponent implements AfterViewInit, OnInit {
     this.checkTime();
   }
 
+  @ViewChild('toggleBtn') toggleBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild('collapsibleContent') collapsibleContent!: ElementRef<HTMLDivElement>;
+
   ngAfterViewInit(): void {
     window.Jexpo = (window.Jexpo || []).concat(function(){
       Jexpo.widget('/team/bundles/interviews-application.jsx', '#interviews-application');
+    });
+
+    this.toggleBtn.nativeElement.addEventListener('click', () => {
+      this.collapsibleContent.nativeElement.classList.toggle('open');
+      this.toggleBtn.nativeElement.classList.toggle('active');
     });
   }
 
@@ -41,26 +49,4 @@ export class ApplicationComponent implements AfterViewInit, OnInit {
       }, timeUntilVisible);
     }
   }
-
-  loadScript(url: string) {
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = url;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.body.appendChild(script);
-    });
-  }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.querySelector<HTMLButtonElement>("#pink-hero .toggle-btn");
-  const content = document.querySelector<HTMLDivElement>("#pink-hero .collapsible-content");
-
-  if (toggleBtn && content) {
-    toggleBtn.addEventListener("click", () => {
-      content.classList.toggle("open");
-      toggleBtn.classList.toggle("active");
-    });
-  }
-});
