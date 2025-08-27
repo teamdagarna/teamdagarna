@@ -14,17 +14,15 @@
     .header-text {
       text-align: center;
       flex: 1;
-      pointer-events: none;
     }
 
     .toggle-btn {
       background: none;
       border: none;
-      cursor: pointer;
+      pointer-events: none;
       width: 40px;
       height: 40px;
       position: relative;
-      z-index: 10;
 
       &::before {
         content: "";
@@ -38,7 +36,7 @@
       }
 
       &.active::before {
-        transform: rotate(-135deg);
+        transform: rotate(225deg);
       }
     }
   }

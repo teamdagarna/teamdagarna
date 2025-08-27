@@ -22,15 +22,16 @@ export class ApplicationComponent implements AfterViewInit {
     this.checkTime();
   }
 
-  @ViewChild('toggleBtn') toggleBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild('collapsibleHeader') collapsibleHeader!: ElementRef<HTMLDivElement>;
   @ViewChild('collapsibleContent') collapsibleContent!: ElementRef<HTMLDivElement>;
+  @ViewChild('toggleBtn') toggleBtn!: ElementRef<HTMLButtonElement>;
 
   ngAfterViewInit(): void {
     window.Jexpo = (window.Jexpo || []).concat(function(){
       Jexpo.widget('/team/bundles/interviews-application.jsx', '#interviews-application');
     });
 
-    this.toggleBtn.nativeElement.addEventListener('click', () => {
+    this.collapsibleHeader.nativeElement.addEventListener('click', () => {
       this.collapsibleContent.nativeElement.classList.toggle('open');
       this.toggleBtn.nativeElement.classList.toggle('active');
     });
