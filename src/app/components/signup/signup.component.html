@@ -1,216 +1,203 @@
 <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
   <section class="hero">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card login-card">
+            <div class="card-content">
+              <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Registrera dig</h3>
 
-  <div class="hero-body">
-
-  <div class="columns is-centered">
-    <div class="column is-half">
-
-      <div class="card login-card">
-        <div class="card-content">
-
-          <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Registrera dig</h3>
-
-
-          <div class="field">
-            <label class="label" for="liuid">Liu-ID</label>
-            <input class="input" [ngClass]="{ 'is-success' : !liuid.invalid && liuid.touched,  'is-danger' : liuid.invalid && liuid.touched}" type="text" placeholder="Ditt liu-id" formControlName="liuid">
-            <div class="help is-danger" *ngIf="liuid.invalid && liuid.touched">
-              Måste skriva in ditt Liu-ID
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label" for="firstname">Förnamn</label>
-            <input class="input" [ngClass]="{ 'is-success' : !firstname.invalid && firstname.touched,  'is-danger' : firstname.invalid && firstname.touched}" type="text" placeholder="Ditt förnamn" formControlName="firstname">
-            <div class="help is-danger" *ngIf="firstname.invalid && firstname.touched">
-              Du måste skriva in ditt förnamn
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label" for="lastname">Efternamn</label>
-            <input class="input" [ngClass]="{ 'is-success' : !lastname.invalid && lastname.touched,  'is-danger' : lastname.invalid && lastname.touched}" type="text" placeholder="Ditt efternamn" formControlName="lastname">
-            <div class="help is-danger" *ngIf="lastname.invalid && lastname.touched">
-              Du måste skriva in ditt efternamn
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label" for="password">Lösenord</label>
-            <input class="input" [ngClass]="{ 'is-success' : !password.invalid,  'is-danger' : password.invalid && password.touched}" type="password" placeholder="Välj ett lösenord" formControlName="password">
-            <div class="help is-danger" *ngIf="password.invalid && password.touched">
-              Lösenordet måste vara minst 6 tecken långt och innehålla minst en bokstav och ett nummer
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Program</label>
-            <div class="control">
-              <div class="select" required>
-                <select formControlName="program">
-                  <option>Industriell Ekonomi</option>
-                  <option>Industriell Ekonomi Internationell</option>
-                  <option>Civilekonom</option>
-                  <option>Civilekonom Internationell</option>
-                  <option>Masterprogram inom ekonomi</option>
-                 <!-- <option>Annat</option> -->
-                </select>
+              <div class="field">
+                <label class="label" for="liuid">Liu-ID</label>
+                <input class="input" [ngClass]="{ 'is-success' : !liuid.invalid && liuid.touched,  'is-danger' : liuid.invalid && liuid.touched}" type="text" placeholder="Ditt liu-id" formControlName="liuid">
+                <div class="help is-danger" *ngIf="liuid.invalid && liuid.touched">
+                  Måste skriva in ditt Liu-ID
+                </div>
               </div>
-            </div>
-            <div class="help is-danger" *ngIf="program.invalid && program.touched">
-              Du måste välja något.
-            </div>
-          </div>
 
-          <div class="field">
-            <label class="label">År</label>
-            <div class="control">
-              <div class="select" required>
-                <select formControlName="year">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>Annat</option>
-                </select>
+              <div class="field">
+                <label class="label" for="firstname">Förnamn</label>
+                <input class="input" [ngClass]="{ 'is-success' : !firstname.invalid && firstname.touched,  'is-danger' : firstname.invalid && firstname.touched}" type="text" placeholder="Ditt förnamn" formControlName="firstname">
+                <div class="help is-danger" *ngIf="firstname.invalid && firstname.touched">
+                  Du måste skriva in ditt förnamn
+                </div>
               </div>
-            </div>
-            <div class="help is-danger" *ngIf="year.invalid && year.touched">
-              Du måste välja något.
-            </div>
-          </div>
 
-          <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
-            <label class="label">Kandidatprofil (teknisk inriktning)</label>
-            <div class="control">
-              <div class="select">
-                <select formControlName="engineerbachelor">
-                  <option>Systemteknik</option>
-                  <option>Maskinteknik</option>
-                  <option>Bioteknik</option>
-                  <option>Datateknik</option>
-                  <option>Energiteknik</option>
-                  <option>Annat</option>
-                  <option>Ej valt</option>
-                </select>
+              <div class="field">
+                <label class="label" for="lastname">Efternamn</label>
+                <input class="input" [ngClass]="{ 'is-success' : !lastname.invalid && lastname.touched,  'is-danger' : lastname.invalid && lastname.touched}" type="text" placeholder="Ditt efternamn" formControlName="lastname">
+                <div class="help is-danger" *ngIf="lastname.invalid && lastname.touched">
+                  Du måste skriva in ditt efternamn
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
-            <label class="label">Masterprofil</label>
-            <div class="control">
-              <div class="select">
-                <select formControlName="engineermaster">
-                  <option>Digitalisering och management</option>
-                  <option>Finans</option>
-                  <option>Industriell marknadsföring</option>
-                  <option>Kvalitets- och verksamhetsutveckling</option>
-                  <option>Logistik och supply chain management</option>
-                  <option>Projekt, innovation och entreprenörskap</option>
-                  <option>Produktionsledning</option>
-                  <option>Strategi och styrning</option>
-                  <option>Systemteknik</option>
-                  <option>Maskinteknik</option>
-                  <option>Bioteknik</option>
-                  <option>Datateknik</option>
-                  <option>Energiteknik</option>
-                  <option>Annat</option>
-                  <option>Ej valt</option>
-                </select>
+              <div class="field">
+                <label class="label" for="password">Lösenord</label>
+                <input class="input" [ngClass]="{ 'is-success' : !password.invalid,  'is-danger' : password.invalid && password.touched}" type="password" placeholder="Välj ett lösenord" formControlName="password">
+                <div class="help is-danger" *ngIf="password.invalid && password.touched">
+                  Lösenordet måste vara minst 6 tecken långt och innehålla minst en bokstav och ett nummer
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
-            <label class="label">Valt nationalekonomi eller företagsekonomi</label>
-            <div class="control">
-              <div class="select">
-                <select formControlName="nekorfek">
-                  <option>Nationalekonomi</option>
-                  <option>Företagsekonomi</option>
-                  <option>Annat</option>
-                  <option>Ej valt</option>
-                </select>
+              <div class="field">
+                <label class="label">Program</label>
+                <div class="control">
+                  <div class="select" required>
+                    <select formControlName="program">
+                      <option>Industriell Ekonomi</option>
+                      <option>Industriell Ekonomi Internationell</option>
+                      <option>Civilekonom</option>
+                      <option>Civilekonom Internationell</option>
+                      <option>Masterprogram inom ekonomi</option>
+                    <!-- <option>Annat</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="help is-danger" *ngIf="program.invalid && program.touched">
+                  Du måste välja något.
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
-            <label class="label">Inriktning civilekonom</label>
-            <div class="control">
-              <div class="select">
-                <select formControlName="filfakspecialization">
-                  <option>Redovisning</option>
-                  <option>Ekonomistyrning</option>
-                  <option>Strategi och marknadsföring</option>
-                  <option>Finansiell ekonomi</option>
-                  <option>Ekonomisk analys</option>
-                  <option>Entreprenörskap och Innovation</option>
-                  <option>IT och management</option>
-                  <option>Annat</option>
-                  <option>Ej valt</option>
-                </select>
+              <div class="field">
+                <label class="label">År</label>
+                <div class="control">
+                  <div class="select" required>
+                    <select formControlName="year">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>Annat</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="help is-danger" *ngIf="year.invalid && year.touched">
+                  Du måste välja något.
+                </div>
               </div>
+
+              <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
+                <label class="label">Kandidatprofil (teknisk inriktning)</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="engineerbachelor">
+                      <option>Systemteknik</option>
+                      <option>Maskinteknik</option>
+                      <option>Bioteknik</option>
+                      <option>Datateknik</option>
+                      <option>Energiteknik</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
+                <label class="label">Masterprofil</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="engineermaster">
+                      <option>Digitalisering och management</option>
+                      <option>Finans</option>
+                      <option>Industriell marknadsföring</option>
+                      <option>Kvalitets- och verksamhetsutveckling</option>
+                      <option>Logistik och supply chain management</option>
+                      <option>Projekt, innovation och entreprenörskap</option>
+                      <option>Produktionsledning</option>
+                      <option>Strategi och styrning</option>
+                      <option>Systemteknik</option>
+                      <option>Maskinteknik</option>
+                      <option>Bioteknik</option>
+                      <option>Datateknik</option>
+                      <option>Energiteknik</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
+                <label class="label">Valt nationalekonomi eller företagsekonomi</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="nekorfek">
+                      <option>Nationalekonomi</option>
+                      <option>Företagsekonomi</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
+                <label class="label">Inriktning civilekonom</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="filfakspecialization">
+                      <option>Redovisning</option>
+                      <option>Ekonomistyrning</option>
+                      <option>Strategi och marknadsföring</option>
+                      <option>Finansiell ekonomi</option>
+                      <option>Ekonomisk analys</option>
+                      <option>Entreprenörskap och Innovation</option>
+                      <option>IT och management</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="specialfood">Specialkost</label>
+                <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
+              </div>
+
+              <div class="field">
+                <label class="label" for="gdpr">GDPR - Din data</label>
+                <label class="checkbox"><input type="checkbox" formControlName="gdpr"></label> 
+                Jag tillåter att TEAM-dagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
+              </div>
+              <div *ngIf="signupForm.valid">Allt ser bra ut!</div>
+              <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" id="submit-button" class="button is-fullwidth">Registrera och logga in</button><br>
+              <p class="error-message">{{ errorMessage }}</p>
+              <p class="is-italic"> Glöm inte att verifiera ditt konto genom att klicka på den länk som kommer att skickas till din "@student.liu.se"-adress. Vissa funktioner på hemsidan kan du inte ta del av förrän du verifierar ditt konto!</p>
+              <br>
+              <p><strong>Har du inte fått något verifieringsmail? Glöm inte att kolla i skräpposten!</strong></p>
             </div>
           </div>
-
-
-          <div class="field">
-            <label class="label" for="specialfood">Specialkost</label>
-            <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
-          </div>
-
-
-          <div class="field">
-            <label class="label" for="gdpr">GDPR - Din data</label>
-            <label class="checkbox">
-            <input type="checkbox" formControlName="gdpr">
-
-          </label> Jag tillåter att TEAM-dagarna lagrar min data enligt <a (click)="toggleModal()">denna beskrivning.</a>
-          </div>
-          <div *ngIf="signupForm.valid">Allt ser bra ut!</div>
-          <button type="submit" [ngClass]="{'is-loading':loading}" [disabled]="!signupForm.valid" id="submit-button" class="button is-fullwidth">Registrera och logga in</button><br>
-          <p class="error-message">{{ errorMessage }}</p>
-          <p class="is-italic"> Glöm inte att verifiera ditt konto genom att klicka på den länk som kommer att skickas till din "@student.liu.se"-adress. Vissa funktioner på hemsidan kan du inte ta del av förrän du verifierar ditt konto! </p>
-          <br>
-          <p><strong>Har du inte fått något verifieringsmail? Glöm inte att kolla i skräpposten!</strong></p>
         </div>
-
       </div>
     </div>
-  </div>
-</div>
   </section>
 </form>
-
-
-
-
 
 <div class="modal" [ngClass]="{ 'is-active' : isModalActive }">
   <div class="modal-background" (click)="toggleModal()"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title"><strong>Din data och GDPR</strong>
-
-      </p>
+      <p class="modal-card-title"><strong>Din data och GDPR</strong></p>
       <button class="delete" aria-label="close" (click)="toggleModal()"></button>
-
     </header>
 
     <section class="modal-card-body">
       <div class="content">
         <h3>Intro</h3>
-        <p>Den 25:e Maj 2018 trädde den generella dataskyddsförordningen i kraft och ersatte PUL. Vi ber dig därför se över följande information noggrant så att du är medveten om dina rättigheter. Du kan läsa dataskyddsförordningen i sin helhet <a target="_blank"
-            rel="noopener noreferrer" href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1">HÄR.</a> Eventuella frågor eller ärenden bör skickas till personuppgiftsansvariga, vars kontaktuppgifter du finner längst ner på
-          sidan.
+        <p>
+          Den 25:e Maj 2018 trädde den generella dataskyddsförordningen i kraft och ersatte PUL. Vi ber dig därför se över följande 
+          information noggrant så att du är medveten om dina rättigheter. Du kan läsa dataskyddsförordningen i sin helhet 
+          <a target="_blank" rel="noopener noreferrer" href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1">HÄR.</a> 
+          Eventuella frågor eller ärenden bör skickas till personuppgiftsansvariga, vars kontaktuppgifter du finner längst ner på sidan.
         </p>
 
         <h3>Ändamål för informationslagringen</h3>
-        <p>Personuppgifterna du lämnar används för att kunna erbjuda följande tjänster, där ditt samtycke utgör den rättsliga grunden för behandlingen:</p>
+        <p>Personuppgifterna du lämnar används för att kunna erbjuda följande tjänster, där ditt samtycke utgör den rättsliga grunden för 
+          behandlingen:
+        </p>
         <ul>
           <li>Anmälan till olika event</li>
           <li>Söka kontaktsamtal</li>
@@ -219,7 +206,10 @@
         </ul>
 
         <h3>Information vi lagrar om dig</h3>
-        <p>Vi lagrar information som du angivit och gett ditt uttryckliga samtycke för. Det är ditt ansvar att se till att informationen du tillhandahåller är korrekt. Detta innefattar:</p>
+        <p>
+          Vi lagrar information som du angivit och gett ditt uttryckliga samtycke för. Det är ditt ansvar att se till att informationen 
+          du tillhandahåller är korrekt. Detta innefattar:
+        </p>
         <ul>
           <li>LiU-ID</li>
           <li>LiU-mail</li>
@@ -230,23 +220,22 @@
           <li>Kandidatprofil</li>
           <li>Masterprofil</li>
         </ul>
-        <p>Utöver dessa punkter lagrar vi dina anmälningar till event i syfte att garantera dig en plats men även för att föra intern (anonym) statistik kring sektionens event.</p>
-
-        <p>Tillhandahållandet av denna information utgör ett avtalsenligt krav där Sektionen för Industriell Ekonomi inte kan erbjuda dig de definierade tjänster eller tillgång till sektionens evenemang skulle du välja att inte tillhandahålla den efterfrågade
-          informationen.
-        </p>
-
+        <p>Utöver dessa punkter lagrar vi dina anmälningar till event i syfte att garantera dig en plats men även för att föra intern 
+          (anonym) statistik kring sektionens event.</p>
+        <p>Tillhandahållandet av denna information utgör ett avtalsenligt krav där Sektionen för Industriell Ekonomi inte kan erbjuda 
+          dig de definierade tjänster eller tillgång till sektionens evenemang skulle du välja att inte tillhandahålla den efterfrågade
+          informationen.</p>
         <p>Dina personuppgifter lagras tills dess att du återkallar ditt samtycke alternativt max 5 år efter din registrering på sidan.</p>
 
         <h3>Vilka som har tillgång till dina uppgifter</h3>
-        <p>Tillgång till din personliga information begränsas till att endast täcka de uttryckligt angivna ändamålen och den kontinuerliga utvecklingen och underhållet av sidan. Din information lämnas inte till tredje part. Detta innebär att följande personer
-          har tillgång till din information:</p>
+        <p>Tillgång till din personliga information begränsas till att endast täcka de uttryckligt angivna ändamålen och den kontinuerliga 
+          utvecklingen och underhållet av sidan. Din information lämnas inte till tredje part. Detta innebär att följande personer har 
+          tillgång till din information:</p>
         <ul>
-          <li><strong>IT Ansvarig:</strong> tillgång till all data i underhålls och utvecklingssyfte</li>
+          <li><strong>IT-ansvarig:</strong> tillgång till all data i underhålls och utvecklingssyfte</li>
           <li><strong>TEAM-dagarnas kommitté:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar för att hantera event</li>
-          <li><strong>Medlemmar i TEAM-dagarnas kommitté och värdar som hanterar kontaktsamtalen du sökt:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar, kontaktsamtalsanmälningar exkl. cv, personligt brev och betyg för hantering
-            av kontaktsamtal</li>
-          <li><strong>Företagsrepresentant om du sökt kontaktsamtal hos företaget:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, kontaktsamtalsanmälningar inkl. cv, personligt brev och betyg (om det existerar)</li>
+          <li><strong>Medlemmar i TEAM-dagarnas kommitté och värdar som hanterar kontaktsamtalen du sökt:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, eventanmälningar, kontaktsamtalsanmälningar inkl. CV och personligt brev för hantering av kontaktsamtal</li>
+          <li><strong>Företagsrepresentant om du sökt kontaktsamtal hos företaget:</strong> tillgång till LiU-ID, LiU-mail, förnamn, efternamn, kontaktsamtalsanmälningar inkl. CV, personligt brev och betyg (om det existerar)</li>
         </ul>
 
         <h3>Dina rättigheter</h3>
@@ -254,7 +243,6 @@
           samt rätten till dataportabilitet.</p>
         <p>Du har rätten att när som helst <strong>återkalla ditt samtycke</strong>, utan att detta påverkar lagligheten av behandlingen på grundval av samtycket, innan detta återkallades. Detta gör du genom att kontakta personuppgiftsansvariga.</p>
         <p>Du har rätten att inge klagomål till en tillsynsmyndighet.</p>
-
 
         <h3>Kontaktuppgifter</h3>
         <p>Vid frågor rörande hur Sektionen För Industriell Ekonomi (moderorganisation) arbetar med GDPR: <a href="mailto:dataskyddsombud@isektionen.se">dataskyddsombud@isektionen.se</a>.</p>
