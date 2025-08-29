@@ -12,395 +12,392 @@
 
 <section *ngIf="user" class="hero">
   <div class="hero-body">
-
     <div class="container is-mobile">
-        <div class="columns">
-          <div class="column">
-
+      <div class="columns">
+        <div class="column">
           <ng-container *ngIf="user && !changeMode">
-          <div class="border-btm">
-            <h1 class="title is-3 is-spaced">Dina uppgifter</h1>
-          </div>
-          <h1 class="title is-4">
-          <span>{{ user.firstname }} {{ user.lastname }}</span>
-        </h1>
-          <h1 class="subtitle is-6">
-          Student
-        </h1>
-          <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
-          <p><strong>Program:</strong> {{ user.program }}</p>
-          <p><strong>År:</strong> {{ user.year }}</p>
-          <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
-          <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
-          <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
-          <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
-          <br>
-          <a class="button" (click)="toggleChange()">
-               <span class="icon" id="white-icon">
-                <i class="fas fa-cog"></i>
-             </span>
-             <span>Ändra</span>
-               </a>
-        </ng-container>
-        <ng-container *ngIf="changeMode">
-          <form [formGroup]="changeForm" (ngSubmit)="submit(changeForm.value)">
-
-
             <div class="border-btm">
-              <h1 class="title is-3 is-spaced">Ändra dina uppgifter</h1>
+              <h1 class="title is-3 is-spaced">Dina uppgifter</h1>
             </div>
+            <h1 class="title is-4"><span>{{ user.firstname }} {{ user.lastname }}</span></h1>
+            <h1 class="subtitle is-6">
+              Student
+            </h1>
+            <p><strong>LiU-ID:</strong> {{ user.liuid }}</p>
+            <p><strong>Program:</strong> {{ user.program }}</p>
+            <p><strong>År:</strong> {{ user.year }}</p>
+            <p *ngIf="user.engineerbachelor"><strong>Kandidatprofil:</strong> {{ user.engineerbachelor }}</p>
+            <p *ngIf="user.engineermaster"><strong>Masterprofil:</strong> {{ user.engineermaster }}</p>
+            <p *ngIf="user.filfakspecialization"><strong>Inriktning:</strong> {{ user.filfakspecialization }}</p>
+            <p><strong>Specialkost:</strong> {{ user.specialfood }}</p>
+            <br>
+            <a class="button" (click)="toggleChange()">
+              <span class="icon" id="white-icon"><i class="fas fa-cog"></i></span>
+              <span>Ändra</span>
+            </a>
+          </ng-container>
 
-            <div class="field">
-              <label class="label" for="firstname">Förnamn</label>
-              <input class="input" [ngClass]="{ 'is-success' : !firstname.invalid && firstname.touched,  'is-danger' : firstname.invalid && firstname.touched}" type="text" placeholder="Ditt förnamn" formControlName="firstname">
-              <div class="help is-danger" *ngIf="firstname.invalid && firstname.touched">
-                Du måste skriva in ditt förnamn
+          <ng-container *ngIf="changeMode">
+            <form [formGroup]="changeForm" (ngSubmit)="submit(changeForm.value)">
+
+              <div class="border-btm">
+                <h1 class="title is-3 is-spaced">Ändra dina uppgifter</h1>
               </div>
-            </div>
 
-            <div class="field">
-              <label class="label" for="lastname">Efternamn</label>
-              <input class="input" [ngClass]="{ 'is-success' : !lastname.invalid && lastname.touched,  'is-danger' : lastname.invalid && lastname.touched}" type="text" placeholder="Ditt efternamn" formControlName="lastname">
-              <div class="help is-danger" *ngIf="lastname.invalid && lastname.touched">
-                Du måste skriva in ditt efternamn
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label">Program</label>
-              <div class="control">
-                <div class="select" required>
-                  <select formControlName="program">
-                            <option>Industriell Ekonomi</option>
-                            <option>Industriell Ekonomi Internationell</option>
-                            <option>Civilekonom</option>
-                            <option>Civilekonom Internationell</option>
-                            <option>Masterprogram inom ekonomi</option>
-                            <!--<option>Annat</option>-->
-                          </select>
+              <div class="field">
+                <label class="label" for="firstname">Förnamn</label>
+                <input class="input" [ngClass]="{ 'is-success' : !firstname.invalid && firstname.touched,  'is-danger' : firstname.invalid && firstname.touched}" type="text" placeholder="Ditt förnamn" formControlName="firstname">
+                <div class="help is-danger" *ngIf="firstname.invalid && firstname.touched">
+                  Du måste skriva in ditt förnamn
                 </div>
               </div>
-              <div class="help is-danger" *ngIf="program.invalid && program.touched">
-                Du måste välja något.
-              </div>
-            </div>
 
-            <div class="field">
-              <label class="label">År</label>
-              <div class="control">
-                <div class="select" required>
-                  <select formControlName="year">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>Annat</option>
-                          </select>
+              <div class="field">
+                <label class="label" for="lastname">Efternamn</label>
+                <input class="input" [ngClass]="{ 'is-success' : !lastname.invalid && lastname.touched,  'is-danger' : lastname.invalid && lastname.touched}" type="text" placeholder="Ditt efternamn" formControlName="lastname">
+                <div class="help is-danger" *ngIf="lastname.invalid && lastname.touched">
+                  Du måste skriva in ditt efternamn
                 </div>
               </div>
-              <div class="help is-danger" *ngIf="year.invalid && year.touched">
-                Du måste välja något.
-              </div>
-            </div>
 
-            <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
-              <label class="label">Kandidatprofil (teknisk inriktning)</label>
-              <div class="control">
-                <div class="select">
-                  <select formControlName="engineerbachelor">
-                            <option>Systemteknik</option>
-                            <option>Maskinteknik</option>
-                            <option>Bioteknik</option>
-                            <option>Datateknik</option>
-                            <option>Energiteknik</option>
-                            <option>Annat</option>
-                            <option>Ej valt</option>
-                          </select>
+              <div class="field">
+                <label class="label">Program</label>
+                <div class="control">
+                  <div class="select" required>
+                    <select formControlName="program">
+                      <option>Industriell Ekonomi</option>
+                      <option>Industriell Ekonomi Internationell</option>
+                      <option>Civilekonom</option>
+                      <option>Civilekonom Internationell</option>
+                      <option>Masterprogram inom ekonomi</option>
+                      <!--<option>Annat</option>-->
+                    </select>
+                  </div>
+                </div>
+                <div class="help is-danger" *ngIf="program.invalid && program.touched">
+                  Du måste välja något.
                 </div>
               </div>
-            </div>
 
-            <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
-              <label class="label">Masterprofil</label>
-              <div class="control">
-                <div class="select">
-                  <select formControlName="engineermaster">
-                            <option>Digitalisering och management</option>
-                            <option>Finans</option>
-                            <option>Industriell marknadsföring</option>
-                            <option>Kvalitets- och verksamhetsutveckling</option>
-                            <option>Logistik och supply chain management</option>
-                            <option>Projekt, innovation och entreprenörskap</option>
-                            <option>Produktionsledning</option>
-                            <option>Strategi och styrning</option>
-                            <option>Systemteknik</option>
-                            <option>Maskinteknik</option>
-                            <option>Bioteknik</option>
-                            <option>Datateknik</option>
-                            <option>Energiteknik</option>
-                            <option>Annat</option>
-                            <option>Ej valt</option>
-                          </select>
+              <div class="field">
+                <label class="label">År</label>
+                <div class="control">
+                  <div class="select" required>
+                    <select formControlName="year">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>Annat</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="help is-danger" *ngIf="year.invalid && year.touched">
+                  Du måste välja något.
                 </div>
               </div>
-            </div>
 
-            <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
-              <label class="label">Valt nationalekonomi eller företagsekonomi</label>
-              <div class="control">
-                <div class="select">
-                  <select formControlName="nekorfek">
-                            <option>Nationalekonomi</option>
-                            <option>Företagsekonomi</option>
-                            <option>Annat</option>
-                            <option>Ej valt</option>
-                          </select>
+              <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
+                <label class="label">Kandidatprofil (teknisk inriktning)</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="engineerbachelor">
+                      <option>Systemteknik</option>
+                      <option>Maskinteknik</option>
+                      <option>Bioteknik</option>
+                      <option>Datateknik</option>
+                      <option>Energiteknik</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
-              <label class="label">Inriktning civilekonom</label>
-              <div class="control">
-                <div class="select">
-                  <select formControlName="filfakspecialization">
-                            <option>Redovisning</option>
-                            <option>Ekonomistyrning</option>
-                            <option>Strategi och marknadsföring</option>
-                            <option>Finansiell ekonomi</option>
-                            <option>Ekonomisk analys</option>
-                            <option>Entreprenörskap och Innovation</option>
-                            <option>IT och management</option>
-                            <option>Annat</option>
-                            <option>Ej valt</option>
-                          </select>
+              <div class="field" *ngIf="program.value == 'Industriell Ekonomi' || program.value == 'Industriell Ekonomi Internationell'">
+                <label class="label">Masterprofil</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="engineermaster">
+                      <option>Digital affärsutveckling</option>
+                      <option>Finans</option>
+                      <option>Industriell marknadsföring</option>
+                      <option>Kvalitets- och verksamhetsutveckling</option>
+                      <option>Logistik och supply chain management</option>
+                      <option>Projekt, innovation och entreprenörskap</option>
+                      <option>Produktionsledning</option>
+                      <option>Strategi och styrning</option>
+                      <option>Systemteknik</option>
+                      <option>Maskinteknik</option>
+                      <option>Bioteknik</option>
+                      <option>Datateknik</option>
+                      <option>Energiteknik</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
 
+              <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
+                <label class="label">Valt nationalekonomi eller företagsekonomi</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="nekorfek">
+                      <option>Nationalekonomi</option>
+                      <option>Företagsekonomi</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-            <div class="field">
-              <label class="label" for="specialfood">Specialkost</label>
-              <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
-            </div>
+              <div class="field" *ngIf="program.value == 'Civilekonom' || program.value == 'Civilekonom Internationell'">
+                <label class="label">Inriktning civilekonom</label>
+                <div class="control">
+                  <div class="select">
+                    <select formControlName="filfakspecialization">
+                      <option>Redovisning</option>
+                      <option>Ekonomistyrning</option>
+                      <option>Strategi och marknadsföring</option>
+                      <option>Finansiell ekonomi</option>
+                      <option>Ekonomisk analys</option>
+                      <option>Entreprenörskap och Innovation</option>
+                      <option>IT och management</option>
+                      <option>Annat</option>
+                      <option>Ej valt</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-            <div *ngIf="changeForm.valid">Allt ser bra ut!</div><br>
+              <div class="field">
+                <label class="label" for="specialfood">Specialkost</label>
+                <input class="input" type="text" placeholder="Om du har någon specialkost" formControlName="specialfood">
+              </div>
 
-            <button type="submit" id="submit-button" [disabled]="!changeForm.valid" class="button is-small"><span class="icon" id="white-icon"><i class="fas fa-check"></i></span><span>Uppdatera</span></button>
-            &nbsp; <a class="button is-white is-small" (click)="toggleChange()">
-                      <span class="icon is-small">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    <span>Avbryt</span>
-                      </a>
+              <div *ngIf="changeForm.valid">Allt ser bra ut!</div><br>
 
-          </form>
-        </ng-container>
-
-
-      </div>
-      <div class="column">
-
-      <div class="border-btm">
-          <h1 class="title is-3">Dina eventanmälningar</h1>
+              <button type="submit" id="submit-button" [disabled]="!changeForm.valid" class="button is-small">
+                <span class="icon" id="white-icon"><i class="fas fa-check"></i></span>
+                <span>Uppdatera</span>
+              </button>
+              &nbsp;
+              <a class="button is-white is-small" (click)="toggleChange()">
+                <span class="icon is-small"><i class="fas fa-times"></i></span>
+                <span>Avbryt</span>
+              </a>
+            </form>
+          </ng-container>
         </div>
-        <ng-container *ngIf="events !== undefined && events.length !== 0">
-          <p class="title is-6">Event där du är garanterad plats:</p>
-          <ng-container *ngFor="let event of events">
-            <a *ngIf="!event.waitinglist" [routerLink]="['../events', event.event]"><i class="fas fa-angle-right"></i><strong>&nbsp;{{ event.eventtitle }} (Garanterad mat: <span *ngIf="event.getsfood">Ja</span><span *ngIf="!event.getsfood">Nej</span>)</strong></a><span *ngIf="!event.waitinglist"><br></span>
+
+        <div class="column">
+          <div class="border-btm">
+            <h1 class="title is-3">Dina eventanmälningar</h1>
+          </div>
+          <ng-container *ngIf="events !== undefined && events.length !== 0">
+            <p class="title is-6">Event där du är garanterad plats:</p>
+            <ng-container *ngFor="let event of events">
+              <a *ngIf="!event.waitinglist" [routerLink]="['../events', event.event]">
+                <i class="fas fa-angle-right"></i>
+                <strong>&nbsp;{{ event.eventtitle }} (Garanterad mat: <span *ngIf="event.getsfood">Ja</span><span *ngIf="!event.getsfood">Nej</span>)</strong>
+              </a>
+              <span *ngIf="!event.waitinglist"><br></span>
+            </ng-container>
+            <br>
+            <br>
+            <h5 class="title is-6">Event som du är reserv på:</h5>
+            <ng-container *ngFor="let event of events">
+              <a *ngIf="event.waitinglist" [routerLink]="['../events', event.event]">
+                <i class="fas fa-angle-right"></i>
+                <strong>&nbsp;{{ event.eventtitle }} (RESERV)</strong>
+              </a>
+              <span *ngIf="event.waitinglist"><br></span>
+            </ng-container>
           </ng-container>
-          <br>
-          <br>
-          <h5 class="title is-6">Event som du är reserv på:</h5>
-          <ng-container *ngFor="let event of events">
-            <a *ngIf="event.waitinglist" [routerLink]="['../events', event.event]"><i class="fas fa-angle-right"></i><strong>&nbsp;{{ event.eventtitle }} (RESERV)</strong></a><span *ngIf="event.waitinglist"><br></span>
-          </ng-container>
-        </ng-container>
 
-        <p *ngIf="events == undefined || events.length == 0">Inga anmälningar gjorda. <a [routerLink]="['/events']">Anmäl dig till evenemang här!</a></p>
-
-       <!--<div class="border-btm">
-          <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
-        </div>--> 
-       <!-- <h1 class="subtitle is-6">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen den 15:e september kl 23:59.</strong>. Om du inte svarat innan dess räknas det som att du tackat nej.<br><br>
-        -  Mer information kommer via mail, hör av dig till <a>kontaktsamtal@teamdagarna.com</a> vid frågor! <br><br>Ifall du råkat ladda upp fel dokument eller vill ta bort en ansökan kan du maila till itwebb@teamdagarna.com. För byte av dokument krävs för- och efternamn, liu-ID, företagets namn och dokumentet du vill byta till som bilaga i mailet. Gäller det borttagning av ansökan behövs för- och efternamn, liu-ID och företagets namn.
-          Vi kan senast garantera ändringar om dessa kommer in innan 1/9. -
-        </h1>
-        
-        <h1 class="subtitle is-6">Företagens urvalsprocess börjar <strong>måndagen den 4:e september</strong>.</h1> -->
-      <!--  <h1 class="subtitle is-6">Du kommer att få reda på vilka företag som valt dig som kandidat från och med <strong>torsdagen den 14:e september. </strong>.</h1> -->
-        <!-- <h1 class="subtitle is-5">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen 15:e september kl 23:59</strong>. Om du inte svarat innan dess räknas det som du tackat nej.</h1> -->
-      <!-- <h1 class="subtitle is-6"><strong>Platsen för ditt/dina kontaktsamtal</strong> får du vid kontaktsamtalssdisken i A-huset när du checkar in för ditt/dina samtal.</h1> 
-        <h1 class="subtitle is-6"><strong>Informationen om ditt/dina kontaktsamtal</strong> får du skickat till den mail du registrerade ditt konto med.</h1>
-        <h1 class="subtitle is-6"><strong>Om du inte kan eller vill lämna återbud</strong> så gör du det genom att kontakta kontaktsamtalsansvariga via <a href="mailto:kontaktsamtal@teamdagarna.com">kontaktsamtal@teamdagarna.com</a>.</h1> 
-        <h1 class="subtitle is-6">Obeservera att din öppna ansökan inte syns i din profil förrän ett företag valt dig.</h1> -->
-       <!-- <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Företag:</th>
-              <th>Dokument:</th>
-              <th>Status:</th>
-              <th>Tid:</th>
-              <th>Ditt svar:</th>
-              <th>Ändra svar:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let interview of interviews">
-              <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
-              <td>{{ interview.companyname }} </td>
-
-              <td>
-                <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev <i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
-              </td>
-              hårdkodad inväntar svar
-              <th class="has-text-warning">Inväntar svar</th> -->
-
-<!--
-              <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-              Om studenterna ska kunna se medan företagen väljer
-              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
-              <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> 
-               <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
-               <th *ngIf="interview.backup" class="has-text-warning">Reserv** </th>
-              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td> 
-              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
-              <td *ngIf="interview.studentaccepted && !interview.time && interview.selected">Schemaläggs</td> 
-              
-               Ändra inte testat denna fullt ut
-              <th *ngIf="!interview.selected">-</th>
-              <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
-              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
-
-
-
-               (ändra till denna när svartiden för studenter är stängd) 
-              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
-             
-
-             Denna ska avaktiveras när svarstid för studenter är stängd ner till td-->
-            <!--  <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
-              <th *ngIf="!interview.selected">-</th>
-               <td *ngIf="interview.selected">
-                <p class="buttons">
-                  <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
-                    <span class="icon is-small" id="white-icon">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <span>Tacka ja</span>
-                </button>
-                  <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
-                  <span>Tacka nej</span>
-                  <span class="icon is-small" id="white-icon">
-                    <i class="fas fa-times"></i>
-                  </span>
-                </button>
-                </p>
-              </td>  -->
-              <!--ta bort fram till hit från ovan när svarstiden stänger för studenterna
-
-              Aktivera när studenterans val stänger
-              <td *ngIf="interview.selected" class="has-text-danger">
-                Stängt
-              </td>
-
-
-              Öppen anmälan nedan
-              </ng-container>
-            </tr>
-            <tr *ngFor="let interview of openinterviews">
-              <td>{{ interview.companyname }}*</td>
-              <td>
-                <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
-                <p></p>
-                <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
-              </td>
-
-              <th class="has-text-warning">Inväntar svar</th> 
-              
-              <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
-             <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
-              <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
-              <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
-              <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td>
-              <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td>  
-
-               Ändra inte testat denna fullt ut
-              
-              <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
-              <th *ngIf="!interview.selected">-</th>
-              <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
-              <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
-
-
-              ändra till denna när ansökan stängt 
-              <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
-              
-              
-              
-             <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
-
-
-              <th *ngIf="!interview.selected">-</th>
-               <td *ngIf="interview.selected">
-                <p class="buttons">
-                  <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, true)" class="button is-success is-small">
-                    <span class="icon is-small" id="white-icon">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <span>Tacka ja</span>
-                </button>
-                  <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
-                  <span>Tacka nej</span>
-                  <span class="icon is-small" id="white-icon">
-                    <i class="fas fa-times"></i>
-                  </span>
-                </button>
-                </p>
-
-              </td>  
-
-              <td *ngIf="interview.selected" class="has-text-danger">
-                Stängt
-              </td>
-            </tr>
-          </tbody>
-        </table> 
-
-        <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
-        <br>
-
-
-        <ng-container *ngIf="openinterviews">
-          <p><em>*Från öppna ansökan.</em></p>
-        </ng-container>
-        <ng-container *ngIf="openinterviews || interviews">
-          <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
-
-
-           <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
-       
-       
-       <!-- </ng-container>-->
-
-
+          <p *ngIf="events == undefined || events.length == 0">Inga anmälningar gjorda. <a [routerLink]="['/events']">Anmäl dig till evenemang här!</a></p>
+        </div>
       </div>
-    </div>
-
     </div>
   </div>
 </section>
+
+        <!--<div class="border-btm">
+            <h1 class="title is-3">Dina kontaktsamtalsansökningar</h1>
+          </div>--> 
+        <!-- <h1 class="subtitle is-6">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen den 15:e september kl 23:59.</strong>. Om du inte svarat innan dess räknas det som att du tackat nej.<br><br>
+          -  Mer information kommer via mail, hör av dig till <a>kontaktsamtal@teamdagarna.com</a> vid frågor! <br><br>Ifall du råkat ladda upp fel dokument eller vill ta bort en ansökan kan du maila till itwebb@teamdagarna.com. För byte av dokument krävs för- och efternamn, liu-ID, företagets namn och dokumentet du vill byta till som bilaga i mailet. Gäller det borttagning av ansökan behövs för- och efternamn, liu-ID och företagets namn.
+            Vi kan senast garantera ändringar om dessa kommer in innan 1/9. -
+          </h1>
+          
+          <h1 class="subtitle is-6">Företagens urvalsprocess börjar <strong>måndagen den 4:e september</strong>.</h1> -->
+        <!--  <h1 class="subtitle is-6">Du kommer att få reda på vilka företag som valt dig som kandidat från och med <strong>torsdagen den 14:e september. </strong>.</h1> -->
+          <!-- <h1 class="subtitle is-5">Du får tacka ja till maximalt 6 stycken samtal. Deadline för sista svarsdag är <strong>fredagen 15:e september kl 23:59</strong>. Om du inte svarat innan dess räknas det som du tackat nej.</h1> -->
+        <!-- <h1 class="subtitle is-6"><strong>Platsen för ditt/dina kontaktsamtal</strong> får du vid kontaktsamtalssdisken i A-huset när du checkar in för ditt/dina samtal.</h1> 
+          <h1 class="subtitle is-6"><strong>Informationen om ditt/dina kontaktsamtal</strong> får du skickat till den mail du registrerade ditt konto med.</h1>
+          <h1 class="subtitle is-6"><strong>Om du inte kan eller vill lämna återbud</strong> så gör du det genom att kontakta kontaktsamtalsansvariga via <a href="mailto:kontaktsamtal@teamdagarna.com">kontaktsamtal@teamdagarna.com</a>.</h1> 
+          <h1 class="subtitle is-6">Obeservera att din öppna ansökan inte syns i din profil förrän ett företag valt dig.</h1> -->
+        <!-- <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Företag:</th>
+                <th>Dokument:</th>
+                <th>Status:</th>
+                <th>Tid:</th>
+                <th>Ditt svar:</th>
+                <th>Ändra svar:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let interview of interviews">
+                <ng-container *ngIf = "interview.companyname != 'Öppen anmälan kontaktsamtal'">
+                <td>{{ interview.companyname }} </td>
+
+                <td>
+                  <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+                hårdkodad inväntar svar
+                <th class="has-text-warning">Inväntar svar</th> -->
+
+  <!--
+                <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
+                Om studenterna ska kunna se medan företagen väljer
+                <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+                <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th> 
+                <th *ngIf="interview.notselected || interview.pending" class="has-text-danger">Nekad</th> 
+                <th *ngIf="interview.backup" class="has-text-warning">Reserv** </th>
+                <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td> 
+                <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
+                <td *ngIf="interview.studentaccepted && !interview.time && interview.selected">Schemaläggs</td> 
+                
+                Ändra inte testat denna fullt ut
+                <th *ngIf="!interview.selected">-</th>
+                <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
+                <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
+
+
+
+                (ändra till denna när svartiden för studenter är stängd) 
+                <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th>
+              
+
+              Denna ska avaktiveras när svarstid för studenter är stängd ner till td-->
+              <!--  <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th>
+                <th *ngIf="!interview.selected">-</th>
+                <td *ngIf="interview.selected">
+                  <p class="buttons">
+                    <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, true)" class="button is-success is-small">
+                      <span class="icon is-small" id="white-icon">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span>Tacka ja</span>
+                  </button>
+                    <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
+                    <span>Tacka nej</span>
+                    <span class="icon is-small" id="white-icon">
+                      <i class="fas fa-times"></i>
+                    </span>
+                  </button>
+                  </p>
+                </td>  -->
+                <!--ta bort fram till hit från ovan när svarstiden stänger för studenterna
+
+                Aktivera när studenterans val stänger
+                <td *ngIf="interview.selected" class="has-text-danger">
+                  Stängt
+                </td>
+
+
+                Öppen anmälan nedan
+                </ng-container>
+              </tr>
+              <tr *ngFor="let interview of openinterviews">
+                <td>{{ interview.companyname }}*</td>
+                <td>
+                  <ng-container *ngIf="interview.resumepath"><a *ngIf="interview.resumepath | storage | async as resumepath" href="{{ resumepath }} + .pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.coverletterpath"><a *ngIf="interview.coverletterpath | storage | async as coverletterpath" href="{{ coverletterpath }} + .pdf" target="_blank">Personligt Brev<i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.gradespath"><a *ngIf="interview.gradespath | storage | async as gradespath" href="{{ gradespath }} + .pdf" target="_blank">Betyg <i class="fas fa-external-link-alt"></i></a></ng-container>
+                  <p></p>
+                  <ng-container *ngIf="interview.motivationpath"><a *ngIf="interview.motivationpath | storage | async as motivationpath" href="{{ motivationpath }} + .pdf" target="_blank">Motivering <i class="fas fa-external-link-alt"></i></a></ng-container>
+                </td>
+
+                <th class="has-text-warning">Inväntar svar</th> 
+                
+                <th *ngIf="interview.selected" class="has-text-success">Antagen <span *ngIf="interview.backupnumber > 0"> (från reserv) </span></th>
+              <th *ngIf="interview.pending" class="has-text-warning">Inväntar svar</th> 
+                <th *ngIf="interview.notselected" class="has-text-danger">Nekad</th>
+                <th *ngIf="interview.backup" class="has-text-warning">Reserv**</th>
+                <td *ngIf="interview.studentaccepted && interview.selected && interview.day && interview.time"><span *ngIf="interview.day == 'tuesday'">26e Sep </span><span *ngIf="interview.day == 'wednesday'">27e Sep </span>{{ interview.time }}</td>
+                <td *ngIf="interview.studentaccepted && !interview.time">Schemaläggs</td>  
+
+                Ändra inte testat denna fullt ut
+                
+                <td *ngIf="!interview.studentaccepted || !interview.selected">-</td>
+                <th *ngIf="!interview.selected">-</th>
+                <th *ngIf="interview.studentaccepted && interview.selected" class="has-text-success">Tackat ja</th>
+                <th *ngIf="(interview.studentdeclined && interview.selected)" class="has-text-danger">Tackat nej</th>
+
+
+                ändra till denna när ansökan stängt 
+                <th *ngIf="(interview.studentdeclined && interview.selected) || (interview.studentnotanswered && interview.selected)" class="has-text-danger">Tackat nej</th> 
+                
+                
+                
+              <th *ngIf="interview.studentnotanswered && interview.selected" class="has-text-warning">Ej svarat</th> 
+
+
+                <th *ngIf="!interview.selected">-</th>
+                <td *ngIf="interview.selected">
+                  <p class="buttons">
+                    <button [disabled]="!acceptavailable" *ngIf="!interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, true)" class="button is-success is-small">
+                      <span class="icon is-small" id="white-icon">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span>Tacka ja</span>
+                  </button>
+                    <button *ngIf="interview.studentaccepted || interview.studentnotanswered" (click)="changeOpenInterviewAnswer(interview.id, false)" class="button is-danger is-outlined is-small">
+                    <span>Tacka nej</span>
+                    <span class="icon is-small" id="white-icon">
+                      <i class="fas fa-times"></i>
+                    </span>
+                  </button>
+                  </p>
+
+                </td>  
+
+                <td *ngIf="interview.selected" class="has-text-danger">
+                  Stängt
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+
+          <p *ngIf="interviews == undefined || interviews.length == 0">Inga ansökningar gjorda.</p>
+          <br>
+
+
+          <ng-container *ngIf="openinterviews">
+            <p><em>*Från öppna ansökan.</em></p>
+          </ng-container>
+          <ng-container *ngIf="openinterviews || interviews">
+            <p><em>**Reserv: Du blir kontaktad om plats ges.</em></p>
+
+
+            <p><em>***Tider sätts och fördelas ut i ett senare skede. Kontakta kontaktsamtalsansvarig om du har en speciell tid som du verkligen inte kan.</em></p> -->
+        
+        
+        <!-- </ng-container>-->
 
 
 <section class="hero" *ngIf="!user">

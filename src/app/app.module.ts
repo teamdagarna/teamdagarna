@@ -80,6 +80,7 @@ import { FairscheduleComponent } from './components/fairschedule/fairschedule.co
 import { ExhibitorsPreRegistrationComponent } from './components/exhibitors-pre-registration/exhibitors-pre-registration.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
+import { CandidateComponent } from './components/candidate/candidate.component';
 import { ExhibitorComponent } from './components/exhibitor/exhibitor.component';
 import { CasecompComponent } from './components/casecomp/casecomp.component';
 import { FramtidschansenComponent } from './components/framtidschansen/framtidschansen.component';
@@ -142,6 +143,7 @@ registerLocaleData(localeSv, 'sv');
     ExhibitorsPreRegistrationComponent,
     RegisterComponent,
     ApplicationComponent,
+    CandidateComponent,
     ExhibitorComponent,
     CasecompComponent,
     CvReviewComponent,
@@ -204,6 +206,7 @@ registerLocaleData(localeSv, 'sv');
     //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'interviewapplication', component: ApplicationComponent},
+    { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},
     { path: 'cv-review', component: CvReviewComponent},
