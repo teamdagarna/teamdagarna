@@ -14,7 +14,7 @@ declare global {
 })
 export class ApplicationComponent implements AfterViewInit {
 
-  isMessageVisible: boolean = false;
+  isApplicationOpen: boolean = false;
 
   constructor() { }
 
@@ -39,15 +39,19 @@ export class ApplicationComponent implements AfterViewInit {
 
   checkTime() {
     const now = new Date();
-    const targetDate = new Date(now.getFullYear(), 8, 5, 12, 0, 0, 0); // Set to 8:00 AM on September 5th (month is 0-indexed)
 
-    if (now >= targetDate) {
-      this.isMessageVisible = true;
-    } else {
-      const timeUntilVisible = targetDate.getTime() - now.getTime();
+    // Stäng ansökan 31 augusti 2025, 23:59:59
+    const closeApplicationDate = new Date(now.getFullYear(), 8, 1, 0, 0, 0); // OBS! Månaden är 0-indexerad, så 8 = september
+
+    if (now < closeApplicationDate) {
+      this.isApplicationOpen = true;
+
+      const timeUntilHide = closeApplicationDate.getTime() - now.getTime();
       setTimeout(() => {
-        this.isMessageVisible = true;
-      }, timeUntilVisible);
+        this.isApplicationOpen = false;
+      }, timeUntilHide);
+    } else {
+      this.isApplicationOpen = false;
     }
   }
 }
