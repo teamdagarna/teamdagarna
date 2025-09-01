@@ -53,6 +53,5 @@ export class ApplicationComponent implements AfterViewInit {
     } else {
       this.isApplicationOpen = false;
     }
-    console.log(this.isApplicationOpen);
   }
 }
