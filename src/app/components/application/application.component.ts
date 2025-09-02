@@ -40,8 +40,8 @@ export class ApplicationComponent implements AfterViewInit {
   checkTime() {
     const now = new Date();
 
-    // Stäng ansökan 31 augusti 2025, 23:59:59
-    const closeApplicationDate = new Date(now.getFullYear(), 8, 1, 0, 0, 0); // OBS! Månaden är 0-indexerad, så 8 = september
+    // Close at 31 August 2025, 23:59:59
+    const closeApplicationDate = new Date(2025, 7, 31, 23, 59, 59);
 
     if (now < closeApplicationDate) {
       this.isApplicationOpen = true;
