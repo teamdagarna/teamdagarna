@@ -5,15 +5,14 @@
         <div class="column is-8">
           <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Sök värd</h2>
           
-          <h5 class="subtitle is-6">
-            Nu söker vi värdar inför mässan 2025!
+          <h5 class="is-6" *ngIf="isApplicationOpen">
+            <strong>Nu söker vi värdar inför mässan 2025!</strong>
           </h5>
-
-          <!-- 
-          <h5 class="subtitle is-6 has-text-danger">
-            Ansökan till värd för mässan 2025 är stängd, men håll utkik för ansökan för mässan 2026!
-          </h5> -->
-
+          <h5 class="is-6 has-text-danger" *ngIf="!isApplicationOpen">
+            <strong>Ansökan till värd för mässan 2025 är stängd, men håll utkik för ansökan för mässan 2026!</strong>
+          </h5>
+          
+          <br>
           <h5 class="is-6 has-text-justified" style="text-align-last: center;">
             Nedan finner du info om av vad de olika värdposterna innebär samt ansökningsformuläret. Förmåner som värd är att du får gå gratis 
             på årets finaste <strong>bankett</strong> på Konsert och Kongress i Linköping. Samtliga värdar har även en värdkick-off vilket 
@@ -33,20 +32,19 @@
             </div>
           </div>
           <br>
-          <h5 class="is-6">
+          <h5 class="is-6" *ngIf="isApplicationOpen">
             Tveka inte, SÖK värd redan idag! Sista ansökningsdag är <strong>tisdagen den 2:a september</strong> kl.23:59.<br>
             Företagsvärdar rekryteras även löpande under ansökningsperioden.
-            <br><br>
+            <!-- <br><br> -->
           </h5>
 
           <!-- Ansökan button -->
-          <a class="button is-medium" href="https://docs.google.com/forms/d/e/1FAIpQLSclEqj_5du5_gM83b5bGtOdcUHIchG1noGoTazqBDJG-T15rQ/viewform?fbclid=IwY2xjawMY_zBleHRuA2FlbQIxMABicmlkETFxTWVzMkxNTEZTcUJianR3AR75rgGJ-zW08pCYVVWT05jVK2xCjuO5NAjjJpA0B9jv_PQk511KiiUuv0rEzQ_aem_718nAcJUdSOj7tHpvb9q2Q" target="_blank">
+          <a class="button is-medium" *ngIf="isApplicationOpen" href="https://docs.google.com/forms/d/e/1FAIpQLSclEqj_5du5_gM83b5bGtOdcUHIchG1noGoTazqBDJG-T15rQ/viewform?fbclid=IwY2xjawMY_zBleHRuA2FlbQIxMABicmlkETFxTWVzMkxNTEZTcUJianR3AR75rgGJ-zW08pCYVVWT05jVK2xCjuO5NAjjJpA0B9jv_PQk511KiiUuv0rEzQ_aem_718nAcJUdSOj7tHpvb9q2Q" target="_blank">
             <span>SÖK VÄRD</span>
             <span class="icon" id="white-icon">
               <i class="fas fa-external-link-alt" style="color: white;"></i>
             </span>
           </a>
-          <br>
         </div>
       </div>
     </div>
