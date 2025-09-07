@@ -23,7 +23,7 @@
         </a> 
         <div class="navbar-dropdown is-boxed" id="pink-arrow">
           <a class="navbar-item" [routerLink]="['sokvard']" id="navbar-pink" (click)="toggleMenu()">
-            SÖK VÄRD 2025
+            Sök värd
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item" [routerLink]="['jobcatalogue']" id="navbar-pink" (click)="toggleMenu()">
@@ -134,56 +134,54 @@
         English info
       </a>
     </div>
-  </div>
-  
-  <div class="navbar-end">
-    <div [hidden]="auth.isSignedIn()" class="navbar-item">
+
+    <div class="navbar-end">
+      <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink" (click)="toggleMenu()">
+        Min profil
+      </a>
+      <div [hidden]="auth.isSignedIn()" class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
+              <span class="icon" id="white-icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>
+                Logga in
+              </span>
+            </a>
+          </p>
+        </div>
+      </div>
+      <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink" id="navbar-pink">
+        <span>
+          Logga ut &nbsp;
+        </span>
+        <span class="icon" style="color: #596ecc;">
+          <i class="fas fa-sign-out-alt"></i>
+        </span>
+      </a>
+    </div>
+
+    <div [hidden]="!auth.canEdit(user)" class="navbar-item" (click)="toggleMenu()">
       <div class="field is-grouped">
         <p class="control">
-          <a class="bd-tw-button button mobileLink" [routerLink]="['signin']">
-            <span class="icon" id="white-icon">
-              <i class="fas fa-sign-in-alt"></i>
-            </span>
+          <a class="bd-tw-button button mobileLink" [routerLink]="['/dreamteamadmin']">
             <span>
-              Logga in
+              DreamTEAM Admin
+            </span>
+            <span class="icon" style="color:white;">
+              <i class="fas fa-user-secret"></i>
             </span>
           </a>
         </p>
       </div>
     </div>
-  </div> 
 
-  <a [routerLink]="['profile']" class="navbar-item mobileLink"  id="navbar-pink" (click)="toggleMenu()">
-    Min profil
-  </a>
-  
-  <a (click)="auth.signOut()" [hidden]="!auth.isSignedIn()" class="navbar-item mobileLink" id="navbar-pink">
-    <span>
-      Logga ut &nbsp;
+    <span class="is-hidden-desktop">
+      <div id="space"></div>
     </span>
-    <span class="icon" style="color: #596ecc;">
-      <i class="fas fa-sign-out-alt"></i>
-    </span>
-  </a>
-
-  <div [hidden]="!auth.canEdit(user)" class="navbar-item" (click)="toggleMenu()">
-    <div class="field is-grouped">
-      <p class="control">
-        <a class="bd-tw-button button mobileLink" [routerLink]="['/dreamteamadmin']">
-          <span>
-            DreamTEAM Admin
-          </span>
-          <span class="icon" style="color:white;">
-            <i class="fas fa-user-secret"></i>
-          </span>
-        </a>
-      </p>
-    </div>
+    
+    <div class="is-hidden-desktop" style="margin-bottom: 10rem;"></div>
   </div>
-
-  <span class="is-hidden-desktop">
-    <div id="space"></div>
-  </span>
-  
-  <div class="is-hidden-desktop" style="margin-bottom: 10rem;"></div>
 </nav>
