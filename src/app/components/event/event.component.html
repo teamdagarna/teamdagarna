@@ -1,0 +1,106 @@
+<section class="hero is-medium" *ngIf="selectedEvent">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-8 is-12-mobile">
+        
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb is-medium" aria-label="breadcrumbs">
+          <ul>
+            <li><a [routerLink]="['../../events']"><i class="far fa-calendar-alt"></i>&nbsp;Alla eventen</a></li>
+            <li class="is-active"><a href="#" aria-current="page">{{ selectedEvent.title }}</a></li>
+          </ul>
+        </nav>
+
+        <!-- Event Info -->
+        <ng-container *ngTemplateOutlet="eventInfoTemplate"></ng-container>
+        <h1 class="title is-2 is-spaced">{{ selectedEvent.title }}</h1>
+        <h2 class="subtitle is-4" *ngIf="selectedEvent.ingress">{{ selectedEvent.ingress }}</h2>
+
+        <!-- Event Image -->
+        <div class="columns">
+          <div class="column is-4 is-12-mobile">
+            <div class="event-item is-spaced">
+              <div class="event-cover">
+                <div class="event-image"
+                     *ngIf="selectedEvent.imagepath | storage | async as photoUrl"
+                     [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')' }">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About -->
+        <div class="content is-medium">
+          <p class="pre-wrap">{{ selectedEvent.about }}</p>
+        </div>
+
+        <!-- Event Info Again -->
+        <ng-container *ngTemplateOutlet="eventInfoTemplate"></ng-container>
+
+        <!-- Sign-on Section (används inte om anmälan sköts i orbi eller liknande) -->
+        <ng-container *ngIf="selectedEvent.signon">
+          <p *ngIf="selectedEvent.signonends.toDate() > today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
+          <p *ngIf="selectedEvent.signoffends?.toDate() && selectedEvent.signoffends.toDate() > today"><em>Avanmälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}</em></p>
+          <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
+
+          <ng-container *ngIf="user">
+            <ng-container *ngIf="attended && !confirmDelete && canSignOff">
+              <p class="has-text-primary" *ngIf="attendedDoc.waitinglist">Du står som reserv.</p>
+              <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist">
+                Du är anmäld (Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }}).
+              </p>
+              <br>
+              <button class="button is-outlined" (click)="delete()">
+                <span>Avanmäl dig</span>
+                <span class="icon is-small"><i class="fas fa-times"></i></span>
+              </button>
+            </ng-container>
+
+            <ng-container *ngIf="!attended && canSignOn && loaded">
+              <button class="button" [ngClass]="{'is-loading': loading}" (click)="attend()" *ngIf="canAttend">Anmäl dig*</button>
+
+              <p class="has-text-danger" *ngIf="!canAttend && selectedEvent.maxattendance != 0">
+                Eventet är fullt. Du kan sätta upp dig på reservlistan. Följ din profil för plats.
+              </p>
+              <p class="has-text-danger" *ngIf="!canAttend && selectedEvent.maxattendance != 0">Just nu är det {{ numberofreserves }} reserver på listan.</p>
+              <button class="button" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="!canAttend && selectedEvent.maxattendance != 0">Sätt upp dig som reserv</button>
+            </ng-container>
+          </ng-container>
+
+          <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du kunde inte anmäla dig.</p>
+          <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
+          <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Kolla din profil för plats.</p>
+        </ng-container>
+
+        <p *ngIf="!user && selectedEvent.signon"><em>Du måste vara inloggad för att kunna anmäla dig.</em></p>
+
+        <p *ngIf="selectedEvent.preorunder != 'Övrigt'" class="subtitle is-6">
+          *Specialkost garanteras endast om anmälan kommer in 4 dagar innan. Läs mer på din sektions hemsida.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reusable Event Info Template -->
+  <ng-template #eventInfoTemplate>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item"><p><i class="far fa-calendar-alt"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'dd MMM' }}</p></div>
+        <div class="level-item"><p><i class="far fa-clock"></i>&nbsp;{{ selectedEvent.eventstarts.toDate() | date:'HH:mm' }} - {{ selectedEvent.eventends.toDate() | date:'HH:mm' }}</p></div>
+        <div class="level-item"><p><i class="fas fa-map-marker-alt"></i>&nbsp;{{ selectedEvent.location }}</p></div>
+        <div class="level-item" *ngIf="selectedEvent.maxattendance > 0">
+          <p><i class="fas fa-users"></i>&nbsp;{{ selectedEvent.maxattendance }}
+            <span *ngIf="selectedEvent.signon && auth.canEdit(user)">({{ selectedEvent.maxattendance - numberofsignups}} platser kvar)</span>
+          </p>
+        </div>
+        <div class="level-item" *ngIf="selectedEvent.foodportions > 0">
+          <p *ngIf="eventid != 'yFsyUZi4bNFsOjQMIFJo'"><i class="fas fa-utensils"></i>&nbsp;{{ selectedEvent.foodportions }}
+            <span *ngIf="selectedEvent.signon">första anmälda får mat</span>
+          </p>
+          <p *ngIf="eventid == 'yFsyUZi4bNFsOjQMIFJo'"><i class="fas fa-utensils"></i>&nbsp;Studenter som anmäler sig innan den 12/9 och får plats på eventet får mat.</p>
+        </div>
+      </div>
+    </nav>
+  </ng-template>
+</section>

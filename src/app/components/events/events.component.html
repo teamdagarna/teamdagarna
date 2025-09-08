@@ -4,49 +4,23 @@
       <div class="columns is-centered ">
         <div class="column is-9">
             <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Event</h2>
-            <!-- <h2 class="subtitle is-6">
+            <h2 class="subtitle is-6">
               Både innan och under mässan anordnar vi event som står öppet för alla studenter som pluggar 
               Civilekonom eller Industriell Ekonomi.
-            </h2> -->
+            </h2>
 
-            <!-- <h2 class="subtitle is-6">
-              Nedan kan du hitta dessa event, läsa mer och anmäla dig.
-            </h2> -->
-
-            <p class="subtitle is-6">
+            <!-- <p class="subtitle is-6">
               Eventen 2025 publiceras här snart, så håll utkik!
-            </p>
+            </p> -->
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
 <section class="hero" *ngIf="!toggleEvent">
   <div class="hero-body">
     <div class="container">
-
-      <!-- Mässdagarna -->
-      <div class="columns is-multiline is-variable is-5">
-        <div class="column is-12">
-          <div class="border-btm">
-            <h1 class="title is-3">Mässdagarna</h1>
-          </div>
-        </div>
-        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of fairevents">
-          <div class="event-item is-spaced">
-            <a class="event-cover" [routerLink]="[event.id]">
-              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
-            </a>
-            <div class="event-content">
-              <h3> <a class="event-title" style="color: #463853" [routerLink]="[event.id]">{{ event.title }}</a></h3>
-              <p class="event-meta" style="color: #463853"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
-              <a class="" [routerLink]="[event.id]">Läs mer</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Infördagarna -->
       <div class="columns is-multiline is-variable is-5">
@@ -69,6 +43,26 @@
         </div>
       </div>
 
+      <!-- Mässdagarna -->
+      <div class="columns is-multiline is-variable is-5">
+        <div class="column is-12">
+          <div class="border-btm">
+            <h1 class="title is-3">Mässdagarna</h1>
+          </div>
+        </div>
+        <div class="column is-3-widescreen is-4-tablet" *ngFor="let event of fairevents">
+          <div class="event-item is-spaced">
+            <a class="event-cover" [routerLink]="[event.id]">
+              <div class="event-image" *ngIf="event.imagepath | storage | async as photoUrl " [ngStyle]="{ 'background-image': 'url(' + photoUrl + ')'}"></div>
+            </a>
+            <div class="event-content">
+              <h3> <a class="event-title" style="color: #463853" [routerLink]="[event.id]">{{ event.title }}</a></h3>
+              <p class="event-meta" style="color: #463853"> <span>{{ event.eventstarts.toDate() | date:'d MMM HH:mm'}}, {{ event.location }}</span> </p>
+              <a class="" [routerLink]="[event.id]">Läs mer</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Övrigt -->
       <div class="columns is-multiline is-variable is-5">

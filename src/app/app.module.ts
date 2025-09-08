@@ -55,6 +55,7 @@ import { exsiteccompetitionComponent } from './components/exsiteccompetition/exs
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsComponent } from './components/events/events.component';
+import { EventComponent } from './components/event/event.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
@@ -123,6 +124,7 @@ registerLocaleData(localeSv, 'sv');
     VolunteerComponent,
     AddeventComponent,
     EventsComponent,
+    EventComponent,
     AdmineventsComponent,
     AdmineventComponent,
     CompanysigninComponent,
@@ -194,6 +196,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'sokvard', component: VolunteerComponent },
     // { path: 'sokdreamteam', component: ApplyComponent },
     { path: 'events', component: EventsComponent },
+    { path: 'events/:id', component: EventComponent },
     { path: 'fairmap', component: FairMapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
