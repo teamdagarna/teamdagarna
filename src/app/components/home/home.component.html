@@ -28,16 +28,16 @@
           <span>Anmälan</span>
           <span class="icon" id="pink-icon"><i class="fas fa-external-link-alt"></i></span>
         </a> -->
-
         <br>
         <br>
 
+        <!-- Social media -->
         <div class="columns is-centered ">
           <div class="column is-5">
             <div class="block">
               <div class="level is-size-2">
-                <div class="level-item has-text-centered"></div>
-                <div class="level-item has-text-centered"></div>
+                
+                <!-- LinkedIn -->
                 <div class="level-item has-text-centered">
                   <a class="level-item has-text-centered" href="https://www.linkedin.com/company/teamdagarna/" target="_blank" >
                     <span class="icon" style="color: white;" id="clickable-icon">
@@ -46,6 +46,7 @@
                   </a>
                 </div>
 
+                <!-- Facebook  -->
                 <div class="level-item has-text-centered">
                   <a href="https://www.facebook.com/teamdagarna/" target="_blank" class="level-item has-text-centered">
                     <span class="icon" style="color: white;" id="clickable-icon">
@@ -54,6 +55,7 @@
                   </a>
                 </div>
                 
+                <!-- Instagram -->
                 <div class="level-item has-text-centered">
                   <a href="https://www.instagram.com/teamdagarna/" target="_blank" class="level-item has-text-centered">
                     <span class="icon" style="color: white;" id="clickable-icon">
@@ -62,6 +64,7 @@
                   </a>
                 </div>
 
+                <!-- Spotify (podd) -->
                 <div class="level-item has-text-centered">
                   <a href="https://open.spotify.com/episode/4wYGcJrEd2NljVdoYRuquC?si=ce1ae45c91494220&nd=1" target="_blank" class="level-item has-text-centered">
                     <span class="icon" style="color: white;" id="clickable-icon">
@@ -70,13 +73,12 @@
                   </a>
                 </div>
 
-                <!-- <div class="level-item has-text-centered">
+                <!-- Orbi -->
+                <div class="level-item has-text-centered">
                   <a href="https://link.orbiapp.io/odwZ" target="_blank" class="level-item has-text-centered">
                     <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/orbi-logo-white.png?alt=media&token=79d590aa-0070-44fd-b41d-3e94509ebab3" alt="Orbi Logo" style="height: 24px;">
                   </a>
-                </div> -->
-                <div class="level-item has-text-centered"></div>
-                <div class="level-item has-text-centered"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -85,6 +87,7 @@
     </div>
   </div>
 
+  <!-- About TEAM-dagarna -->
   <section class="hero">
     <div class="hero-body" style="padding-bottom: 0px;">
       <div class="container has-text-centered is-mobile">
@@ -104,7 +107,8 @@
             <br>
           </div>
         </div>
- 
+        
+        <!-- Företag - Studenter - Dagar -->
         <div class="columns is-centered " style="margin-bottom: 5rem;">
           <div class="column is-11">
             <div class="block">
@@ -146,9 +150,27 @@
         </div>
       </div>
     </div>
+
+    <!-- Conut down -->
     <div class="has-text-centered is-mobile">
-      <div id="theEndIsNear" class="subtitle is-2" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">{{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s</div> 
-      <br><br>
+      <div id="theEndIsNear" class="subtitle is-2 countdown" style="gap: 3rem" *ngIf="days > 0 || hours > 0 || minutes > 0 || seconds > 0">
+        <div class="time-block">
+          <span>{{ days }}</span>
+          <small>days</small>
+        </div>
+        <div class="time-block">
+          <span>{{ hours }}</span>
+          <small>hours</small>
+        </div>
+        <div class="time-block">
+          <span>{{ minutes }}</span>
+          <small>minutes</small>
+        </div>
+        <div class="time-block">
+          <span>{{ seconds }}</span>
+          <small>seconds</small>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -157,50 +179,51 @@
       <div class="container hsp">
         <div class="section-body is-coverage is-medium hsp">
           <div class="columns is-centered">
-            <div class="column is-10">
+            <div class="column is-5">
+              
+              <!-- Arrangörer -->
               <div class="container has-text-centered">
                 <h2 class="title is-4 is-spaced" style="text-transform: uppercase"> Arrangörer </h2>
               </div>
               <br>
-
               <div class="level is-mobile">
-                <div class="level-item ">
+                <div class="level-item">
                   <a href="http://www.isektionen.se" target="_blank ">
-                    <img style="max-height: 145px;" alt="Industriell Ekonomi " role="presentation "
+                    <img style="max-height: 130px; margin: 10px; margin-left: 60px;" alt="Industriell Ekonomi " role="presentation "
                       src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/I-logga.png?alt=media&token=001ebdd1-7045-44ae-bb9a-12acc77b11fc">
                   </a>
                 </div>
-
                 <div class="level-item">
                   <a href="https://elin.se" target="_blank ">
-                    <img style="max-height: 145px;" alt="Elin " role="presentation "
+                    <img style="max-height: 130px; margin: 10px; margin-right: 60px;" alt="Elin " role="presentation "
                       src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/ELIN%20(1).png?alt=media&token=5b5b2bc8-0e7f-40ce-bc80-dc5312fe7c1d">
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class="column is-10">
-              <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;">
-                Huvudsamarbetspartner
-              </h2>
+            <!-- Huvudsamarbetspartner -->
+            <div class="column is-5">
+              <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;">Huvudsamarbetspartner</h2>
               <br>
-
               <div style="text-align: center;">
                 <a href="https://www.exsitec.se/" target="_blank ">
-                  <img style="max-height: 55px; align-self: center;" alt="Exsitec " role="presentation "
+                  <img style="max-height: 100px; align-self: center;" alt="Exsitec " role="presentation "
                     src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/companylogos%2Fexsitec-logo.png?alt=media&token=2ffb2d17-ebfa-4c45-a9e1-59433da5257f">
                 </a>
               </div>
               <br>
-              
+            </div>
+
+            <!-- Premium Partner -->
+            <div class="column is-5">
               <h2 class="title is-4 is-spaced" style="text-transform: uppercase; text-align: center;">
                 Premium Partner
               </h2>
               <br>
               <div style="display: flex; justify-content: center; align-items: center;">
-                <a href="https://www2.deloitte.com/se/sv.html" target="_blank ">
-                  <img style="max-height: 40px;" alt="Deloitte" role="presentation "
+                <a href="https://www2.deloitte.com/se/sv.html" target="_blank " style="margin: 0 auto; display: flex;">
+                  <img style="max-height: 50px; margin: 0 auto; margin-top: 25px;" alt="Deloitte" role="presentation "
                     src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/companylogos%2Fdeloitte_premium_partner.png?alt=media&token=a0159083-fe49-43dc-b0a3-1f149ff9eed7">
                 </a>
               </div>

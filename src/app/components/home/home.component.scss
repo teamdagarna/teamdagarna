@@ -34,10 +34,6 @@ img {
   background-color: #fbfbfd;
 }
 
-// .level-item {
-//   padding-bottom: 10%;
-// }
-
 .is-coverage {
   .level {
     -ms-flex-wrap: wrap;
@@ -46,15 +42,6 @@ img {
     justify-content: center;
   }
 }
-
-// @media screen and (min-width: 769px) {
-//   .is-coverage {
-//     .level-item {
-//       // margin-right: 5em;
-//       // margin-left: 5em;
-//     }
-//   }
-// }
 
 .is-clickable {
   cursor: pointer;
@@ -96,4 +83,24 @@ img {
   background-size: 300% 300%;
   height: 100vh;
   animation: gradientMove 10s infinite alternate ease-in-out;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.countdown .time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.countdown .time-block small {
+  font-size: 17px;
+  font-weight: 300;
+  color: inherit;
 }
