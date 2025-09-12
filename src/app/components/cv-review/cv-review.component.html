@@ -14,25 +14,33 @@
             eller <a href="mailto:nellie.brelin@teamdagarna.com">nellie.brelin@teamdagarna.com</a>.
           </p>
           <br>
-          <p class="has-text-centered">
+          <p class="has-text-centered" *ngIf="!isApplicationOpen">
             Bokningen öppnar här onsdagen den <b>17:e september kl. 12:00.</b>
             <br><br>
-            Först till kvarn gäller!
+          </p>
+          <p class="has-text-centered" *ngIf="isApplicationOpen">
+            Boka en tid nedan! Först till kvarn gäller.
           </p>
 
-          <!-- <h2><strong>Så behandlar vi dina uppgifter</strong></h2>
-          <p> För att hantera din bokning behöver vi samla in ditt förnamn, efternamn och e-postadress. Uppgifterna 
+          <p class="has-text-centered" *ngIf="!isApplicationOpen">
+            Först till kvarn gäller!
+          </p>
+          <br><br>
+
+          <h2 *ngIf="isApplicationOpen"><strong>Så behandlar vi dina uppgifter</strong></h2>
+          <p *ngIf="isApplicationOpen"> För att hantera din bokning behöver vi samla in ditt förnamn, efternamn och e-postadress. Uppgifterna 
             används endast för CV-granskningen och raderas efter eventet. Har du frågor kring detta hör av dig till
             <a href="mailto:itteamdagarna@gmail.com">itteamdagarna@gmail.com</a>. 
           </p>
-          <br> -->
+          <br>
 
-          <!-- <div
+          <div
             class="calendly-inline-widget"
+            *ngIf="isApplicationOpen"
             data-url="https://calendly.com/itteamdagarna/cv-granskning-av-unik-student?primary_color=ffa5ce">
-          </div> -->
+          </div>
 
-          <div class="column" style="margin-top: 20px;">
+          <div class="column" style="margin-top: 20px;" *ngIf="!isApplicationOpen">
             <a href="https://unikstudent.se/" target="_blank" rel="noopener noreferrer">
               <img src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/sponsors%202025%2Funik_student_logo.png?alt=media&token=e5e453a9-8245-4599-b215-095ca5c629ca" style="max-height: 200px;">
             </a>
