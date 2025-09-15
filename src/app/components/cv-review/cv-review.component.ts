@@ -19,8 +19,8 @@ export class CvReviewComponent {
     const now = new Date();
 
     // Open the 17th of September 2025, 12:00:00
-    const openApplicationDate = new Date(2025, 8, 7, 12, 0, 0); // 0-index months so 8 = September
-    const closeApplicationDate = new Date(2025, 8, 24, 10, 0, 0);
+    const openApplicationDate = new Date(2025, 8, 17, 12, 0, 0); // 0-index months so 8 = September
+    const closeApplicationDate = new Date(2025, 8, 25, 10, 0, 0);
     
     if (now > closeApplicationDate) {
       this.isApplicationOpen = false;
