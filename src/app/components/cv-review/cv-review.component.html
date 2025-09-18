@@ -18,17 +18,24 @@
             Bokningen öppnar här onsdagen den <b>17:e september kl. 12:00.</b>
             <br><br>
           </p>
-          <p class="has-text-centered" *ngIf="isApplicationOpen">
+          <!-- <p class="has-text-centered" *ngIf="isApplicationOpen">
             <strong>Boka en tid nedan! </strong>
             <br>
             Först till kvarn gäller. Om slottarna inte dyker upp, gör en full uppdatering av sidan: 
             <br>command-shift-R (på Mac) eller ctr-shift-R (på Windows).
+          </p> -->
+
+          <p class="has-text-centered" *ngIf="isApplicationOpen">
+            <strong>Fullbokat!</strong>
+            <br>
+            Alla tider är nu bokade. Om någon avbokar kommer tiden att bli tillgänglig här igen.
+            <br><br>
           </p>
 
-          <p class="has-text-centered" *ngIf="!isApplicationOpen">
+          <!-- <p class="has-text-centered" *ngIf="!isApplicationOpen">
             Först till kvarn gäller!
           </p>
-          <br><br>
+          <br><br> -->
 
           <h2 *ngIf="isApplicationOpen"><strong>Så behandlar vi dina uppgifter</strong></h2>
           <p *ngIf="isApplicationOpen"> För att hantera din bokning behöver vi samla in ditt förnamn, efternamn och e-postadress. 
