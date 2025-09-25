@@ -200,6 +200,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'fairmap', component: FairMapComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
+    { path: 'registration', component: RegisterComponent},
     { path: 'hallbarhet', component: SustainabilityComponent},
     { path: 'integritetspolicy', component: PrivacypolicyComponent},
     { path: 'find', component: MapComponent },
