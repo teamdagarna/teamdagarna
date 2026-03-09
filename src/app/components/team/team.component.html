@@ -3,7 +3,7 @@
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered ">
         <div class="column is-9">
-          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">DreamTEAM 2025</h2>
+          <h2 class="title is-1 is-spaced" style="text-transform: uppercase">DreamTEAM 2026</h2>
         </div>
       </div>
     </div>
@@ -17,9 +17,9 @@
         <ng-container *ngFor="let dreamteamer of dreamteam | async">
           <div class="column is-4 is-3-fullhd">
             <div class="card is-teamview  bm--card-equal-height">
-              <div class="card-header">
+              <!-- <div class="card-header">
                 <img *ngIf="dreamteamer.primaryimagepath | storage | async as photoUrl " [src]="photoUrl ">
-              </div>
+              </div> -->
 
               <div class="card-body ">
                 <div class="card-title">{{ dreamteamer.fullname }}
