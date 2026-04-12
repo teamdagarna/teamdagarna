@@ -17,7 +17,7 @@ export class RegisterComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     window.Jexpo = (window.Jexpo || []).concat(function(){
-      Jexpo.widget('/team/bundles/exhibitors-registration.jsx', '#registration');
+      Jexpo.widget('/team/bundles/exhibitors-portal.jsx', '#registration');
     });
   }
   loadScript(url: string) {

@@ -17,7 +17,7 @@ export class ExhibitorsPreRegistrationComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     window.Jexpo = (window.Jexpo || []).concat(function(){
-      Jexpo.widget('/team/bundles/exhibitors-pre-registration.jsx', '#pre-registration');
+      Jexpo.widget('/team/bundles/exhibitors-registration.jsx', '#pre-registration');
     });
   }
   loadScript(url: string) {
