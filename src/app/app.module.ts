@@ -91,6 +91,7 @@ import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.co
 import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
 import { InforComponent } from './components/infor/infor.component';
 import { HostsComponent } from './components/hosts/hosts.component';
+import { FairCataloguePopupComponent } from './components/fair-catalogue-popup/fair-catalogue-popup.component';
 
 
 
@@ -152,7 +153,8 @@ registerLocaleData(localeSv, 'sv');
     BusinessBattleComponent,
     JobcatalogueComponent,
     InforComponent,
-    HostsComponent
+    HostsComponent,
+    FairCataloguePopupComponent
   ],
   imports: [
     BrowserModule,

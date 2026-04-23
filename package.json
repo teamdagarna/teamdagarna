@@ -43,6 +43,7 @@
     "http-proxy": "^1.18.1",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.21",
+    "maplibre-gl": "^5.23.0",
     "mapwize-ui": "^3.3.3",
     "minimist": "^1.2.5",
     "ng-pick-datetime": "^7.0.0",

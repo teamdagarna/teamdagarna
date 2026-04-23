@@ -690,3 +690,21 @@ a {
   text-align: left;
   margin-right: 20px;
 }
+
+//Leaflet map
+/* styles.css (global) */
+.room-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #A0335E;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Ta bort Leaflets default tooltip-pil */
+.room-label::before {
+  display: none;
+}

@@ -1,5 +1,4 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FairMapComponent } from './fairmap.component';
 
 describe('FairMapComponent', () => {
