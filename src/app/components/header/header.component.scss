@@ -3,8 +3,12 @@ nav {
   // height: 70px;
   font-family: "Raleway";
   width: 100vw;
-  height: 10vh;
+  height: 70px;
   // margin-top: -0.5%;
+
+  @media screen and (max-width: 768px) {
+    height: 60px;
+  }
 }
 
 .navbar-burger {
@@ -29,8 +33,21 @@ nav {
 
 #navburger {
   color: #e77da9;
+  height: 60px;
 }
 
 img {
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-menu.is-active {
+    position: fixed;
+    top: 60px; // samma som navbar-höjden på mobil
+    left: 0;
+    right: 0;
+    z-index: 29;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+  }
 }

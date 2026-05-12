@@ -22,4 +22,10 @@ export class HeaderComponent implements OnInit {
     this.isMenuActive = !this.isMenuActive;
   }
 
+  closeMenu() {
+  console.log('closeMenu called');
+  this.isMenuActive = false;
+  
+}
+
 }
