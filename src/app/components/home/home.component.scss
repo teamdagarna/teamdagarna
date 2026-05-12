@@ -81,10 +81,8 @@ img {
 .moving-background {
   background: radial-gradient(circle, #d63261, #e75b89, #f8a093);
   background-size: 300% 300%;
-  min-height: 100vh;
+  height: 100vh;
   animation: gradientMove 10s infinite alternate ease-in-out;
-  display: flex;
-  align-items: center;
 }
 
 .countdown {
@@ -105,22 +103,4 @@ img {
   font-size: 17px;
   font-weight: 300;
   color: inherit;
-}
-
-.hero-top-columns {
-  margin-top: clamp(20px, 5vh, 80px) !important;
-}
-
-@media screen and (max-height: 700px) {
-  .moving-background {
-    padding: 1rem 0;
-  }
-
-  .moving-background h1 {
-    font-size: 18px !important;
-  }
-
-  .moving-background h2 {
-    font-size: 22px !important;
-  }
 }
