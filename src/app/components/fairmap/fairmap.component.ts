@@ -49,50 +49,70 @@ export class FairMapComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private fetchAllExhibitors(): Promise<void> {
-  return fetch('https://v3cdn.jexpo.se/team/entities/exhibitors?expand&filter=status:attending')
-    .then(res => res.json())
-    .then(result => {
-      (result.results || []).forEach((ex: any) => {
-        const boothId = String(ex.boothSpace?.name);
-        
-        // Hämta ut de delar som behövs för att bygga Jexpo-länken
-        const exhibitorKey = ex.$key?.split('/').pop();
-        const logoFile = ex.profile?.logotype?.$file;
+  selectedDay: string = '2026-09-22';
+  private allExhibitors: any[] = [];
+  private boothsGeoJson: any = null;
 
-        if (boothId && boothId !== 'undefined') {
-          let logoUrl = null;
-          
-          if (exhibitorKey && logoFile) {
-            // Här bygger vi den rena, direkta länken till Jexpo
-            logoUrl = `https://v3cdn.jexpo.se/team/storage/exhibitors/${exhibitorKey}/${logoFile}/300`;
-          }
-          
-          // Spara bolaget i vår karta med den direkta bildlänken
-          this.exhibitorMap.set(boothId, { ...ex, logoUrl });
-        }
+  private fetchAllExhibitors(): Promise<void> {
+    return fetch('https://v3.jexpo.se/team/entities/exhibitors?expand&filter=status:attending')
+      .then(res => res.json())
+      .then(result => {
+        // Spara alla med logoUrl beräknad en gång
+        this.allExhibitors = (result.results || []).map((ex: any) => {
+          const exhibitorKey = ex.$key?.split('/').pop();
+          const logoFile = ex.profile?.logotype?.$file;
+          const logoUrl = exhibitorKey && logoFile
+            ? `https://v3cdn.jexpo.se/team/storage/exhibitors/${exhibitorKey}/${logoFile}/300`
+            : null;
+          return { ...ex, logoUrl };
+        });
+
+        console.log(`Hämtade ${this.allExhibitors.length} bolag totalt`);
+        this.filterByDay(this.selectedDay);
       });
-      console.log(`Laddade ${this.exhibitorMap.size} bolag med rena Jexpo-länkar.`);
-    });
+  }
+
+  setDay(day: string): void {
+    this.selectedDay = day;
+    this.filterByDay(day);
+  }
+
+private filterByDay(day: string): void {
+  this.exhibitorMap.forEach((ex, boothId) => {
+    if (this.map.hasImage(boothId)) {
+      this.map.removeImage(boothId);
+    }
+  });
+  this.exhibitorMap.clear();
+  this.allExhibitors.forEach((ex: any) => {
+    const boothId = String(ex.booth?.name);
+    if (!boothId || boothId === 'undefined') return;
+    const days = ex.days || [];
+    if (days.length === 0 || days.includes(day)) {
+      this.exhibitorMap.set(boothId, ex);
+    }
+  });
+  console.log(`Filtrerade till ${this.exhibitorMap.size} bolag för ${day}`);
+  this.loadExhibitorImages().then(() => {
+    this.updateBoothAppearance();
+  });
 }
 
-  private async loadExhibitorImages(): Promise<void> {
+private async loadExhibitorImages(): Promise<void> {
   const promises: Promise<void>[] = [];
-
   this.exhibitorMap.forEach((ex, boothId) => {
     if (ex.logoUrl) {
       const promise = new Promise<void>((resolve) => {
         const img = new Image();
-        img.crossOrigin = "Anonymous"; // Viktigt!
+        img.crossOrigin = "Anonymous";
         img.src = ex.logoUrl;
-
         img.onload = () => {
-          if (!this.map.hasImage(boothId)) {
-            this.map.addImage(boothId, img);
+          if (this.map.hasImage(boothId)) {
+            this.map.removeImage(boothId); // ← lägg till denna rad
           }
+          this.map.addImage(boothId, img);
           resolve();
         };
-
         img.onerror = () => {
           console.warn(`Kunde inte ladda logga för ${boothId}`);
           resolve();
@@ -101,8 +121,16 @@ export class FairMapComponent implements OnInit, AfterViewInit {
       promises.push(promise);
     }
   });
-
   return Promise.all(promises).then(() => {});
+}
+
+private updateBoothAppearance(): void {
+  // Ingen färgändring behövs
+  // Bilderna hanteras av reloadExhibitorImages + booths-logos lagret
+  // Uppdatera bara source så lagret ritas om
+  const source = this.map.getSource('booths') as any;
+  if (!source || !this.boothsGeoJson) return;
+  source.setData(this.boothsGeoJson); // ← ingen modifiering av features
 }
 
   private loadRooms(): void {
@@ -207,6 +235,7 @@ export class FairMapComponent implements OnInit, AfterViewInit {
   fetch('/assets/booths-circles.geojson')
     .then(res => res.json())
     .then(data => {
+      this.boothsGeoJson = data;
       this.map.addSource('booths', { type: 'geojson', data });
 
       // Bakgrundscirkeln
@@ -255,7 +284,7 @@ export class FairMapComponent implements OnInit, AfterViewInit {
         const ex = this.exhibitorMap.get(boothId);
         if (ex) {
           this.selectedRoom = ex;
-          this.cdr.detectChanges();
+          //this.cdr.detectChanges();
         }
       });
     });
