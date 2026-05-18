@@ -44,7 +44,7 @@
     "kind-of": "^6.0.3",
     "lodash": "^4.17.21",
     "mapwize-ui": "^3.3.3",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "ng-pick-datetime": "^7.0.0",
     "ngx-bootstrap": "^8.0.0",
     "ngx-quill": "^16.1.2",
