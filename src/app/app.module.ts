@@ -91,6 +91,8 @@ import { JobcatalogueComponent } from './components/jobcatalogue/jobcatalogue.co
 import { CompaniescatalogueComponent } from './components/companiescatalogue/companiescatalogue.component';
 import { InforComponent } from './components/infor/infor.component';
 import { HostsComponent } from './components/hosts/hosts.component';
+import { FairCataloguePopupComponent } from './components/fair-catalogue-popup/fair-catalogue-popup.component';
+import { FairMapNewComponent } from './components/fairmap-new/fairmap-new.component';
 
 
 
@@ -152,7 +154,9 @@ registerLocaleData(localeSv, 'sv');
     BusinessBattleComponent,
     JobcatalogueComponent,
     InforComponent,
-    HostsComponent
+    HostsComponent,
+    FairCataloguePopupComponent,
+    FairMapNewComponent
   ],
   imports: [
     BrowserModule,
@@ -198,6 +202,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events', component: EventsComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'fairmap', component: FairMapComponent },
+    { path: 'fairmap/new', component: FairMapNewComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'registration', component: RegisterComponent},

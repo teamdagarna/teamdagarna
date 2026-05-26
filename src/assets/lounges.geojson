@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "parsed",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-07,
+"features": [
+{ "type": "Feature", "properties": { "felt:feature": 1, "name": "Studentlounge", "felt:color": "#832222", "felt:fillOpacity": 0.25, "felt:id": "9BEYSy49AlT5u6Yim4K10jbC", "felt:locked": false, "felt:ordering": 1775852742742992, "felt:showArea": false, "felt:strokeStyle": "solid", "felt:strokeWidth": 2, "felt:type": "Polygon" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 15.5788738, 58.4020828 ], [ 15.5790269, 58.4020828 ], [ 15.5790269, 58.4022113 ], [ 15.5788738, 58.4022113 ], [ 15.5788738, 58.4020828 ] ] ] ] } },
+{ "type": "Feature", "properties": { "felt:feature": 2, "name": "Studentgarderob", "felt:color": "#832222", "felt:fillOpacity": 0.25, "felt:id": "tzJolVG8RwaC9AFbUe69Bl0D", "felt:locked": false, "felt:ordering": 1775852742743376, "felt:showArea": false, "felt:strokeStyle": "solid", "felt:strokeWidth": 2, "felt:type": "Polygon" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 15.5781515, 58.4019534 ], [ 15.5783046, 58.4019534 ], [ 15.5783046, 58.4020179 ], [ 15.5781515, 58.4020179 ], [ 15.5781515, 58.4019534 ] ] ] ] } },
+{ "type": "Feature", "properties": { "felt:feature": 3, "name": "CV-lounge", "felt:color": "#832222", "felt:fillOpacity": 0.25, "felt:id": "kujuE8DNSx9BGJCoT9CtSghB", "felt:locked": false, "felt:ordering": 1775852742743603, "felt:showArea": false, "felt:strokeStyle": "solid", "felt:strokeWidth": 2, "felt:type": "Polygon" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 15.5790267, 58.4020827 ], [ 15.5791798, 58.4020827 ], [ 15.5791798, 58.4021472 ], [ 15.5790267, 58.4021472 ], [ 15.5790267, 58.4020827 ] ] ] ] } },
+{ "type": "Feature", "properties": { "felt:feature": 4, "name": "Studentlounge", "felt:color": "#832222", "felt:fillOpacity": 0.25, "felt:id": "EJ7BnLbbTCub2cXacaVATA", "felt:locked": false, "felt:ordering": 1775852742743734, "felt:showArea": false, "felt:strokeStyle": "solid", "felt:strokeWidth": 2, "felt:type": "Polygon" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 15.5786647, 58.402147 ], [ 15.5788178, 58.402147 ], [ 15.5788178, 58.4022115 ], [ 15.5786647, 58.4022115 ], [ 15.5786647, 58.402147 ] ] ] ] } }
+]
+}
