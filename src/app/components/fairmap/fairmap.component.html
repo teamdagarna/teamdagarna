@@ -1,55 +1,24 @@
 <div class="hero" id="title-hero">
-  <div class="hero-body" style="padding: 0;">
-    <!-- <div class="container has-text-centered is-mobile"> -->
-      <!-- <div class="columns is-centered ">
+  <div class="hero-body">
+    <div class="container has-text-centered is-mobile">
+      <div class="columns is-centered ">
         <div class="column is-9">
           <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Mässkarta 2025</h2>
-           -->
+          
           <!-- <h2 class="subtitle is-6">
             Mässkartan för TEAM-dagarna 2025 kommer snart, håll utkik här!
           </h2> -->
 
-          <!-- <h2 class="subtitle is-6">
+          <h2 class="subtitle is-6">
             Nedan kan du se en karta över var varje företag står på mässområdet. Notera att olika företag är på 
             plats på mässan olika dagar. Du kan även hitta var lounger, garderober och annat kul finns!
           </h2>
         </div>
-      </div> -->
-      <!-- Test för interaktiv karta -->
-      
-    <div class="map-page">
-      <div id="map"></div>
-      
-        <div class="day-toggle">
-          <button 
-          class="day-btn" 
-          [class.day-btn--active]="selectedDay === '2026-09-22'"
-          (click)="setDay('2026-09-22')">
-          Tisdag 22/9
-        </button>
-        <button 
-          class="day-btn" 
-          [class.day-btn--active]="selectedDay === '2026-09-23'"
-          (click)="setDay('2026-09-23')">
-          Onsdag 23/9
-        </button>
       </div>
-
-      <div class="company-modal" [class.company-modal--visible]="selectedRoom">
-        <div class="modal-content">
-          <app-fair-catalogue-popup
-            *ngIf="selectedRoom"
-            [exhibitorEntity]="selectedRoom"
-            (handleClose)="closePanel()">
-          </app-fair-catalogue-popup>
-        </div>
+      <div class="column is-centered ">
+        <img alt="map"  style="max-height: 1000px; max-width: 90%;" src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/masskarta.png?alt=media&token=1c616553-c7b8-4c09-aa8f-488e8eec0445">
       </div>
     </div>
-      
-      <!-- <div class="column is-centered ">
-        <img alt="map"  style="max-height: 1000px; max-width: 90%;" src="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/masskarta.png?alt=media&token=1c616553-c7b8-4c09-aa8f-488e8eec0445">
-      </div> -->
-    <!-- </div> -->
   </div>
 </div>
 
