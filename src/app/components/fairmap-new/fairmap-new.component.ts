@@ -299,5 +299,6 @@ private updateBoothAppearance(): void {
   closePanel(): void {
     this.selectedRoom = null;
     this.cdr.detectChanges();
+    window.scrollTo(0,0);
   }
 }
