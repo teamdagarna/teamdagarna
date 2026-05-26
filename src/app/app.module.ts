@@ -202,7 +202,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'events', component: EventsComponent },
     { path: 'events/:id', component: EventComponent },
     { path: 'fairmap', component: FairMapComponent },
-    { path: 'fairmap/new', component: FairMapNewComponent },
+    { path: 'fairmap-new', component: FairMapNewComponent },
     { path: 'companysignin', component: CompanysigninComponent },
     { path: 'pre-registration', component: ExhibitorsPreRegistrationComponent},
     { path: 'registration', component: RegisterComponent},
