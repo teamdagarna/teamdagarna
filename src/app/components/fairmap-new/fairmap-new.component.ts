@@ -22,6 +22,12 @@ export class FairMapNewComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    setTimeout(() => {
+      window.scrollTo(0,0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+
     this.map = new maplibregl.Map({
       container: 'map',
       style: 'https://tiles.openfreemap.org/styles/positron',
