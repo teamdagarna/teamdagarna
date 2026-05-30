@@ -176,3 +176,4 @@ $RECYCLE.BIN/
 *.lnk
 [D[C
 [D[C.pub
+.angular/cache
