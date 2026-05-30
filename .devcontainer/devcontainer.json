@@ -2,10 +2,14 @@
     "name": "TEAM-dagarna",
     "dockerFile": "Dockerfile",
     "mounts": [
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=teamdagarna-node-modules,target=/workspaces/teamdagarna/node_modules,type=volume",
+        "source=teamdagarna-angular-cache,target=/workspaces/teamdagarna/.angular,type=volume"
     ],
     "runArgs": [
         "--network",
         "host"
-    ]
+    ],
+    "forwardPorts": [4300],
+    "postCreateCommand": "npm install --legacy-peer-deps"
 }

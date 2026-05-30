@@ -93,6 +93,7 @@ import { InforComponent } from './components/infor/infor.component';
 import { HostsComponent } from './components/hosts/hosts.component';
 import { FairCataloguePopupComponent } from './components/fair-catalogue-popup/fair-catalogue-popup.component';
 import { FairMapNewComponent } from './components/fairmap-new/fairmap-new.component';
+import { ApplicationNewComponent } from './components/application-new/application-new.component';
 
 
 
@@ -156,7 +157,8 @@ registerLocaleData(localeSv, 'sv');
     InforComponent,
     HostsComponent,
     FairCataloguePopupComponent,
-    FairMapNewComponent
+    FairMapNewComponent,
+    ApplicationNewComponent
   ],
   imports: [
     BrowserModule,
@@ -215,6 +217,7 @@ registerLocaleData(localeSv, 'sv');
     //{ path: 'exsitecsignup', component: exsiteccompetitionComponent},
     { path: 'fairschedule', component: FairscheduleComponent},
     { path: 'interviewapplication', component: ApplicationComponent},
+    { path: 'interviewapplication-new', component: ApplicationNewComponent },
     { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
     { path: 'casetavling', component: CasecompComponent},

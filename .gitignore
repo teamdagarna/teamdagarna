@@ -177,3 +177,5 @@ $RECYCLE.BIN/
 [D[C
 [D[C.pub
 .angular/cache
+dist/
+.firebase/
