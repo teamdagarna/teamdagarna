@@ -12,7 +12,7 @@
         </nav>
 
         <!-- Event Info -->
-        <ng-container *ngTemplateOutlet="eventInfoTemplate"></ng-container>
+        <!-- <ng-container *ngTemplateOutlet="eventInfoTemplate"></ng-container> -->
         <h1 class="title is-2 is-spaced">{{ selectedEvent.title }}</h1>
         <h2 class="subtitle is-4" *ngIf="selectedEvent.ingress">{{ selectedEvent.ingress }}</h2>
 
@@ -39,44 +39,71 @@
         <ng-container *ngTemplateOutlet="eventInfoTemplate"></ng-container>
 
         <!-- Sign-on Section (används inte om anmälan sköts i orbi eller liknande) -->
+        <!-- Sign-on Section (används inte om anmälan sköts i orbi eller liknande) -->
         <ng-container *ngIf="selectedEvent.signon">
-          <p *ngIf="selectedEvent.signonends.toDate() > today"><em>Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}</em></p>
-          <p *ngIf="selectedEvent.signoffends?.toDate() && selectedEvent.signoffends.toDate() > today"><em>Avanmälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}</em></p>
-          <p *ngIf="selectedEvent.signonstarts.toDate() > today"><em>Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}</em></p>
+          <div class="signup-box">
 
-          <ng-container *ngIf="user">
-            <ng-container *ngIf="attended && !confirmDelete && canSignOff">
-              <p class="has-text-primary" *ngIf="attendedDoc.waitinglist">Du står som reserv.</p>
-              <p class="has-text-primary" *ngIf="!attendedDoc.waitinglist">
-                Du är anmäld (Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }}).
+            <div class="signup-timing">
+              <p *ngIf="selectedEvent.signonstarts.toDate() > today">
+                <i class="far fa-clock"></i>&nbsp;Anmälan öppnar {{ selectedEvent.signonstarts.toDate() | date:'dd MMM HH:mm' }}
               </p>
-              <br>
-              <button class="button is-outlined" (click)="delete()">
-                <span>Avanmäl dig</span>
-                <span class="icon is-small"><i class="fas fa-times"></i></span>
-              </button>
+              <p *ngIf="selectedEvent.signonends.toDate() > today">
+                <i class="far fa-clock"></i>&nbsp;Anmälan stänger {{ selectedEvent.signonends.toDate() | date:'dd MMM HH:mm' }}
+              </p>
+              <p *ngIf="selectedEvent.signoffends?.toDate() && selectedEvent.signoffends.toDate() > today">
+                <i class="far fa-clock"></i>&nbsp;Avanmälan stänger {{ selectedEvent.signoffends.toDate() | date:'dd MMM HH:mm' }}
+              </p>
+            </div>
+
+            <ng-container *ngIf="user">
+              <ng-container *ngIf="attended && !confirmDelete && canSignOff">
+                <p class="signup-status has-text-primary" *ngIf="attendedDoc.waitinglist">
+                  <i class="fas fa-hourglass-half"></i>&nbsp;Du står som reserv.
+                </p>
+                <p class="signup-status has-text-primary" *ngIf="!attendedDoc.waitinglist">
+                  <i class="fas fa-check-circle"></i>&nbsp;Du är anmäld
+                  <span class="has-text-weight-semibold">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
+                </p>
+
+                <button class="button is-outlined is-danger" (click)="delete()">
+                  <span>Avanmäl dig</span>
+                  <span class="icon is-small"><i class="fas fa-times"></i></span>
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="!attended && canSignOn && loaded">
+                <button class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="attend()" *ngIf="canAttend">
+                  Anmäl dig*
+                </button>
+
+                <div class="notification is-warning is-light" *ngIf="!canAttend && selectedEvent.maxattendance != 0">
+                  <p>Eventet är fullt. Du kan sätta upp dig på reservlistan. Följ din profil för plats.</p>
+                  <p class="has-text-weight-semibold">Just nu är det {{ numberofreserves }} reserver på listan.</p>
+                </div>
+
+                <button class="button is-outlined" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="!canAttend && selectedEvent.maxattendance != 0">
+                  Sätt upp dig som reserv
+                </button>
+
+                <p class="signup-hint">
+                  Din specialkost hämtas automatiskt från din profil.
+                  <a [routerLink]="['/profile']">Uppdatera din profil här</a> innan du anmäler dig om den inte stämmer.
+                </p>
+              </ng-container>
             </ng-container>
 
-            <ng-container *ngIf="!attended && canSignOn && loaded">
-              <button class="button" [ngClass]="{'is-loading': loading}" (click)="attend()" *ngIf="canAttend">Anmäl dig*</button>
-
-              <p class="has-text-danger" *ngIf="!canAttend && selectedEvent.maxattendance != 0">
-                Eventet är fullt. Du kan sätta upp dig på reservlistan. Följ din profil för plats.
-              </p>
-              <p class="has-text-danger" *ngIf="!canAttend && selectedEvent.maxattendance != 0">Just nu är det {{ numberofreserves }} reserver på listan.</p>
-              <button class="button" [ngClass]="{'is-loading': loading}" (click)="reserv()" *ngIf="!canAttend && selectedEvent.maxattendance != 0">Sätt upp dig som reserv</button>
-            </ng-container>
-          </ng-container>
-
-          <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du kunde inte anmäla dig.</p>
-          <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
-          <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Kolla din profil för plats.</p>
+            <p class="has-text-danger" *ngIf="attenderror">Något gick fel och du kunde inte anmäla dig.</p>
+            <p class="has-text-primary" *ngIf="confirmDelete">Du är nu borttagen.</p>
+            <p class="has-text-primary" *ngIf="confirmReserv">Du är nu satt på reservlistan. Kolla din profil för plats.</p>
+          </div>
         </ng-container>
 
-        <p *ngIf="!user && selectedEvent.signon"><em>Du måste vara inloggad för att kunna anmäla dig.</em></p>
+        <p *ngIf="!user && selectedEvent.signon" class="signup-hint">
+          <em>Du måste vara inloggad för att kunna anmäla dig.</em>
+        </p>
 
-        <p *ngIf="selectedEvent.preorunder != 'Övrigt'" class="subtitle is-6">
-          *Specialkost garanteras endast om anmälan kommer in 4 dagar innan. Läs mer på din sektions hemsida.
+        <p *ngIf="selectedEvent.preorunder != 'Övrigt'" class="subtitle is-6 disclaimer-text">
+          *Specialkost garanteras endast om anmälan kommer in 4 dagar innan eventet. Läs mer på din sektions hemsida.
         </p>
       </div>
     </div>

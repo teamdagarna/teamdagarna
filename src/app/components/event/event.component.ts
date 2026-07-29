@@ -78,6 +78,9 @@ export class EventComponent implements OnInit {
       if (userAttend) {
         this.attended = true;
         this.attendedDoc = userAttend;
+      } else {
+        this.attended = false;
+        this.attendedDoc = null;
       }
       this.loaded = true;
     });
@@ -120,19 +123,23 @@ export class EventComponent implements OnInit {
 
   /** Attend / Reserve / Delete methods */
   async attend() {
-    if (!this.canAttend || this.attended) {
-      this.attenderror = true;
-      return;
-    }
-    this.loading = true;
-    await this.afs.collection<AttendEvent>('attendevent').add(this.buildAttendEvent());
-    this.confirmAttend = true;
-    this.loading = false;
-    this.setGoNativeTag(true);
+  if (!this.canAttend || this.attended) {
+    this.attenderror = true;
+    return;
+  }
+  this.loading = true;
+  this.confirmDelete = false;
+  this.confirmReserv = false;
+  await this.afs.collection<AttendEvent>('attendevent').add(this.buildAttendEvent());
+  this.confirmAttend = true;
+  this.loading = false;
+  this.setGoNativeTag(true);
   }
 
   async reserv() {
     this.loading = true;
+    this.confirmDelete = false;
+    this.confirmAttend = false;
     await this.afs.collection<AttendEvent>('attendevent').add(this.buildAttendEvent(true));
     this.confirmReserv = true;
     this.loading = false;

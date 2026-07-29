@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
   loading: Boolean = false;
   // detailForm: FormGroup;
 
-  constructor(public fb: FormBuilder, public auth: AuthService, private router: Router) { }
+  constructor(public fb: FormBuilder, public auth: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // First Step
@@ -51,7 +51,8 @@ export class SigninComponent implements OnInit {
    console.log(liumail)
    this.auth.emailLogin(liumail, data.password).then((res) => {
          this.loading = false;
-         this.router.navigate(['']);
+         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+         this.router.navigateByUrl(returnUrl);
          //Checks if request comes from the app. If user logs in the info in the navbar will change in the app.
          if (navigator.userAgent.indexOf('gonative') > -1) {
            var info = {userId: this.auth.getUserID(), userEmail: this.auth.getUserEmail()};

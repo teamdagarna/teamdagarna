@@ -9,3 +9,41 @@
   background-position: center;
   border-radius: 8px;
 }
+
+.signup-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.signup-timing {
+  margin-bottom: 1rem;
+
+  p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.signup-status {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.signup-box .button {
+  margin-bottom: 0.75rem;
+}
+
+.signup-hint {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.disclaimer-text {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
