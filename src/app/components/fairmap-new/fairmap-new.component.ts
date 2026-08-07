@@ -131,12 +131,51 @@ private async loadExhibitorImages(): Promise<void> {
 }
 
 private updateBoothAppearance(): void {
-  // Ingen färgändring behövs
-  // Bilderna hanteras av reloadExhibitorImages + booths-logos lagret
-  // Uppdatera bara source så lagret ritas om
   const source = this.map.getSource('booths') as any;
   if (!source || !this.boothsGeoJson) return;
-  source.setData(this.boothsGeoJson); // ← ingen modifiering av features
+
+  const updated = {
+    ...this.boothsGeoJson,
+    features: this.boothsGeoJson.features.map((f: any) => {
+      const boothId = String(f.properties.id);
+      const ex = this.exhibitorMap.get(boothId);
+      const isFairFuture = ex?.exposure?.fair_future === true;
+
+      // Byt ut geometrin till stjärna för framtidschansen-bås
+      const geometry = isFairFuture ? {
+        type: 'MultiPolygon',
+        coordinates: [[
+          this.generateStarPolygon(
+            f.properties['felt:position'] as [number, number],
+            f.properties['felt:radius'] * 1.4 // lite större än cirkeln
+          )
+        ]]
+      } : f.geometry;
+
+      return {
+        ...f,
+        geometry,
+        properties: {
+          ...f.properties,
+          fair_future: isFairFuture
+        }
+      };
+    })
+  };
+  source.setData(updated);
+
+  // Färgsätt stjärnbåsen guldigt
+  this.map.setPaintProperty('booths-fill', 'fill-color', [
+    'case',
+    ['==', ['get', 'fair_future'], true], 'rgba(255, 215, 0, 0.4)',
+    'rgba(255, 255, 255, 0.7)'
+  ]);
+
+  this.map.setPaintProperty('booths-outline', 'line-color', [
+    'case',
+    ['==', ['get', 'fair_future'], true], 'rgba(255, 215, 0, 0.9)',
+    '#ffffff'
+  ]);
 }
 
   private loadRooms(): void {
@@ -237,12 +276,32 @@ private updateBoothAppearance(): void {
       });
   }
 
-  private loadBooths(): void {
-  fetch('/assets/booths-circles.geojson')
-    .then(res => res.json())
-    .then(data => {
-      this.boothsGeoJson = data;
-      this.map.addSource('booths', { type: 'geojson', data });
+  private generateStarPolygon(center: [number, number], radiusMeters: number): number[][] {
+    const spikes = 5;
+    const outerR = radiusMeters;
+    const innerR = radiusMeters / 2.5;
+    const coords: number[][] = [];
+    
+    // Konvertera meter till grader (approximation)
+    const metersPerDegLat = 111320;
+    const metersPerDegLng = 111320 * Math.cos(center[1] * Math.PI / 180);
+    
+    for (let i = 0; i < spikes * 2; i++) {
+      const angle = (i * Math.PI / spikes) - Math.PI / 2 + Math.PI;
+      const r = i % 2 === 0 ? outerR : innerR;
+      const lng = center[0] + (Math.cos(angle) * r) / metersPerDegLng;
+      const lat = center[1] + (Math.sin(angle) * r) / metersPerDegLat;
+      coords.push([lng, lat]);
+    }
+    coords.push(coords[0]); // stäng polygonen
+    return coords;
+  }
+
+  private async loadBooths(): Promise<void> {
+    const res = await fetch('/assets/booths-circles.geojson');
+    const data = await res.json();
+    this.boothsGeoJson = data;
+    this.map.addSource('booths', { type: 'geojson', data });
 
       // Bakgrundscirkeln
       this.map.addLayer({
@@ -282,6 +341,7 @@ private updateBoothAppearance(): void {
             'icon-anchor': 'center'
           }
         });
+        this.updateBoothAppearance(); // ← lägg till denna rad
       });
 
       // Klick-event (Nu på kart-lagret istället)
@@ -293,8 +353,8 @@ private updateBoothAppearance(): void {
           //this.cdr.detectChanges();
         }
       });
-    });
-}
+    }
+  
 
   private getCoordinates(geometry: any): number[][] {
     if (geometry.type === 'Polygon') return geometry.coordinates[0];
