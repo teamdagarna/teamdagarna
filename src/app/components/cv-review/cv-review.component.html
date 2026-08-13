@@ -3,7 +3,23 @@
     <div class="container has-text-centered is-mobile">
       <div class="columns is-centered">
         <div class="column is-7">
-          <h1 class="title is-2 is-spaced" style="text-transform: uppercase">Boka CV-granskning</h1>
+          <h1 class="title is-2 is-spaced" style="text-transform: uppercase">CV-mall</h1>
+          <br>
+  
+          <p class="has-text-centered">
+            Inför <a href="https://unikstudent.se/">Unik Students</a> inspirationsföreläsning om jobbsökande
+            har de tagit fram en CV-mall som du kan använda som utgångspunkt för ditt eget CV. Mallen är extra
+            användbar om du planerar att boka ett kontaktsamtal under mässdagarna och vill gå in med ett vasst
+            CV redan från start.
+          </p>
+          <br>
+          <p class="has-text-centered" *ngIf="!isApplicationOpen">
+            <b>Ladda ner CV-mallen </b> <a href="https://firebasestorage.googleapis.com/v0/b/teamdagarna-5fb26.appspot.com/o/CV-mall%20Unik%20Student.docx?alt=media&token=8baf5e27-2fe2-48d6-86cf-05ac45ec31f9"><b>här</b></a>
+            <br><br>
+          </p>
+
+          
+          <!-- <h1 class="title is-2 is-spaced" style="text-transform: uppercase">Boka CV-granskning</h1>
           <br>
   
           <p class="has-text-centered">
@@ -17,7 +33,7 @@
           <p class="has-text-centered" *ngIf="!isApplicationOpen">
             Bokningen öppnar här onsdagen den <b>17:e september kl. 12:00.</b>
             <br><br>
-          </p>
+          </p> -->
           <!-- <p class="has-text-centered" *ngIf="isApplicationOpen">
             <strong>Boka en tid nedan! </strong>
             <br>
