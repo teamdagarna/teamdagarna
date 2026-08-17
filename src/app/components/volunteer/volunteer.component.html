@@ -6,17 +6,16 @@
           <h2 class="title is-2 is-spaced" style="text-transform: uppercase">Sök värd</h2>
           
           <h5 class="subtitle is-6" *ngIf="isApplicationOpen">
-            Nu söker vi värdar inför mässan 2025!
+            Nu söker vi värdar inför mässan 2026!
           </h5>
           <h5 class="subtitle is-6 has-text-danger" *ngIf="!isApplicationOpen">
-            Ansökan till värd för mässan 2025 är stängd, men håll utkik för ansökan för mässan 2026!
+            Ansökan till värd för mässan 2026 är stängd, men håll utkik för ansökan för mässan 2027!
           </h5>
           
           <h5 class="is-6 has-text-justified" style="text-align-last: center;">
             Nedan finner du info om av vad de olika värdposterna innebär samt ansökningsformuläret. Förmåner som värd är att du får gå gratis 
-            på årets finaste <strong>bankett</strong> på Konsert och Kongress i Linköping. Samtliga värdar har även en värdkick-off vilket 
-            innebär gratis <strong>sittning på KK</strong>. Oavsett post så där det detssutom är det ett lärorikt arbete och en bra erfarenhet 
-            att skriva på ditt CV. Bra chans att knyta kontakter med både företag och andra studenter!
+            på årets finaste <strong>bankett</strong> på Konsert och Kongress i Linköping. Oavsett post så är det också ett lärorikt arbete, en bra erfarenhet 
+            att skriva på ditt CV och en bra chans att knyta kontakter med både företag och andra studenter!
           </h5>
 
           <div class="content is-3 has-text-left is-6 has-items-centered">
@@ -24,21 +23,21 @@
               Krav för att vara värd:
               <ul>
                 <li>Du är student på Linköpings universitet (förtur till studenter från indek och ekonomprogrammet)</li>
-                <li>Kan närvara på värdutbildningen den <strong>7:e september</strong> (kl.14:15-16:00)</li>
-                <li>Kan närvara på upprigg av mässan kvällen den <strong>22:a september</strong> (från 16:30)</li>
-                <li>Vara tillgänglig hela dagen under båda mässdagarna, <strong>23-24:e september</strong></li>
+                <li>Kan närvara på värdutbildningen den <strong>6:e september</strong> (kl.14:15-16:00)</li>
+                <li>Kan närvara på upprigg av mässan kvällen den <strong>21:a september</strong> (från 16:30)</li>
+                <li>Vara tillgänglig hela dagen under båda mässdagarna, <strong>22-23:e september</strong></li>
               </ul>
             </div>
           </div>
           <br>
           <h5 class="is-6" *ngIf="isApplicationOpen">
-            Tveka inte, SÖK värd redan idag! Sista ansökningsdag är <strong>tisdagen den 2:a september</strong> kl.23:59.<br>
+            Tveka inte, SÖK värd redan idag! Sista ansökningsdag är <strong>tisdagen den 1:a september</strong> kl.23:59.<br>
             Företagsvärdar rekryteras även löpande under ansökningsperioden.
             <!-- <br><br> -->
           </h5>
 
           <!-- Ansökan button -->
-          <a class="button is-medium" *ngIf="isApplicationOpen" href="https://docs.google.com/forms/d/e/1FAIpQLSclEqj_5du5_gM83b5bGtOdcUHIchG1noGoTazqBDJG-T15rQ/viewform?fbclid=IwY2xjawMY_zBleHRuA2FlbQIxMABicmlkETFxTWVzMkxNTEZTcUJianR3AR75rgGJ-zW08pCYVVWT05jVK2xCjuO5NAjjJpA0B9jv_PQk511KiiUuv0rEzQ_aem_718nAcJUdSOj7tHpvb9q2Q" target="_blank">
+          <a class="button is-medium" *ngIf="isApplicationOpen" href="https://forms.gle/Zvcx5hiQAGHhJFfW7" target="_blank">
             <span>SÖK VÄRD</span>
             <span class="icon" id="white-icon">
               <i class="fas fa-external-link-alt" style="color: white;"></i>
@@ -61,41 +60,29 @@
       </div>
       <div class="column is-4">
         <h1 class="title is-4">Företagsvärd</h1>
-        <p>Som företagsvärd kommer du att vara företagens högra hand. Ni kommer att bli tilldelade företag där ert yttersta ansvar är att 
-          företagen ska vara nöjda. Det innebär att hjälpa företagen checka in, hitta deras monterplats och ta in extrabeställningar. Du 
-          kommer alltså att vara företagets närmsta kontakt under mässdagarna, därför måste du som företagsvärd vara tillgänglig under 
-          hela dagen/dagarna som företagen står på mässan. Viktigt att tänka på att ni som företagsvärd representerar TEAM-dagarna samt 
-          LiU då ni kommer ha den främsta kontakten med företagen. Ett ypperligt tillfälle att ha nära kontakt med ett företag.  
+        <p>Som företagsvärd är du företagens högra hand och mässans ansikte utåt. Det är du som har stenkoll på allt, svarar på frågor och ser till att våra utställare får en fantastisk upplevelse. I rollen hjälper du till med allt från incheckning och monterbygge till löpande service under dagarna. Du blir den närmsta kontakten för ditt tilldelade företag, vilket ger dig en unik chans att nätverka och knyta värdefulla kontakter. Rollen passar dig som är serviceminded, gillar att ta ansvar och kan vara tillgänglig under mässdagarna för att representera både TEAM-dagarna och Linköpings universitet på bästa möjliga sätt. Ta chansen att utveckla ditt nätverk för framtiden!  
         </p>
       </div>
-      <div class="column is-4">
+      <!-- <div class="column is-4">
         <h1 class="title is-4">Mässvärd</h1>
         <p>Som mässvärd kommer du ha övergripande ansvar vid riggning av mässan (upp-, om-, och nedriggning). Detta inkluderar utplacering 
           av montrar, lägga matta och bygga upp lounger. Under mässdagarna kommer du även ha ansvar för utlämning av extrabeställningar till 
           företag, uppdatering av lagernivåer och hjälpa till i garderober. Du kommer även marknadsföra <a [routerLink]="['/framtidschansen']">
             Framtidschansen</a>, vilket inkluderar att mingla med studenter och tipsa om att medverka i Framtidschansen!
         </p>
-      </div>
+      </div> -->
       <div class="column is-4">
         <h1 class="title is-4">Info- och hållbarhetsvärd</h1>
-        <p>Som info- och hållbarhetsvärd arbetar du främst med att informera och svara på frågor om mässan. Det handlar både om att mingla och 
-          berätta för studenter om mässan samt att stå i mässans informationsdisk. I infodisken hjälper du till med incheckning och utcheckning 
-          av företag och svarar på frågor från både besökare och företag. Du kommer också att få röra dig runt på mässan för att 
-          se till att sorteringen av avfall sköts genom att tömma kärlen samt hjälpa och uppmuntra besökare att slänga i rätt behållare. Info- 
-          och hållbarhetsvärd passar dig som gillar att vara social, stå i centrum och ha koll på läget. Du ska vara stresstålig och kunna ha 
-          många bollar i luften.
+        <p>Som info- och hållbarhetsvärd är du en viktig kontaktpunkt under mässan. Du arbetar främst med att informera och svara på frågor om mässan, både genom att mingla och berätta för studenter om mässan samt genom att stå i informationsdisken. Där hjälper du till med in- och utcheckning av företag och svarar på frågor från både besökare och företagsrepresentanter. Du ser även till att sorteringen av avfall fungerar som den ska genom att tömma kärl och hjälpa besökare att slänga rätt. Rollen passar dig som är social, stresstålig och gillar att ha koll på läget. 
         </p>
       </div>
 
       <div class="column is-4">
         <h1 class="title is-4">Logistikvärd</h1>
-        <p>Som logistikvärd kommer du att vara logistikansvariges högra hand under mässan. Du kommer främst ansvara över logistikdisken där du 
-          tar emot bokningar av persontransport och schemalägger dessa. Du kommer även att hjälpa till med att organisera och hålla koll på 
-          packade montrar som företagen vill hämta ut/lämna in. B-körkort är meriterande, men inte nödvändigt, då det kan behövas i eventuell 
-          nödsituation.
+        <p>Som logistikvärd är du logistikansvariges högra hand under mässan och har en viktig roll i att få logistiken att fungera smidigt. Du ansvarar främst för logistikdisken där du tar emot bokningar av persontransporter och planerar chaufförernas körschema. Du hjälper även företag med in- och utlämning av montrar och ser till att material hanteras på ett organiserat sätt. Rollen passar dig som är strukturerad, lösningsorienterad och gillar att ha överblick. B-körkort är meriterande, men inget krav, då det kan behövas i eventuell nödsituation. 
         </p>
       </div>
-      <div class="column is-4">
+      <!-- <div class="column is-4">
         <h1 class="title is-4">Eventvärd</h1>
         <p>Som eventvärd kommer du att hjälpa till på gästföreläsningar samt under andra <a [routerLink]="['/events']">företagsevent</a>. Det kan 
           dessutom hända att du även får hjälpa till vid kontaktsamtal för att avlasta vid behov. Vid kontaktsamtalen kommer du att vägleda 
@@ -103,35 +90,24 @@
           såsom att släppa in studenter vid föreläsningar, förbereda salar samt hjälpa företagen och föreläsare. Posten kräver inga tidigare 
           erfarenheter men som person är du social med ett leende på läpparna, har ett stort servicetänk, är flexibel och stresstålig.
         </p>
-      </div>
+      </div> -->
       <div class="column is-4">
         <h1 class="title is-4">Bankett och AW-värd</h1>
-        <p>Som bankett & AW-värd är du en viktig del av arbetsgruppen bakom TEAM-dagarna och bidrar till att skapa ett minnesvärt och 
-          välorganiserat event. Rollen innebär varierande uppgifter där du både får ta ansvar och använda din kreativitet. Du kan exempelvis 
-          hjälpa till med förberedelser inför eventet, välkomna företagsrepresentanter, assistera under förberedelser eller se till att 
-          dekoration och logistik fungerar som det ska. Som värd är du ett ansikte utåt för TEAM-dagarna och får chansen att träffa både 
-          studenter och företag i en inspirerande miljö. Det är en social, rolig och lärorik roll – perfekt för dig som vill engagera dig i 
-          studentlivet och bidra till något större!
+        <p>Som bankett- och AW-värd är du med och skapar minnesvärda och välorganiserade event under TEAM-dagarna. Rollen är varierad och ger dig möjlighet att både ta ansvar och använda din kreativitet. Du hjälper bland annat till med förberedelser, dekoration och logistik samt välkomnar företagsrepresentanter under eventen. Du blir en viktig del av att allt flyter på och får samtidigt chansen att träffa både studenter och företag. Rollen passar dig som är social, kreativ och gillar att bidra till en härlig stämning! 
         </p>
       </div>
 
       <div class="column is-4">
         <h1 class="title is-4">Kontaktsamtalsvärd</h1>
-        <p>Som kontaktsamtalsvärd hjälper du till vid disken för <a [routerLink]="['/interviewapplication']">kontaktsamtal</a> under mässdagarna. 
-          Där får du hänga med oss och checka in alla studenter och företag. Vid kontaktsamtalen kommer du guida studenter och företag till rätt 
-          kontaktsamtalsrum samt ringa in eventuella reserver. För att trivas i rollen bör du vara serviceinriktad, vara trygg i att ta ansvar 
-          och vilja bidra till en härlig stämning.
+        <p>Som kontaktsamtalsvärd hjälper du till vid disken för kontaktsamtalen under mässdagarna. Där får du tillsammans med dina värdkollegor checka in alla studenter och företag. Under kontaktsamtalen guidar du studenter och företag till rätt kontaktsamtalsrum samt ringer in eventuella reserver om någon deltagare avanmäler sig. Du ansvarar även för att fika- och dryckesbordet är påfyllt. För att trivas i rollen bör du vara serviceinriktad, trygg i att ta ansvar och vilja bidra till en härlig stämning.
         </p>
       </div>
       <div class="column is-4">
         <h1 class="title is-4">Fotovärd</h1>
-        <p>Som fotovärd agerar du fotograf under de båda mässdagarna. Utöver detta ingår redigering av bilder i din post som fotovärd. 
-          Tillsammans med din kollega som fotovärd fördelar ni arbetet mellan er på lämpligt vis så ni båda har möjlighet att delta i mässan. 
-          Tidigare erfarenhet av fotografering, bildredigering samt egen kamera är meriterande. Som person är du social och har lätt för att 
-          ta kontakt med andra. Du är kreativ och har öga för stunder att bevara.
+        <p>Som fotovärd agerar du fotograf under båda mässdagarna. Utöver detta ingår redigering av bilder i din post som fotovärd. Tillsammans med din kollega som fotovärd fördelar ni arbetet mellan er på lämpligt vis så ni båda har möjlighet att delta i mässan. Tidigare erfarenhet av fotografering, bildredigering samt egen kamera är meriterande men inget krav. Som person är du social och har lätt för att ta kontakt med andra. Du är kreativ och har öga för stunder att bevara.
         </p>
       </div>
-      <div class="column is-4">
+      <!-- <div class="column is-4">
         <h1 class="title is-4">Filmvärd</h1>
         <p>Som filmvärd är din uppgift att skapa en minnesvärd och heltäckande film från mässdagarna och kvällseventen. Du jobbar båda dagarna 
           men får bestämma själv över din tid och hur du vill distribuera den. Under tiden du jobbar ska du försöka fånga mässans ögonblick och 
@@ -139,37 +115,26 @@
           erfarenhet av redigering och egen kamera är meriterande. Som person är du kreativ, har känsla för vad som gör en sevärd film samt 
           har lätt för att ta kontakt med folk.
         </p>
-      </div>
+      </div> -->
 
       <div class="column is-4">
         <h1 class="title is-4">Chaufför</h1>
-        <p>Som chaufför kommer du ansvara över att transportera företagsrepresentanterna mellan resecentrum, mässan och deras hotell. Du blir 
-          TEAMs ansikte utåt mot företagen, då du ofta är den första person som företagsrepresentanterna träffar i samband med mässan. Detta 
-          ger dig även möjligheten att ensam få mingla med företagen i en avslappnad miljö. För denna post krävs det att du har 
-          B-körkort och vi ser gärna att du är serviceinriktad. 
+        <p>Som chaufför ansvarar du för att transportera företagsrepresentanter mellan resecentrum, mässan och deras hotell. Du är ofta den första personen företagen möter och blir därför TEAMs ansikte utåt. Med ett professionellt och vänligt bemötande bidrar du till att ge företagen en bra start på sin mässupplevelse. Detta ger dig även möjligheten att ensam få mingla med företagen i en avslappnad miljö. Under mässdagarna ansvarar du för att transporterna sker på ett smidigt och säkert sätt enligt schemat. Rollen passar dig som är serviceinriktad, ansvarstagande och trivs med att möta nya människor samt att köra bil. För denna post krävs B-körkort.
         </p>
       </div>
       <div class="column is-4">
         <h1 class="title is-4">IT-värd</h1>
-        <p>Som IT-värd kommer du ha koll på elen och hjälpa till med uppriggning och nedriggning av el för samtliga företag tillsammans med 
-          IT-ansvariga och en värd till. Det krävs ingen tidigare erfarenhet men det är meriterande om du arbetat med el i något liknande 
-          sammanhang förut. Som person är du strukturerad och händig. 
+        <p>Som IT-värd ser du tillsammans med IT-ansvarig och en annan IT-värd till att elen på mässan fungerar som den ska. Du hjälper till att rigga upp och ner el samt ser till att företagen får den el de behöver under mässdagarna. Arbetet följer en planering som tagits fram inför mässan, men du behöver också vara uppmärksam och kunna lösa praktiska problem som dyker upp längs vägen. Ingen tidigare erfarenhet krävs, men kunskap inom el eller liknande är meriterande. Rollen passar dig som är händig, strukturerad och lösningsorienterad.
         </p>
         <br><br><br><br>
         <h1 class="title is-4">Jourvärd</h1>
-        <p>Som jourvärd får du möjligheten vara TEAM-stabens högra hand under mässdagarna. Det innebär att hjälpa till på olika 
-          håll och kanter av mässan där det behövs. Som person ska du vara ständigt på tårna, händig och snabbtänkt. Du får 
-          möjligheten att överblicka mässans alla delar och gillar att ha flera bollar i luften. 
+        <p>Som jourvärd är du TEAM-stabens högra hand under mässdagarna. Rollen innebär att rycka in där det behövs och hjälpa till med både planerade och oväntade uppgifter runt om på mässan. Det gör rollen varierad och ger dig möjlighet att vara delaktig i många olika delar av mässan. Vi söker dig som är initiativrik, flexibel och trivs i ett högt tempo. Som jourvärd får du en unik inblick i mässans alla delar och blir en viktig del av att skapa en lyckad mässa.
         </p>
         <br><br>
       </div>
       <div class="column is-4">
         <h1 class="title is-4">Lunch- och loungevärd</h1>
-        <p>Som lunch- och loungevärd får du hjälpa till och ansvara för olika lounger, eller vara med och fixa lunch till alla 
-          företag. De lounger och ansvarsområden som finns är CV-fotografering, skönhetslounge med frisörer och nagelterapeuter, 
-          tävlingslounge, företagslounge och studentlounge. Tillsammans med andra värdar får du skapa en trevlig miljö runt 
-          mässan och möjligheten att träffa företagsrepresentanter och andra studenter.  Som person ser vi att du är 
-          serviceinriktad, organiserad och stresstålig. 
+        <p>Som lunch- och loungevärd får du hjälpa till och ansvara för mässans olika lounger, samt vara med och fixa frukost och lunch till alla företag. De lounger och ansvarsområden som finns på mässan är CV-fotografering, skönhetslounge med frisörer och nagelterapeuter, tävlingslounge, företagslounge och studentlounge. Tillsammans med andra värdar skapar du en trevlig miljö runt mässan samtidigt som du får möjligheten att träffa företagsrepresentanter och andra studenter. Som person ser vi gärna att du är serviceinriktad, organiserad och stresstålig! 
         </p>
       </div>
     </div>
