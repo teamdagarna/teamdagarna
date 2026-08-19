@@ -6,7 +6,8 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User, AttendEvent, Event } from '../../shared/models';
 import { tap, first } from 'rxjs/operators';
-import { switchMap, map} from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
+import { combineLatest, of } from 'rxjs';
 import * as _ from 'lodash';
 
 
@@ -143,18 +144,37 @@ export class ProfileComponent implements OnInit {
   }
 
   getAttendance() {
-    return this.afs.collection<AttendEvent>('attendevent', ref => {
-      return ref
-        .where('attendant', '==', this.user.uid)
-        .where('checkedin', '==', false);
-    }).snapshotChanges().pipe(
-     map((actions : any)=> actions.map(a => {
-       const data = a.payload.doc.data() as AttendEvent;
-       const id = a.payload.doc.id;
-       return { id, ...data };
-     }))
-   );
-  }
+  return this.afs.collection<AttendEvent>('attendevent', ref => {
+    return ref
+      .where('attendant', '==', this.user.uid)
+      .where('checkedin', '==', false);
+  }).snapshotChanges().pipe(
+    map((actions: any) => actions.map(a => {
+      const data = a.payload.doc.data() as AttendEvent;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    })),
+    switchMap((attendevents: any[]) => {
+      if (attendevents.length === 0) return of([]);
+
+      const checks = attendevents.map(ae =>
+        this.afs.doc(`events/${ae.event}`).get().pipe(
+          map((eventDoc: any) => {
+            if (!eventDoc.exists) return null;
+            const eventData = eventDoc.data();
+            const eventEnds = eventData.eventends?.toDate ? eventData.eventends.toDate() : new Date(eventData.eventends);
+            if (eventEnds < new Date()) return null;
+            return ae;
+          })
+        )
+      );
+
+      return combineLatest(checks).pipe(
+        map(results => results.filter(r => r !== null))
+      );
+    })
+  );
+}
 
   getEventDate(event: any) {
     var datevalue;
