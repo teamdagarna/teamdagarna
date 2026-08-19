@@ -192,7 +192,7 @@ registerLocaleData(localeSv, 'sv');
     { path: 'signup', component: SignupComponent },
     { path: 'registered', component: RegisteredComponent },
     { path: 'forgotpass', component: ForgotComponent },
-    { path: 'sponsors', component: SponsorComponent },
+    // { path: 'sponsors', component: SponsorComponent },
     { path: 'arbetsmarknadsmassa', component: AboutComponent },
     { path: 'career-fair', component: AboutenglishComponent },
     { path: 'companies', component: CompaniescatalogueComponent },
