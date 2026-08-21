@@ -54,7 +54,8 @@ logoUploaded: boolean = false;
       'foodportions': ['0', []],
       'published': [false, []],
       'coolness': ['0', [Validators.required]],
-      'signon': [true, [Validators.required]]
+      'signon': [true, [Validators.required]],
+      'teamsignup': [false, []]
     });
 
   }
@@ -81,7 +82,8 @@ logoUploaded: boolean = false;
       published: data.published,
       coolness: data.coolness,
       imagepath: this.imagepath,
-      signon: data.signon
+      signon: data.signon,
+      teamsignup: data.teamsignup
     }
 
     companiesCollection.add(newEvent).then(() => {

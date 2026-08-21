@@ -202,7 +202,12 @@
             <ng-container *ngFor="let event of events">
               <a *ngIf="!event.waitinglist" [routerLink]="['../events', event.event]">
                 <i class="fas fa-angle-right"></i>
-                <strong>&nbsp;{{ event.eventtitle }} (Garanterad mat: <span *ngIf="event.getsfood">Ja</span><span *ngIf="!event.getsfood">Nej</span>)</strong>
+                <strong>
+                  &nbsp;{{ event.eventtitle }}
+                  <span *ngIf="event.foodportions > 0">
+                    (Garanterad mat: {{ event.getsfood ? 'Ja' : 'Nej' }})
+                  </span>
+                </strong>
               </a>
               <span *ngIf="!event.waitinglist"><br></span>
             </ng-container>

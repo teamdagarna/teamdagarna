@@ -63,7 +63,8 @@ export class AdmineventComponent implements OnInit {
         'foodportions': ['0', []],
         'published': [false, []],
         'coolness': ['0', [Validators.required]],
-        'signon': [true, [Validators.required]]
+        'signon': [true, [Validators.required]],
+        'teamsignup': [false, [Validators.required]]
       });
 
       this.preloadData();

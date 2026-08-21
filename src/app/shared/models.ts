@@ -215,6 +215,7 @@ export interface Event {
   coolness: number;
   imagepath: string;
   signon: boolean;
+  teamsignup?: boolean;   // true om eventet tillåter att man lägger till lagmedlemmar vid anmälan (casetävlingen)
 }
 
 export interface Blogpost {
@@ -240,6 +241,7 @@ export interface AttendEvent {
   waitinglist: boolean;
   timestamp: Date;
   checkedin: boolean;
+  teammates?: string[];   // LiU-id:n till ev. lagmedlemmar, tom/odefinierad
 }
 
 export interface Code {

@@ -62,7 +62,12 @@
                 </p>
                 <p class="signup-status has-text-primary" *ngIf="!attendedDoc.waitinglist">
                   <i class="fas fa-check-circle"></i>&nbsp;Du är anmäld
-                  <span class="has-text-weight-semibold">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
+                  <span class="has-text-weight-semibold" *ngIf="selectedEvent.foodportions > 0">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
+                </p>
+
+                <p *ngIf="attendedDoc.teammates?.length">
+                  <strong>Lagmedlemmar:</strong>
+                  {{ attendedDoc.teammates.join(', ') }}
                 </p>
 
                 <button class="button is-danger" (click)="delete()">
@@ -72,6 +77,26 @@
               </ng-container>
 
               <ng-container *ngIf="!attended && canSignOn && loaded">
+                <div class="field" *ngIf="selectedEvent.teamsignup">
+                  <label class="label">Lagmedlemmar (max 3, valfritt)</label>
+
+                  <div class="field has-addons" *ngFor="let teammate of teammates; let i = index">
+                    <div class="control is-expanded">
+                      <input class="input" type="text" [(ngModel)]="teammate.value" placeholder="LiU-id">
+                    </div>
+                    <div class="control">
+                      <button class="button is-danger is-outlined" (click)="removeTeammate(i)">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <button class="button is-small is-outlined" (click)="addTeammate()" *ngIf="teammates.length < 3">
+                    <span class="icon is-small"><i class="fas fa-plus"></i></span>
+                    <span>Lägg till lagmedlem</span>
+                  </button>
+                </div>
+
                 <button class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="attend()" *ngIf="canAttend">
                   Anmäl dig*
                 </button>
@@ -101,8 +126,14 @@
                 </p>
                 <p class="signup-status has-text-primary" *ngIf="!attendedDoc.waitinglist">
                   <i class="fas fa-check-circle"></i>&nbsp;Du är anmäld
-                  <span class="has-text-weight-semibold">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
+                  <span class="has-text-weight-semibold" *ngIf="selectedEvent.foodportions > 0">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
                 </p>
+
+                <p *ngIf="attendedDoc.teammates?.length">
+                  <strong>Lagmedlemmar:</strong>
+                  {{ attendedDoc.teammates.join(', ') }}
+                </p>
+                
                 <p class="signup-hint">Avanmälan är inte längre möjlig för detta event.</p>
               </ng-container>
             </ng-container>

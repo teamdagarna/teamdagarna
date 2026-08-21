@@ -123,6 +123,11 @@
         <input class="input is-success" type="number" formControlName="coolness">
       </div>
 
+      <div class="field">
+        <label class="label">Är detta en casetävling (tillåt lagmedlemmar vid anmälan)?</label>
+        <input type="checkbox" formControlName="teamsignup"> JA
+      </div>
+
       <button type="submit" class="button is-fullwidth" id="submit-button" [disabled]="!addEventForm.valid">LÄGG TILL</button>
     </div>
   </div>

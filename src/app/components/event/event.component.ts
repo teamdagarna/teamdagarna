@@ -62,8 +62,9 @@ export class EventComponent implements OnInit {
   }
 
   get canAttend(): boolean {
-    return this.selectedEvent && 
-           (this.numberofsignups < this.selectedEvent.maxattendance || this.selectedEvent.maxattendance === 0);
+    const max = Number(this.selectedEvent?.maxattendance);
+
+    return max === 0 || this.numberofsignups < max;
   }
 
   /** Load attendance data */
@@ -105,7 +106,11 @@ export class EventComponent implements OnInit {
 
   /** Build AttendEvent object */
   private buildAttendEvent(waitinglist = false): AttendEvent {
-    return {
+    const teammates = this.teammates
+      .map(t => t.value.trim())
+      .filter(t => t.length > 0);
+
+    const attendEvent: AttendEvent = {
       event: this.eventid,
       eventtitle: this.selectedEvent.title,
       attendant: this.user.uid,
@@ -119,6 +124,12 @@ export class EventComponent implements OnInit {
       timestamp: new Date(),
       checkedin: false
     };
+
+    if (teammates.length > 0) {
+      attendEvent.teammates = teammates;
+    }
+
+    return attendEvent;
   }
 
   /** Attend / Reserve / Delete methods */
@@ -172,5 +183,17 @@ export class EventComponent implements OnInit {
       tags[this.eventid] = value ? true : '';
       window.location.href = 'gonative://onesignal/tags/set?tags=' + encodeURIComponent(JSON.stringify(tags));
     }
+  }
+
+  teammates: { value: string }[] = [];
+
+  addTeammate() {
+    if (this.teammates.length < 3) {
+      this.teammates.push({ value: '' });
+    }
+  }
+
+  removeTeammate(index: number) {
+    this.teammates.splice(index, 1);
   }
 }
