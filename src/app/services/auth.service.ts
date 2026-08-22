@@ -69,34 +69,26 @@ export class AuthService {
     const liumail = data.liuid + '@student.liu.se';
     try {
       await this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password);
-      var userToVer = firebase.auth().currentUser;
-      userToVer.sendEmailVerification().then(() => {
-
-        const newUser: User = {
-          uid: firebase.auth().currentUser.uid,
-          email: liumail,
-          firstname: data.firstname,
-          lastname: data.lastname,
-          liuid: data.liuid,
-          program: data.program,
-          year: data.year,
-          engineerbachelor: data.engineerbachelor,
-          engineermaster: data.engineermaster,
-          specialfood: data.specialfood,
-          nekorfek: data.nekorfek,
-          filfakspecialization: data.filfakspecialization,
-          verified: false,
-          roles: {
-            student: true
-          }
+      const newUser: User = {
+        uid: firebase.auth().currentUser.uid,
+        email: liumail,
+        firstname: data.firstname,
+        lastname: data.lastname,
+        liuid: data.liuid,
+        program: data.program,
+        year: data.year,
+        engineerbachelor: data.engineerbachelor,
+        engineermaster: data.engineermaster,
+        specialfood: data.specialfood,
+        nekorfek: data.nekorfek,
+        filfakspecialization: data.filfakspecialization,
+        verified: true,
+        roles: {
+          student: true
         }
+      }
 
-        this.updateUserData(newUser);
-        // return this.createProfile(email)
-        // return this.setUserDoc(user); // create initial user document
-      }).catch(function (error) {
-        console.log(error);
-      });
+      this.updateUserData(newUser);
       // return this.setUserDoc(user) // create initial user document
     } catch (error) {
       var errorCode = error.code;
@@ -114,11 +106,6 @@ export class AuthService {
       }
       throw new Error(errorMessage);
     }
-  }
-
-  newVerify() {
-    var userToVer = firebase.auth().currentUser;
-    userToVer.sendEmailVerification();
   }
 
   emailLogin(email: string, password: string) {
@@ -525,7 +512,7 @@ export class AuthService {
   }
 
   isVerified() {
-    return this.emailIsVerified;
+    return true;
   }
 
   signOut() {
