@@ -1,30 +1,34 @@
-<form #reset="ngForm" (ngSubmit)="resetPassword(reset.value)">
-  <section class="hero">
+<section class="hero">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="card login-card">
+          <div class="card-content">
 
-    <div class="hero-body">
+            <div *ngIf="!submitted">
+              <form #reset="ngForm" (ngSubmit)="resetPassword(reset.value)">
+                <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Återställ lösenord</h3>
+                <p style="color: #463853;">Skriv in ditt LiU-ID för att återställa lösenordet. Du får ett mail till din LiU-mail med en länk att följa.</p>
+                <br>
+                <div class="field">
+                  <label class="label">LiU-ID</label>
+                  <input class="input" type="text" placeholder="Ditt LiU-ID" name="liuid" ngModel required>
+                </div>
+                <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+                <button type="submit" id="submit-button" [ngClass]="{'is-loading': loading}" class="button is-fullwidth">Återställ lösenord</button>
+              </form>
+            </div>
 
-  <div class="columns is-centered">
-    <div class="column is-half">
+            <div *ngIf="submitted">
+              <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Kolla din mejl</h3>
+              <p style="color: #463853;">
+                Om kontot finns har vi skickat ett mail till din LiU-mail med en länk för att återställa lösenordet. Kolla även skräpposten om det inte dyker upp inom någon minut.
+              </p>
+            </div>
 
-      <div class="card login-card">
-        <div class="card-content">
-
-          <h3 class="title is-2 is-spaced" style="text-transform: uppercase">Återställ lösenord</h3>
-
-          <p style="color: #463853;">Skriv in ditt LiU-ID för att återställa lösenordet. Du får ett mail till din LiU-mail med en länk att följa. </p>
-          <br>
-          <p><strong>Har du inte fått något verifieringsmail? Glöm inte att kolla i skräpposten!</strong></p>
-          <br>
-          <div class="field">
-            <label class="label">LiU-ID</label>
-            <input class="input" type="text" placeholder="Ditt LiU-ID" name="liuid" ngModel>
           </div>
-          <button type="submit" id="submit-button" class="button is-fullwidth">Återställ lösenord</button>
         </div>
-
       </div>
     </div>
   </div>
-</div>
-  </section>
-</form>
+</section>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot',
@@ -8,16 +7,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent implements OnInit {
+  submitted = false;
+  errorMessage = '';
+  loading = false;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
 
   resetPassword(data) {
-    var liumail = data.liuid + '@student.liu.se';
-     this.auth.resetPassword(liumail);
-     this.router.navigate(['signin']);
-   }
+    const liumail = data.liuid + '@student.liu.se';
+    this.loading = true;
+    this.errorMessage = '';
 
+    this.auth.resetPassword(liumail)
+      .then(() => {
+        this.loading = false;
+        this.submitted = true;
+      })
+      .catch((error) => {
+        this.loading = false;
+        console.error('Password reset failed:', error);
+        this.errorMessage = 'Något gick fel. Kontrollera ditt LiU-ID och försök igen.';
+      });
+  }
 }
