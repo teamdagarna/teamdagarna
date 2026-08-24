@@ -481,6 +481,7 @@ hr {
   max-width: 100%;
   border-radius: 10px;
   overflow: hidden;
+  height: auto;
 }
 
 .event-item .event-cover + .event-content {
@@ -500,11 +501,11 @@ hr {
 }
 
 .event-item .event-image {
-  display: block;
-  padding-bottom: 65%;
+  padding-bottom: 52.3%;  // matchar 1920x1005 (Facebook header-storlek ni brukar använda)
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-color: white;
   transition: opacity 86ms ease;
 }
 
