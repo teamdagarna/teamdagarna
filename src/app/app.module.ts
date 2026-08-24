@@ -220,7 +220,7 @@ registerLocaleData(localeSv, 'sv');
     //{ path: 'interviewapplication-new', component: ApplicationNewComponent },
     { path: 'candidate', component: CandidateComponent},
     { path: 'exhibitor', component: ExhibitorComponent},
-    { path: 'casetavling', component: CasecompComponent},
+    // { path: 'casetavling', component: CasecompComponent},
     { path: 'cv-template', component: CvReviewComponent},
     { path: 'businessbattle', component: BusinessBattleComponent},
     { path: 'jobcatalogue', component: JobcatalogueComponent},
