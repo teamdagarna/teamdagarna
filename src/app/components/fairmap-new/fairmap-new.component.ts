@@ -33,7 +33,7 @@ export class FairMapNewComponent implements OnInit, AfterViewInit {
       style: 'https://tiles.openfreemap.org/styles/positron',
       center: [15.5782, 58.4025],
       zoom: 19,
-      minZoom: 17,
+      minZoom: 16,
       maxZoom: 20,
       pitch: 45,
       bearing: -20,
@@ -328,6 +328,7 @@ private updateBoothAppearance(): void {
             'icon-image': ['to-string', ['get', 'id']],
             'icon-size': [
               'interpolate', ['linear'], ['zoom'],
+              16, 0.03,
               17, 0.05,
               18, 0.07,
               19, 0.15,
