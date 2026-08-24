@@ -44,7 +44,7 @@ export class FairMapNewComponent implements OnInit, AfterViewInit {
       ]
     });
 
-    this.map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
+    // this.map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
     // Hämta alla bolag och ladda kartan parallellt
     Promise.all([
