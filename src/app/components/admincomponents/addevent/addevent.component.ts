@@ -55,7 +55,9 @@ logoUploaded: boolean = false;
       'published': [false, []],
       'coolness': ['0', [Validators.required]],
       'signon': [true, [Validators.required]],
-      'teamsignup': [false, []]
+      'teamsignup': [false, []],
+      'askquestion': [false, []],
+      'questionlabel': ['', []],
     });
 
   }
@@ -83,7 +85,9 @@ logoUploaded: boolean = false;
       coolness: data.coolness,
       imagepath: this.imagepath,
       signon: data.signon,
-      teamsignup: data.teamsignup
+      teamsignup: data.teamsignup,
+      askquestion: data.askquestion,
+      questionlabel: data.questionlabel
     }
 
     companiesCollection.add(newEvent).then(() => {

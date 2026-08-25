@@ -129,6 +129,10 @@ export class EventComponent implements OnInit {
       attendEvent.teammates = teammates;
     }
 
+    if (this.selectedEvent.askquestion && this.questionAnswer.trim().length > 0) {
+    attendEvent.questionanswer = this.questionAnswer.trim();
+    }
+
     return attendEvent;
   }
 
@@ -186,6 +190,7 @@ export class EventComponent implements OnInit {
   }
 
   teammates: { value: string }[] = [];
+  questionAnswer: string = '';
 
   addTeammate() {
     if (this.teammates.length < 3) {

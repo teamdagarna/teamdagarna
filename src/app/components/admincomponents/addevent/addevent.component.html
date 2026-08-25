@@ -124,6 +124,16 @@
       </div>
 
       <div class="field">
+        <label class="label">Ska en fråga kunna ställas vid anmälan?</label>
+        <input type="checkbox" formControlName="askquestion"> JA
+      </div>
+
+      <div class="field" *ngIf="addEventForm.get('askquestion').value">
+        <label class="label">Rubrik ovanför frågefältet</label>
+        <input class="input" type="text" formControlName="questionlabel" placeholder='T.ex. "Fråga till föreläsaren"'>
+      </div>
+
+      <div class="field">
         <label class="label">Är detta en casetävling (tillåt lagmedlemmar vid anmälan)?</label>
         <input type="checkbox" formControlName="teamsignup"> JA
       </div>

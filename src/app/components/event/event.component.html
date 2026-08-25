@@ -97,6 +97,11 @@
                   </button>
                 </div>
 
+                <div class="field" *ngIf="selectedEvent.askquestion">
+                  <label class="label">{{ selectedEvent.questionlabel || 'Fråga' }}</label>
+                  <textarea class="textarea" rows="3" [(ngModel)]="questionAnswer"></textarea>
+                </div>
+
                 <button class="button is-primary" [ngClass]="{'is-loading': loading}" (click)="attend()" *ngIf="canAttend">
                   Anmäl dig*
                 </button>

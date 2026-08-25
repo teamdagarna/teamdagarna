@@ -43,7 +43,8 @@
         <th>Program <a (click)="applyOrder('program')"><i class="fas fa-sort"></i></a></th>
         <th>Garanterad mat <a (click)="applyOrder('getsfood')"><i class="fas fa-sort"></i></a></th>
         <th>Specialkost <a (click)="applyOrder('specialfood')"><i class="fas fa-sort"></i></a></th>
-        <th>Lagmedlemmar</th>
+        <th *ngIf="event?.teamsignup">Lagmedlemmar</th>
+        <th *ngIf="event?.askquestion">Svar</th>
         <th>Anmäld <a (click)="applyOrder('timestamp')"><i class="fas fa-sort"></i></a></th>
         <th>Reserv? <a (click)="applyOrder('waitinglist')"><i class="fas fa-sort"></i></a></th>
         <th>Checka in</th>
@@ -57,7 +58,8 @@
         <th>Program</th>
         <th>Garanterad mat</th>
         <th>Specialkost</th>
-        <th>Lagmedlemmar</th>
+        <th *ngIf="event?.teamsignup">Lagmedlemmar</th>
+        <th *ngIf="event?.askquestion">Svar</th>
         <th>Anmäld</th>
         <th>Reserv?</th>
         <th>Checka in</th>
@@ -73,9 +75,14 @@
           <td>{{attendant.program}}</td>
           <td><span *ngIf="attendant.getsfood">Ja</span><span *ngIf="!attendant.getsfood">Nej</span></td>
           <td>{{attendant.specialfood}}</td>
-          <td>
-            <span *ngIf="attendant.teammates?.length">{{ attendant.teammates.join(', ') }}</span>
+          <td *ngIf="event?.teamsignup">
+            <span *ngIf="attendant.teammates?.length">
+              {{ attendant.teammates.join(', ') }}
+            </span>
             <span *ngIf="!attendant.teammates?.length" class="has-text-grey-light">—</span>
+          </td>
+          <td *ngIf="event?.askquestion">
+            {{ attendant.questionanswer || '—' }}
           </td>
           <td>{{attendant.timestamp.toDate() | date:'dd MMM HH:mm'}}</td>
           <td><span class="has-text-danger" *ngIf="attendant.waitinglist">Ja</span><span *ngIf="!attendant.waitinglist">Nej</span></td>

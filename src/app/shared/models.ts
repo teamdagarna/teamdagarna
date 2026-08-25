@@ -216,6 +216,8 @@ export interface Event {
   imagepath: string;
   signon: boolean;
   teamsignup?: boolean;   // true om eventet tillåter att man lägger till lagmedlemmar vid anmälan (casetävlingen)
+  askquestion?: boolean;  // true om eventet har en fråga-textruta vid anmälan
+  questionlabel?: string; // rubriken admin sätter, t.ex. "Fråga till föreläsaren"
 }
 
 export interface Blogpost {
@@ -242,6 +244,7 @@ export interface AttendEvent {
   timestamp: Date;
   checkedin: boolean;
   teammates?: string[];   // LiU-id:n till ev. lagmedlemmar, tom/odefinierad
+  questionanswer?: string;    // svaret från den som anmälde sig
 }
 
 export interface Code {

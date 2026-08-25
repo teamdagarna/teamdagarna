@@ -64,7 +64,9 @@ export class AdmineventComponent implements OnInit {
         'published': [false, []],
         'coolness': ['0', [Validators.required]],
         'signon': [true, [Validators.required]],
-        'teamsignup': [false, [Validators.required]]
+        'teamsignup': [false, [Validators.required]],
+        'askquestion': [false, []],
+        'questionlabel': ['', []],
       });
 
       this.preloadData();
