@@ -54,3 +54,20 @@
     }
   }
 }
+
+#title-hero {
+  // Bulmas mobile-brytpunkt är < 769px
+  @media screen and (max-width: 768px) {
+    .title.is-2 {
+      font-size: 1.75rem;   // ner från 2.5rem
+    }
+    .title.is-5 {
+      font-size: 1.15rem;   // ner från 1.25rem
+    }
+    .subtitle.is-6,
+    h1.is-6 {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  }
+}
