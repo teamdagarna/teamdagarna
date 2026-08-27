@@ -112,6 +112,25 @@
       </div>
 
       <div class="field">
+        <label class="label">Dela platser per program (t.ex. 50 IndEk / 50 Ekonom)?</label>
+        <input type="checkbox" formControlName="splitcapacity"> JA
+      </div>
+
+      <div class="field" *ngIf="changeEventForm.get('splitcapacity').value">
+        <label class="label">Platser för Industriell Ekonomi</label>
+        <input class="input is-success" type="number" formControlName="maxindek">
+      </div>
+
+      <div class="field" *ngIf="changeEventForm.get('splitcapacity').value">
+        <label class="label">Platser för Civilekonomer</label>
+        <input class="input is-success" type="number" formControlName="maxekonom">
+      </div>
+
+      <p class="help" *ngIf="changeEventForm.get('splitcapacity').value">
+        Summan av platserna ovan bör matcha "Hur många platser?" så att totalsiffran som visas för besökare stämmer.
+      </p>
+
+      <div class="field">
         <label class="label">Ska eventet synas?</label>
         <input type="checkbox" formControlName="published"> JA
       </div>

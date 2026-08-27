@@ -62,8 +62,14 @@ export class EventComponent implements OnInit {
   }
 
   get canAttend(): boolean {
-    const max = Number(this.selectedEvent?.maxattendance);
+    if (this.selectedEvent?.splitcapacity) {
+      const category = this.getCategory(this.user.program);
+      const cap = category === 'indek' ? this.selectedEvent.maxindek : this.selectedEvent.maxekonom;
+      const countInCategory = this.signups.filter(s => this.getCategory(s.program) === category).length;
+      return Number(cap) === 0 || countInCategory < Number(cap);
+    }
 
+    const max = Number(this.selectedEvent?.maxattendance);
     return max === 0 || this.numberofsignups < max;
   }
 
@@ -200,5 +206,10 @@ export class EventComponent implements OnInit {
 
   removeTeammate(index: number) {
     this.teammates.splice(index, 1);
+  }
+
+  private getCategory(program: string): 'indek' | 'ekonom' {
+    const indekPrograms = ['Industriell Ekonomi', 'Industriell Ekonomi Internationell'];
+    return indekPrograms.includes(program) ? 'indek' : 'ekonom';
   }
 }

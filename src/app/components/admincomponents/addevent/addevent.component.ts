@@ -58,6 +58,9 @@ logoUploaded: boolean = false;
       'teamsignup': [false, []],
       'askquestion': [false, []],
       'questionlabel': ['', []],
+      'splitcapacity': [false, []],
+      'maxindek': ['0', []],
+      'maxekonom': ['0', []]
     });
 
   }
@@ -87,7 +90,10 @@ logoUploaded: boolean = false;
       signon: data.signon,
       teamsignup: data.teamsignup,
       askquestion: data.askquestion,
-      questionlabel: data.questionlabel
+      questionlabel: data.questionlabel,
+      splitcapacity: data.splitcapacity,
+      maxindek: data.maxindek,
+      maxekonom: data.maxekonom
     }
 
     companiesCollection.add(newEvent).then(() => {

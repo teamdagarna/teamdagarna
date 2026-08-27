@@ -67,6 +67,9 @@ export class AdmineventComponent implements OnInit {
         'teamsignup': [false, [Validators.required]],
         'askquestion': [false, []],
         'questionlabel': ['', []],
+        'splitcapacity': [false, []],
+        'maxindek': ['0', []],
+        'maxekonom': ['0', []]
       });
 
       this.preloadData();

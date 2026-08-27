@@ -218,6 +218,9 @@ export interface Event {
   teamsignup?: boolean;   // true om eventet tillåter att man lägger till lagmedlemmar vid anmälan (casetävlingen)
   askquestion?: boolean;  // true om eventet har en fråga-textruta vid anmälan
   questionlabel?: string; // rubriken admin sätter, t.ex. "Fråga till föreläsaren"
+  splitcapacity?: boolean;   // true om platser delas per kategori
+  maxindek?: number;         // platser för Industriell Ekonomi-program
+  maxekonom?: number;        // platser för Civilekonom/ekonomi-program
 }
 
 export interface Blogpost {
