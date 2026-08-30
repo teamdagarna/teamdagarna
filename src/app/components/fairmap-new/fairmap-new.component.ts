@@ -86,26 +86,32 @@ export class FairMapNewComponent implements OnInit, AfterViewInit {
     this.filterByDay(day);
   }
 
-private filterByDay(day: string): void {
-  this.exhibitorMap.forEach((ex, boothId) => {
-    if (this.map.hasImage(boothId)) {
-      this.map.removeImage(boothId);
+  private filterByDay(day: string): void {
+    this.exhibitorMap.forEach((ex, boothId) => {
+      if (this.map.hasImage(boothId)) {
+        this.map.removeImage(boothId);
+      }
+    });
+    this.exhibitorMap.clear();
+
+    // Byt till rätt dags booth-layout
+    if (this.boothsByDay[day]) {
+      this.boothsGeoJson = this.boothsByDay[day];
     }
-  });
-  this.exhibitorMap.clear();
-  this.allExhibitors.forEach((ex: any) => {
-    const boothId = String(ex.booth?.name);
-    if (!boothId || boothId === 'undefined') return;
-    const days = ex.days || [];
-    if (days.length === 0 || days.includes(day)) {
-      this.exhibitorMap.set(boothId, ex);
-    }
-  });
-  console.log(`Filtrerade till ${this.exhibitorMap.size} bolag för ${day}`);
-  this.loadExhibitorImages().then(() => {
-    this.updateBoothAppearance();
-  });
-}
+
+    this.allExhibitors.forEach((ex: any) => {
+      const boothId = String(ex.booth?.name);
+      if (!boothId || boothId === 'undefined') return;
+      const days = ex.days || [];
+      if (days.length === 0 || days.includes(day)) {
+        this.exhibitorMap.set(boothId, ex);
+      }
+    });
+    console.log(`Filtrerade till ${this.exhibitorMap.size} bolag för ${day}`);
+    this.loadExhibitorImages().then(() => {
+      this.updateBoothAppearance();
+    });
+  }
 
 private async loadExhibitorImages(): Promise<void> {
   const promises: Promise<void>[] = [];
@@ -133,6 +139,40 @@ private async loadExhibitorImages(): Promise<void> {
   return Promise.all(promises).then(() => {});
 }
 
+private getCenterAndRadius(geometry: any): { center: [number, number]; radiusMeters: number } | null {
+  let ring: number[][] | null = null;
+
+  if (geometry.type === 'Polygon') {
+    ring = geometry.coordinates[0];
+  } else if (geometry.type === 'MultiPolygon') {
+    ring = geometry.coordinates[0]?.[0];
+  }
+
+  if (!ring || ring.length === 0) return null;
+
+  // Centroid: medelvärde av punkterna (tillräckligt bra för dessa små cirkelformer)
+  let sumLng = 0, sumLat = 0;
+  ring.forEach(([lng, lat]) => {
+    sumLng += lng;
+    sumLat += lat;
+  });
+  const centerLng = sumLng / ring.length;
+  const centerLat = sumLat / ring.length;
+
+  // Radie: medelavstånd från centroid till punkterna, i meter
+  const metersPerDegLat = 111320;
+  const metersPerDegLng = 111320 * Math.cos(centerLat * Math.PI / 180);
+
+  let sumDist = 0;
+  ring.forEach(([lng, lat]) => {
+    const dx = (lng - centerLng) * metersPerDegLng;
+    const dy = (lat - centerLat) * metersPerDegLat;
+    sumDist += Math.sqrt(dx * dx + dy * dy);
+  });
+
+  return { center: [centerLng, centerLat], radiusMeters: sumDist / ring.length };
+}
+
 private updateBoothAppearance(): void {
   const source = this.map.getSource('booths') as any;
   if (!source || !this.boothsGeoJson) return;
@@ -144,16 +184,21 @@ private updateBoothAppearance(): void {
       const ex = this.exhibitorMap.get(boothId);
       const isFairFuture = ex?.exposure?.fair_future === true;
 
-      // Byt ut geometrin till stjärna för framtidschansen-bås
-      const geometry = isFairFuture ? {
-        type: 'MultiPolygon',
-        coordinates: [[
-          this.generateStarPolygon(
-            f.properties['felt:position'] as [number, number],
-            f.properties['felt:radius'] * 1.4 // lite större än cirkeln
-          )
-        ]]
-      } : f.geometry;
+      let geometry = f.geometry;
+
+      if (isFairFuture) {
+        const centerAndRadius = this.getCenterAndRadius(f.geometry);
+        if (centerAndRadius) {
+          geometry = {
+            type: 'MultiPolygon',
+            coordinates: [[
+              this.generateStarPolygon(centerAndRadius.center, centerAndRadius.radiusMeters * 1.4)
+            ]]
+          };
+        } else {
+          console.warn(`Kunde inte beräkna position/radie för bås ${boothId} – behåller originalformen`);
+        }
+      }
 
       return {
         ...f,
@@ -167,7 +212,6 @@ private updateBoothAppearance(): void {
   };
   source.setData(updated);
 
-  // Färgsätt stjärnbåsen guldigt
   this.map.setPaintProperty('booths-fill', 'fill-color', [
     'case',
     ['==', ['get', 'fair_future'], true], 'rgba(255, 215, 0, 0.4)',
@@ -299,64 +343,72 @@ private updateBoothAppearance(): void {
     return coords;
   }
 
+  private boothsByDay: { [key: string]: any } = {};
+
   private async loadBooths(): Promise<void> {
-    const res = await fetch('/assets/booths-circles.geojson');
-    const data = await res.json();
-    this.boothsGeoJson = data;
-    this.map.addSource('booths', { type: 'geojson', data });
+    const [tueData, wedData] = await Promise.all([
+      fetch('/assets/Booths-Tue-2026.geojson').then(res => res.json()),
+      fetch('/assets/Booths-Wed-2026.geojson').then(res => res.json())
+    ]);
 
-      // Bakgrundscirkeln
+    this.boothsByDay = {
+      '2026-09-22': tueData,
+      '2026-09-23': wedData
+    };
+
+    this.boothsGeoJson = this.boothsByDay[this.selectedDay];
+    this.map.addSource('booths', { type: 'geojson', data: this.boothsGeoJson });
+
+    // Bakgrundscirkeln
+    this.map.addLayer({
+      id: 'booths-fill',
+      type: 'fill',
+      source: 'booths',
+      paint: { 'fill-color': '#fff', 'fill-opacity': 0.7 }
+    });
+
+    this.map.addLayer({
+      id: 'booths-outline',
+      type: 'line',
+      source: 'booths',
+      paint: { 'line-color': '#fff', 'line-width': 2, 'line-opacity': 1 }
+    });
+
+    // Riktigt lager för loggorna
+    this.loadExhibitorImages().then(() => {
       this.map.addLayer({
-        id: 'booths-fill',
-        type: 'fill',
+        id: 'booths-logos',
+        type: 'symbol',
         source: 'booths',
-        paint: { 'fill-color': '#fff', 'fill-opacity': 0.7 }
-      });
-
-      this.map.addLayer({
-        id: 'booths-outline',
-        type: 'line',
-        source: 'booths',
-        paint: { 'line-color': '#fff', 'line-width': 2, 'line-opacity': 1 }
-      });
-
-      // Riktigt lager för loggorna
-      this.loadExhibitorImages().then(() => {
-        this.map.addLayer({
-          id: 'booths-logos',
-          type: 'symbol',
-          source: 'booths',
-          layout: {
-            'icon-image': ['to-string', ['get', 'id']],
-            'icon-size': [
-              'interpolate', ['linear'], ['zoom'],
-              16, 0.03,
-              17, 0.05,
-              18, 0.07,
-              19, 0.15,
-              20, 0.27
-            ],
-            'icon-padding': 2,
-            'icon-allow-overlap': true,
-            'icon-ignore-placement': true,
-            'icon-pitch-alignment': 'viewport',
-            'icon-rotation-alignment': 'viewport',
-            'icon-anchor': 'center'
-          }
-        });
-        this.updateBoothAppearance(); // ← lägg till denna rad
-      });
-
-      // Klick-event (Nu på kart-lagret istället)
-      this.map.on('click', 'booths-fill', (e: any) => {
-        const boothId = String(e.features[0].properties?.id);
-        const ex = this.exhibitorMap.get(boothId);
-        if (ex) {
-          this.selectedRoom = ex;
-          //this.cdr.detectChanges();
+        layout: {
+          'icon-image': ['to-string', ['get', 'id']],
+          'icon-size': [
+            'interpolate', ['linear'], ['zoom'],
+            16, 0.03,
+            17, 0.05,
+            18, 0.07,
+            19, 0.15,
+            20, 0.27
+          ],
+          'icon-padding': 2,
+          'icon-allow-overlap': true,
+          'icon-ignore-placement': true,
+          'icon-pitch-alignment': 'viewport',
+          'icon-rotation-alignment': 'viewport',
+          'icon-anchor': 'center'
         }
       });
-    }
+      this.updateBoothAppearance();
+    });
+
+    this.map.on('click', 'booths-fill', (e: any) => {
+      const boothId = String(e.features[0].properties?.id);
+      const ex = this.exhibitorMap.get(boothId);
+      if (ex) {
+        this.selectedRoom = ex;
+      }
+    });
+  }
   
 
   private getCoordinates(geometry: any): number[][] {
