@@ -52,6 +52,9 @@ export class FairMapNewComponent implements OnInit, AfterViewInit {
       new Promise<void>(resolve => this.map.on('load', () => resolve()))
     ]).then(() => {
       this.loadRooms();
+      this.loadAHouse();
+      this.loadInfoDesks();
+      this.loadOuterFoyer();
     });
   }
 
@@ -202,7 +205,7 @@ private updateBoothAppearance(): void {
           id: 'rooms-labels',
           type: 'symbol',
           source: 'rooms',
-          minzoom: 18.2,
+          minzoom: 18.5,
           filter: ['!=', ['get', 'name'], null],
           layout: {
             'text-field': ['get', 'name'],
@@ -227,12 +230,11 @@ private updateBoothAppearance(): void {
         this.map.fitBounds(bounds, { padding: 60, pitch: 45 });
 
         Promise.all([
-          fetch('/assets/lounges.geojson').then(res => res.json()),
-          fetch('/assets/Lounger2-improved.geojson').then(res => res.json()),
-        ]).then(([lounges1, lounges2]) => {
+          fetch('/assets/All-lounges.geojson').then(res => res.json()),
+        ]).then(([lounges1]) => {
           const loungeData = {
             type: 'FeatureCollection',
-            features: [...lounges1.features, ...lounges2.features]
+            features: [...lounges1.features]
           };
 
           this.map.addSource('lounges', { type: 'geojson', data: loungeData });
@@ -255,7 +257,7 @@ private updateBoothAppearance(): void {
             id: 'lounges-labels',
             type: 'symbol',
             source: 'lounges',
-            minzoom: 18.2,
+            minzoom: 17,
             filter: ['!=', ['get', 'name'], null],
             layout: {
               'text-field': ['get', 'name'],
@@ -367,5 +369,175 @@ private updateBoothAppearance(): void {
     this.selectedRoom = null;
     this.cdr.detectChanges();
     window.scrollTo(0,0);
+  }
+
+  currentFloor: number = 2;
+
+  private loadAHouse(): void {
+    Promise.all([
+      fetch('/assets/Group-Rooms-A-Floor2.geojson').then(res => res.json()), // byt till dina filnamn
+      fetch('/assets/Group-Rooms-A-Floor3.geojson').then(res => res.json())
+    ]).then(([floor2Data, floor3Data]) => {
+      this.map.addSource('Group-Rooms-A-Floor2', { type: 'geojson', data: floor2Data });
+      this.map.addSource('Group-Rooms-A-Floor3', { type: 'geojson', data: floor3Data });
+
+      // Våning 2 (synlig från start)
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor2-fill',
+        type: 'fill',
+        source: 'Group-Rooms-A-Floor2',
+        paint: { 'fill-color': '#E64174', 'fill-opacity': 0.6 }
+      });
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor2-outline',
+        type: 'line',
+        source: 'Group-Rooms-A-Floor2',
+        paint: { 'line-color': '#C0789E', 'line-width': 1.5 }
+      });
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor2-labels',
+        type: 'symbol',
+        source: 'Group-Rooms-A-Floor2',
+        minzoom: 18,
+        filter: ['!=', ['get', 'name'], null],
+        layout: {
+          'text-field': ['get', 'name'],
+          'text-size': 11,
+          'text-font': ['Noto Sans Regular'],
+          'text-anchor': 'center',
+          'text-max-width': 8
+        },
+        paint: {
+          'text-color': '#A0335E',
+          'text-halo-color': '#FDF5F8',
+          'text-halo-width': 1.5
+        }
+      });
+
+      // Våning 3 (dold från start)
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor3-fill',
+        type: 'fill',
+        source: 'Group-Rooms-A-Floor3',
+        layout: { visibility: 'none' },
+        paint: { 'fill-color': '#E64174', 'fill-opacity': 0.6 }
+      });
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor3-outline',
+        type: 'line',
+        source: 'Group-Rooms-A-Floor3',
+        layout: { visibility: 'none' },
+        paint: { 'line-color': '#C0789E', 'line-width': 1.5 }
+      });
+      this.map.addLayer({
+        id: 'Group-Rooms-A-Floor3-labels',
+        type: 'symbol',
+        source: 'Group-Rooms-A-Floor3',
+        minzoom: 18.5,
+        filter: ['!=', ['get', 'name'], null],
+        layout: {
+          visibility: 'none',
+          'text-field': ['get', 'name'],
+          'text-size': 11,
+          'text-font': ['Noto Sans Regular'],
+          'text-anchor': 'center',
+          'text-max-width': 8
+        },
+        paint: {
+          'text-color': '#A0335E',
+          'text-halo-color': '#FDF5F8',
+          'text-halo-width': 1.5
+        }
+      });
+    });
+  }
+
+  setFloor(floor: number): void {
+    this.currentFloor = floor;
+    const showFloor2 = floor === 2;
+
+    ['Group-Rooms-A-Floor2-fill', 'Group-Rooms-A-Floor2-outline', 'Group-Rooms-A-Floor2-labels'].forEach(id => {
+      this.map.setLayoutProperty(id, 'visibility', showFloor2 ? 'visible' : 'none');
+    });
+    ['Group-Rooms-A-Floor3-fill', 'Group-Rooms-A-Floor3-outline', 'Group-Rooms-A-Floor3-labels'].forEach(id => {
+      this.map.setLayoutProperty(id, 'visibility', showFloor2 ? 'none' : 'visible');
+    });
+  }
+
+  private loadInfoDesks(): void {
+    fetch('/assets/Infodiskar.geojson')
+      .then(res => res.json())
+      .then(data => {
+        this.map.addSource('infodesks', { type: 'geojson', data });
+
+        this.map.addLayer({
+          id: 'infodesks-fill',
+          type: 'fill',
+          source: 'infodesks',
+          paint: { 'fill-color': '#1E88E5', 'fill-opacity': 0.7 }
+        });
+
+        this.map.addLayer({
+          id: 'infodesks-outline',
+          type: 'line',
+          source: 'infodesks',
+          paint: { 'line-color': '#1565C0', 'line-width': 1.5 }
+        });
+
+        this.map.addLayer({
+          id: 'infodesks-labels',
+          type: 'symbol',
+          source: 'infodesks',
+          minzoom: 17,
+          filter: ['!=', ['get', 'name'], null],
+          layout: {
+            'text-field': ['get', 'name'],
+            'text-size': 11,
+            'text-font': ['Noto Sans Regular'],
+            'text-anchor': 'center',
+            'text-max-width': 8
+          },
+          paint: {
+            'text-color': '#0D47A1',
+            'text-halo-color': '#F0F8FF',
+            'text-halo-width': 1.5
+          }
+        });
+      });
+  }
+
+  private loadOuterFoyer(): void {
+    fetch('/assets/Utefoajen.geojson')
+      .then(res => res.json())
+      .then(data => {
+        this.map.addSource('outer-foyer', { type: 'geojson', data });
+
+        this.map.addLayer({
+          id: 'outer-foyer-fill',
+          type: 'fill',
+          source: 'outer-foyer',
+          paint: { 'fill-color': '#E64174', 'fill-opacity': 0.05 } // knappt synlig
+        });
+
+        this.map.addLayer({
+          id: 'outer-foyer-labels',
+          type: 'symbol',
+          source: 'outer-foyer',
+          filter: ['!=', ['get', 'name'], null],
+          minzoom: 17,
+          layout: {
+            'text-field': ['get', 'name'],
+            'text-size': 13,
+            'text-font': ['Noto Sans Regular'],
+            'text-anchor': 'center',
+            'text-max-width': 8
+          },
+          paint: {
+            'text-color': '#A0335E',
+            'text-halo-color': '#FDF5F8',
+            'text-halo-width': 1.5
+          }
+        });
+      });
   }
 }

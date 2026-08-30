@@ -179,3 +179,5 @@ $RECYCLE.BIN/
 .angular/cache
 dist/
 .firebase/
+
+*.webarchive

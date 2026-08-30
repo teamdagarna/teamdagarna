@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "parsed",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-07,
+"features": [
+{"type":"Feature","properties":{"felt:feature":1,"name":"Utefoajén","felt:color":"#C93535","felt:fillOpacity":0.25,"felt:id":"iKmF9CO65Rr9BmplotXV0kLB","felt:locked":false,"felt:ordering":1788081289883425,"felt:showArea":false,"felt:strokeOpacity":1,"felt:strokeStyle":"solid","felt:strokeWidth":2,"felt:type":"Polygon"},"geometry":{"type":"MultiPolygon","coordinates":[[[[15.5792439,58.4016249],[15.579615,58.4016567],[15.5795225,58.401929],[15.5792443,58.4019041],[15.5792439,58.4016249]]]]}}
+]
+}

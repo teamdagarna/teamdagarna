@@ -35,6 +35,14 @@
         </button>
       </div>
 
+      <div class="floor-toggle">
+        <span class="floor-toggle__label">Plan</span>
+        <div class="floor-toggle__buttons">
+          <button [class.active]="currentFloor === 2" (click)="setFloor(2)">2</button>
+          <button [class.active]="currentFloor === 3" (click)="setFloor(3)">3</button>
+        </div>
+      </div>
+
       <div class="company-modal" [class.company-modal--visible]="selectedRoom">
         <div class="modal-content">
           <app-fair-catalogue-popup
