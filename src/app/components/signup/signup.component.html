@@ -35,7 +35,7 @@
                 <label class="label" for="password">Lösenord</label>
                 <input class="input" [ngClass]="{ 'is-success' : !password.invalid,  'is-danger' : password.invalid && password.touched}" type="password" placeholder="Välj ett lösenord" formControlName="password">
                 <div class="help is-danger" *ngIf="password.invalid && password.touched">
-                  Lösenordet måste vara minst 6 tecken långt och innehålla minst en bokstav och ett nummer
+                  Lösenordet måste vara minst 6 tecken långt och innehålla minst en bokstav och ett nummer, inga specialtecken
                 </div>
               </div>
 
