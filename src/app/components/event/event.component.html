@@ -63,6 +63,7 @@
                 <p class="signup-status has-text-primary" *ngIf="!attendedDoc.waitinglist">
                   <i class="fas fa-check-circle"></i>&nbsp;Du är anmäld
                   <span class="has-text-weight-semibold" *ngIf="selectedEvent.foodportions > 0">(Garanterad mat: {{ attendedDoc.getsfood ? 'Ja' : 'Nej' }})</span>
+                  <span class="has-text-weight-semibold" *ngIf="selectedEvent.teamsignup">(Du blir kontaktad per mail om du får en plats)</span>
                 </p>
 
                 <p *ngIf="attendedDoc.teammates?.length">

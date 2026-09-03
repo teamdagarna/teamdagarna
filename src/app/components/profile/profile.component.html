@@ -198,7 +198,7 @@
             <h1 class="title is-3">Dina eventanmälningar</h1>
           </div>
           <ng-container *ngIf="events !== undefined && events.length !== 0">
-            <p class="title is-6">Event där du är garanterad plats:</p>
+            <p class="title is-6">Event du är anmäld till:</p>
             <ng-container *ngFor="let event of events">
               <a *ngIf="!event.waitinglist" [routerLink]="['../events', event.event]">
                 <i class="fas fa-angle-right"></i>
@@ -207,6 +207,7 @@
                   <span *ngIf="event.foodportions > 0">
                     (Garanterad mat: {{ event.getsfood ? 'Ja' : 'Nej' }})
                   </span>
+                  <span *ngIf="event.teamsignup">(Du blir kontaktad per mail om du får en plats)</span>
                 </strong>
               </a>
               <span *ngIf="!event.waitinglist"><br></span>

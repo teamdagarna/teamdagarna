@@ -164,7 +164,10 @@ export class ProfileComponent implements OnInit {
             const eventData = eventDoc.data();
             const eventEnds = eventData.eventends?.toDate ? eventData.eventends.toDate() : new Date(eventData.eventends);
             if (eventEnds < new Date()) return null;
-            return ae;
+            return {
+              ...ae,
+              teamsignup: eventData.teamsignup || false
+            };
           })
         )
       );
