@@ -88,7 +88,17 @@ export class AuthService {
         }
       }
 
-      this.updateUserData(newUser);
+      try {
+        await this.updateUserData(newUser);
+      } catch (firestoreError) {
+        try {
+          await firebase.auth().currentUser.delete();
+        } catch (deleteError) {
+          console.error('Kunde inte städa upp halvfärdigt konto:', deleteError);
+        }
+        throw firestoreError;
+      }
+
       // return this.setUserDoc(user) // create initial user document
     } catch (error) {
       var errorCode = error.code;

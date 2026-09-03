@@ -109,7 +109,7 @@ export class SignupComponent implements OnInit {
       // this.auth.createProfile(data);
     } catch(error) {
       this.loading = false;
-      this.errorMessage = error;
+      this.errorMessage = error.message;
     }
   }
 
