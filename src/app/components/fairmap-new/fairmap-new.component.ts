@@ -489,7 +489,7 @@ private updateBoothAppearance(): void {
         id: 'Group-Rooms-A-Floor3-labels',
         type: 'symbol',
         source: 'Group-Rooms-A-Floor3',
-        minzoom: 18.5,
+        minzoom: 18,
         filter: ['!=', ['get', 'name'], null],
         layout: {
           visibility: 'none',
