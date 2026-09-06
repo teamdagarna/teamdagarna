@@ -122,6 +122,8 @@ private async loadExhibitorImages(): Promise<void> {
         img.crossOrigin = "Anonymous";
         img.src = ex.logoUrl;
         img.onload = () => {
+          ex.logoScale = this.getSizeScale(img.naturalWidth, img.naturalHeight);
+
           if (this.map.hasImage(boothId)) {
             this.map.removeImage(boothId); // ← lägg till denna rad
           }
@@ -205,7 +207,9 @@ private updateBoothAppearance(): void {
         geometry,
         properties: {
           ...f.properties,
-          fair_future: isFairFuture
+          fair_future: isFairFuture,
+          logoScale: ex?.logoScale ?? 1.0
+
         }
       };
     })
@@ -384,11 +388,11 @@ private updateBoothAppearance(): void {
           'icon-image': ['to-string', ['get', 'id']],
           'icon-size': [
             'interpolate', ['linear'], ['zoom'],
-            16, 0.03,
-            17, 0.05,
-            18, 0.07,
-            19, 0.15,
-            20, 0.27
+            16, ['*', 0.03, ['coalesce', ['get', 'logoScale'], 1]],
+            17, ['*', 0.05, ['coalesce', ['get', 'logoScale'], 1]],
+            18, ['*', 0.07, ['coalesce', ['get', 'logoScale'], 1]],
+            19, ['*', 0.15, ['coalesce', ['get', 'logoScale'], 1]],
+            20, ['*', 0.27, ['coalesce', ['get', 'logoScale'], 1]]
           ],
           'icon-padding': 2,
           'icon-allow-overlap': true,
@@ -591,5 +595,12 @@ private updateBoothAppearance(): void {
           }
         });
       });
+  }
+
+  private getSizeScale(width: number, height: number): number {
+    const area = width * height;
+    const referenceArea = 44000;
+    const scale = Math.sqrt(referenceArea / area);
+    return Math.min(1, Math.max(0.6, scale));
   }
 }
