@@ -180,3 +180,29 @@
     }
   }
 }
+::ng-deep .SuspenseDialog-title {
+  position: absolute !important;
+  top: 0 !important;
+  right: 10px !important;
+  left: auto !important;
+  width: auto !important;
+  padding: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 10 !important;
+
+  // Dölj själva titel-texten (företagsnamnet), behåll bara knappen
+  span {
+    display: none !important;
+  }
+}
+
+::ng-deep .SuspenseDialog-content {
+  padding: 0px !important;
+}
+
+// Se till att dialogens root är positionerad så absolute-barnet refererar rätt
+::ng-deep .MuiDialog-paper {
+  position: relative !important;
+}
