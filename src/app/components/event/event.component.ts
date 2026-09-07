@@ -173,13 +173,25 @@ export class EventComponent implements OnInit {
         const docid = this.signups[this.selectedEvent.foodportions].id;
         await this.afs.doc(`attendevent/${docid}`).update({ getsfood: true });
       }
-      if (this.numberofreserves > 0 && this.numberofsignups <= this.selectedEvent.maxattendance) {
-        const reservid = this.reserves[0].id;
-        const updateData: any = { waitinglist: false };
-        if (this.attendedDoc.getsfood && this.selectedEvent.maxattendance === this.selectedEvent.foodportions) {
-          updateData.getsfood = true;
+
+      if (this.numberofreserves > 0) {
+        let candidate: any = null;
+
+        if (this.selectedEvent.splitcapacity) {
+          // Flytta upp den som väntat längst i SAMMA kategori som platsen som blev ledig
+          const vacatedCategory = this.getCategory(this.attendedDoc.program);
+          candidate = this.reserves.find(r => this.getCategory(r.program) === vacatedCategory);
+        } else if (this.numberofsignups <= this.selectedEvent.maxattendance) {
+          candidate = this.reserves[0];
         }
-        await this.afs.doc(`attendevent/${reservid}`).update(updateData);
+
+        if (candidate) {
+          const updateData: any = { waitinglist: false };
+          if (this.attendedDoc.getsfood && this.selectedEvent.maxattendance === this.selectedEvent.foodportions) {
+            updateData.getsfood = true;
+          }
+          await this.afs.doc(`attendevent/${candidate.id}`).update(updateData);
+        }
       }
     }
     await this.afs.doc(`attendevent/${this.attendedDoc.id}`).delete();
