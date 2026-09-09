@@ -69,6 +69,7 @@ export class AuthService {
     const liumail = data.liuid + '@student.liu.se';
     try {
       await this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password);
+      await firebase.auth().currentUser.getIdToken(true); // tvinga fram färsk token innan Firestore-anrop
       const newUser: User = {
         uid: firebase.auth().currentUser.uid,
         email: liumail,
@@ -91,16 +92,26 @@ export class AuthService {
       try {
         await this.updateUserData(newUser);
       } catch (firestoreError) {
-        try {
-          await firebase.auth().currentUser.delete();
-        } catch (deleteError) {
-          console.error('Kunde inte städa upp halvfärdigt konto:', deleteError);
-        }
+        await this.afs.collection('signupErrors').add({
+          liuid: data.liuid,
+          stage: 'firestore-write',
+          error: firestoreError.message || String(firestoreError),
+          errorCode: firestoreError.code || null,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).catch(() => {});
+
+        await firebase.auth().currentUser.delete();
         throw firestoreError;
       }
-
-      // return this.setUserDoc(user) // create initial user document
     } catch (error) {
+      await this.afs.collection('signupErrors').add({
+        liuid: data.liuid,
+        stage: 'auth-creation-or-cleanup',
+        error: error.message || String(error),
+        errorCode: error.code || null,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {});
+
       var errorCode = error.code;
       var errorMessage: string;
       if (errorCode == "auth/email-already-in-use") {
@@ -111,6 +122,8 @@ export class AuthService {
         errorMessage = "Operation not allowed";
       } else if (errorCode == "auth/weak-password") {
         errorMessage = "Svagt lösenord. Testa igen.";
+      } else if (errorCode == "auth/too-many-requests") {
+        errorMessage = "För många försök just nu. Vänta någon minut och försök igen.";
       } else {
         errorMessage = "Något gick fel. Testa igen.";
       }
