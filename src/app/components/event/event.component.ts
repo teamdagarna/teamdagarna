@@ -66,7 +66,7 @@ export class EventComponent implements OnInit {
       const category = this.getCategory(this.user.program);
       const cap = category === 'indek' ? this.selectedEvent.maxindek : this.selectedEvent.maxekonom;
       const countInCategory = this.signups.filter(s => this.getCategory(s.program) === category).length;
-      return Number(cap) === 0 || countInCategory < Number(cap);
+      return countInCategory < Number(cap);
     }
 
     const max = Number(this.selectedEvent?.maxattendance);
