@@ -65,7 +65,7 @@ export class AuthService {
     return userRef.set(user, { merge: true })
   }
 
-  async emailSignUp(data) {
+  async emailSignUp(data, attempt = 1) {
     const liumail = data.liuid + '@student.liu.se';
     try {
       await this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password);
@@ -104,11 +104,19 @@ export class AuthService {
         throw firestoreError;
       }
     } catch (error) {
+      // NYTT: känn igen det transienta IndexedDB-felet och försök om automatiskt
+      const isIndexedDbError = error.message && error.message.includes('IDBDatabase');
+      if (isIndexedDbError && attempt < 3) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return this.emailSignUp(data, attempt + 1);
+      }
+
       await this.afs.collection('signupErrors').add({
         liuid: data.liuid,
         stage: 'auth-creation-or-cleanup',
         error: error.message || String(error),
         errorCode: error.code || null,
+        attempt: attempt, // valfritt men bra för att se om retries hjälpte
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(() => {});
 
