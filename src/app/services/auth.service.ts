@@ -68,7 +68,9 @@ export class AuthService {
   async emailSignUp(data, attempt = 1) {
     const liumail = data.liuid + '@student.liu.se';
     try {
+      if (attempt === 1) {
       await this.afAuth.auth.createUserWithEmailAndPassword(liumail, data.password);
+      }
       await firebase.auth().currentUser.getIdToken(true); // tvinga fram färsk token innan Firestore-anrop
       const newUser: User = {
         uid: firebase.auth().currentUser.uid,
